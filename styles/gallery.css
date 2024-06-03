@@ -18,3 +18,28 @@
     .carousel-container .card-1 {
       width: calc(100% - 20px);
     }
+    .custom-button-group {
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .prev-button,
+    .next-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 10px;
+      outline: none;
+    }
+    
+    .prev-button {
+      color: #000;
+    }
+    
+    .next-button {
+      color: #000;
+    }
+    

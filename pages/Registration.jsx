@@ -50,7 +50,7 @@ const Registration = () => {
         where("email", "==", formData.email)
       );
       const querySnapshot = await getDocs(q);
-      const password = generatePassword();
+      const password = 111111;
       if (querySnapshot.empty) {
         const auth = getAuth();
         const userCredential = await createUserWithEmailAndPassword(
@@ -64,6 +64,7 @@ const Registration = () => {
           location: formData.location,
           name: formData.name,
           approved: false,
+          seoRating:0,
           ...formData,
         });
         await updateDoc (docRef, {
@@ -71,7 +72,7 @@ const Registration = () => {
           timestamp: Timestamp.now(),
 
         });
-        // Send email using EmailJS
+
         const serviceId = "service_z19n848";
         const templateId = "template_ztcc4u9";
         const publicKey = "1Yj2KQoWA-s8hz3mP";

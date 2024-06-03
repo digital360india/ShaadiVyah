@@ -1,7 +1,6 @@
 "use client";
-import Parallax from "@/components/Carousel";
 import ContactUSPhoto from "@/components/ContactUSPhoto";
-import DestinationCard from "@/components/DestinationCard";
+import MehandiCard from "@/components/MehandiCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import HeadingsVenueSection from "@/components/HeadingsVenueSection";
@@ -13,23 +12,23 @@ import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 const Page = () => {
-  const [venues, setVenues] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchVenues = async () => {
       try {
         const q = query(
           collection(db, "users"),
-          where("vendorTypeUID", "==", "venuesvendor")
+          where("vendorTypeUID", "==", "mehandivendor")
         );
-        const venuesSnapshot = await getDocs(q);
-        const venuesList = venuesSnapshot.docs.map((doc) => ({
+        const dataSnapshot = await getDocs(q);
+        const dataList = dataSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setVenues(venuesList);
+        setData(dataList);
       } catch (error) {
-        console.error("Error fetching venues: ", error);
+        console.error("Error fetching data: ", error);
       }
     };
 
@@ -46,11 +45,10 @@ const Page = () => {
       <HeadingsVenueSection text1={"Weddings"} text2={"Destinations"} />
       <Space25px />
       <div className="flex justify-center items-center px-6 gap-8">
-        {/* Place any additional content here if needed */}
       </div>
       <Space25px />
       <HeadingsVenueSection text1={"Popular"} text2={"Destinations"} />
-      <DestinationCard venues={venues} />
+      <MehandiCard data={data} />
       <Space50px />
       <Space50px />
       <ContactUSPhoto />

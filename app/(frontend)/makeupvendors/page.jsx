@@ -1,5 +1,4 @@
 "use client";
-import Parallax from "@/components/Carousel";
 import ContactUSPhoto from "@/components/ContactUSPhoto";
 import DestinationCard from "@/components/DestinationCard";
 import Discription from "@/components/Discription";
@@ -20,7 +19,7 @@ const Page = () => {
       try {
         const q = query(
           collection(db, "users"),
-          where("vendorTypeUID", "==", "venuesvendor")
+          where("vendorTypeUID", "==", "makeupvendor")
         );
         const venuesSnapshot = await getDocs(q);
         const venuesList = venuesSnapshot.docs.map((doc) => ({
@@ -46,7 +45,6 @@ const Page = () => {
       <HeadingsVenueSection text1={"Weddings"} text2={"Destinations"} />
       <Space25px />
       <div className="flex justify-center items-center px-6 gap-8">
-        {/* Place any additional content here if needed */}
       </div>
       <Space25px />
       <HeadingsVenueSection text1={"Popular"} text2={"Destinations"} />

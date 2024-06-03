@@ -18,7 +18,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
         <Image
           src={"/vectors/vector2.png"}
@@ -56,7 +56,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
+          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
         />
         <Image
           src={"/vectors/Vector.png"}
@@ -94,7 +94,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
         <Image
           src={"/vectors/vector2.png"}
@@ -132,7 +132,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
+          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
         />
         <Image
           src={"/vectors/Vector.png"}
@@ -170,7 +170,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
         <Image
           src={"/vectors/vector2.png"}

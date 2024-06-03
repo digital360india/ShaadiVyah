@@ -29,30 +29,30 @@ const sliderSettings = {
   ],
 };
 
-const DestinationCard = ({ venues }) => {
+const MehandiCard = ({ data }) => {
   return (
     <div className="w-full ">
       <Slider {...sliderSettings}>
-        {venues.map((venue) => (
-          <Link href={`/venues/${venue.id}`} key={venue.id}>
+        {data.map((info) => (
+          <Link href={`/mehandivendors/${info.id}`} key={info.id}>
             <div className="w-full px-2">
               <Image
-                src={venue?.bannerImageUrl || "/images/hero.png"}
+                src={info?.bannerImageUrl || "/images/hero.png"}
                 width={1000}
                 height={1000}
                 className="w-full rounded-t-lg h-[50%]"
               />
               <div className="px-5 py-3 space-y-3 w-full bg-gray-200 rounded-b-lg">
                 <div className="flex justify-between">
-                  <p>{venue?.bussinessName}</p>
+                  <p>{info?.bussinessName}</p>
                   <div>
                     <p>
-                      {venue?.rating} ({venue?.totalRatings})
+                      {info?.rating} ({info?.totalRatings})
                     </p>
                   </div>
                 </div>
                 <div>
-                  <p>{venue?.location}</p>
+                  <p>{info?.location}</p>
                 </div>
                 {/* <p>{venue?.about}</p> */}
               </div>
@@ -64,4 +64,4 @@ const DestinationCard = ({ venues }) => {
   );
 };
 
-export default DestinationCard;
+export default MehandiCard;
