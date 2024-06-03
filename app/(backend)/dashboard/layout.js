@@ -11,16 +11,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <div className="flex">
-        <div className="w-1/5 ">
+      <div className="lg:flex">
+        <div className="w-1/5 hidden lg:block ">
           <SideNavBar />
         </div>
-        <div className="flex flex-col w-4/5">
-          <div className="h-16">
+        <div className="lg:flex flex-col lg:w-4/5">
+          <div className="h-16 ">
             <TopNavBar />
           </div>
 
-          <main className="min-h-screen">
+          <main className="min-h-screen ">
             <AuthProvider>{children}</AuthProvider>
           </main>
         </div>

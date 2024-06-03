@@ -12,6 +12,8 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
+import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
+
 import "react-toastify/dist/ReactToastify.css";
 import { parseCookies } from "nookies";
 import { MdEdit } from "react-icons/md";
@@ -128,7 +130,8 @@ const UserPage = () => {
   };
 
   return (
-    <div className="max-w-xl  p-10">
+    <div>
+    <div className="max-w-xl  md:p-10 p-4 ">
       <ToastContainer />
       {/* <h1 className="text-2xl font-bold mb-4 w-96 backdrop-blur-sm fixed ">My Services</h1> */}
 
@@ -296,6 +299,17 @@ const UserPage = () => {
         </div>
       )}
     </div>
+    <div className="w-screen  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+            
+            <div className="py-[20px]"><FiHome className=" w-[40px] h-[40px] " /></div>
+            <div className="py-[20px]"><FiTag className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiImage className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiGift className=" w-[40px] h-[40px]" /></div>
+    
+    
+    
+          </div> 
+          </div>
   );
 };
 

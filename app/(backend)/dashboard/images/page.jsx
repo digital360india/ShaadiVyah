@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { parseCookies } from "nookies";
 import { generatePassword } from "@/utils/generatePassword";
+import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +27,7 @@ const Portfolio = () => {
         if (!querySnapshot.empty) {
           const userData = querySnapshot.docs[0].data();
           setUser(userData);
-  
+          setVenueLinks(userData.venueLinks)
           setBannerImageUrl(userData.bannerImageUrl || ""); 
         }
       }
@@ -122,11 +123,12 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="m-10">
+    <>
+    <div className=" md:m-10 m-4">
       <ToastContainer />
       <form className="flex flex-col gap-4" onSubmit={handleBannerImageChange}>
         <p className="font-medium">BANNER IMAGE</p>
-        <div className="flex gap-6 pl-[20px] w-[46vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+        <div className="flex gap-6 pl-[20px] lg:w-[46vw]  md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
           <input
             type="file"
             name="bannerImage"
@@ -159,7 +161,7 @@ const Portfolio = () => {
       )}
       <form className="flex flex-col gap-4 mt-4" onSubmit={handleVenueFilesChange}>
         <p className="font-medium">PORTFOLIO IMAGES</p>
-        <div className="pl-[20px] w-[45.5vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+        <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
           <input
             type="file"
             multiple
@@ -167,7 +169,7 @@ const Portfolio = () => {
           />
           <button
             type="submit"
-            className="px-4 py-2 rounded bg-[#A11C5C] text-white"
+            className="px-4 py-2 mt-4 md:mt-0 rounded bg-[#A11C5C] text-white"
           >
             {isLoading ? "Loading..." : "Upload"}
           </button>
@@ -192,6 +194,17 @@ const Portfolio = () => {
           ))}
       </div>
     </div>
+    <div className="w-screen  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+            
+            <div className="py-[20px]"><FiHome className=" w-[40px] h-[40px] " /></div>
+            <div className="py-[20px]"><FiTag className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiImage className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiGift className=" w-[40px] h-[40px]" /></div>
+    
+    
+    
+          </div> 
+    </>
   );
 };
 

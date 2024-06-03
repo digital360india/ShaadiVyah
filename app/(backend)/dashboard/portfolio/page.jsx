@@ -21,6 +21,7 @@ import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { BsTwitterX } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
+import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
 const Page = () => {
   const [user, setUser] = useState(null);
@@ -44,6 +45,8 @@ const Page = () => {
     instagram: "",
     facebook: "",
     twitter: "",
+    businessName: "",
+    googleLocation:""
   });
 
   useEffect(() => {
@@ -115,14 +118,16 @@ const Page = () => {
   };
 
   return (
-    <div className="m-10">
+    <>
+    <div className="">
+    <div className="md:m-10 m-4 ">
       <ToastContainer />
-      <div className="flex flex-row w-full gap-10 items-start justify-start">
+      <div className="flex flex-col md:flex-row   gap-10 items-start  justify-start">
         {user && (
-          <div className="mt-4">
+          <div className="mt-4 w-full">
             {editing ? (
-              <form onSubmit={handleSave} className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 text-xl font-medium">
+              <form onSubmit={handleSave} className="grid grid-cols-2  gap-4">
+                <div className="col-span-2 text-xl font-medium ">
                   YOUR VENUE DETAILS
                 </div>
                 <input
@@ -130,7 +135,15 @@ const Page = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Name"
+                  placeholder="Owner"
+                  className="w-full h-10 p-4 rounded-md placeholder:text-gray-600 border-cream  border-2"
+                />
+                <input
+                  type="text"
+                  name="businessName"
+                  value={formData.businessName}
+                  onChange={handleChange}
+                  placeholder="Your bussiness name*"
                   className="w-full h-10 p-4 rounded-md placeholder:text-gray-600 border-cream  border-2"
                 />
                 <Space50px />
@@ -176,6 +189,14 @@ const Page = () => {
                   value={formData.country}
                   onChange={handleChange}
                   placeholder="Country*"
+                  className="w-full h-10 p-4 rounded-md placeholder:text-gray-600  border-cream  border-2"
+                />
+                  <input
+                  type="text"
+                  name="googleLocation"
+                  value={formData.googleLocation}
+                  onChange={handleChange}
+                  placeholder="Google Location*"
                   className="w-full h-10 p-4 rounded-md placeholder:text-gray-600  border-cream  border-2"
                 />
                 <Space50px />
@@ -282,6 +303,9 @@ const Page = () => {
                   Name: <span className="font-normal">{user.name}</span>
                 </p>
                 <p className="">
+                  Busniess Name: <span className="font-normal">{user.businessName}</span>
+                </p>
+                <p className="">
                   Street Address:{" "}
                   <span className="font-normal">{user.streetAddress}</span>
                 </p>
@@ -338,7 +362,7 @@ const Page = () => {
           </div>
         )}
         {user && (
-          <div className="mt-4">
+          <div className="mt-4  w-full">
             {editing2 ? (
               <form onSubmit={handleSave} className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 text-xl font-medium">
@@ -400,6 +424,18 @@ const Page = () => {
         )}
       </div>
     </div>
+    <div className="w-screen  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+            
+            <div className="py-[20px]"><FiHome className=" w-[40px] h-[40px] " /></div>
+            <div className="py-[20px]"><FiTag className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiImage className=" w-[40px] h-[40px]" /></div>
+            <div className="py-[20px]"><FiGift className=" w-[40px] h-[40px]" /></div>
+    
+    
+    
+          </div> 
+      </div>
+    </>
   );
 };
 
