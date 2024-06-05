@@ -1,6 +1,5 @@
 "use client";
 import ContactUSPhoto from "@/components/ContactUSPhoto";
-import DestinationCard from "@/components/DestinationCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import HeadingsVenueSection from "@/components/HeadingsVenueSection";
@@ -10,23 +9,24 @@ import Space50px from "@/components/Space50px";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import PhotographerCard from "@/components/PhotographerCard";
 
 const Page = () => {
-  const [venues, setVenues] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchVenues = async () => {
       try {
         const q = query(
           collection(db, "users"),
-          where("vendorTypeUID", "==", "photographervendor")
+          where("vendorTypeUID", "==", "photographersvendor")
         );
         const dataSnapshot = await getDocs(q);
         const dataList = dataSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setVenues(dataList);
+        setData(dataList);
       } catch (error) {
         console.error("Error fetching venues: ", error);
       }
@@ -48,7 +48,7 @@ const Page = () => {
       </div>
       <Space25px />
       <HeadingsVenueSection text1={"Popular"} text2={"Destinations"} />
-      <DestinationCard venues={venues} />
+      <PhotographerCard arr={data} />
       <Space50px />
       <Space50px />
       <ContactUSPhoto />

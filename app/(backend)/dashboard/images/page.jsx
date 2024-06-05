@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { parseCookies } from "nookies";
 import { generatePassword } from "@/utils/generatePassword";
 import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
+import Slider from "react-slick";
+import Link from "next/link";
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +29,7 @@ const Portfolio = () => {
         if (!querySnapshot.empty) {
           const userData = querySnapshot.docs[0].data();
           setUser(userData);
-          setVenueLinks(userData.venueLinks)
+          setVenueLinks(userData.venueLinks || []);
           setBannerImageUrl(userData.bannerImageUrl || ""); 
         }
       }
@@ -47,7 +49,6 @@ const Portfolio = () => {
       await uploadBytes(bannerRef, file);
       const downloadURL = await getDownloadURL(bannerRef);
       setBannerImageUrl(downloadURL);
-      console.log(user.uid)
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, { bannerImageUrl: downloadURL });
 
@@ -62,7 +63,7 @@ const Portfolio = () => {
 
   const handleDeleteBannerImage = async () => {
     try {
-      const bannerRef = ref(storage, `bannerImages/${user.email}/banner.jpg`);
+      const bannerRef = ref(storage, `bannerImages/${user.uid}/banner.jpg`);
       await deleteObject(bannerRef);
       setBannerImageUrl("");
 
@@ -124,86 +125,82 @@ const Portfolio = () => {
 
   return (
     <>
-    <div className=" md:m-10 m-4">
-      <ToastContainer />
-      <form className="flex flex-col gap-4" onSubmit={handleBannerImageChange}>
-        <p className="font-medium">BANNER IMAGE</p>
-        <div className="flex gap-6 pl-[20px] lg:w-[46vw]  md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
-          <input
-            type="file"
-            name="bannerImage"
-            id="image-upload"
-            style={{ display: "none" }}
-            onChange={handleBannerImageChange}
-          />
-          <label
-            htmlFor="image-upload"
-            className="px-4 py-2 rounded bg-[#A11C5C] text-white cursor-pointer"
-          >
-            {isLoading ? "Loading.." : "Upload"}
-          </label>
+      <div className="md:m-10 m-4">
+        <ToastContainer />
+        <form className="flex flex-col gap-4" onSubmit={handleBannerImageChange}>
+          <p className="font-medium">BANNER IMAGE</p>
+          <div className="flex gap-6 pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+            <input
+              type="file"
+              name="bannerImage"
+              id="image-upload"
+              style={{ display: "none" }}
+              onChange={handleBannerImageChange}
+            />
+            <label
+              htmlFor="image-upload"
+              className="px-4 py-2 rounded bg-[#A11C5C] text-white cursor-pointer"
+            >
+              {isLoading ? "Loading.." : "Upload"}
+            </label>
+          </div>
+        </form>
+        {bannerImageUrl && (
+          <div className="relative w-[146px] h-[107px]">
+            <img
+              src={bannerImageUrl}
+              alt="Banner Image"
+              className="w-full h-full object-contain border border-gray-200"
+            />
+            <button
+              className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
+              onClick={handleDeleteBannerImage}
+            >
+              Delete
+            </button>
+          </div>
+        )}
+        <form className="flex flex-col gap-4 mt-4" onSubmit={handleVenueFilesChange}>
+          <p className="font-medium">PORTFOLIO IMAGES</p>
+          <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+            <input
+              type="file"
+              multiple
+              onChange={handleVenueFilesChange}
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 mt-4 md:mt-0 rounded bg-[#A11C5C] text-white"
+            >
+              {isLoading ? "Loading..." : "Upload"}
+            </button>
+          </div>
+        </form>
+        <div className="flex gap-4 flex-wrap mt-4">
+          {venueLinks &&
+            venueLinks.map((link, index) => (
+              <div key={index} className="relative w-[146px] h-[107px]">
+                <img
+                  src={link}
+                  alt={`Venue Image ${index + 1}`}
+                  className="w-full h-full object-contain border border-gray-200"
+                />
+                <button
+                  className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
+                  onClick={() => handleDeleteVenueImage(index)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
         </div>
-      </form>
-      {bannerImageUrl && (
-        <div className="relative w-[146px] h-[107px]">
-          <img
-            src={bannerImageUrl}
-            alt="Banner Image"
-            className="w-full h-full object-contain border border-gray-200"
-          />
-          <button
-            className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
-            onClick={handleDeleteBannerImage}
-          >
-            Delete
-          </button>
-        </div>
-      )}
-      <form className="flex flex-col gap-4 mt-4" onSubmit={handleVenueFilesChange}>
-        <p className="font-medium">PORTFOLIO IMAGES</p>
-        <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
-          <input
-            type="file"
-            multiple
-            onChange={handleVenueFilesChange}
-          />
-          <button
-            type="submit"
-            className="px-4 py-2 mt-4 md:mt-0 rounded bg-[#A11C5C] text-white"
-          >
-            {isLoading ? "Loading..." : "Upload"}
-          </button>
-        </div>
-      </form>
-      <div className="flex gap-4 flex-wrap mt-4">
-        {venueLinks.length > 0 &&
-          venueLinks.map((link, index) => (
-            <div key={index} className="relative w-[146px] h-[107px]">
-              <img
-                src={link}
-                alt={`Venue Image ${index + 1}`}
-                className="w-full h-full object-contain border border-gray-200"
-              />
-              <button
-                className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
-                onClick={() => handleDeleteVenueImage(index)}
-              >
-                Delete
-              </button>
-            </div>
-          ))}
       </div>
-    </div>
-    <div className="w-screen  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
-            
-            <div className="py-[20px]"><FiHome className=" w-[40px] h-[40px] " /></div>
-            <div className="py-[20px]"><FiTag className=" w-[40px] h-[40px]" /></div>
-            <div className="py-[20px]"><FiImage className=" w-[40px] h-[40px]" /></div>
-            <div className="py-[20px]"><FiGift className=" w-[40px] h-[40px]" /></div>
-    
-    
-    
-          </div> 
+      <div className="w-screen bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+        <div className="py-[20px]"><FiHome className="w-[40px] h-[40px]" /></div>
+        <div className="py-[20px]"><FiTag className="w-[40px] h-[40px]" /></div>
+        <div className="py-[20px]"><FiImage className="w-[40px] h-[40px]" /></div>
+        <div className="py-[20px]"><FiGift className="w-[40px] h-[40px]" /></div>
+      </div>
     </>
   );
 };

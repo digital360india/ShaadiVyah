@@ -1,6 +1,7 @@
 import Hero_2 from "@/components/Hero_2";
 import Space100px from "@/components/Space100px";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 const page = () => {
   return (
@@ -35,17 +36,15 @@ const page = () => {
             </div>
             <div className="h-[30px]"></div>
             <div className="text-lg text-blue xl:w-[479px]">
-              Lorem ipsum dolor sit amet consectetur. Integer ac molestie nibh
-              risus auctor imperdiet pellentesque. Tempor cursus tortor neque
-              sapien interdum ac tortor felis. Ligula facilisis ullamcorper
-              augue imperdiet nulla. Lectus nec sed platea aenean nisl{" "}
+            Discover a variety of stunning wedding venues in Uttarakhand. Whether you prefer a luxurious hotel or a rustic outdoor setting, we have options to suit every taste.
+
             </div>
           </div>
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
-            <div className="border-b-2 border-spacing-0 border-pink text-pink">
+            <Link href={`/venues`} className="border-b-2 border-spacing-0 border-pink text-pink">
               <p>explore now</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -81,9 +80,9 @@ const page = () => {
           </div>
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#FFB5A7] to-[#C9184A] h-[2px] w-[270px] xl:ml-[100px]"></div>
-            <div className="border-b-2 border-spacing-0 border-pink text-pink  ">
+            <Link  href={`/photographervendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
               <p className="">explore now</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
