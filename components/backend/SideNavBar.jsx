@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiHome, FiBox, FiTag, FiUser, FiGift } from "react-icons/fi";
+import { FiHome, FiBox, FiTag, FiUser, FiGift, FiImage } from "react-icons/fi";
 import { GiFarmTractor } from "react-icons/gi";
 import { GiFireplace } from "react-icons/gi";
 import { FaPeopleCarry } from "react-icons/fa";
@@ -9,7 +9,8 @@ import React from "react";
 
 export const SideNavBar = () => {
   return (
-    <div className="bg-gradient-to-b from-[#FF1053] to-[#F7ACCF] text-white min-h-full top-0 fixed w-1/5 text-">
+    <>
+    <div className="bg-gradient-to-b hidden md:block from-[#FF1053] to-[#F7ACCF] text-white min-h-full top-0 fixed w-1/5 text-">
       <Link href="/dashboard">
         <div className="flex items-center justify-center py-4 text-7xl">
           <img src="/logo.png" alt="" className="h-20 w-20 rounded-full" />{" "}
@@ -27,7 +28,7 @@ export const SideNavBar = () => {
             <FiBox className="mr-2" />
             <span>Catalogue</span>
           </div>
-        </Link> */}
+        </Link> */} 
         <Link href="/dashboard/portfolio">
           <div className="flex items-center px-4 py-2   hover:text-white  hover:bg-slate">
             <FiTag className="mr-2" />
@@ -61,5 +62,20 @@ export const SideNavBar = () => {
         </Link>
       </div>
     </div>
+    <div className="w-screen md:hidden  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+            
+            <Link href="/dashboard">
+          <div className="py-[20px]"><FiHome className=" w-[40px] h-[40px] " /></div></Link>
+            <Link href="/dashboard/portfolio">
+                <div className="py-[20px]"><FiTag className=" w-[40px] h-[40px]" /></div></Link>
+                <Link href="/dashboard/images">
+                    <div className="py-[20px]"><FiImage className=" w-[40px] h-[40px]" /></div></Link>
+                    <Link href="/dashboard/services">
+                    <div className="py-[20px]"><FiGift className=" w-[40px] h-[40px]" /></div></Link>
+            
+            
+            
+                  </div>
+    </>
   );
 };

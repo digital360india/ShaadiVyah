@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <div className="lg:flex">
-        <div className="w-1/5 hidden lg:block ">
+        <div className="w-1/5  ">
           <SideNavBar />
         </div>
         <div className="lg:flex flex-col lg:w-4/5">

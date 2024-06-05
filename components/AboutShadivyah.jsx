@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function AboutShadivyah() {
   return (
     <div>
-       <div className="  w-full xl:px-[100px]  md:px-[60px] px-6    lg:flex justify-between">
+       <div className="  w-full xl:px-[100px] py-[60px] md:px-[60px] px-6  bg-white  lg:flex justify-between">
           <div className="space-y-6  pt-20">
-            <p className="font-medium text-center md:text-start">About ShaadiVyha</p>
+            <p className="font-medium text-center md:text-start">About ShadiVyah</p>
             <h1 className="xl:text-[48px] text-[32px] xl:w-[627px] md:text-start  font-semibold text-[#C9184A] font-fira-sans text-center ">
             We Are The Best Event Planner & Organizer In Town
             </h1>

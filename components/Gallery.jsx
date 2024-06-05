@@ -9,7 +9,7 @@ export default function Gallery({ images }) {
   }
 
   return (
-    <div className="w-screen  overflow-x-hidden">
+    <div className="w-screen  ">
       <Carousel
         additionalTransfrom={0}
         arrows={false}  

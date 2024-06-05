@@ -1,11 +1,13 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import "@/styles/gallery.css";
+
 export default function Testimonials() {
   return (
-    <div className="w-screen h-[631px] overflow-x-hidden">
+    <div className="w-screen  bg-white  ">
       <div>
-        <p className="font-Fira Sans font-semibold text-[48px] text-[#C9184A] pt-[67px] pb-[47px] text-center">
+        <p className="font-Fira Sans font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A]  text-center">
           Testimonials
         </p>
       </div>
@@ -33,7 +35,7 @@ export default function Testimonials() {
               min: 1024,
             },
             items: 1,
-            partialVisibilityGutter: 30,
+            partialVisibilityGutter: 10,
           },
           mobile: {
             breakpoint: {
@@ -41,7 +43,7 @@ export default function Testimonials() {
               min: 0,
             },
             items: 1,
-            partialVisibilityGutter: 30,
+            // partialVisibilityGutter: 10,
           },
           tablet: {
             breakpoint: {
@@ -49,7 +51,7 @@ export default function Testimonials() {
               min: 464,
             },
             items: 1,
-            partialVisibilityGutter: 30,
+            partialVisibilityGutter: 10,
           },
         }}
         rewind={false}
@@ -61,8 +63,8 @@ export default function Testimonials() {
         slidesToSlide={1}
         swipeable
       >
-        <div className="w-[607px] pt-10 bg-[#EBECED] px-6 text-center border border-[#C9184A] rounded-xl ml-20">
-          <p className="text-[19px]">
+        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
+          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
             Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
             volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
             laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
@@ -72,7 +74,7 @@ export default function Testimonials() {
             faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
             Platea integer.
           </p>{" "}
-          <div className="flex items-center justify-center pt-6 pb-10">
+          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
             <img
               className="w-16 h-16 rounded-full object-cover border border-gray-300"
               src="/1.jpeg"
@@ -84,8 +86,8 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
-        <div className="w-[607px] pt-10 bg-[#EBECED] px-6 text-center border border-[#C9184A] rounded-xl ml-20">
-          <p className="text-[19px]">
+        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
+          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
             Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
             volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
             laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
@@ -95,7 +97,7 @@ export default function Testimonials() {
             faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
             Platea integer.
           </p>{" "}
-          <div className="flex items-center justify-center pt-6 pb-10">
+          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
             <img
               className="w-16 h-16 rounded-full object-cover border border-gray-300"
               src="/1.jpeg"
@@ -107,8 +109,8 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
-        <div className="w-[607px] pt-10 bg-[#EBECED] px-6 text-center border border-[#C9184A] rounded-xl ml-20">
-          <p className="text-[19px]">
+        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
+          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
             Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
             volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
             laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
@@ -118,7 +120,7 @@ export default function Testimonials() {
             faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
             Platea integer.
           </p>{" "}
-          <div className="flex items-center justify-center pt-6 pb-10">
+          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
             <img
               className="w-16 h-16 rounded-full object-cover border border-gray-300"
               src="/1.jpeg"

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function HowToWork() {
   return (
     <div>
-        <div className="  w-full xl:px-[100px] md:px-[60px] px-6    lg:flex justify-between">
+        <div className="  w-full xl:px-[100px] md:px-[60px] px-6  bg-white   lg:flex justify-between">
           <div className="space-y-6  pt-20">
             <h1 className="md:text-[48px] text-[32px] md:text-start font-semibold text-[#C9184A] text-center font-fira-sans xl:pb-12  lg:pb-6">
               How we Work

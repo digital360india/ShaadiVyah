@@ -3,8 +3,8 @@ import React from 'react'
 
 const ContactUSPhoto = () => {
     return (
-        <div>
-          <div className="w-full min-h-full xl:px-[100px] lg:px-[40px] md:px-[50px]  relative flex items-center justify-center">
+        <div className='bg-white py-5'>
+          <div className=" min-h-full xl:px-[80px] lg:px-[40px] md:px-[50px]  relative flex items-center justify-center">
             <Image
               src={"/images/venues_contactus.png"}
               width={1000}
