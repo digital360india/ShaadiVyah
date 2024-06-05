@@ -1,6 +1,5 @@
 import Hero_2 from "@/components/Hero_2";
 import Space100px from "@/components/Space100px";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 const page = () => {
@@ -14,14 +13,14 @@ const page = () => {
       {/*left component section */}
       <Space100px />
       <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
-        <Image
+        <img
           src={"/images/wedding_venues.png"}
           alt="image"
           height={1000}
           width={1000}
           className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
-        <Image
+        <img
           src={"/vectors/vector2.png"}
           alt="image"
           height={1000}
@@ -50,14 +49,14 @@ const page = () => {
       </div>
       <Space100px />
       <div className="w-full xl:px-[100px] px-6  lg:px-[60px] relative lg:h-[550px]">
-        <Image
+        <img
           src={"/images/photography_service_page.png"}
           alt="image"
           height={1000}
           width={1000}
           className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
         />
-        <Image
+        <img
           src={"/vectors/Vector.png"}
           alt="image"
           height={1000}
@@ -88,14 +87,14 @@ const page = () => {
       </div>
       <Space100px />
       <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
-        <Image
+        <img
           src={"/images/wedding_venues.png"}
           alt="image"
           height={1000}
           width={1000}
           className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
-        <Image
+        <img
           src={"/vectors/vector2.png"}
           alt="image"
           height={1000}
@@ -126,14 +125,14 @@ const page = () => {
       </div>
       <Space100px />
       <div className="w-full xl:px-[100px] px-6  lg:px-[60px] relative lg:h-[550px]">
-        <Image
+        <img
           src={"/images/photography_service_page.png"}
           alt="image"
           height={1000}
           width={1000}
           className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
         />
-        <Image
+        <img
           src={"/vectors/Vector.png"}
           alt="image"
           height={1000}
@@ -164,14 +163,14 @@ const page = () => {
       </div>
       <Space100px />
       <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
-        <Image
+        <img
           src={"/images/wedding_venues.png"}
           alt="image"
           height={1000}
           width={1000}
           className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
-        <Image
+        <img
           src={"/vectors/vector2.png"}
           alt="image"
           height={1000}

@@ -1,6 +1,5 @@
 import React from 'react'
 import  "@/styles/Textgradient.css"
-import Image from "next/image";
 export default function page() {
   return (
     <div>
@@ -15,7 +14,7 @@ export default function page() {
       {/* About ShadiVyah */}
       {/* OUR COMMITMENT */}
       <div className='h-[600px] bg-black relative'>
-      <Image src="" height={1000} width={1000} className="w-screen h-[600px] absolute" />
+      <img src="" height={1000} width={1000} className="w-screen h-[600px] absolute" />
       <div className='absolute  space-x-8  xl:px-[100px] lg:px-[50px] md:px-[50px] px-6  mt-20 '>
         <p className='xl:text-[56px] text-[32px] font-medium'><span className='text-white'>OUR</span> <span className='text-[#FEC89A]'>COMMITMENT</span></p>
         <div className='md:space-y-4 space-y-2 text-white lg:w-[503px] md:w-[350px] text-[14px] lg:text-[18px]'>
@@ -32,19 +31,19 @@ export default function page() {
         <p className='lg:text-[17px] text-[13px] font-medium text-[#C9184A] text-center'>Led by experts in each respective field, our specialist services teams execute requests with swift authority whilst always watching for what's next.</p>
         <div className='xl:px-[60px] lg:px-[30px] lg:flex-nowrap px-10 flex flex-col md:flex-row md:flex-wrap xl:gap-10 lg:gap-5 md:gap-10 gap-5  mt-12'>
           <div className='h-[244px] lg:w-[244px] w-[300px] md:w-[270px] bg-black rounded-xl relative'>
-          <Image src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute  rounded-xl" />
+          <img src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute  rounded-xl" />
           <p className='text-[18px] font-medium text-white px-9 absolute bottom-7'>WEDDING VENUES</p>
           </div>
           <div className='h-[244px] lg:w-[244px] w-[300px] md:w-[270px] bg-black rounded-xl relative'>
-          <Image src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
+          <img src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
           <p className='text-[18px] font-medium text-white px-9 absolute bottom-7'>WEDDING VENUES</p>
           </div>
           <div className='h-[244px] lg:w-[244px] w-[300px] md:w-[270px] bg-black rounded-xl relative'>
-          <Image src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
+          <img src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
           <p className='text-[18px] font-medium text-white px-9 absolute bottom-7'>WEDDING VENUES</p>
           </div>
           <div className='h-[244px] lg:w-[244px] w-[300px] md:w-[270px] bg-black rounded-xl relative'>
-          <Image src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
+          <img src="" height={1000} width={1000} className="lg:w-[244px] w-[300px] md:w-[270px] h-[244px] absolute rounded-xl" />
           <p className='text-[18px] font-medium text-white px-9 absolute bottom-7'>WEDDING VENUES</p>
           </div>
         </div>

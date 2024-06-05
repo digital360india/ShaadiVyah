@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
           <div className="text-center font-medium text-md border border-white rounded-[40px] py-4 flex flex-col md:flex-row items-center justify-evenly">
             <div className="flex gap-2 items-center  w-[40%]">
-              <Image
+              <img
                 src={"/icons/location.svg"}
                 width={1000}
                 height={1000}
@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
             <div className="hidden md:block">|</div>
             <div className="flex gap-2 items-center  w-[40%]">
-              <Image
+              <img
                 src={"/icons/category.svg"}
                 width={1000}
                 height={1000}
@@ -69,7 +69,7 @@ export default function Hero() {
             <div>|</div>
             <div className="flex items-center ">
               <button onClick={handleSearch}>
-                <Image
+                <img
                   src={"/icons/search.svg"}
                   width={1000}
                   height={1000}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from "next/image";
 export default function AboutShadivyah() {
   return (
     <div>
@@ -39,7 +38,7 @@ export default function AboutShadivyah() {
             </div>
           </div>
           <div className="py-10">
-          <Image
+          <img
                 src={"/images/hand.png"}
                 alt={"image"}
                 height={1000}

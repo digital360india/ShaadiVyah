@@ -36,7 +36,7 @@ const MehandiCard = ({ data }) => {
         {data.map((info) => (
           <Link href={`/mehandivendors/${info.id}`} key={info.id}>
             <div className="w-full px-2">
-              <Image
+              <img
                 src={info?.bannerImageUrl || "/images/hero.png"}
                 width={1000}
                 height={1000}

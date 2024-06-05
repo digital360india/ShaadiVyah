@@ -19,7 +19,7 @@ const Footer = () => {
           <p className="w-[292px] text-start text-base">Phone: 2346457787</p>
         </div>
         <div className="flex pt-5 flex-col gap-5">
-          <Image
+          <img
             src={"/logo.png"}
             alt={""}
             width={1000}
@@ -62,7 +62,7 @@ const Footer = () => {
       <div className="text-white px-6 py-8 bg-gradient-to-t drop-shadow-md from-[#C9184A] to-[#FFB5A7] lg:hidden">
         <div>
           <div className="flex justify-center items-center">
-            <Image
+            <img
               src={"/logo.png"}
               alt={""}
               width={1000}

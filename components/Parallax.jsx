@@ -52,7 +52,7 @@ export default function Parallax({ array }) {
         <Slider {...settings} className="">
           {array.array.map((value, index) => (
             <div key={index} className="xl:w-[400px] xl:h-[488px] lg:w-[350px] md:w-[300px] sm:w-[250px]   p-4 ">
-              <Image
+              <img
                 src={value.image || "/images/hero.png"}
                 width={1000}
                 height={1000}

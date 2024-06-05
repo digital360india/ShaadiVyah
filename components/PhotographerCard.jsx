@@ -34,7 +34,7 @@ const PhotographerCard = ({ arr }) => {
             {arr.map((data) => (
               <Link href={`/photographervendor/${data.id}`} key={data.id}>
                 <div className="w-full px-2">
-                  <Image
+                  <img
                     src={data?.bannerImageUrl || "/images/hero.png"}
                     width={1000}
                     height={1000}

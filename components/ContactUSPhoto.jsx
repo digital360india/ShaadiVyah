@@ -5,7 +5,7 @@ const ContactUSPhoto = () => {
     return (
         <div className='bg-white py-5'>
           <div className=" min-h-full xl:px-[80px] lg:px-[40px] md:px-[50px]  relative flex items-center justify-center">
-            <Image
+            <img
               src={"/images/venues_contactus.png"}
               width={1000}
               height={1000}

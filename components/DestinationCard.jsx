@@ -36,7 +36,7 @@ const DestinationCard = ({ venues }) => {
         {venues.map((venue) => (
           <Link href={`/venues/${venue.id}`} key={venue.id}>
             <div className="w-full px-2">
-              <Image
+              <img
                 src={venue?.bannerImageUrl || "/images/hero.png"}
                 width={1000}
                 height={1000}

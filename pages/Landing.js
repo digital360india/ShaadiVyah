@@ -2,13 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/firebase/firebase"; // adjust the import path as needed
+import { db } from "@/firebase/firebase"; 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Hero from "@/components/Hero"; // adjust the import path as needed
+import Hero from "@/components/Hero"; 
 import Link from "next/link";
-import Image from "next/image";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
 import AboutShadivyah from "@/components/AboutShadivyah";
@@ -168,7 +167,7 @@ const PrevArrow = ({ className, style, onClick }) => (
       <Hero />
       <div className="w-full  overflow-hidden ">
         <div className="bg-cream py-16  relative  z-20 lg:px-10 px-6 ">
-          <Image
+          <img
             src={"/vectors/vector3.png"}
             alt="image"
             height={1000}
@@ -245,7 +244,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         </div>
 
         <div className="bg-white py-16  relative  px-10 ">
-        <Image
+        <img
             src={"/vectors/vector4.png"}
             alt="image"
             height={1000}
@@ -315,7 +314,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         </div>
 
         <div className="bg-cream py-16 relative z-20  px-10 ">
-        <Image
+        <img
             src={"/vectors/vector2.png"}
             alt="image"
             height={1000}
@@ -385,7 +384,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         </div>
 
         <div className="bg-white py-16  relative  px-10 ">
-        <Image
+        <img
             src={"/vectors/vector.png"}
             alt="image"
             height={1000}

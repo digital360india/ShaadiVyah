@@ -62,7 +62,7 @@ const DetailPage = () => {
     <>
       <div>
         <div className="relative flex justify-center items-center mb-40">
-          <Image
+          <img
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
@@ -78,7 +78,7 @@ const DetailPage = () => {
                     {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center">
-                    <Image
+                    <img
                       src={data?.bannerImageUrl}
                       height={1000}
                       width={1000}
@@ -96,7 +96,7 @@ const DetailPage = () => {
                   </div>
                   <div className="text-[#909090]">{data?.about}</div>
                   <button className="flex gap-2 justify-start items-center">
-                    <Image
+                    <img
                       src="/icons/call.svg"
                       height={1000}
                       width={1000}
@@ -108,7 +108,7 @@ const DetailPage = () => {
                 <div className="flex flex-col gap-2">
                   {" "}
                   <div className="h-[40px] w-[80px] rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
-                    <Image
+                    <img
                       src="/icons/ratingstar.svg"
                       height={1000}
                       width={1000}
@@ -126,7 +126,7 @@ const DetailPage = () => {
                 <div className="flex gap-5">
                   <div className="flex gap-2 justify-center items-center">
                     {" "}
-                    <Image
+                    <img
                       src="/icons/image.svg"
                       height={1000}
                       width={1000}
@@ -137,7 +137,7 @@ const DetailPage = () => {
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
                     {" "}
-                    <Image
+                    <img
                       src="/icons/like.svg"
                       height={1000}
                       width={1000}
@@ -148,7 +148,7 @@ const DetailPage = () => {
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
                     {" "}
-                    <Image
+                    <img
                       src="/icons/review_icon.svg"
                       height={1000}
                       width={1000}
@@ -159,7 +159,7 @@ const DetailPage = () => {
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
                     {" "}
-                    <Image
+                    <img
                       src="/icons/share.svg"
                       height={1000}
                       width={1000}

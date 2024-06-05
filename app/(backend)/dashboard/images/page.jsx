@@ -1,16 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
-import { db, storage } from "@/firebase/firebase"; 
-import { doc, updateDoc, arrayUnion, arrayRemove, getDoc, query, collection, where, getDocs } from "firebase/firestore";
+import { db, storage } from "@/firebase/firebase";
+import { doc, updateDoc, arrayUnion, arrayRemove, getDocs, collection, query, where } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { parseCookies } from "nookies";
 import { generatePassword } from "@/utils/generatePassword";
 import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
-import Slider from "react-slick";
-import Link from "next/link";
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +27,7 @@ const Portfolio = () => {
           const userData = querySnapshot.docs[0].data();
           setUser(userData);
           setVenueLinks(userData.venueLinks || []);
-          setBannerImageUrl(userData.bannerImageUrl || ""); 
+          setBannerImageUrl(userData.bannerImageUrl || "");
         }
       }
     };
@@ -39,7 +36,6 @@ const Portfolio = () => {
   }, []);
 
   const handleBannerImageChange = async (e) => {
-    e.preventDefault();
     const file = e.target.files[0];
     if (!file) return;
     setIsLoading(true);
@@ -127,7 +123,7 @@ const Portfolio = () => {
     <>
       <div className="md:m-10 m-4">
         <ToastContainer />
-        <form className="flex flex-col gap-4" onSubmit={handleBannerImageChange}>
+        <div className="flex flex-col gap-4">
           <p className="font-medium">BANNER IMAGE</p>
           <div className="flex gap-6 pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
             <input
@@ -144,9 +140,9 @@ const Portfolio = () => {
               {isLoading ? "Loading.." : "Upload"}
             </label>
           </div>
-        </form>
+        </div>
         {bannerImageUrl && (
-          <div className="relative w-[146px] h-[107px]">
+          <div className="relative w-[146px] h-[107px] mt-4">
             <img
               src={bannerImageUrl}
               alt="Banner Image"
@@ -160,7 +156,7 @@ const Portfolio = () => {
             </button>
           </div>
         )}
-        <form className="flex flex-col gap-4 mt-4" onSubmit={handleVenueFilesChange}>
+        <div className="flex flex-col gap-4 mt-4">
           <p className="font-medium">PORTFOLIO IMAGES</p>
           <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
             <input
@@ -168,14 +164,8 @@ const Portfolio = () => {
               multiple
               onChange={handleVenueFilesChange}
             />
-            <button
-              type="submit"
-              className="px-4 py-2 mt-4 md:mt-0 rounded bg-[#A11C5C] text-white"
-            >
-              {isLoading ? "Loading..." : "Upload"}
-            </button>
           </div>
-        </form>
+        </div>
         <div className="flex gap-4 flex-wrap mt-4">
           {venueLinks &&
             venueLinks.map((link, index) => (

@@ -26,7 +26,7 @@ const LoginPage =  () => {
   
     return (
       <div className="flex justify-center h-[90vh] relative top-10 overflow-hidden ">
-        <Image
+        <img
           src="/images/hero.png"
           alt="Logo"
           width={1200}
@@ -41,7 +41,7 @@ const LoginPage =  () => {
             <div className="w-96 h-96 bg-opacity-80 bg-black text-black flex-col rounded-2xl mt-10 p-6">
               <div className="flex  justify-center items-center">
                 {" "}
-                <Image
+                <img
                   src="/logo.png"
                   alt="Logo"
                   width={1200}

@@ -55,7 +55,7 @@ export default function HowToWork() {
             </div>
           </div>
           <div className="py-10">
-          <Image
+          <img
                 src={"/images/hand.png"}
                 alt={"image"}
                 height={1000}

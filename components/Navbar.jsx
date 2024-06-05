@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="hidden md:flex justify-around items-center font-lato font-medium text-lg  z-50 ">
         <div>
           <Link href={"/"}>
-            <Image
+            <img
               src={"/logo.png"}
               width={1000}
               height={1000}
@@ -34,7 +34,7 @@ export default function Navbar() {
       <div className="flex w-full items-center bg-transparent fixed md:hidden">
         <div className="w-[40%] px-6">
           <Link href={"/"}>
-            <Image
+            <img
               src={"/icons/menu.svg"}
               width={1000}
               height={1000}
@@ -44,7 +44,7 @@ export default function Navbar() {
         </div>
         <div className="">
           <Link href={"/"}>
-            <Image
+            <img
               src={"/logo.png"}
               width={1000}
               height={1000}
