@@ -76,51 +76,54 @@ const PhotographerVendorPage = () => {
           <form onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold mb-4 text-blue-600">Edit Photographer Details</h2>
             <div className="mb-4">
-              <label htmlFor="pricePerDay" className="block text-gray-700 font-medium">Starting price per day:</label>
+              <label htmlFor="pricePerDay" className="block text-gray-700 font-medium">Starting price per day</label>
               <input
                 type="number"
                 id="pricePerDay"
                 name="pricePerDay"
                 value={formData.pricePerDay}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Enter amount of price Per Day"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="photoPackage" className="block text-gray-700 font-medium">Photo Package:</label>
+              <label htmlFor="photoPackage" className="block text-gray-700 font-medium">Photo Package</label>
               <input
                 type="number"
                 id="photoPackage"
                 name="photoPackage"
                 value={formData.photoPackage}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Enter amount of photo Package"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="photoVideoPackage" className="block text-gray-700 font-medium">Photo Video Package:</label>
+              <label htmlFor="photoVideoPackage" className="block text-gray-700 font-medium">Photo Video Package</label>
               <input
                 type="number"
                 id="photoVideoPackage"
                 name="photoVideoPackage"
                 value={formData.photoVideoPackage}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Enter amount of photo Video Package"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="albumPages" className="block text-gray-700 font-medium">Album Pages:</label>
+              <label htmlFor="albumPages" className="block text-gray-700 font-medium">Album Pages</label>
               <input
                 type="number"
                 id="albumPages"
                 name="albumPages"
                 value={formData.albumPages}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Enter no. of album Pages"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="outstationTravelCovered" className="block text-gray-700 font-medium">Outstation Travel Covered:</label>
+            <div className="mb-4 flex gap-3">
               <input
                 type="checkbox"
                 id="outstationTravelCovered"
@@ -129,20 +132,21 @@ const PhotographerVendorPage = () => {
                 onChange={handleChange}
                 className="mt-1"
               />
+              <label htmlFor="outstationTravelCovered" className="block text-gray-700 font-medium">Outstation Travel Covered</label>
             </div>
             <div className="mb-4">
-              <label htmlFor="practicingSince" className="block text-gray-700 font-medium">Practicing Since:</label>
+              <label htmlFor="practicingSince" className="block text-gray-700 font-medium">Practicing Since</label>
               <input
                 type="number"
                 id="practicingSince"
                 name="practicingSince"
                 value={formData.practicingSince}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="practicing Since"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="travelsToVenue" className="block text-gray-700 font-medium">Travels to Venue:</label>
+            <div className="mb-4 flex gap-3">
               <input
                 type="checkbox"
                 id="travelsToVenue"
@@ -151,64 +155,66 @@ const PhotographerVendorPage = () => {
                 onChange={handleChange}
                 className="mt-1"
               />
+              <label htmlFor="travelsToVenue" className="block text-gray-700 font-medium">Travels to Venue</label>
             </div>
             <div className="mb-4">
-              <label htmlFor="advancePayment" className="block text-gray-700 font-medium">Advance Payment:</label>
+              <label htmlFor="advancePayment" className="block text-gray-700 font-medium">Advance Payment</label>
               <input
                 type="number"
                 id="advancePayment"
                 name="advancePayment"
                 value={formData.advancePayment}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded shadow-sm"
+                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Enter amount of advance Payment"
               />
             </div>
             <div className="flex justify-end">
               <button type="button" onClick={() => setEditMode(false)} className="mr-2 px-4 py-2 bg-gray-500 text-white rounded shadow">
                 Cancel
               </button>
-              <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded shadow">
+              <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded shadow">
                 Save Changes
               </button>
             </div>
           </form>
         ) : (
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-600">Vendor Details</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-600">Photographer Details</h2>
             <div className="mb-4">
-              <label htmlFor="pricePerDay" className="block text-gray-700 font-medium">Starting price per day:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.pricePerDay}</span>
+              <label htmlFor="pricePerDay" className="block text-gray-700 font-medium">Starting price per day</label>
+              <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.pricePerDay ? formData.pricePerDay : "Enter amount of price Per Day"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="photoPackage" className="block text-gray-700 font-medium">Photo Package:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.photoPackage}</span>
+              <label htmlFor="photoPackage" className="block text-gray-700 font-medium">Photo Package</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.photoPackage ? formData.photoPackage : "Enter amount of photo Package"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="photoVideoPackage" className="block text-gray-700 font-medium">Photo Video Package:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.photoVideoPackage}</span>
+              <label htmlFor="photoVideoPackage" className="block text-gray-700 font-medium">Photo Video Package</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.photoVideoPackage ? formData.photoVideoPackage : " Enter amount of photo Video Package"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="albumPages" className="block text-gray-700 font-medium">Album Pages:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.albumPages}</span>
+              <label htmlFor="albumPages" className="block text-gray-700 font-medium">Album Pages</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.albumPages ? formData.albumPages : "Enter no. of album Pages"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="outstationTravelCovered" className="block text-gray-700 font-medium">Outstation Travel Covered:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.outstationTravelCovered ? "Yes" : "No"}</span>
+              <label htmlFor="outstationTravelCovered" className="block text-gray-700 font-medium">Outstation Travel Covered</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.outstationTravelCovered ? "Yes" : "No"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="practicingSince" className="block text-gray-700 font-medium">Practicing Since:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.practicingSince}</span>
+              <label htmlFor="practicingSince" className="block text-gray-700 font-medium">Practicing Since</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.practicingSince ? formData.practicingSince :"Enter amount of  practicing Since"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="travelsToVenue" className="block text-gray-700 font-medium">Travels to Venue:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.travelsToVenue ? "Yes" : "No"}</span>
+              <label htmlFor="travelsToVenue" className="block text-gray-700 font-medium">Travels to Venue</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.travelsToVenue ? "Yes" : "No"}</span>
             </div>
             <div className="mb-4">
-              <label htmlFor="advancePayment" className="block text-gray-700 font-medium">Advance Payment:</label>
-              <span className="block p-2 bg-gray-100 border border-gray-300 rounded shadow-sm">{formData.advancePayment}</span>
+              <label htmlFor="advancePayment" className="block text-gray-700 font-medium">Advance Payment</label>
+              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.advancePayment ? formData.advancePayment : "Enter amount of  advance Payment"}</span>
             </div>
             <div className="flex justify-end">
-              <button onClick={() => setEditMode(true)} className="px-4 py-2 bg-blue-500 text-white rounded shadow">
+              <button onClick={() => setEditMode(true)} className="px-4 py-2 bg-gradient-to-r  from-[#FF1053] to-[#F7ACCF] text-white rounded shadow">
                 Edit Details
               </button>
             </div>

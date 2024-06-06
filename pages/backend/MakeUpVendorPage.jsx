@@ -57,11 +57,15 @@ const MakeUpVendorPage = ({ vendorId }) => {
     }
   };
   return (
-    <div>
+    <div className="p-8 bg-gray-100 min-h-screen">
+            <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+
   
       {editMode ? <form ref={formData} onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="pricePerDay">Starting price per day:</label>
+      <h2 className="text-2xl font-bold mb-4 text-blue-600">Edit Artist Details</h2>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium" htmlFor="pricePerDay">Starting price per day</label>
           <input
             type="number"
             id="pricePerDay"
@@ -69,10 +73,12 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.pricePerDay}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="Enter amount of price Per Day"
           />
         </div>
         <div>
-          <label htmlFor="pricePerFunction">Price per function:</label>
+          <label className="block text-gray-700 font-medium" htmlFor="pricePerFunction">Price per function</label>
           <input
             type="number"
             id="pricePerFunction"
@@ -80,10 +86,12 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.pricePerFunction}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="Enter amount of price Per Function"
           />
         </div>
         <div>
-          <label htmlFor="practicingSince">Practicing makeup since:</label>
+          <label className="block text-gray-700 font-medium" htmlFor="practicingSince">Practicing makeup since</label>
           <input
             type="number"
             id="practicingSince"
@@ -91,20 +99,24 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.practicingSince}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="practicingSince"
           />
         </div>
-        <div>
-          <label htmlFor="travelsToVenue">Travels to venue:</label>
+        <div className="flex gap-3 my-4">
           <input
             type="checkbox"
             id="travelsToVenue"
             name="travelsToVenue"
             checked={formData.travelsToVenue}
             onChange={handleChange}
+            className="mt-1"
+
           />
+          <label className="block text-gray-700 font-medium" htmlFor="travelsToVenue">Travels to venue</label>
         </div>
         <div>
-          <label htmlFor="advancePayment">Advance payment (%):</label>
+          <label className="block text-gray-700 font-medium" htmlFor="advancePayment">Advance payment (%)</label>
           <input
             type="number"
             id="advancePayment"
@@ -112,23 +124,28 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.advancePayment}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="Enter amount of  advance Payment"
           />
         </div>
-        <div>
-          <label htmlFor="outstationTravelCovered">
-            Outstation travel and stay covered by client:
-          </label>
+        <div className="flex gap-3 my-4">
+          
           <input
             type="checkbox"
             id="outstationTravelCovered"
             name="outstationTravelCovered"
             checked={formData.outstationTravelCovered}
             onChange={handleChange}
+            className="mt-1"
+
           />
+          <label className="block text-gray-700 font-medium" htmlFor="outstationTravelCovered">
+            Outstation travel and stay covered by client
+          </label>
         </div>
         <div>
-          <label htmlFor="engagementMakeupCharge">
-            Engagement makeup charge:
+          <label className="block text-gray-700 font-medium" htmlFor="engagementMakeupCharge">
+            Engagement makeup charge
           </label>
           <input
             type="number"
@@ -137,11 +154,13 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.engagementMakeupCharge}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="engagement Makeup Charge"
           />
         </div>
         <div>
-          <label htmlFor="makeupPerFamilyMember">
-          Makeup Per Family Member:
+          <label className="block text-gray-700 font-medium" htmlFor="makeupPerFamilyMember">
+          Makeup Per Family Member
           </label>
           <input
             type="number"
@@ -150,48 +169,62 @@ const MakeUpVendorPage = ({ vendorId }) => {
             value={formData.makeupPerFamilyMember}
             onChange={handleChange}
             required
+            className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            placeholder="makeup Per Family Member"
           />
+            <div className="flex justify-end mt-4">
+              <button type="button" onClick={() => setEditMode(false)} className="mr-2 px-4 py-2 bg-gray-500 text-white rounded shadow">
+                Cancel
+              </button>
+              <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded shadow">
+                Save Changes
+              </button>
+            </div>
         </div>
       </form> : (
         <div>
-          <h2>Vendor Details</h2>
-          <div>
-            <label htmlFor="pricePerDay">Starting price per day:</label>
-            <span>{formData.pricePerDay}</span>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600">Artist Details</h2>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="pricePerDay">Starting price per day</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.pricePerDay ? formData.pricePerDay : "Enter amount of Price  Per Day"}</span>
           </div>
-          <div>
-            <label htmlFor="pricePerFunction">Price per function:</label>
-            <span>{formData.pricePerFunction}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="pricePerFunction" >Price per function</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.pricePerFunction ? formData.pricePerFunction : " Enter amount of Price  Per Function"}</span>
           </div>
-          <div>
-            <label htmlFor="practicingSince">Practicing Since:</label>
-            <span>{formData.practicingSince}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="practicingSince"> Practicing Since</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.practicingSince ? formData.practicingSince : "practicing Since"}</span>
           </div>
-          <div>
-            <label htmlFor="travelsToVenue">Travels To Venue:</label>
-            <span>{formData.travelsToVenue}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="travelsToVenue">Travels To Venue</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.travelsToVenue ? formData.travelsToVenue : " travels To Venue"}</span>
           </div>
-          <div>
-            <label htmlFor="advancePayment">Advance Payment:</label>
-            <span>{formData.pricePerFunction}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="advancePayment">Advance Payment</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.pricePerFunction ? formData.pricePerFunction : "price Per Function"}</span>
           </div>
-          <div>
-            <label htmlFor="outstationTravelCovered">Outstation Travel Covered:</label>
-            <span>{formData.outstationTravelCovered}</span>
-          </div>
-          
-          <div>
-            <label htmlFor="engagementMakeupCharge">Engagement Makeup Charge:</label>
-            <span>{formData.engagementMakeupCharge}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="outstationTravelCovered">Outstation Travel Covered</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.outstationTravelCovered ? formData.outstationTravelCovered : "outstation Travel Covered"}</span>
           </div>
           
-          <div>
-            <label htmlFor="makeupPerFamilyMember">Makeup Per Family Member:</label>
-            <span>{formData.makeupPerFamilyMember}</span>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="engagementMakeupCharge">Engagement Makeup Charge</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.engagementMakeupCharge ? formData.engagementMakeupCharge : "engagement Makeup Charge"}</span>
           </div>
-          <button onClick={() => setEditMode(true)}>Edit</button>
-        </div>
+          
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium" htmlFor="makeupPerFamilyMember">Makeup Per Family Member</label>
+            <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">{formData.makeupPerFamilyMember ? formData.makeupPerFamilyMember : "makeup Per Family Member"}</span>
+          </div>
+<div className="flex justify-end">
+<button className="px-4 py-2 bg-gradient-to-r  from-[#FF1053] to-[#F7ACCF] text-white rounded shadow" onClick={() => setEditMode(true)}>Edit Details</button>
+
+  </div> 
+         </div>
       ) }
+    </div>
     </div>
   );
 };
