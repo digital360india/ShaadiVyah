@@ -20,7 +20,7 @@ function ApprovalRequestsPage() {
           doc.data()
         );
 
-        const uids = approvalRequests.map((request) => request.id);
+        const uids = approvalRequests.map((request) => request.uid);
         console.log(uids);
         if (uids.length > 0) {
           const usersQuery = query(

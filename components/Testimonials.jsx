@@ -1,9 +1,29 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "@/styles/gallery.css";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/firebase/firebase";
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "testimonials"));
+        if (!querySnapshot.empty) {
+          const data = querySnapshot.docs.map((doc) => doc.data());
+          setTestimonials(data);
+          console.log(data)
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
   return (
     <div className="w-screen  bg-white  ">
       <div>
@@ -13,7 +33,7 @@ export default function Testimonials() {
       </div>
       <Carousel
         additionalTransfrom={0}
-        arrows={false}  // Set arrows to false
+        arrows={false} // Set arrows to false
         autoPlaySpeed={3000}
         centerMode
         className=""
@@ -63,75 +83,31 @@ export default function Testimonials() {
         slidesToSlide={1}
         swipeable
       >
-        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
-          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
-            Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
-            volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
-            laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
-            nunc. Ornare est augue cursus nec. Elit sit purus tellus sagittis id
-            tortor dignissim. Magna neque sed magna phasellus. Sodales id
-            scelerisque imperdiet consequat in nunc donec. Tempus rutrum
-            faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
-            Platea integer.
-          </p>{" "}
-          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
-            <img
-              className="w-16 h-16 rounded-full object-cover border border-gray-300"
-              src="/1.jpeg"
-              alt=""
-            />
-            <div className="ml-4 text-left">
-              <p className="text-[18px] font-medium text-[#C9184A]">shivam ji</p>
-              <p className="text-[#02394A] text-[16px]">developer</p>
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5"
+          >
+            <p className="lg:text-[19px] md:text-[14px] text-[12px]">
+              {testimonial.testimonial}
+            </p>
+            <div className="flex items-center justify-center md:pt-6 md:pb-10 py-2">
+              <img
+                className="w-16 h-16 rounded-full object-contain border border-gray-300"
+                src={testimonial.imgURL || "/images/logo1.png"}
+                alt=""
+              />
+              <div className="ml-4 text-left">
+                <p className="text-[18px] font-medium text-[#C9184A]">
+                  {testimonial.name}
+                </p>
+                <p className="text-[#02394A] text-[16px]">
+                  {testimonial.location}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
-          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
-            Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
-            volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
-            laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
-            nunc. Ornare est augue cursus nec. Elit sit purus tellus sagittis id
-            tortor dignissim. Magna neque sed magna phasellus. Sodales id
-            scelerisque imperdiet consequat in nunc donec. Tempus rutrum
-            faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
-            Platea integer.
-          </p>{" "}
-          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
-            <img
-              className="w-16 h-16 rounded-full object-cover border border-gray-300"
-              src="/1.jpeg"
-              alt=""
-            />
-            <div className="ml-4 text-left">
-              <p className="text-[18px] font-medium text-[#C9184A]">shivam ji</p>
-              <p className="text-[#02394A] text-[16px]">developer</p>
-            </div>
-          </div>
-        </div>
-        <div className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5">
-          <p className="lg:text-[19px] md:text-[14px] text-[12px]">
-            Lorem ipsum dolor sit amet consectetur. Rutrum ipsum mi ut ac sed in
-            volutpat. Mauris cras ut orci non nisl. Lectus risus fermentum
-            laoreet eu arcu eget. Viverra sed ante ac enim justo commodo ac
-            nunc. Ornare est augue cursus nec. Elit sit purus tellus sagittis id
-            tortor dignissim. Magna neque sed magna phasellus. Sodales id
-            scelerisque imperdiet consequat in nunc donec. Tempus rutrum
-            faucibus lectus orci. Ac condimentum aenean bibendum nam ornare.
-            Platea integer.
-          </p>{" "}
-          <div className="flex items-center justify-center md:pt-6 md:pb-10  py-2">
-            <img
-              className="w-16 h-16 rounded-full object-cover border border-gray-300"
-              src="/1.jpeg"
-              alt=""
-            />
-            <div className="ml-4 text-left">
-              <p className="text-[18px] font-medium text-[#C9184A]">shivam ji</p>
-              <p className="text-[#02394A] text-[16px]">developer</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </Carousel>
     </div>
   );

@@ -8,7 +8,7 @@ const page = () => {
       {/*Hero section*/}
       <Hero_2
         img={"/images/hero_services_page.png"}
-        text={"Lorem ipsum d"}
+        text={"Because in your dreams, every detail matters"}
       />
       {/*left component section */}
       <Space100px />
@@ -54,7 +54,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
+          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center object-cover "
         />
         <img
           src={"/vectors/Vector.png"}
@@ -71,10 +71,7 @@ const page = () => {
             </div>
             <div className="h-[30px]"></div>
             <div className="text-lg text-blue xl:w-[479px] w-full">
-              Lorem ipsum dolor sit amet consectetur. Integer ac molestie nibh
-              risus auctor imperdiet pellentesque. Tempor cursus tortor neque
-              sapien interdum ac tortor felis. Ligula facilisis ullamcorper
-              augue imperdiet nulla. Lectus nec sed platea aenean nisl{" "}
+            Choose from our selection of top photographers who specialize in capturing the essence of your wedding day.
             </div>
           </div>
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
@@ -88,11 +85,11 @@ const page = () => {
       <Space100px />
       <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
         <img
-          src={"/images/wedding_venues.png"}
+          src={"/images/bridal_services_page.png"}
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none   border-b-8 object-center object-cover"
         />
         <img
           src={"/vectors/vector2.png"}
@@ -103,30 +100,29 @@ const page = () => {
         />
         <div className="bg-peach xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl ">
           <div className="text-center lg:text-start  xl:pl-[400px] px-5 lg:pl-[300px] lg:relative text-pink lg:pt-12 pt-4">
-            <div className="text-2xl font-semibold ">WEDDING VENUES</div>
+            <div className="text-2xl font-semibold ">BRIDAL MAKEUP
+</div>
             <div className="flex justify-center items-center">
             <div className=" lg:hidden  border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
             <div className="text-lg text-blue xl:w-[479px]">
-              Lorem ipsum dolor sit amet consectetur. Integer ac molestie nibh
-              risus auctor imperdiet pellentesque. Tempor cursus tortor neque
-              sapien interdum ac tortor felis. Ligula facilisis ullamcorper
-              augue imperdiet nulla. Lectus nec sed platea aenean nisl{" "}
+            Our professional makeup artists will enhance your natural beauty, making sure you look radiant on your special day.
+
             </div>
           </div>
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
-            <div className="border-b-2 border-spacing-0 border-pink text-pink">
+            <Link href={`/makeupvendors`} className="border-b-2 border-spacing-0 border-pink text-pink">
               <p>explore now</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
       <Space100px />
       <div className="w-full xl:px-[100px] px-6  lg:px-[60px] relative lg:h-[550px]">
         <img
-          src={"/images/photography_service_page.png"}
+          src={"/images/mehndi_services_page.png"}
           alt="image"
           height={1000}
           width={1000}
@@ -141,28 +137,26 @@ const page = () => {
         />
         <div className="bg-peach xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 ">
           <div className="xl:pl-[36px] lg:pr-[300px] lg:relative text-pink xl:pt-10 pt-4">
-            <div className="text-2xl font-semibold">PHOTOGRAPHERS</div>
+            <div className="text-2xl font-semibold">MEHNDI ARTISTS
+</div>
             <div className="flex justify-center items-center">
             <div className=" lg:hidden border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
             <div className="text-lg text-blue xl:w-[479px] w-full">
-              Lorem ipsum dolor sit amet consectetur. Integer ac molestie nibh
-              risus auctor imperdiet pellentesque. Tempor cursus tortor neque
-              sapien interdum ac tortor felis. Ligula facilisis ullamcorper
-              augue imperdiet nulla. Lectus nec sed platea aenean nisl{" "}
+            Our talented mehndi artists create beautiful, intricate designs that reflect your style and culture.
             </div>
           </div>
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#FFB5A7] to-[#C9184A] h-[2px] w-[270px] xl:ml-[100px]"></div>
-            <div className="border-b-2 border-spacing-0 border-pink text-pink  ">
+            <Link href={`/mehandivendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
               <p className="">explore now</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
       <Space100px />
-      <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
+      {/* <div   className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
         <img
           src={"/images/wedding_venues.png"}
           alt="image"
@@ -179,27 +173,24 @@ const page = () => {
         />
         <div className="bg-peach xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl ">
           <div className="text-center lg:text-start  xl:pl-[400px] px-5 lg:pl-[300px] lg:relative text-pink lg:pt-12 pt-4">
-            <div className="text-2xl font-semibold ">WEDDING VENUES</div>
+            <div className="text-2xl font-semibold ">DECORATORS</div>
             <div className="flex justify-center items-center">
             <div className=" lg:hidden  border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
             <div className="text-lg text-blue xl:w-[479px]">
-              Lorem ipsum dolor sit amet consectetur. Integer ac molestie nibh
-              risus auctor imperdiet pellentesque. Tempor cursus tortor neque
-              sapien interdum ac tortor felis. Ligula facilisis ullamcorper
-              augue imperdiet nulla. Lectus nec sed platea aenean nisl{" "}
+            Transform your wedding venue with our expert decorators who bring your vision to life with creativity and flair.
             </div>
           </div>
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
-            <div className="border-b-2 border-spacing-0 border-pink text-pink">
+            <Link href={`/`} className="border-b-2 border-spacing-0 border-pink text-pink">
               <p>explore now</p>
-            </div>
+            </Link>
           </div>
         </div>
-      </div>
-      <Space100px />
+      </div> */}
+      {/* <Space100px /> */}
     </>
   );
 };

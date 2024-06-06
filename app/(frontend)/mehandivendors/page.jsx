@@ -1,6 +1,5 @@
 "use client";
 import ContactUSPhoto from "@/components/ContactUSPhoto";
-import MehandiCard from "@/components/MehandiCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import HeadingsVenueSection from "@/components/HeadingsVenueSection";
@@ -10,6 +9,7 @@ import Space50px from "@/components/Space50px";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import MehandiCard from "@/components/MehandiCard ";
 
 const Page = () => {
   const [data, setData] = useState([]);

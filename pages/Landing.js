@@ -151,14 +151,18 @@ const PrevArrow = ({ className, style, onClick }) => (
       },
     ],
   };
-
   const truncateText = (text, limit) => {
+    if (text === undefined) {
+      return ""; // Or any other fallback value you prefer
+    }
+  
     const words = text.split(" ");
     if (words.length > limit) {
       return words.slice(0, limit).join(" ") + "...";
     }
     return text;
   };
+  
 
 
 
@@ -211,12 +215,8 @@ const PrevArrow = ({ className, style, onClick }) => (
                           </p>
                         </div>
                         <p className="text-sm py-4 h-[68px">
-                          {" "}
-                          {truncateText(
-                            "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
-                            20
-                          )}{" "}
-                          {/* {truncateText(arr.about, 30)} */}
+                     
+                          {truncateText(arr.about, 20)}
                         </p>
                         <div className="flex justify-between">
                           <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -283,12 +283,8 @@ const PrevArrow = ({ className, style, onClick }) => (
                      </p>
                    </div>
                    <p className="text-sm py-4 h-[68px">
-                     {" "}
-                     {truncateText(
-                       "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
-                       20
-                     )}{" "}
-                     {/* {truncateText(arr.about, 30)} */}
+         
+                     {truncateText(arr.about, 20)}
                    </p>
                    <div className="flex justify-between">
                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -354,11 +350,8 @@ const PrevArrow = ({ className, style, onClick }) => (
                     </div>
                     <p className="text-sm py-4 h-[68px">
                       {" "}
-                      {truncateText(
-                        "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
-                        20
-                      )}{" "}
-                      {/* {truncateText(arr.about, 30)} */}
+           
+                      {truncateText(arr.about, 20)}
                     </p>
                     <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -423,12 +416,8 @@ const PrevArrow = ({ className, style, onClick }) => (
                       </p>
                     </div>
                     <p className="text-sm py-4 h-[68px">
-                      {" "}
-                      {truncateText(
-                        "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
-                        20
-                      )}{" "}
-                      {/* {truncateText(arr.about, 30)} */}
+              {" "}
+                      {truncateText(arr.about, 20)}
                     </p>
                     <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -19,7 +18,6 @@ export default function Navbar() {
         <div className="flex pl-48 gap-8 font-medium">
           <Link href={"/services"}>Our Services</Link>
           <Link href={"/about"}>About Us</Link>
-          <Link href={"/weddings"}>Weddings</Link>
           <Link href={"/contact"}>Contact</Link>
         </div>
        <div className="flex gap-2">

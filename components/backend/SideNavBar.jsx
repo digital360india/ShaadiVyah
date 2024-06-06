@@ -47,7 +47,7 @@ export const SideNavBar = () => {
             <span>My Services</span>
           </div>
         </Link>
-       
+{/*        
         <Link href="/dashboard/contactrequests">
           <div className="flex items-center px-4 py-2 hover:text-white  hover:bg-slate">
             <GiFarmTractor className="mr-2" />
@@ -59,7 +59,7 @@ export const SideNavBar = () => {
             <FaPeopleCarry className="mr-2" />
             <span>Staff</span>
           </div>
-        </Link>
+        </Link> */}
       </div>
     </div>
     <div className="w-screen md:hidden  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">

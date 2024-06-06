@@ -7,6 +7,8 @@ import firebaseApp, { db } from "@/firebase/firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const auth = getAuth(firebaseApp);
 
@@ -54,6 +56,8 @@ const AuthPage = () => {
   };
 
   return (
+ <>
+ <Navbar/>
     <div className="flex justify-center h-[90vh] relative top-10 overflow-hidden">
       <ToastContainer />
       <Image
@@ -128,6 +132,8 @@ const AuthPage = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
