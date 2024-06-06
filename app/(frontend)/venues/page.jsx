@@ -228,50 +228,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         </div>
      
       <Space50px />
-      <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
-                      <img
-                        src={arr.bannerImageUrl}
-                        alt={}
-                        className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
-                      />
-                      <div className=" px-6 py-4 ">
-                        {" "}
-                        <div className="flex justify-between items-center h-[30px]">
-                          {" "}
-                          <h3 className="lg:text-xl font-semibold mb-2">
-                            {arr.businessName}
-                          </h3>
-                          <p>rating</p>
-                        </div>
-                        <div className="flex justify-start gap-2">
-                          <img src="/icons/locationred.svg" />
-                          <p className="text-[18px] text-[#666666]">
-                            {arr.location}
-                          </p>
-                        </div>
-                        <p className="text-sm py-4 h-[68px">
-                          {" "}
-                          {truncateText(
-                            "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
-                            20
-                          )}{" "}
-                          {/* {truncateText(arr.about, 30)} */}
-                        </p>
-                        <div className="flex justify-between">
-                          <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                              100-200 pax
-                            </p>
-                          </div>
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                          </div>{" "}
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      
       <Space50px />
       <ContactUSPhoto />
       <Discription />
