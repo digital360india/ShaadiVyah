@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { parseCookies } from "nookies";
-import "tailwindcss/tailwind.css"; // Assuming Tailwind CSS is installed
+import { MdEdit } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const PhotographerVendorPage = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,10 @@ const PhotographerVendorPage = () => {
     advancePayment: "",
   });
   const [editMode, setEditMode] = useState(false);
+  const [services, setServices] = useState([]);
+  const [userServices, setUserServices] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+
   const cookies = parseCookies();
   const photographerId = cookies.token;
 
@@ -37,13 +42,27 @@ const PhotographerVendorPage = () => {
             travelsToVenue: data.travelsToVenue || false,
             advancePayment: data.advancePayment || "",
           });
+          setUserServices(data.servicesID || []);
         } else {
           console.error("Photographer data not found:", photographerId);
         }
       }
     };
-
+    
+    const fetchPhotographerServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "photographerServices"));
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setServices(data);
+      } catch (error) {
+        console.error("Error fetching servcies:", error);
+      }
+    };
     fetchPhotographerData();
+    fetchPhotographerServices();
   }, [photographerId]);
 
   const handleChange = (event) => {
@@ -53,7 +72,12 @@ const PhotographerVendorPage = () => {
       [name]: type === "checkbox" ? event.target.checked : value,
     }));
   };
-
+  const handleServicesChange = (e) => {
+    const { value, checked } = e.target;
+    setUserServices((prev) =>
+      checked ? [...prev, value] : prev.filter((amenity) => amenity !== value)
+    );
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -68,7 +92,18 @@ const PhotographerVendorPage = () => {
       alert("An error occurred. Please try again later.");
     }
   };
-
+  const handleSaveServices = async () => {
+    try {
+      const userRef = doc(db, "users",photographerId);
+      await updateDoc(userRef, { servicesID: userServices });
+      setIsEditing(false);
+      toast.success("Service updated successfully!");
+  
+    } catch (error) {
+      console.error("Error updating Service: ", error);
+      toast.error("Error updating Service.");
+    }
+  };
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
@@ -220,6 +255,57 @@ const PhotographerVendorPage = () => {
             </div>
           </div>
         )}
+         {isEditing ? (
+        <div>
+          {services.map((data) => (
+            <div key={data.id} className="flex items-center mb-2 text-black">
+              <input
+                type="checkbox"
+                id={data.id}
+                value={data.id}
+                checked={userServices.includes(data.id)}
+                onChange={handleServicesChange}
+                className="mr-2"
+              />
+              <label htmlFor={data.id}>{data.name}</label>
+            </div>
+          ))}
+          <button
+            onClick={handleSaveServices}
+            className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+          >
+            Save
+          </button>
+        </div>
+      ) : (
+        <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="flex flex-row justify-between">
+            {" "}
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              Current Amenities
+            </h2>{" "}
+            <div className="mb-4">
+              <button
+                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                onClick={() => setIsEditing(!isEditing)}
+              >
+                {isEditing ? "Cancel" : <MdEdit />}
+              </button>
+            </div>
+          </div>
+          <ul className="list-disc list-inside space-y-2">
+            {userServices.map((serviceID) => {
+const service = services.find((service) => service.id === serviceID);
+return service ? (
+                <li key={serviceID} className="text-gray-700">
+                  {service.name}
+                </li>
+              ) : null;
+            })}
+          </ul>
+        </div>
+      )}
+
       </div>
     </div>
   );

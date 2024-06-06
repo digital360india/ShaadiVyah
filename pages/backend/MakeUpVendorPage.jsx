@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, updateDoc , collection } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { parseCookies } from "nookies";
-
+import { MdEdit } from "react-icons/md";
+import { toast } from "react-toastify";
 const MakeUpVendorPage = ({ vendorId }) => {
   const [formData, setFormData] = useState({
     pricePerDay: "",
@@ -15,7 +16,10 @@ const MakeUpVendorPage = ({ vendorId }) => {
     engagementMakeupCharge: "",
     makeupPerFamilyMember: "",
   });
-  const [editMode, setEditMode] = useState(false); 
+  const [editMode, setEditMode] = useState(false);
+  const [services, setServices] = useState([]);
+  const [userServices, setUserServices] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   const cookies = parseCookies();
   const uid = cookies.token;
@@ -31,7 +35,19 @@ const MakeUpVendorPage = ({ vendorId }) => {
         }
       }
     };
-
+    const fetchServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "makeupServices"));
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setServices(data);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      }
+    };
+    fetchServices();
     fetchVendorData();
   }, [uid]);
 
@@ -42,7 +58,24 @@ const MakeUpVendorPage = ({ vendorId }) => {
       [name]: type === "checkbox" ? event.target.checked : value,
     }));
   };
-
+  const handleServicesChange = (e) => {
+    const { value, checked } = e.target;
+    setUserServices((prev) =>
+      checked ? [...prev, value] : prev.filter((amenity) => amenity !== value)
+    );
+  };
+  const handleSaveServices = async () => {
+    try {
+      const userRef = doc(db, "users", uid);
+      await updateDoc(userRef, { servicesID: userServices });
+      setIsEditing(false);
+      toast.success("Service updated successfully!");
+  
+    } catch (error) {
+      console.error("Error updating Service: ", error);
+      toast.error("Error updating Service.");
+    }
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -225,6 +258,57 @@ const MakeUpVendorPage = ({ vendorId }) => {
          </div>
       ) }
     </div>
+    {isEditing ? (
+        <div>
+          {services.map((data) => (
+            <div key={data.id} className="flex items-center mb-2 text-black">
+              <input
+                type="checkbox"
+                id={data.id}
+                value={data.id}
+                checked={userServices.includes(data.id)}
+                onChange={handleServicesChange}
+                className="mr-2"
+              />
+              <label htmlFor={data.id}>{data.name}</label>
+            </div>
+          ))}
+          <button
+            onClick={handleSaveServices}
+            className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+          >
+            Save
+          </button>
+        </div>
+      ) : (
+        <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="flex flex-row justify-between">
+            {" "}
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              Current Amenities
+            </h2>{" "}
+            <div className="mb-4">
+              <button
+                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                onClick={() => setIsEditing(!isEditing)}
+              >
+                {isEditing ? "Cancel" : <MdEdit />}
+              </button>
+            </div>
+          </div>
+          <ul className="list-disc list-inside space-y-2">
+            {userServices.map((serviceID) => {
+const service = services.find((service) => service.id === serviceID);
+return service ? (
+                <li key={serviceID} className="text-gray-700">
+                  {service.name}
+                </li>
+              ) : null;
+            })}
+          </ul>
+        </div>
+      )}
+
     </div>
   );
 };
