@@ -12,7 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
 import AboutShadivyah from "@/components/AboutShadivyah";
 import HowToWork from "@/components/HowToWork";
-import ContactUSPhoto from "@/components/ContactUSPhoto";
+import ContactUsPhoto from "@/components/ContactUsPhoto";
 
 
 export default function Landing() {
@@ -444,7 +444,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         <Testimonials/>
         <AboutShadivyah/>
         <HowToWork/>
-        <ContactUSPhoto/>
+        <ContactUsPhoto/>
       </div>
       
     </div>

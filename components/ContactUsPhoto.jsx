@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import React from 'react'
 
-const ContactUSPhoto = () => {
+const ContactUsPhoto = () => {
     return (
         <div className='bg-white py-5'>
           <div className=" min-h-full xl:px-[80px] lg:px-[40px] md:px-[50px]  relative flex items-center justify-center">
@@ -26,4 +25,4 @@ const ContactUSPhoto = () => {
       )
 }
 
-export default ContactUSPhoto
+export default ContactUsPhoto

@@ -45,14 +45,14 @@ const page = () => {
     <div>
       {isLoading && <p>Loading user data...</p>}
       {error && <p>Error: {error}</p>}
-      <VenueVendorPage />
+      {/* <VenueVendorPage />
       <MakeUpVendorPage />
       <PhotographerVendorPage />
-      <MehndiVendorPage />
-      {/* {user?.vendorTypeUID === "venuevendor" && <VenueVendorPage />}
+      <MehndiVendorPage /> */}
+      {user?.vendorTypeUID === "venuevendor" && <VenueVendorPage />}
       {user?.vendorTypeUID === "makeupvendor" && <MakeUpVendorPage />}
       {user?.vendorTypeUID === "photographervendor" && <PhotographerVendorPage />}
-      {user?.vendorTypeUID === "mehndivendor" && <MehndiVendorPage />} */}
+      {user?.vendorTypeUID === "mehndivendor" && <MehndiVendorPage />}
 
     </div>
   );

@@ -1,16 +1,33 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { db, storage } from "@/firebase/firebase";
-import { doc, updateDoc, arrayUnion, arrayRemove, getDocs, collection, query, where } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { parseCookies } from "nookies";
 import { generatePassword } from "@/utils/generatePassword";
 import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading2, setIsLoading2] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
   const [bannerImageUrl, setBannerImageUrl] = useState("");
   const [venueLinks, setVenueLinks] = useState([]);
   const [user, setUser] = useState(null);
@@ -73,16 +90,18 @@ const Portfolio = () => {
     }
   };
 
-  const handleVenueFilesChange = async (e) => {
-    const files = e.target.files;
-    if (!files.length) return;
-    setIsLoading(true);
+  const handleVenueFilesChange = async () => {
+    if (selectedFiles.length === 0) return;
+    setIsLoading2(true);
 
     try {
       const userRef = doc(db, "users", user.uid);
       const venueUrls = [];
-      for (const file of files) {
-        const venueRef = ref(storage, `bannerImages/${user.uid}/portfolio/${generatePassword()}`);
+      for (const file of selectedFiles) {
+        const venueRef = ref(
+          storage,
+          `bannerImages/${user.uid}/portfolio/${generatePassword()}`
+        );
         await uploadBytes(venueRef, file);
         const downloadURL = await getDownloadURL(venueRef);
         venueUrls.push(downloadURL);
@@ -96,8 +115,15 @@ const Portfolio = () => {
       console.error("Error uploading venue images: ", error);
       toast.error("Error uploading venue images.");
     } finally {
-      setIsLoading(false);
+      setIsLoading2(false);
+      setSelectedFiles([]); // Clear selected files after uploading
     }
+  };
+
+  const handleFileSelect = (e) => {
+    const files = e.target.files;
+    const fileArray = Array.from(files);
+    setSelectedFiles(fileArray);
   };
 
   const handleDeleteVenueImage = async (index) => {
@@ -121,9 +147,9 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="md:m-10 m-4">
+      <div className="m-8 ">
         <ToastContainer />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 ">
           <p className="font-medium">BANNER IMAGE</p>
           <div className="flex gap-6 pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
             <input
@@ -141,6 +167,9 @@ const Portfolio = () => {
             </label>
           </div>
         </div>
+        {isLoading && (
+          <div className="text-center mt-4">Uploading banner image...</div>
+        )}
         {bannerImageUrl && (
           <div className="relative w-[146px] h-[107px] mt-4">
             <img
@@ -162,10 +191,20 @@ const Portfolio = () => {
             <input
               type="file"
               multiple
-              onChange={handleVenueFilesChange}
+              onClick={(e) => (e.target.value = null)}
+              onChange={handleFileSelect}
             />
+            <button
+              className="px-4 py-2 rounded bg-[#A11C5C] text-white cursor-pointer mt-2"
+              onClick={handleVenueFilesChange}
+            >
+              {isLoading2 ? "Uploading..." : "Upload"}
+            </button>
           </div>
         </div>
+        {isLoading2 && (
+          <div className="text-center mt-4">Uploading venue images...</div>
+        )}
         <div className="flex gap-4 flex-wrap mt-4">
           {venueLinks &&
             venueLinks.map((link, index) => (
@@ -186,10 +225,18 @@ const Portfolio = () => {
         </div>
       </div>
       <div className="w-screen bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
-        <div className="py-[20px]"><FiHome className="w-[40px] h-[40px]" /></div>
-        <div className="py-[20px]"><FiTag className="w-[40px] h-[40px]" /></div>
-        <div className="py-[20px]"><FiImage className="w-[40px] h-[40px]" /></div>
-        <div className="py-[20px]"><FiGift className="w-[40px] h-[40px]" /></div>
+        <div className="py-[20px]">
+          <FiHome className="w-[40px] h-[40px]" />
+        </div>
+        <div className="py-[20px]">
+          <FiTag className="w-[40px] h-[40px]" />
+        </div>
+        <div className="py-[20px]">
+          <FiImage className="w-[40px] h-[40px]" />
+        </div>
+        <div className="py-[20px]">
+          <FiGift className="w-[40px] h-[40px]" />
+        </div>
       </div>
     </>
   );

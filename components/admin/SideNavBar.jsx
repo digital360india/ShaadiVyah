@@ -38,7 +38,20 @@ export const SideNavBar = () => {
           <Link href="/admin/dashboard/editdata">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
               <FaImages className="mr-2" />
-              <span>Edit Data</span>
+              <span>Edit Venue Data</span>
+            </div>
+          </Link>
+          <Link href="/admin/dashboard/editmakeupdata">
+            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+              <FiGift className="mr-2" />
+              <span>Edit Makeup Data</span>
+            </div>
+          </Link>
+          
+          <Link href="/admin/dashboard/editphotographerdata">
+            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+              <FiGift className="mr-2" />
+              <span>Edit Photographer Data</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/vendors">

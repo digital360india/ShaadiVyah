@@ -17,7 +17,7 @@ export default function Hero() {
   };
 
   const handleSearch = () => {
-    router.push(`/${selectedLocation}&category=${selectedCategory}`);
+    router.push(`/search/${selectedLocation}/${selectedCategory}`);
   };
 
   return (
@@ -43,7 +43,7 @@ export default function Hero() {
                 <option value="Dehradun">Dehradun</option>
                 <option value="Nanital">Nanital</option>
                 <option value="Tehri">Tehri</option>
-                <option value="Mussorrie">Mussorrie</option>
+                <option value="Mussorrie">Mussoorie</option>
               </select>
             </div>
             <div className="hidden md:block">|</div>
@@ -61,9 +61,10 @@ export default function Hero() {
               >
                 <option value="">Choose a category</option>
                 <option value="Photographers">Photographers</option>
+                <option value="Makeup">Makeup</option>
+
                 <option value="Venue">Venue</option>
                 <option value="Mehndi Artists">Mehndi Artists</option>
-                <option value="Decorators">Decorators</option>
               </select>
             </div>
             <div>|</div>
