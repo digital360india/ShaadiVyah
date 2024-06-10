@@ -281,7 +281,7 @@ const PhotographerVendorPage = () => {
         <div className="bg-white shadow-md rounded-lg p-4">
           <div className="flex flex-row justify-between">
             {" "}
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+            <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-gray-800">
               Current Amenities
             </h2>{" "}
             <div className="mb-4">

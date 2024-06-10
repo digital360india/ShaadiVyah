@@ -12,7 +12,7 @@ import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 // import { collection, getDocs, query, where } from "firebase/firestore";
-// import { db } from "@/firebase/firebase"; 
+// import { db } from "@/firebase/firebase";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -44,25 +44,24 @@ const Page = () => {
   //   fetchVenues();
   // }, []);
 
-      // Custom Next Arrow Component
-const NextArrow = ({ className, style, onClick }) => (
-  <div
-    className={`${className} custom-arrow custom-next-arrow`}
-    style={{ ...style, display: "block", background: "pink" , }}
-    onClick={onClick}
-  />
-);
+  // Custom Next Arrow Component
+  const NextArrow = ({ className, style, onClick }) => (
+    <div
+      className={`${className} custom-arrow custom-next-arrow`}
+      style={{ ...style, display: "block", background: "pink" }}
+      onClick={onClick}
+    />
+  );
 
-// Custom Prev Arrow Component
-const PrevArrow = ({ className, style, onClick }) => (
-  <div
-    className={`${className} custom-arrow custom-prev-arrow`}
-    style={{ ...style, display: "block", background: "pink" }}
-    onClick={onClick}
-  />
-);
+  // Custom Prev Arrow Component
+  const PrevArrow = ({ className, style, onClick }) => (
+    <div
+      className={`${className} custom-arrow custom-prev-arrow`}
+      style={{ ...style, display: "block", background: "pink" }}
+      onClick={onClick}
+    />
+  );
   const [venue, setVenues] = useState([]);
-  
 
   const fetchVenue = async () => {
     try {
@@ -81,10 +80,8 @@ const PrevArrow = ({ className, style, onClick }) => (
     }
   };
 
-
   useEffect(() => {
     fetchVenue();
-    
   }, []);
 
   const sliderSettings = {
@@ -138,6 +135,52 @@ const PrevArrow = ({ className, style, onClick }) => (
   };
 
 
+
+  const sliderwedding = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+      responsive: [
+      {
+        breakpoint: 1440, // xl
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1324, // lg
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1124, // lg
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // md
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 740, // sm
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Hero_2
@@ -145,10 +188,42 @@ const PrevArrow = ({ className, style, onClick }) => (
         text={"Lorem ipsum dolor sit amet consectetur."}
       />
       <Space50px />
-      <HeadingsVenueSection text1={"Weddings"} text2={"Destinations"} />
+      {/* <HeadingsVenueSection text1={"Weddings"} text2={"Destinations"} /> */}
       <Space25px />
-      <div className="flex justify-center items-center px-6 gap-8">
-        {/* Place any additional content here if needed */}
+      <div>
+      <div className="lg:px-10 px-6">
+      <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 ">
+      Wedding <span className="font-dancing-script">Destinations</span>
+          </p>
+       
+          <div className="p-4">
+          <Slider {...sliderwedding}>
+                
+          <div >
+             <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+             <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>
+            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+            <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>             
+
+            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+            <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>
+            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+            <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>
+            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+            <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>
+            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
+            <p className="px-[70px] text-[#02394A]">rishkesh</p>
+            </div>
+              
+              </Slider>
+              </div>
+          
+      </div>
       </div>
       <Space25px />
       {/* <HeadingsVenueSection text1={"Popular"} text2={"Destinations"} /> */}
@@ -156,17 +231,13 @@ const PrevArrow = ({ className, style, onClick }) => (
       {/* <Space50px />
       <Space50px /> */}
       <div className=" py-16  relative  z-20 lg:px-10 px-6 ">
-          
         <div className="">
           <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4">
             Popular <span className="font-dancing-script">Destinations</span>
           </p>
           <div className="px-[15px] ">
             {venue.length > 0 ? (
-              <Slider
-                {...sliderSettings}
-               
-              >
+              <Slider {...sliderSettings}>
                 {venue.map((arr, index) => (
                   <Link
                     href={`/venues/${arr.uid}`}
@@ -209,10 +280,14 @@ const PrevArrow = ({ className, style, onClick }) => (
                             </p>
                           </div>
                           <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
+                            <p className="text-[#333333] lg:text-sm text-[10px]">
+                              32 rooms
+                            </p>
                           </div>{" "}
                           <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
+                            <p className="text-[#333333] lg:text-sm text-[10px]">
+                              32 rooms
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -225,11 +300,327 @@ const PrevArrow = ({ className, style, onClick }) => (
             )}
           </div>
         </div>
+      </div>
+
+      <Space50px />
+   <div>
+   <div>
+   <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-fira-sans p-4">
+            All <span className="font-dancing-script">Destinations</span>
+          </p>
+   </div>
+   <div className="justify-center flex  flex-wrap gap-3 px-6">
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[320px] ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+              {/* {truncateText(arr.about, 30)} */}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-     
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[320px] ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+              {/* {truncateText(arr.about, 30)} */}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[320px] ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+              {/* {truncateText(arr.about, 30)} */}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[320px] ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+              {/* {truncateText(arr.about, 30)} */}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[320px] ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+              {/* {truncateText(arr.about, 30)} */}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+         </div>
+   </div>
       <Space50px />
+      {/* <div className="xl:px-[90px] lg:px-[80px] md:px-[50px] flex flex-wrap  xl:gap-3 lg:gap-16 md:gap-3 ">
+        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] w-[325px]  ">
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       
-      <Space50px />
+          <img
+            src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+            alt=""
+            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+          />
+          <div className=" px-6 py-4 ">
+            {" "}
+            <div className="flex justify-between items-center h-[30px]">
+              {" "}
+              <h3 className="lg:text-xl font-semibold mb-2">Wow dwstination</h3>
+              <p>rating</p>
+            </div>
+            <div className="flex justify-start gap-2">
+              <img src="/icons/locationred.svg" />
+              <p className="text-[18px] text-[#666666]">Uttrakhand</p>
+            </div>
+            <p className="text-sm py-4 h-[68px">
+              {" "}
+              {truncateText(
+                "lorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjklorem dfghj fghjk fghjk fghjkl fghjk",
+                20
+              )}{" "}
+            </p>
+            <div className="flex justify-between">
+              <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:lg:text-sm text-[10px]">
+                  100-200 pax
+                </p>
+              </div>
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>{" "}
+              <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
+                <p className="text-[#333333] lg:text-sm text-[10px]">
+                  32 rooms
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div> */}
       <ContactUSPhoto />
       <Discription />
       <div>
