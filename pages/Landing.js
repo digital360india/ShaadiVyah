@@ -390,7 +390,7 @@ const PrevArrow = ({ className, style, onClick }) => (
             <Slider {...sliderSettings}>
               {photographersArtists.map((arr, index) => (
                 <Link
-                href={`/venues/${arr.uid}`}
+                href={`/photographervendors/${arr.uid}`}
                 key={index}
                 className=" py-4 px-4 "
               >

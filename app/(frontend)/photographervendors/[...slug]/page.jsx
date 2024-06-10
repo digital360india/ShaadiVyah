@@ -1,10 +1,10 @@
-import DetailPage from "@/pages/DetailsPage";
+import PhotographerDetailsPage from "@/pages/PhotographerDetailsPage";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <DetailPage /></>)
+      <PhotographerDetailsPage /></>)
 }
 
 export default page
