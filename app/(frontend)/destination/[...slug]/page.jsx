@@ -3,7 +3,7 @@ import DestinationCard from "@/components/DestinationCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import Hero_2 from "@/components/Hero_2";
-import Image from "next/image";import React from "react";
+import React from "react";
 export default function page() {
   return (
     <div>

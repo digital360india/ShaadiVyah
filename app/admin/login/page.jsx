@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import firebaseApp, { db } from "@/firebase/firebase";
@@ -36,7 +35,7 @@ const AuthPage = () => {
       setTimeout(() => {
         toast.success("Welcome ADMIN " );
       }, 2000);
-      document.cookie = `token=${user.uid}`;
+      document.cookie = `admintoken=${user.id}`;
       router.push("/admin/dashboard");
     } catch (error) {
       console.error("Login failed:", error.message);
@@ -58,7 +57,7 @@ const AuthPage = () => {
 
   return (
     <div className="flex justify-center h-[90vh] relative top-10 overflow-hidden ">
-      <Image
+      <img
         src="/images/hero.png"
         alt="Logo"
         width={1200}
@@ -73,7 +72,7 @@ const AuthPage = () => {
           <div className="w-96 h-96 bg-opacity-80 bg-black text-black flex-col rounded-2xl mt-10 p-6">
             <div className="flex  justify-center items-center">
               {" "}
-              <Image
+              <img
                 src="/logo.png"
                 alt="Logo"
                 width={1200}

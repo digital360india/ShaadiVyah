@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { db, storage } from "@/firebase/firebase";
-import Image from "next/image";
 import {
   collection,
   getDocs,

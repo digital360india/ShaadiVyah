@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { db } from "@/firebase/firebase";
-import Image from "next/image";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
@@ -33,7 +32,7 @@ const Page = () => {
     <div>
     <div className=" lg:m-10 m-4">
       <div className="flex flex-col w-full h-96 items-center justify-center">
-        <Image
+        <img
           src="/logo.png"
           width={1000}
           height={1000}

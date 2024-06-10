@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { getDocs, query, collection, orderBy, where } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
-import Image from "next/image";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import Gallery from "@/components/Gallery";
@@ -178,7 +177,7 @@ const DetailPage = () => {
               {data?.bussinessName}
               <div className="flex justify-between items-center text-sm font-normal text-white">
                 <div className="rounded-full flex px-4 py-2 bg-[#FF8FA3]">
-                  <Image
+                  <img
                     src="/icons/location.svg"
                     height={1000}
                     width={1000}
