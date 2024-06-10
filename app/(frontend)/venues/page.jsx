@@ -1,5 +1,4 @@
 "use client";
-import ContactUSPhoto from "@/components/ContactUSPhoto";
 import DestinationCard from "@/components/DestinationCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
@@ -17,6 +16,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import ContactUsPhoto from "@/components/ContactUsPhoto";
 
 // import ContactUSPhoto from "@/components/ContactUSPhoto";
 
@@ -621,7 +621,7 @@ const Page = () => {
           </div>
         
       </div> */}
-      <ContactUSPhoto />
+      <ContactUsPhoto />
       <Discription />
       <div>
         <FAQ />

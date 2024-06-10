@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Hero_2 from "@/components/Hero_2";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
+import ContactUsPhoto from "@/components/ContactUsPhoto";
 
 export default function Page(params) {
   const [data, setData] = useState([]);

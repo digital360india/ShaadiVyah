@@ -1,5 +1,4 @@
 "use client";
-import ContactUSPhoto from "@/components/ContactUSPhoto";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import HeadingsVenueSection from "@/components/HeadingsVenueSection";
@@ -10,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import MehandiCard from "@/components/MehandiCard ";
+import ContactUsPhoto from "@/components/ContactUsPhoto";
 
 const Page = () => {
   const [data, setData] = useState([]);
@@ -51,7 +51,7 @@ const Page = () => {
       <MehandiCard data={data} />
       <Space50px />
       <Space50px />
-      <ContactUSPhoto />
+      <ContactUsPhoto />
       <Space50px />
       <Space50px />
       <Discription />

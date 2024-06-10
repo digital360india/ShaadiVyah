@@ -1,5 +1,4 @@
 "use client";
-import ContactUSPhoto from "@/components/ContactUSPhoto";
 import DestinationCard from "@/components/DestinationCard";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
@@ -10,6 +9,7 @@ import Space50px from "@/components/Space50px";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import ContactUsPhoto from "@/components/ContactUsPhoto";
 
 const Page = () => {
   const [venues, setVenues] = useState([]);
@@ -51,7 +51,7 @@ const Page = () => {
       <DestinationCard venues={venues} />
       <Space50px />
       <Space50px />
-      <ContactUSPhoto />
+      <ContactUsPhoto />
       <Space50px />
       <Space50px />
       <Discription />
