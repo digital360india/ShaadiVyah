@@ -12,6 +12,7 @@ export default function Comp() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+  
   };
 
   const array = [
@@ -67,7 +68,7 @@ export default function Comp() {
       <div>
         <Slider {...settings} className="">
           {array.map((value, index) => (
-            <div className="w-[400px] h-[488px]  p-4 ">
+            <div key={index} className="w-[400px] h-[488px]  p-4 ">
               <img
                 src={"/images/hero.png"}
                 width={1000}

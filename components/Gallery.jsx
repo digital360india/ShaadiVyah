@@ -11,6 +11,7 @@ export default function Gallery({ images }) {
   return (
     <div className="w-screen  ">
       <Carousel
+      key={images.index}
         additionalTransfrom={0}
         arrows={false}  
         autoPlaySpeed={3000}
