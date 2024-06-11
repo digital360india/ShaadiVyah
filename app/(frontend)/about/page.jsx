@@ -1,9 +1,55 @@
-import React from "react";
-import "@/styles/Textgradient.css";
+"use client";
+import React, { useState } from "react";
+import { db } from "@/firebase/firebase"; // Adjust the path to your Firebase configuration
+import { collection, addDoc } from "firebase/firestore";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
-export default function page() {
+import "@/styles/Textgradient.css";
+
+export default function Page() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      await addDoc(collection(db, "enquiries"), formData);
+      setFormData({
+        name: "",
+        phone: "",
+        message: "",
+      });
+      setSuccess(true);
+      toast.success("Enquiry submitted successfully!");
+    } catch (error) {
+      setError(error.message);
+      toast.error("Error submitting enquiry. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
+      <ToastContainer />
       {/* About ShadiVyah */}
       <div className="xl:px-[100px] lg:px-[50px] md:px-[50px] px-6 py-[70px] flex flex-col lg:flex-row justify-between">
         <div>
@@ -16,10 +62,10 @@ export default function page() {
           <p className="lg:text-[18px] text-[14px]  xl:w-[504px]">
             Welcome to Shaadivyah, your premier choice for destination weddings
             in Rishikesh and the enchanting region of Uttarakhand. We are proud
-            to be at the forefront of Prime Minister Narendra Modi's visionary
-            'Wed in India' movement, offering couples from around the world the
-            chance to celebrate their love in one of India's most spiritually
-            uplifting and picturesque locations.
+            to be at the forefront of Prime Minister Narendra Modi&apos;s
+            visionary &apos;Wed in India&apos; movement, offering couples from
+            around the world the chance to celebrate their love in one of
+            India&apos;s most spiritually uplifting and picturesque locations.
           </p>
           <button className="py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] text-white rounded-3xl">
             Contact Us
@@ -42,20 +88,20 @@ export default function page() {
           </p>
           <div className="md:space-y-4 space-y-2 text-white lg:w-[503px] md:w-[350px] text-[14px] lg:text-[18px]">
             <p>
-              At Shaadivyah, we understand that your wedding day is one of the
-              most significant events in your life. That's why we provide
-              comprehensive wedding planning services tailored to your unique
-              vision and preferences. From stunning venues and professional
-              photographers to expert makeup artists and intricate mehndi
-              designs, we ensure every detail is perfect.
+            Our commitment to excellence, combined with our deep knowledge of
+  Uttarakhand&apos;s most beautiful wedding destinations, makes us the
+  ideal partner for your destination wedding in Nainital. Let us
+  turn your dream wedding into a reality, surrounded by the
+  breathtaking beauty of the Himalayas and the tranquil charm of
+  Nainital&apos;s lakes.
             </p>
             <p>
-              Our commitment to excellence, combined with our deep knowledge of
-              Uttarakhand's most beautiful wedding destinations, makes us the
-              ideal partner for your destination wedding in Nainital. Let us
-              turn your dream wedding into a reality, surrounded by the
-              breathtaking beauty of the Himalayas and the tranquil charm of
-              Nainital's lakes.
+            At Shaadivyah, we understand that your wedding day is one of the
+  most significant events in your life. That&apos;s why we provide
+  comprehensive wedding planning services tailored to your unique
+  vision and preferences. From stunning venues and professional
+  photographers to expert makeup artists and intricate mehndi
+  designs, we ensure every detail is perfect.
             </p>
           </div>
         </div>
@@ -69,7 +115,7 @@ export default function page() {
         <p className="lg:text-[17px] text-[13px] font-medium text-[#C9184A] text-center">
           Led by experts in each respective field, our specialist services teams
           execute requests with swift authority whilst always watching for
-          what's next.
+          what&apos;s next.
         </p>
         <div className="xl:px-[60px] lg:px-[30px] lg:flex-nowrap px-10 flex flex-col md:flex-row md:flex-wrap xl:gap-10 lg:gap-5 md:gap-10 gap-5  mt-12 justify-center items-center">
           <Link
@@ -151,13 +197,17 @@ export default function page() {
             </li>
             <li className="lg:text-[18px] text-[14px]">
               {" "}
-              We oversee every detail on your big day, providing support and coordination.
+              We oversee every detail on your big day, providing support and
+              coordination.
             </li>
             <button className="hidden lg:block py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-3xl text-white">
               Contact Us
             </button>
           </div>
-          <img src="/images/bangles.png" className="bg-black lg:h-[400px] lg:w-[627px] h-[220px] mt-4 lg:mt-0"></img>
+          <img
+            src="/images/bangles.png"
+            className="bg-black lg:h-[400px] lg:w-[627px] h-[220px] mt-4 lg:mt-0"
+          ></img>
           <div className="flex justify-center items-center mt-7">
             <button className="block lg:hidden py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-3xl text-white">
               Contact Us
@@ -167,45 +217,70 @@ export default function page() {
       </div>
       {/* OUR APPROACH */}
       {/* Make an Enquiry */}
-      <div className="bg-[#F9DCC4] lg:py-[48px] py-8 mt-40  ">
+      <div className="bg-[#F9DCC4] lg:py-[48px] py-8 mt-40">
         <p className="lg:text-[56px] text-[40px] font-medium text-[#C9184A] text-center">
           Make an Enquiry
         </p>
-        <div className="xl:px-[140px] pl-6 md:pl-16 lg:pl-32 flex flex-col justify-center items-center ">
-          <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light ">
-            Please share your{" "}
-            <input
-              className="placeholder:text-center  border-b border-b-black bg-transparent   "
-              type="text "
-              placeholder="name"
-            />{" "}
-          </p>
-          <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light ">
-            and your{" "}
-            <input
-              className="placeholder:text-center border-b border-b-black bg-transparent   "
-              type="text "
-              placeholder="phone number"
-            />{" "}
-          </p>
-          <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light ">
-            {" "}
-            <input
-              className="placeholder:text-center border-b border-b-black bg-transparent lg:w-[800px] md:w-[600px]   xl:w-[1037px] mt-10"
-              type="text "
-              placeholder=" message"
-            />{" "}
-          </p>
-          <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light ">
-            {" "}
-            Lets figure out what project we can do together.{" "}
-          </p>
-        </div>
-        <div className="flex justify-center items-center mt-16">
-          <button className="py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-3xl text-white">
-            Submit
-          </button>
-        </div>
+        {success ? (
+          <div className="flex flex-col items-center justify-center h-full">
+            <h2 className="text-2xl font-bold text-green-500">Thank you!</h2>
+            <p className="text-lg text-gray-700 mt-4">
+              Your enquiry has been successfully sent. We will get back to you
+              shortly.
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="xl:px-[140px] pl-6 md:pl-16 lg:pl-32 flex flex-col justify-center items-center ">
+              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
+                Please share your{" "}
+                <input
+                  className="placeholder:text-center  border-b border-b-black bg-transparent"
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />{" "}
+              </p>
+              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
+                and your{" "}
+                <input
+                  className="placeholder:text-center border-b border-b-black bg-transparent"
+                  type="text"
+                  name="phone"
+                  placeholder="phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />{" "}
+              </p>
+              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
+                {" "}
+                <input
+                  className="placeholder:text-center border-b border-b-black bg-transparent lg:w-[800px] md:w-[600px] xl:w-[1037px] mt-10"
+                  type="text"
+                  name="message"
+                  placeholder=" message"
+                  value={formData.message}
+                  onChange={handleChange}
+                />{" "}
+              </p>
+              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
+                {" "}
+                Lets figure out what project we can do together.{" "}
+              </p>
+            </div>
+            <div className="flex justify-center items-center mt-16">
+              <button
+                onClick={handleSubmit}
+                className="py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-3xl text-white"
+                disabled={loading}
+              >
+                {loading ? "Submitting..." : "Submit"}
+              </button>
+            </div>
+          </>
+        )}
       </div>
       {/* Make an Enquiry */}
     </div>

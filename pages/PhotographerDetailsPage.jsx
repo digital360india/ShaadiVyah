@@ -264,7 +264,7 @@ const PhotographerDetailsPage = () => {
           <div>Services</div>
           <div>Location</div>
           <div>Reviews</div>
-          <div>FAQ's</div>
+          <div>FAQ&apos;s</div>
         </div>
         {/* Portfolio*/}
         <div className="text-[#4A4A4A] text-[32px] pl-[100px] ">Portfolio</div>

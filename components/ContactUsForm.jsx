@@ -1,16 +1,23 @@
 "use client";
 import React, { useState } from "react";
+import { db } from "@/firebase/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Space50px from "./Space50px";
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     location: "",
     email: "",
     phone: "",
-    selectedVendor: "",
-    selectedLocation: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -18,9 +25,29 @@ const ContactForm = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    setError(null);
+
+    try {
+      await addDoc(collection(db, "leads"), formData);
+      setFormData({
+        name: "",
+        location: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+      setSuccess(true);
+      toast.success("Form submitted successfully!");
+    } catch (error) {
+      setError(error.message);
+      toast.error("Error submitting form. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="xl:px-[100px] px-6   ">
@@ -42,28 +69,17 @@ const ContactForm = () => {
             </div>
             <div className="xl:w-[572px] lg:w-[445px] lg:h-[60px] md:w-[600px] md:h-[50px] w-[342px] h-[40px] border-2">
               <input
-                type="email"
-                id="email"
+                type="phone"
+                id="phone"
                 placeholder="YOUR PHONE NUMBER*"
-                name="email"
+                name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 className="p-2 block w-full h-full  rounded-md border-gray-300 shadow-sm focus:border-blue-200 focus:ring focus:ring-blue-100 focus:ring-opacity-50"
                 required
               />
             </div>
-            <div className=" xl:w-[572px] lg:w-[445px] lg:h-[60px] md:w-[600px] md:h-[50px] w-[342px] h-[40px] border-2">
-              <input
-                type="text"
-                id="selectedVendor"
-                placeholder="SELECTED VENDOR*"
-                name="selectedVendor"
-                value={formData.selectedVendor}
-                onChange={handleChange}
-                className="p-2 block w-full h-full rounded-md border-gray-300 shadow-sm focus:border-blue-200 focus:ring focus:ring-blue-100 focus:ring-opacity-50"
-                required
-              />
-            </div>
+      
           </div>
           <div className=" flex flex-col gap-5 justify-center items-center ">
             {" "}
@@ -92,18 +108,7 @@ const ContactForm = () => {
               />
             </div>
             <div className="flex justify-center items-center">
-              <div className="xl:w-[572px] lg:w-[445px] lg:h-[60px] md:w-[600px] md:h-[50px] w-[342px] h-[40px] border-2">
-                <input
-                  type="text"
-                  id="selectedLocation"
-                  name="selectedLocation"
-                  placeholder="SELECT PREFERRED LOCATION"
-                  value={formData.selectedLocation}
-                  onChange={handleChange}
-                  className="p-2 block w-full h-full rounded-md border-gray-300 shadow-sm focus:border-blue-200 focus:ring focus:ring-blue-100 focus:ring-opacity-50"
-                  required
-                />
-              </div>
+         
             </div>
           </div>
         </div>
@@ -111,8 +116,8 @@ const ContactForm = () => {
         <div className=" h-[245px] border-2 ">
           <input
             type="text"
-            id="selectedLocation"
-            name="selectedLocation"
+            id="message"
+            name="message"
             value={formData.message}
             placeholder="TELL US MORE..."
             onChange={handleChange}
