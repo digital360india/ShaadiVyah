@@ -1,6 +1,5 @@
 import Space100px from "@/components/Space100px";
 import React from "react";
-import DestinationCard from "@/components/DestinationCard";
 
 export default function page() {
   return (
@@ -44,7 +43,7 @@ export default function page() {
           </div>
           <div className="text-center pt-6">
             <p>
-              <span className="text-[#667085]">Don’t have an account?</span>{" "}
+              <span className="text-[#667085]">Don&aps;t have an account?</span>{" "}
               <span className="font-semibold">Sign Up</span>
             </p>
           </div>
@@ -126,7 +125,7 @@ export default function page() {
               placeholder="johndoe@mail.com"
             />
             <div className="flex justify-between pt-2">
-              <p className="text-[#656675] text-sm ">Didn’t receive OTP</p>
+              <p className="text-[#656675] text-sm ">Didn&aps;t receive OTP</p>
               <p className="text-[#656675] text-sm ">Resend</p>
             </div>
           </div>
@@ -221,7 +220,7 @@ export default function page() {
               placeholder="johndoe@mail.com"
             />
             <div className="flex justify-between pt-2">
-              <p className="text-[#656675] text-sm ">Didn’t receive OTP</p>
+              <p className="text-[#656675] text-sm ">Didn&apos;t receive OTP</p>
               <p className="text-[#656675] text-sm ">Resend</p>
             </div>
           </div>
@@ -232,7 +231,6 @@ export default function page() {
           </div>
         </div>
       </div>
-      <DestinationCard />
     </div>
   );
 }
