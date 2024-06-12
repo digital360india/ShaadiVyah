@@ -62,28 +62,25 @@ const PhotographerDetailsPage = () => {
   }, []);
   return (
     <>
-      <div>
+      <div className="overflow-x-hidden">
         <div className="relative flex justify-center items-center mb-40">
           <img
             src={data?.bannerImageUrl}
             className="w-full rounded-b-[40px] h-[550px] object-cover "
           />
 
-          <div className="absolute -bottom-24 z-10 bg-[#FFFFFF] justify-center items-center w-[1078px] h-[230px] rounded-xl">
+          <div className="absolute -bottom-28 z-10 border  bg-[#FFFFFF] justify-center items-center w-[1078px]  rounded-xl">
             <div className="flex flex-col justify-between">
               {" "}
-              <div className="flex flex-row justify-between px-9 py-2">
-                <div className="flex flex-col gap-3  justify-start items-start">
-                  <div className="text-2xl font-semibold">
+              <div className="flex flex-row justify-between mx-16 my-5">
+                <div className="flex flex-col   justify-start items-start">
+                  <div className="text-2xl font-semibold text-[#4A4A4A]">
                     {data?.businessName}
                   </div>
-                  <div className="flex gap-2 justify-start items-center">
-                    <img
-                      src={data?.bannerImageUrl}
-                      height={1000}
-                      width={1000}
-                      className="h-4 w-4 text-black-600 "
-                    />
+                  <div className="flex gap-2 justify-start items-center mt-[10px]">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="black" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"/></svg>
+                    </div>
                     <div></div>{" "}
                     {data?.googleLocation && (
                       <p>
@@ -98,8 +95,8 @@ const PhotographerDetailsPage = () => {
                       </p>
                     )}
                   </div>
-                  <div className="text-[#909090]">{data?.about}</div>
-                  <button className="flex gap-2 justify-start items-center">
+                  <div className="text-[#909090] text-sm mt-[4px]">{data?.about}</div>
+                  <button className="flex gap-2 justify-start items-center mt-[10px]">
                     <img
                       src="/icons/call.svg"
                       height={1000}
@@ -111,7 +108,7 @@ const PhotographerDetailsPage = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   {" "}
-                  <div className="h-[40px] w-[80px] rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
+                  <div className="h-[40px] w-[80px] rounded-sm bg-[#5BA829] flex justify-center items-center gap-2">
                     <img
                       src="/icons/ratingstar.svg"
                       height={1000}
@@ -126,8 +123,8 @@ const PhotographerDetailsPage = () => {
                   </div>
                 </div>
               </div>
-              <div className=" flex justify-center items-center bg-[#FBFBFB] text-[#4A4A4A]">
-                <div className="flex gap-5">
+              <div className=" py-3 flex  bg-[#FBFBFB] justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
+                <div className="flex gap-12">
                   <div className="flex gap-2 justify-center items-center">
                     {" "}
                     <img
@@ -176,25 +173,25 @@ const PhotographerDetailsPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-start mx-[150px]">
-          <div className="w-[46%] flex flex-col gap-6 ">
-            <div className="text-3xl font-bold capitalize ">
-              {data?.bussinessName}
-              <div className="flex justify-between items-center text-sm font-normal ">
-                <div className="text-2xl font-semibold">
-                  {data?.businessName}
-                </div>
-                <div className="rounded-full flex px-4 py-2 bg-[#FF8FA3] text-white">
-                  <img
-                    src="/icons/location.svg"
-                    height={1000}
-                    width={1000}
-                    className="h-4 w-4 text-black-600 "
-                  />
+
+
+        <div className="flex justify-between items-start  mx-[100px]">
+          <div className="w-[46%] flex flex-col gap-10 ">
+            <div className="text-3xl font-semibold text-[#4A4A4A] capitalize ">
+              {data?.businessName}
+              <div className="flex  justify-between items-center text-sm font-normal text-black mt-5 ">
+                <div className="rounded-full flex gap-2  px-4 py-2 bg-[#C7F1C5]">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="black" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"/></svg>
+                    </div>
                   <p>
                     {data?.city} ,&nbsp;
                     {data?.country}
                   </p>
+                </div>
+                <div className="flex">
+                  <p className="text-[18px] font-semibold text-[#0A2D23]">4.5 <span className="text-[15px]">(1887 comentários)</span></p>
+
                 </div>
               </div>
             </div>
@@ -259,27 +256,52 @@ const PhotographerDetailsPage = () => {
           </div>
         </div>
 
-        <div className="m-20 flex justify-center items-center gap-10  text-[#0A2D23] text-[18px]">
-          <div>Portfolio</div>
-          <div>Services</div>
-          <div>Location</div>
-          <div>Reviews</div>
-          <div>FAQ's</div>
+        <div className="m-20 flex justify-center items-center gap-12  text-[#0A2D23] text-[18px]">
+          <p >Portfolio</p>
+          <p>Services</p>
+          <p>Location</p>
+          <p>Reviews</p>
+          <p>FAQ;s</p>
         </div>
         {/* Portfolio*/}
-        <div className="text-[#4A4A4A] text-[32px] pl-[100px] ">Portfolio</div>
+        <div className=" pl-[100px] "><p className="text-[#4A4A4A] font-semibold text-[32px]">Portfolio</p></div>
         <Space25px />
         {data?.portfolioImagesUrl && data.portfolioImagesUrl.length > 0 && (
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80]  h-[50vh] m-[100px]  rounded-md">
-          <div className=" flex flex-col p-10 text-[32px] justify-start items-start gap-10">
-            <div>Services</div>
-            <div className=" flex text-[20px] gap-20">
-              <div>Well-being</div>
-              <div>Common Areas</div>
-              <div>Gastronomy</div>
+<div className="bg-[#CFCCBF80]  p-16 m-[100px]  rounded-2xl text-[#0A2D23]">
+          <div className=" flex flex-col  text-[32px] justify-start items-start gap-10">
+            <div><p className="text-[42px] font-medium ">Services</p></div>
+            <div className=" flex text-[20px] gap-60">
+              <div className="space-y-4"><p className="text-[22px] font-medium">Well-being</p>
+              <div className="text-[14px] font-semibold space-y-3">
+                <p>Pool</p>
+                <p>play Room</p>
+                <p>Kid Space</p>
+
+              </div>
+              </div>
+              <div className="space-y-4"><p className="text-[22px] font-medium">Common Areas</p>
+              <div>
+              <div className="text-[14px] font-semibold space-y-3">
+                <p>Pool</p>
+                <p>play Room</p>
+                <p>Kid Space</p>
+
+              </div>
+                            </div>
+              </div>
+              <div className="space-y-4"><p className="text-[22px] font-medium">Gastronomy</p>
+              <div>
+              <div className="text-[14px] font-semibold space-y-3">
+                <p>Pool</p>
+                <p>play Room</p>
+                <p>Kid Space</p>
+
+              </div>
+                            </div>
+              </div>
             </div>
           </div>
         </div>
