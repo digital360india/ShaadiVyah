@@ -12,6 +12,7 @@ export default function Comp() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+  
   };
 
   const array = [
@@ -65,38 +66,41 @@ export default function Comp() {
         </p>
       </div>
       <div>
-        <Slider {...settings} className="">
-          {array.map((value, index) => (
-            <div className="w-[400px] h-[488px]  p-4 ">
-              <img
-                src={"/images/hero.png"}
-                width={1000}
-                height={1000}
-                className="w-full rounded-t-lg h-[50%]"
-              />
-              <div className="px-5 py-3 space-y-3 w-full bg-white  rounded-b-lg shadow-lg">
-                <div className="flex justify-between">
-                  <p>{value.venueName}</p>
-                  <div>
-                    <></>
-                    <p>
-                      {value.rating}({value.totalRatings})
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <p>{value.location}</p>
-                </div>
-                <p>{value.about}</p>
-                <div className="flex justify-between">
-                  {value.venueDetails.map((value) => (
-                    <p className="bg-gray w-fit px-2 py-1 rounded">{value}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <Slider {...settings} className="">
+  {array.map((value, index) => (
+    <div key={index} className="w-[400px] h-[488px] p-4">
+      <img
+        src={"/images/hero.png"}
+        width={1000}
+        height={1000}
+        className="w-full rounded-t-lg h-[50%]"
+      />
+      <div className="px-5 py-3 space-y-3 w-full bg-white rounded-b-lg">
+        <div className="flex justify-between">
+          <p>{value.venueName}</p>
+          <div>
+            <></>
+            <p>
+              {value.rating}({value.totalRatings})
+            </p>
+          </div>
+        </div>
+        <div>
+          <p>{value.location}</p>
+        </div>
+        <p>{value.about}</p>
+        <div className="flex justify-between">
+          {value.venueDetails.map((detail, idx) => (
+            <p key={idx} className="bg-gray w-fit px-2 py-1 rounded">
+              {detail}
+            </p>
           ))}
-        </Slider>
+        </div>
+      </div>
+    </div>
+  ))}
+</Slider>
+
       </div> 
     </div>
   );

@@ -33,9 +33,9 @@ const DestinationCard = ({ venues }) => {
   return (
     <div className="w-full ">
       <Slider {...sliderSettings}>
-        {venues.map((venue) => (
+        {venues.map((venue , index) => (
           <Link href={`/venues/${venue.id}`} key={venue.id}>
-            <div className="w-full px-2">
+            <div key={index} className="w-full px-2">
               <img
                 src={venue?.bannerImageUrl || "/images/hero.png"}
                 width={1000}

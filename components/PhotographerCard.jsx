@@ -33,7 +33,7 @@ const PhotographerCard = ({ arr }) => {
           <Slider {...sliderSettings}>
             {arr.map((data) => (
               <Link href={`/photographervendor/${data.id}`} key={data.id}>
-                <div className="w-full px-2">
+                <div   key={data.id} className="w-full px-2">
                   <img
                     src={data?.bannerImageUrl || "/images/hero.png"}
                     width={1000}

@@ -9,6 +9,7 @@ import Space50px from "@/components/Space50px";
 import Testimonials from "@/components/Testimonials";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 const AboutUS = () => {
   return (
@@ -48,20 +49,17 @@ const AboutUS = () => {
               Register as a Vendor
             </p>
             <p className="lg:text-lg lg:font-[400] text-center text-blue leading-5 xl:w-[549px] lg:w-[430px] text-sm  ">
-              Lorem ipsum dolor sit amet consectetur. Tellus elit egestas dui
-              non est sed nascetur. Quam felis sit convallis laoreet urna sem
-              vitae turpis mi. Auctor morbi ridiculus varius lectus ut augue
-              egestas arcu.
+            Join our vibrant community of vendors and showcase your unique products and services. We provide a platform that connects you with a wide audience, helping you grow your business and reach new customers. Donot miss this opportunity to become a part of our trusted network and boost your sales.
             </p>
             <div className=" flex justify-center items-center mt-4 lg:mt-0">
               <div className="bg-gradient-to-r  from-[#C9184A] to-[#FFB5A7]  w-[234px] h-[55px] rounded-full shadow-xl">
                 {" "}
-                <button
+             <Link href={'/register'}>   <button
                   type="submit"
                   className=" text-white font-medium py-2 px-4 w-[234px] h-[55px] rounded-full shadow-xl "
                 >
                   Register
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>
@@ -77,13 +75,9 @@ const AboutUS = () => {
               />
             </div>
             <p className="lg:text-[32px] text-[24px] font-[500] text-blue text-center">
-              Register as a Vendor
-            </p>
+            Have a question in mind?            </p>
             <p className="lg:text-lg lg:font-[400] text-center text-blue leading-5 xl:w-[549px] lg:w-[430px] text-sm  ">
-              Lorem ipsum dolor sit amet consectetur. Tellus elit egestas dui
-              non est sed nascetur. Quam felis sit convallis laoreet urna sem
-              vitae turpis mi. Auctor morbi ridiculus varius lectus ut augue
-              egestas arcu.
+            We are here to help! Whether you have questions about our services, need assistance with your account, or just want to learn more about what we do, our team is ready to assist you. Get in touch with us and we will provide the answers you need. Your satisfaction is our top priority, and we are committed to ensuring you have the best experience possible.
             </p>
             <div className=" flex justify-center items-center mt-4 lg:mt-0">
               <div className="bg-gradient-to-r  from-[#C9184A] to-[#FFB5A7]  w-[234px] h-[55px] rounded-full shadow-xl">

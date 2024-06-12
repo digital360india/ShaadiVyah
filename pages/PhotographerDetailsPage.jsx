@@ -256,12 +256,12 @@ const PhotographerDetailsPage = () => {
           </div>
         </div>
 
-        <div className="m-20 flex justify-center items-center gap-12  text-[#0A2D23] text-[18px]">
-          <p >Portfolio</p>
-          <p>Services</p>
-          <p>Location</p>
-          <p>Reviews</p>
-          <p>FAQ;s</p>
+        <div className="m-20 flex justify-center items-center gap-10  text-[#0A2D23] text-[18px]">
+          <div>Portfolio</div>
+          <div>Services</div>
+          <div>Location</div>
+          <div>Reviews</div>
+          <div>FAQ&apos;s</div>
         </div>
         {/* Portfolio*/}
         <div className=" pl-[100px] "><p className="text-[#4A4A4A] font-semibold text-[32px]">Portfolio</p></div>

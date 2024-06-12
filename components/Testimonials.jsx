@@ -32,6 +32,8 @@ export default function Testimonials() {
         </p>
       </div>
       <Carousel
+            key={testimonials.index}
+
         additionalTransfrom={0}
         arrows={false} // Set arrows to false
         autoPlaySpeed={3000}

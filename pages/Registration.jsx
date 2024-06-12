@@ -63,7 +63,7 @@ const Registration = () => {
           phone: formData.phone,
           location: formData.location,
           name: formData.name,
-          approved: false,
+          approval: false,
           seoRating:0,
           ...formData,
         });
