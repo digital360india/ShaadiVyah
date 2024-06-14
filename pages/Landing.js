@@ -181,7 +181,7 @@ const PrevArrow = ({ className, style, onClick }) => (
           <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4">
             Popular <span className="font-dancing-script">Destinations</span>
           </p>
-          <div className="px-[15px] ">
+          <div className="px-[15px]  ">
             {venue.length > 0 ? (
               <Slider
                 {...sliderSettings}
@@ -191,15 +191,15 @@ const PrevArrow = ({ className, style, onClick }) => (
                   <Link
                     href={`/venues/${arr.uid}`}
                     key={index}
-                    className=" py-4 px-4 "
+                    className=" py-4 px-16 "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div className="bg-black rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[] ">
                       <img
                         src={arr.bannerImageUrl}
                         alt={arr.businessName}
                         className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                       />
-                      <div className=" px-6 py-4 ">
+                      <div className=" px-6 py-4  ">
                         {" "}
                         <div className="flex justify-between items-center h-[30px]">
                           {" "}
@@ -214,9 +214,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                             {arr.location}
                           </p>
                         </div>
-                        <p className="text-sm py-4 h-[68px">
+                        <p className="text-sm py-4 h-[120px]">
                      
-                          {truncateText(arr.about, 20)}
+                          {truncateText(arr.about, 30)}
                         </p>
                         <div className="flex justify-between">
                           <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -259,7 +259,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                <Link
                href={`/venues/${arr.uid}`}
                key={index}
-               className=" py-4 px-4 "
+               className=" py-4 px-16 "
              >
                <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                  <img
@@ -282,9 +282,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                        {arr.location}
                      </p>
                    </div>
-                   <p className="text-sm py-4 h-[68px">
+                   <p className="text-sm py-4 h-[120px]">
          
-                     {truncateText(arr.about, 20)}
+                     {truncateText(arr.about, 30)}
                    </p>
                    <div className="flex justify-between">
                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -325,7 +325,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                 <Link
                 href={`/venues/${arr.uid}`}
                 key={index}
-                className=" py-4 px-4 "
+                className=" py-4 px-16 "
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
@@ -348,10 +348,10 @@ const PrevArrow = ({ className, style, onClick }) => (
                         {arr.location}
                       </p>
                     </div>
-                    <p className="text-sm py-4 h-[68px">
+                    <p className="text-sm py-4 h-[120px]">
                       {" "}
            
-                      {truncateText(arr.about, 20)}
+                      {truncateText(arr.about, 30)}
                     </p>
                     <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
@@ -392,7 +392,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                 <Link
                 href={`/photographervendors/${arr.uid}`}
                 key={index}
-                className=" py-4 px-4 "
+                className=" py-4 px-16 "
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
@@ -415,9 +415,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                         {arr.location}
                       </p>
                     </div>
-                    <p className="text-sm py-4 h-[68px">
+                    <p className="text-sm py-4 h-[120px]">
               {" "}
-                      {truncateText(arr.about, 20)}
+                      {truncateText(arr.about, 30)}
                     </p>
                     <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">

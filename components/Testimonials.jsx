@@ -90,7 +90,7 @@ export default function Testimonials() {
             key={index}
             className="lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5"
           >
-            <p className="lg:text-[19px] md:text-[14px] text-[12px]">
+            <p className="lg:text-[19px] md:text-[14px] text-[12px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10">
               {testimonial.testimonial}
             </p>
             <div className="flex items-center justify-center md:pt-6 md:pb-10 py-2">
