@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
 
 const Page = () => {

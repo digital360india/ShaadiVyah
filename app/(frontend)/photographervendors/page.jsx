@@ -1,5 +1,4 @@
 "use client";
-import ContactUSPhoto from "@/components/ContactUSPhoto";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import HeadingsVenueSection from "@/components/HeadingsVenueSection";

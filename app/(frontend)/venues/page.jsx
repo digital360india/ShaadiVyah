@@ -134,15 +134,13 @@ const Page = () => {
     return text;
   };
 
-
-
   const sliderwedding = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-      responsive: [
+    responsive: [
       {
         breakpoint: 1440, // xl
         settings: {
@@ -190,39 +188,82 @@ const Page = () => {
       <Space50px />
       <Space25px />
       <div>
-      <div className="lg:px-10 px-6">
-      <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 ">
-      Wedding <span className="font-dancing-script">Destinations</span>
+        <div className="lg:px-10 px-6">
+          <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 ">
+            Wedding <span className="font-dancing-script">Destinations</span>
           </p>
-       
-          <div className="p-4">
-          <Slider {...sliderwedding}>
-                
-          <div >
-             <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-             <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>
-            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-            <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>             
 
-            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-            <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>
-            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-            <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>
-            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-            <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>
-            <div> <button className="  "><img className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]" src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y" alt="" /></button> 
-            <p className="px-[70px] text-[#02394A]">rishkesh</p>
-            </div>
-              
-              </Slider>
+          <div className="p-4">
+            <Slider {...sliderwedding}>
+              <div>
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
               </div>
-          
-      </div>
+              <div>
+                {" "}
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
+              </div>
+
+              <div>
+                {" "}
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
+              </div>
+              <div>
+                {" "}
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
+              </div>
+              <div>
+                {" "}
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
+              </div>
+              <div>
+                {" "}
+                <button className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">rishkesh</p>
+              </div>
+            </Slider>
+          </div>
+        </div>
       </div>
       <Space25px />
     {/* populer  */}

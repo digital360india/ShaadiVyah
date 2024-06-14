@@ -25,7 +25,7 @@ export default function Testimonials() {
     fetchTestimonials();
   }, []);
   return (
-    <div className="w-screen  bg-white  ">
+    <div className="w-full  bg-white  ">
       <div>
         <p className="font-Fira Sans font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A]  text-center">
           Testimonials

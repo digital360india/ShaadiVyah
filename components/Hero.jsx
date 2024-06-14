@@ -21,7 +21,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="flex items-center justify-center text-white h-[90vh] ">
+    <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[90vh] ">
         <div className="w-[800px] mt-[160px] font-fira-sans">
           <p className="font-semibold text-4xl text-center mb-16">
             Let’s Celebrate Your Festival Party With Us{" "}

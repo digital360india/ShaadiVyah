@@ -32,15 +32,20 @@ const ContactForm = () => {
     setError(null);
 
     try {
-      await addDoc(collection(db, "leads"), formData);
+      const docRef = await addDoc(collection(db, "leads"), formData);
+      const docId = docRef.id; 
+      setFormData({
+        ...formData,
+        id: docId, 
+      });
+      setSuccess(true); 
       setFormData({
         name: "",
         location: "",
         email: "",
         phone: "",
         message: "",
-      });
-      setSuccess(true);
+      }); 
       toast.success("Form submitted successfully!");
     } catch (error) {
       setError(error.message);
@@ -49,6 +54,7 @@ const ContactForm = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="xl:px-[100px] px-6   ">
       <form onSubmit={handleSubmit} className=" w-full">
@@ -137,6 +143,13 @@ const ContactForm = () => {
           </div>
         </div>
       </form>
+      {/* Thank you message */}
+      {success && (
+        <div className="mt-4 text-center text-green-600 font-semibold bg-green-100 px-4 py-2 rounded-md">
+          Thank you for we will in touch soon
+        </div>
+      )}
+      <ToastContainer />
     </div>
   );
 };
