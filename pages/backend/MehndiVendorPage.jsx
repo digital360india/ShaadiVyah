@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { parseCookies } from "nookies";
+import Space50px from "@/components/Space50px";
 
 const MehndiVendorPage = () => {
   const [formData, setFormData] = useState({
@@ -268,7 +269,7 @@ const MehndiVendorPage = () => {
             </div>
           </div>
         )}
-      </div>
+      </div><Space50px/>
     </div>
   );
 };

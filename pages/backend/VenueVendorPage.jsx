@@ -17,6 +17,7 @@ import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 import "react-toastify/dist/ReactToastify.css";
 import { parseCookies } from "nookies";
 import { MdEdit } from "react-icons/md";
+import Space50px from "@/components/Space50px";
 const VenueVendorPage = () => {
   const [amenities, setAmenities] = useState([]);
   const [userAmenities, setUserAmenities] = useState([]);
@@ -44,6 +45,10 @@ const VenueVendorPage = () => {
         setUser(userData);
         setUserAmenities(userData.amenitiesUID || []);
         setUserSpaces(userData.spaces || []);
+        setUserFacilities(userData.facilitiesUID || []);
+        setUserAccessibilityOptions(userData.accessibilityOptionsUID || []);
+        setUserAdditionalServices(userData.additionalServicesUID || []);
+        setUserSafetyAndSecurityOptions(userData.safetyAndSecurityOptionsUID || []);
       }
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -78,7 +83,7 @@ const VenueVendorPage = () => {
 
   const fetchSafetyAndSecurityOptions = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "safetyAndSecurity"));
+      const querySnapshot = await getDocs(collection(db, "safteyAndSecurity"));
       const safetyAndSecurityOptionsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -192,6 +197,8 @@ const VenueVendorPage = () => {
       fetchAmenities();
       fetchFacilities();
       fetchSpaces();
+      fetchSafetyAndSecurityOptions();
+
     }
   }, []);
 
@@ -286,6 +293,10 @@ const VenueVendorPage = () => {
   };
 
   const handleSaveSpaces = async () => {
+    if (!spaceForm.spaceName || !spaceForm.spaceType || !spaceForm.floating || !spaceForm.sitting) {
+      toast.error("Please fill all fields before saving.");
+      return;
+    }
     try {
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, {
@@ -313,7 +324,7 @@ const VenueVendorPage = () => {
         {isEditing ? (
           <div>
             <p className="text-xl font-semibold mb-4 text-gray-800">
-              Add New Amenities
+              Edit New Amenities
             </p>
             {amenities.map((amenity) => (
               <div
@@ -370,7 +381,7 @@ const VenueVendorPage = () => {
         {/* <div className="mb-4 mt-4 "></div> */}
         {isEditingSpaces ? (
           <div>
-            <h2 className="text-xl font-semibold mb-2">Add New Space</h2>
+            <h2 className="text-xl font-semibold mb-2">Edit New Space</h2>
             <div className="mb-2">
               <input
                 type="text"
@@ -379,6 +390,7 @@ const VenueVendorPage = () => {
                 onChange={handleSpaceFormChange}
                 placeholder="Space Name"
                 className="border p-2 rounded w-full mb-2"
+                required
               />
               <select
                 name="spaceType"
@@ -400,6 +412,7 @@ const VenueVendorPage = () => {
                 onChange={handleSpaceFormChange}
                 placeholder="Floating Capacity"
                 className="border p-2 rounded w-full mb-2"
+                required
               />
               <input
                 type="number"
@@ -408,12 +421,13 @@ const VenueVendorPage = () => {
                 onChange={handleSpaceFormChange}
                 placeholder="Sitting Capacity"
                 className="border p-2 rounded w-full mb-2"
+                required
               />
               <button
                 onClick={handleAddSpace}
                 className="px-4 py-2 rounded bg-blue-500 text-white"
               >
-                Add Space
+                Edit Space
               </button>
             </div>
             <button
@@ -470,7 +484,7 @@ const VenueVendorPage = () => {
               ) : userSpaces.length === 1 ? (
                 <li className="text-gray-700">
                   <span className="font-medium text-lg">
-                    {userSpaces[0].spaceName}
+                    {userSpaces[0].name}
                   </span>
                   <span className="text-sm text-gray-600">
                     {" "}
@@ -496,7 +510,7 @@ const VenueVendorPage = () => {
       {isEditingFacilities ? (
         <div className="px-10">
           <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Add New Facilities
+            Edit New Facilities
           </p>
 
           {facilities.map((facility) => (
@@ -512,7 +526,7 @@ const VenueVendorPage = () => {
                 onChange={handleFacilityChange}
                 className="mr-2"
               />
-              <label htmlFor={facility.id}>{facility.facilityName}</label>
+              <label htmlFor={facility.id}>{facility.name}</label>
             </div>
           ))}
           <button
@@ -543,7 +557,7 @@ const VenueVendorPage = () => {
               const facility = facilities.find((f) => f.id === facilityId);
               return facility ? (
                 <li key={facilityId} className="text-gray-700">
-                  {facility.facilityName}
+                  {facility.name}
                 </li>
               ) : null;
             })}
@@ -554,10 +568,14 @@ const VenueVendorPage = () => {
       <div className=" md:px-10 p-4 max-w-xl">
         <ToastContainer />
 
+
+
+
+
         {isEditingAdditionalServices ? (
           <div className="px-10">
              <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Add New Services
+            Edit New Services
           </p>
             {additionalServices.map((service) => (
               <div
@@ -572,7 +590,7 @@ const VenueVendorPage = () => {
                   onChange={handleAdditionalServiceChange}
                   className="mr-2"
                 />
-                <label htmlFor={service.id}>{service.serviceName}</label>
+                <label htmlFor={service.id}>{service.name}</label>
               </div>
             ))}
             <button
@@ -615,11 +633,14 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
+
+
+
       <div className=" md:px-10 p-4 max-w-xl">
       {isEditingSafetyAndSecurity ? (
         <div className="px-10">
           <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Add New Options
+            Edit New Options
           </p>
           {safetyAndSecurityOptions.map((option) => (
             <div key={option.id} className="flex items-center mb-4 text-black">
@@ -678,14 +699,17 @@ const VenueVendorPage = () => {
 
 
 
-
+<Space50px  />
 
       {isEditingAccessibility ? (
         <div>
+             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              Edit Accessibility Options
+            </h2>{" "}
           {accessibilityOptions.map((option) => (
             <div
               key={option.id}
-              className="flex items-center mb-2 text-black"
+              className="flex items-center mb-10 text-black"
             >
               <input
                 type="checkbox"
@@ -695,7 +719,7 @@ const VenueVendorPage = () => {
                 onChange={handleAccessibilityOptionChange}
                 className="mr-2"
               />
-              <label htmlFor={option.id}>{option.optionName}</label>
+              <label htmlFor={option.id}>{option.name}</label>
             </div>
           ))}
           <button
@@ -738,7 +762,7 @@ const VenueVendorPage = () => {
 
 
       </div>
-    
+    <Space50px/>
     </div>
   );
 };

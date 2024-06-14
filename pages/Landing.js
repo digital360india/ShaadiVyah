@@ -167,9 +167,10 @@ const PrevArrow = ({ className, style, onClick }) => (
 
 
   return (
-    <div className="bg-[url('/images/hero.png')] min-h-screen bg-no-repeat bg-cover bg-fixed">
-      <Hero />
-      <div className="w-full  overflow-hidden ">
+    <div className="">
+      <div className=""><Hero /></div>
+      <div className="w-full ">
+        <div className="sticky top-0">
         <div className="bg-cream py-16  relative  z-20 lg:px-10 px-6 ">
           <img
             src={"/vectors/vector3.png"}
@@ -242,7 +243,8 @@ const PrevArrow = ({ className, style, onClick }) => (
           </div>
         </div>
         </div>
-
+        </div>
+        <div className="sticky top-0">
         <div className="bg-white py-16  relative  px-10 ">
         <img
             src={"/vectors/vector4.png"}
@@ -308,7 +310,8 @@ const PrevArrow = ({ className, style, onClick }) => (
             <p>No Mendhi Artists available</p>
           )}
         </div>
-
+        </div>
+        <div className="sticky top-0">
         <div className="bg-cream py-16 relative z-20  px-10 ">
         <img
             src={"/vectors/vector2.png"}
@@ -375,7 +378,8 @@ const PrevArrow = ({ className, style, onClick }) => (
             <p>No Makeup Artists available</p>
           )}
         </div>
-
+        </div>
+        <div className="sticky top-0">
         <div className="bg-white py-16  relative  px-10 ">
         <img
             src={"/vectors/vector.png"}
@@ -441,11 +445,17 @@ const PrevArrow = ({ className, style, onClick }) => (
             <p>No Photographers available</p>
           )}
         </div>
+        </div>
+        <div className="sticky top-0">
         <Testimonials/>
+        </div>
+        <div className="sticky top-0">
         <AboutShadivyah/>
+        </div>
+        </div>
         <HowToWork/>
         <ContactUsPhoto/>
-      </div>
+      
       
     </div>
   );

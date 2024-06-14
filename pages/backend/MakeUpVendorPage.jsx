@@ -11,6 +11,7 @@ import { db } from "@/firebase/firebase";
 import { parseCookies } from "nookies";
 import { MdEdit } from "react-icons/md";
 import { toast } from "react-toastify";
+import Space50px from "@/components/Space50px";
 const MakeUpVendorPage = () => {
   const [formData, setFormData] = useState({
     pricePerDay: "",
@@ -466,7 +467,7 @@ const MakeUpVendorPage = () => {
             </ul>
           </div>
         )}
-      </div>
+      </div><Space50px/>
     </div>
   );
 };

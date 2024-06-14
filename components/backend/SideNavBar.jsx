@@ -76,9 +76,7 @@ export const SideNavBar = () => {
             <FiGift className=" w-[40px] h-[40px]" />
           </div>
         </Link>
-        <div onClick={handleLogout} className="py-[20px] cursor-pointer">
-          <FiUser className="w-[40px] h-[40px]" />
-        </div>
+      
       </div>
     </>
   );
