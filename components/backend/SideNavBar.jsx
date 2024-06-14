@@ -55,7 +55,7 @@ export const SideNavBar = () => {
           </div>
         </div>
       </div>
-      <div className="w-screen md:hidden  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
+      <div className="w-screen md:hidden z-10  bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white flex justify-between fixed bottom-0 lg:hidden px-4">
         <Link href="/dashboard">
           <div className="py-[20px]">
             <FiHome className=" w-[40px] h-[40px] " />

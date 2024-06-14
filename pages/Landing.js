@@ -153,7 +153,7 @@ const PrevArrow = ({ className, style, onClick }) => (
   };
   const truncateText = (text, limit) => {
     if (text === undefined) {
-      return ""; // Or any other fallback value you prefer
+      return ""; 
     }
   
     const words = text.split(" ");
@@ -195,7 +195,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                   >
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                       <img
-                        src={arr.bannerImageUrl}
+                        src={arr.bannerImageUrl || '/images/logo1.png'}
                         alt={arr.businessName}
                         className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                       />
@@ -216,9 +216,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                         </div>
                         <p className="text-sm py-4 h-[68px">
                      
-                          {truncateText(arr.about, 20)}
+                          {truncateText(arr.about, 30)}
                         </p>
-                        <div className="flex justify-between">
+                        {/* <div className="flex justify-between">
                           <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                             <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                               100-200 pax
@@ -230,7 +230,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                           <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
                             <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </Link>
@@ -263,8 +263,8 @@ const PrevArrow = ({ className, style, onClick }) => (
              >
                <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                  <img
-                   src={arr.bannerImageUrl}
-                   alt={arr.businessName}
+                        src={arr.bannerImageUrl || '/images/logo1.png'}
+                        alt={arr.businessName}
                    className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                  />
                  <div className=" px-6 py-4 ">
@@ -284,9 +284,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                    </div>
                    <p className="text-sm py-4 h-[68px">
          
-                     {truncateText(arr.about, 20)}
+                     {truncateText(arr.about, 30)}
                    </p>
-                   <div className="flex justify-between">
+                   {/* <div className="flex justify-between">
                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                        <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                          100-200 pax
@@ -298,7 +298,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
                      </div>
-                   </div>
+                   </div> */}
                  </div>
                </div>
              </Link>
@@ -329,8 +329,8 @@ const PrevArrow = ({ className, style, onClick }) => (
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
-                    src={arr.bannerImageUrl}
-                    alt={arr.businessName}
+                        src={arr.bannerImageUrl || '/images/logo1.png'}
+                        alt={arr.businessName}
                     className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                   />
                   <div className=" px-6 py-4 ">
@@ -351,9 +351,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                     <p className="text-sm py-4 h-[68px">
                       {" "}
            
-                      {truncateText(arr.about, 20)}
+                      {truncateText(arr.about, 30)}
                     </p>
-                    <div className="flex justify-between">
+                    {/* <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                           100-200 pax
@@ -365,7 +365,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                       <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </Link>
@@ -396,7 +396,7 @@ const PrevArrow = ({ className, style, onClick }) => (
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
-                    src={arr.bannerImageUrl}
+                        src={arr.bannerImageUrl || '/images/logo1.png'}
                     alt={arr.businessName}
                     className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                   />
@@ -417,9 +417,9 @@ const PrevArrow = ({ className, style, onClick }) => (
                     </div>
                     <p className="text-sm py-4 h-[68px">
               {" "}
-                      {truncateText(arr.about, 20)}
+                      {truncateText(arr.about, 30)}
                     </p>
-                    <div className="flex justify-between">
+                    {/* <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                           100-200 pax
@@ -431,7 +431,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                       <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </Link>

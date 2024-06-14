@@ -1,6 +1,5 @@
 
 import "../globals.css";
-import { AuthProvider } from "./Providers";
 
 
 export const metadata = {
@@ -11,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body><AuthProvider>{children}</AuthProvider></body>
+      <body>{children}</body>
     </html>
   );
 }

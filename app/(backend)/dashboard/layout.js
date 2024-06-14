@@ -1,6 +1,5 @@
 import { SideNavBar } from "@/components/backend/SideNavBar";
 import "../../globals.css";
-import { AuthProvider } from "../Providers";
 import TopNavBar from "@/components/backend/TopNavBar";
 
 export const metadata = {
@@ -19,9 +18,9 @@ export default function RootLayout({ children }) {
           <div className="h-16 ">
             <TopNavBar />
           </div>
-
+         
           <main className="min-h-screen ">
-            <AuthProvider>{children}</AuthProvider>
+      {children}
           </main>
         </div>
       </div>

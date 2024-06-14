@@ -5,6 +5,9 @@ import { FaImages } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import { destroyCookie } from "nookies";
 import React from "react";
+import { MdOutlinePeopleAlt } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import { TiTickOutline } from "react-icons/ti";
 
 export const SideNavBar = () => {
   const router = useRouter();
@@ -31,33 +34,39 @@ export const SideNavBar = () => {
           </Link>
           <Link href="/admin/dashboard/approvalrequests">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
-              <FiTag className="mr-2" />
+              <TiTickOutline className="mr-2" />
               <span>Approvals</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/editdata">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
-              <FaImages className="mr-2" />
+              <FaEdit className="mr-2" />
               <span>Edit Venue Data</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/editmakeupdata">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
-              <FiGift className="mr-2" />
+              <FaEdit className="mr-2" />
               <span>Edit Makeup Data</span>
             </div>
           </Link>
           
           <Link href="/admin/dashboard/editphotographerdata">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
-              <FiGift className="mr-2" />
+              <FaEdit className="mr-2" />
               <span>Edit Photographer Data</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/vendors">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
-              <FiGift className="mr-2" />
+              <MdOutlinePeopleAlt className="mr-2" />
               <span>Vendors</span>
+            </div>
+          </Link>
+          <Link href="/admin/dashboard/leads">
+            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+              <MdOutlinePeopleAlt className="mr-2" />
+              <span>Leads</span>
             </div>
           </Link>
           <div onClick={handleLogout} className="flex items-center px-4 py-2 cursor-pointer hover:text-white hover:bg-slate">
