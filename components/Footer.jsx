@@ -1,6 +1,5 @@
 import React from "react";
 import Space50px from "./Space50px";
-import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -67,7 +66,7 @@ const Footer = () => {
               alt={""}
               width={1000}
               height={1000}
-              className="w-[78px] h-[78px] "
+              className="w-[180px] h-[180px] "
             />
           </div>
           <p className="font-medium text-center">

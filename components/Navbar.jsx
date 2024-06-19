@@ -9,9 +9,8 @@ export default function Navbar() {
           <Link href={"/"}>
             <img
               src={"/logo.png"}
-              width={1000}
-              height={1000}
-              className="w-24 h-24"
+            
+              className="w-32 h-32 object-fill"
             />
           </Link>
         </div>

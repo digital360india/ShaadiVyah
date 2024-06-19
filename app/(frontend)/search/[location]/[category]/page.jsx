@@ -41,7 +41,9 @@ export default function Page(params) {
       const q = query(
         collection(db, "users"),
         where("city", "==", location),
-        // where("vendorTypeUID", "==", collectionName)
+        where("vendorTypeUID", "==", collectionName),
+        where('approval' , "==", true)
+
       );
 
       const querySnapshot = await getDocs(q);
@@ -73,7 +75,7 @@ export default function Page(params) {
 
   return (
     <div>
-      <Hero_2 img={"/images/hero_services_page.png"} text={"Lorem ipsum d"} />
+      <Hero_2 img={"/images/hero_services_page.png"} text={`${params.params.category} vendors in ${params.params.location}`} />
       {/* dropdown */}
       <div className=" xl:gap-10 lg:gap-4 xl:pl-[100px] lg:pl-[20px] bg-[#F7FEFD]  h-[80px] mt-6 hidden lg:flex  ">
         {/* <div>
@@ -240,7 +242,7 @@ export default function Page(params) {
       </div> */}
       {/* search  */}
       {/* cards */}
-      <div className="xl:mt-16 lg:mt-8">
+      <div className="xl:mt-16 lg:mt-8  ">
         <div className="bg-cream py-16 relative z-20  px-10 ">
           <img
             src={"/vectors/vector2.png"}
@@ -249,7 +251,7 @@ export default function Page(params) {
             width={1000}
             className=" md:w-[769px] md:h-[471px] w-[400px] h-[300px]    absolute lg:-top-[100px] lg:right-[140px] -top-8 p4 z-100 opacity-20 "
           />
-          <div className=" md:flex   ">
+          <div className=" md:flex flex-wrap   ">
             {" "}
             {data.map((arr, index) => (
               <Link

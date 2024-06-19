@@ -13,6 +13,7 @@ import Gallery from "@/components/Gallery";
 import AboutShadivyah from "@/components/AboutShadivyah";
 import HowToWork from "@/components/HowToWork";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
+import Review from "@/components/Review";
 
 
 export default function Landing() {
@@ -42,7 +43,9 @@ const PrevArrow = ({ className, style, onClick }) => (
     try {
       const q = query(
         collection(db, "users"),
-        where("vendorTypeUID", "==", "venuesvendor")
+        where("vendorTypeUID", "==", "venuesvendor"),
+        where('approval' , "==", true)
+
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
@@ -59,7 +62,9 @@ const PrevArrow = ({ className, style, onClick }) => (
     try {
       const q = query(
         collection(db, "users"),
-        where("vendorTypeUID", "==", "mehndivendor")
+        where("vendorTypeUID", "==", "mehndivendor"),
+        where('approval' , "==", true)
+
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
@@ -75,7 +80,9 @@ const PrevArrow = ({ className, style, onClick }) => (
     try {
       const q = query(
         collection(db, "users"),
-        where("vendorTypeUID", "==", "makeupvendor")
+        where("vendorTypeUID", "==", "makeupvendor"),
+        where('approval' , "==", true)
+
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
@@ -91,7 +98,9 @@ const PrevArrow = ({ className, style, onClick }) => (
     try {
       const q = query(
         collection(db, "users"),
-        where("vendorTypeUID", "==", "photographersvendor")
+        where("vendorTypeUID", "==", "photographersvendor"),
+        where('approval' , "==", true)
+
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
@@ -194,7 +203,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                     key={index}
                     className=" py-4 px-16 "
                   >
-                    <div className="bg-black rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[] ">
+                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[] ">
                       <img
                         src={arr.bannerImageUrl || '/images/logo1.png'}
                         alt={arr.businessName}
@@ -455,7 +464,7 @@ const PrevArrow = ({ className, style, onClick }) => (
         </div>
         <HowToWork/>
         <ContactUsPhoto/>
-      
+      <Review />
       
     </div>
   );

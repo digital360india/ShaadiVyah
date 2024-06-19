@@ -5,11 +5,19 @@ import makeup from "../public/lottie/makeuplottie.json";
 import mehndi from "../public/lottie/mehndilottie.json";
 import photographers from "../public/lottie/photographerslottie.json";
 import venues from "../public/lottie/venueslottie.json";
-import { generatePassword } from "@/utils/generatePassword";
 import emailjs from "@emailjs/browser";
-import { Timestamp, addDoc, collection, getDocs, query, updateDoc, where } from "firebase/firestore";
+import {
+  Timestamp,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { db } from "@/firebase/firebase";
+
 const Registration = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
@@ -57,20 +65,19 @@ const Registration = () => {
           auth,
           formData.email,
           password
-        ); 
-        const docRef=  await addDoc(collection (db, "users"), {
+        );
+        const docRef = await addDoc(collection(db, "users"), {
           email: formData.email,
           phone: formData.phone,
           location: formData.location,
           name: formData.name,
           approval: false,
-          seoRating:0,
+          seoRating: 0,
           ...formData,
         });
-        await updateDoc (docRef, {
+        await updateDoc(docRef, {
           uid: docRef.id,
           timestamp: Timestamp.now(),
-
         });
 
         const serviceId = "service_z19n848";
@@ -103,20 +110,22 @@ const Registration = () => {
       name: "",
       phone: "",
       location: "",
-      registeras: "",
+      vendorType: "",
+      vendorTypeUID: "",
     });
+    setShowPopup(false);
   };
 
   return (
-    <div className="h-screen">
+    <div className=" pb-10">
       <div className="text-pink text-3xl pb-20 pt-10 text-center">
         Register as
       </div>
 
-      <div className="flex gap-10 p-10">
+      <div className="flex justify-center items-center flex-wrap  gap-10 p-10">
         <div
           onClick={() => handleClick("Make up vendor")}
-          className="h-96 w-96 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
+          className="h-80 w-80 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
         >
           <Lottie
             options={{ loop: true, autoplay: true, animationData: makeup }}
@@ -127,7 +136,7 @@ const Registration = () => {
         </div>
         <div
           onClick={() => handleClick("Mehndi vendor")}
-          className="h-96 w-96 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
+          className="h-80 w-80 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
         >
           <Lottie
             options={{ loop: true, autoplay: true, animationData: mehndi }}
@@ -138,7 +147,7 @@ const Registration = () => {
         </div>
         <div
           onClick={() => handleClick("Photographers vendor")}
-          className="h-96 w-96 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
+          className="h-80 w-80 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
         >
           <Lottie
             options={{
@@ -153,7 +162,7 @@ const Registration = () => {
         </div>
         <div
           onClick={() => handleClick("Venues vendor")}
-          className="h-96 w-96 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
+          className="h-80 w-80 bg-cream rounded-3xl flex flex-col justify-center items-center shadow-xl shadow-lightpink"
         >
           <Lottie
             options={{ loop: true, autoplay: true, animationData: venues }}
@@ -181,6 +190,7 @@ const Registration = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required
                   />
                 </div>
                 <div>
@@ -193,6 +203,7 @@ const Registration = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required
                   />
                 </div>
               </div>
@@ -207,19 +218,56 @@ const Registration = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                  <label className="block text-gray-800 text-sm font-medium mb-2">
                     Location
                   </label>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
+                  <div className="relative">
+                    <select
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="block appearance-none w-full bg-white  border border-gray-300 hover:border-gray-400 px-4 py-3 pr-8 rounded-lg shadow-sm leading-tight focus:outline-none focus:shadow-outline transition duration-200 ease-in-out"
+                      required
+                    >
+                      <option value="" disabled>
+                        Select Location
+                      </option>
+                      <option value="Dehradun" className="text-white">
+                        Dehradun
+                      </option>
+                      <option className="text-white" value="Haridwar">
+                        Haridwar
+                      </option>
+                      <option className="text-white" value="Chamoli">
+                        Chamoli
+                      </option>
+                      <option className="text-white" value="Rudraprayag">
+                        Rudraprayag
+                      </option>
+                      <option className="text-white" value="Tehri Garhwal">
+                        Tehri Garhwal
+                      </option>
+                      <option className="text-white" value="Uttarkashi">
+                        Uttarkashi
+                      </option>
+                      <option className="text-white" value="Pauri Garhwal">
+                        Pauri Garhwal
+                      </option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg
+                        className="fill-current h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 12l-5-5h10l-5 5z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex items-center justify-between">

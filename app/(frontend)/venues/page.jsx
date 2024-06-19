@@ -67,7 +67,9 @@ const Page = () => {
     try {
       const q = query(
         collection(db, "users"),
-        where("vendorTypeUID", "==", "venuesvendor")
+        where("vendorTypeUID", "==", "venuesvendor"),
+        where('approval' , "==", true)
+
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {

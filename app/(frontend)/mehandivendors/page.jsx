@@ -24,7 +24,9 @@ const Page = () => {
       try {
         const q = query(
           collection(db, "users"),
-          where("vendorTypeUID", "==", "mehndivendor")
+          where("vendorTypeUID", "==", "mehndivendor"),
+          where('approval' , "==", true)
+
         );
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {

@@ -9,7 +9,7 @@ export default function Review({ title }) {
 
   function handleActive() {
     setActive(!active);
-  }
+  }  
   function handleViewMore(){
     setViewMore(!viewmore);
   }

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 
 const Popup = () => {
@@ -6,7 +7,7 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 6000); // 60000ms = 1 minute
+    }, 60000000); // 60000ms = 1 minute
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
