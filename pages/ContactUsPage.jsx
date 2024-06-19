@@ -135,7 +135,7 @@ const AboutUS = () => {
               Join our vibrant community of vendors and showcase your unique
               products and services. We provide a platform that connects you
               with a wide audience, helping you grow your business and reach new
-              customers. Don't miss this opportunity to become a part of our
+              customers. Don&apos;t miss this opportunity to become a part of our
               trusted network and boost your sales.
             </p>
             <div className=" flex justify-center items-center mt-4 lg:mt-0">

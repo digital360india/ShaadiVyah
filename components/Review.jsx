@@ -292,7 +292,7 @@ export default function Review({ title }) {
         <div className={` flex flex-wrap justify-center gap-4 ${display ? 'h-[620px]' : 'h-[320px]'} w-full ${viewmore ? 'overflow-y-scroll' : 'overflow-hidden'}`}>
          { data.map((items)=>{
             return(
-                <div className="bg-white h-[300px] w-[372px] rounded-md px-2 py-2">
+                <div className="bg-white h-[300px] w-[372px] rounded-md px-2 py-2" key={index}>
             <div className="flex h-[65px] gap-2 w-[full] px-1 border-b-2 border-[#d1d0d0]  items-center justify-between">
               <img className="rounded-[50%] h-[40px] w-[40px]" src={items.img} alt="" />
               <div className="">
