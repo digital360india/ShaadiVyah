@@ -200,7 +200,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                 {venue.map((arr, index) => (
                   <Link
                     href={`/venues/${arr.uid}`}
-                    key={index}
+                    key={arr.uid}
                     className=" py-4 px-16 "
                   >
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] md:w-[] ">
@@ -269,7 +269,7 @@ const PrevArrow = ({ className, style, onClick }) => (
               {mendhiArtists.map((arr, index) => (
                <Link
                href={`/venues/${arr.uid}`}
-               key={index}
+               key={arr.uid}
                className=" py-4 px-16 "
              >
                <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
@@ -336,7 +336,7 @@ const PrevArrow = ({ className, style, onClick }) => (
               {makeupArtist.map((arr, index) => (
                 <Link
                 href={`/venues/${arr.uid}`}
-                key={index}
+                key={arr.uid}
                 className=" py-4 px-16 "
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
@@ -404,7 +404,7 @@ const PrevArrow = ({ className, style, onClick }) => (
               {photographersArtists.map((arr, index) => (
                 <Link
                 href={`/photographervendors/${arr.uid}`}
-                key={index}
+                key={arr.uid}
                 className=" py-4 px-16 "
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
