@@ -1,6 +1,6 @@
 import React from "react";
 
- export default Popup = ({ onClose }) => {
+const Popup = ({ onClose }) => {
   const handleClose = () => {
     onClose();
   };
@@ -11,7 +11,7 @@ import React from "react";
         <div className="hidden lg:block w-[515px] bg-black h-full rounded-l-xl">
           <img src="./images/form.png" alt="" />
         </div>
-        <div className=" w-[432px]">
+        <div className="w-[432px]">
           <p className="flex justify-end">
             <svg
               onClick={handleClose}
@@ -70,3 +70,8 @@ import React from "react";
     </div>
   );
 };
+
+// Adding a display name for better debugging
+Popup.displayName = "Popup";
+
+export default Popup;
