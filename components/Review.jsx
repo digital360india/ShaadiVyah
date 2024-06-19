@@ -265,6 +265,7 @@ export default function Review({ title }) {
                 <option value=""></option>
                 <option value=""></option>
               </select>
+              
             </div>
             <div className=" h-[64px] md:h-[46px] w-[150px] border rounded-md bg-slate-200 border-[#cacaca]  px-2 ">
               <p className="md:text-sm text-[12px]">Hotel Experience</p>
