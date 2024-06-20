@@ -71,7 +71,7 @@ const Popup = ({ onClose }) => {
   );
 };
 
-// Adding a display name for better debugging
 Popup.displayName = "Popup";
 
 export default Popup;
+  
