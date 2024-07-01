@@ -1,11 +1,18 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
 import Space50px from "./Space50px";
 
+
 const Footer = () => {
+ 
+
+
   return (
     <>
       <div className="hidden lg:flex  justify-around h-[478px]  text-white bg-gradient-to-t drop-shadow-md from-[#C9184A] to-[#FFB5A7]">
         <Space50px />
+
         <div className="flex flex-col pt-32 gap-5">
           <p className="font-[600] text-[24px] ">CONTACT US</p>
           <p className="w-[292px] text-start text-base">
@@ -34,12 +41,14 @@ const Footer = () => {
           <p className="w-[250px] text-end text-base items-end">
             to tell us your story
           </p>
-          <button
+          {/* <button
             type="submit"
+            onClick={handleOpen}
+
             className="bg-transparent border-2 border-white text-white font-bold py-2 px-4 w-[234px] h-[55px] rounded-full shadow-xl "
           >
             Contact Us
-          </button>
+          </button> */}
         </div>
         <div className="flex gap-6 pt-32">
           <div className="flex flex-col gap-4">
@@ -93,12 +102,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <button
+          {/* <button
             type="submit"
             className="bg-transparent border-2 border-white text-white font-bold py-2 px-4 w-[234px] h-[55px] rounded-full shadow-xl mt-8 "
           >
             Contact Us
-          </button>
+          </button> */}
         </div>
         <div className="flex justify-between mt-4">
           <p>Privacy Policy</p> <p>Term and Conditions</p> <p>Support</p>

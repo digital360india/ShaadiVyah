@@ -1,12 +1,12 @@
 import React from "react";
 
-const Popup = ({ onClose }) => {
+const Popup2 = ({ onClose }) => {
   const handleClose = () => {
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="fixed inset-0  flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="lg:w-[1100px] lg:h-[636px] mx-4 p-5 rounded-xl border border-[#C9184A] flex justify-between bg-white">
         <div className="hidden lg:block w-[515px] bg-black h-full rounded-l-xl">
           <img src="./images/form.png" alt="" />
@@ -71,7 +71,7 @@ const Popup = ({ onClose }) => {
   );
 };
 
-Popup.displayName = "Popup";
+Popup2.displayName = "Popup";
 
-export default Popup;
+export default Popup2;
   

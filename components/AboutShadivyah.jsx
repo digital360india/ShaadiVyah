@@ -3,7 +3,7 @@ export default function AboutShadivyah() {
   return (
     <div>
       <div className="  w-full xl:px-[100px] py-[60px] md:px-[60px] px-6  bg-white  lg:flex justify-between">
-        <div className="space-y-6  pt-20">
+        <div className="space-y-6  pt-10 md:pt-20">
           <p className="font-medium text-center md:text-start">
             About ShadiVyah
           </p>
@@ -132,11 +132,11 @@ export default function AboutShadivyah() {
         </div>
         <div className="py-10">
           <img
-            src={"/images/hand.png"}
+            src={"/images/venus_page.png"}
             alt={"image"}
             height={1000}
             width={1000}
-            className=" lg:w-[503px] md:w-full lg:h-[523px] md:h-[400px] h-[200px]"
+            className=" lg:w-[503px] md:w-full lg:h-[523px] md:h-[400px] h-[200px] object-cover"
           />
         </div>
       </div>

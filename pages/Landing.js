@@ -500,7 +500,6 @@ export default function Landing() {
       </div>
       <HowToWork />
       <ContactUsPhoto />
-      <Review />
     </div>
   );
 }

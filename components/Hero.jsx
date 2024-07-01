@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <>
       <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[90vh] ">
-        <div className="w-[800px] mt-[160px] ">
+        <div className="md:w-[800px] mt-[160px] ">
           <p className="font-semibold font-fira-sans  text-center mb-16 text-3xl md:text-4xl">
             Let’s Celebrate Your Festival Party With Us{" "}
           </p>
