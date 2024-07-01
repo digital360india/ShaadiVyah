@@ -19,7 +19,7 @@ const ContactUsPhoto = () => {
         <div className="parallax h-[400px] w-full flex flex-col items-center justify-center" style={{ backgroundImage: 'url(/images/venues_contactus.png)' }}>
           <i className="lg:w-[914px] w-[80%] text-center lg:text-2xl md:text-xl text-md text-white mb-4">
             “Ready to Turn your dream wedding into reality? Contact us today and
-            let's start planning your perfect days!”
+            let&apos;s start planning your perfect days!”
           </i>
           <button
             type="submit"
