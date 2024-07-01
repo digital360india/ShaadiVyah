@@ -7,7 +7,7 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 60000000); // 60000ms = 1 minute
+    }, 60000); // 60000ms = 1 minute
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);

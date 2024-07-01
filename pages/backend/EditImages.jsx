@@ -63,7 +63,7 @@ const EditImages = () => {
       const downloadURL = await getDownloadURL(bannerRef);
       setBannerImageUrl(downloadURL);
       const userRef = doc(db, "users", user.uid);
-      await updateDoc(userRef, { bannerImageUrl: downloadURL });
+      await updateDoc(userRef, { heroImage: downloadURL });
 
       toast.success("Banner image uploaded successfully!");
     } catch (error) {
@@ -116,7 +116,7 @@ const EditImages = () => {
       toast.error("Error uploading venue images.");
     } finally {
       setIsLoading2(false);
-      setSelectedFiles([]); // Clear selected files after uploading
+      setSelectedFiles([]);
     }
   };
 

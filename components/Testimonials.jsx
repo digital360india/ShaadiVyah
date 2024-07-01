@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
+import Space50px from "./Space50px";
 
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
@@ -25,9 +26,9 @@ export default function Testimonials() {
     fetchTestimonials();
   }, []);
   return (
-    <div className="w-full  bg-white  ">
+    <div className="w-full    bg-white  ">
       <div>
-        <p className="font-Fira Sans font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A]  text-center">
+        <p className="font-fira-sans pt-20  font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A]  text-center">
           Testimonials
         </p>
       </div>
@@ -57,7 +58,7 @@ export default function Testimonials() {
               min: 1024,
             },
             items: 1,
-            partialVisibilityGutter: 10,
+            // partialVisibilityGutter: 10,
           },
           mobile: {
             breakpoint: {
@@ -73,14 +74,14 @@ export default function Testimonials() {
               min: 464,
             },
             items: 1,
-            partialVisibilityGutter: 10,
+            // partialVisibilityGutter: 10,
           },
         }}
         rewind={false}
         rewindWithAnimation={false}
         rtl={false}
         shouldResetAutoplay
-        showDots={true}
+        showDots={false}
         sliderClass=""
         slidesToSlide={1}
         swipeable
@@ -88,7 +89,7 @@ export default function Testimonials() {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5"
+            className=" lg:pt-10 pt-4 bg-[#EBECED] md:px-6 px-2 text-center border border-[#C9184A] rounded-xl xl:ml-20 lg:ml-10 ml-5"
           >
             <p className="lg:text-[19px] md:text-[14px] text-[12px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10">
               {testimonial.testimonial}
@@ -103,7 +104,7 @@ export default function Testimonials() {
                 <p className="text-[18px] font-medium text-[#C9184A]">
                   {testimonial.name}
                 </p>
-                <p className="text-[#02394A] text-[16px]">
+                <p className="text-[#02394A] text-[16px] ">
                   {testimonial.location}
                 </p>
               </div>
@@ -111,6 +112,7 @@ export default function Testimonials() {
           </div>
         ))}
       </Carousel>
+      <Space50px/>
     </div>
   );
 }
