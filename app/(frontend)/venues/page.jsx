@@ -193,7 +193,7 @@ const Page = () => {
       <Space50px />
       <Space25px />
       <div>
-        <div className="lg:px-10 px-6">
+        <div className="lg:px-10 p-6 bg-cream">
           <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 ">
             Wedding <span className="font-dancing-script">Destinations</span>
           </p>
