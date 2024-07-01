@@ -188,10 +188,7 @@ const AboutUS = () => {
             </div>
           </div>
         </div>
-        <HowToWork />
-        <AboutShadivyah />
         <Space50px />
-        <Testimonials />
         <Space50px />
         <Gallery />
       </div>

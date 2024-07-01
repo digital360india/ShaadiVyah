@@ -174,8 +174,8 @@ export default function Landing() {
       </div>
       <div className="w-full ">
         <div className="sticky top-0">
-          <div className="bg-cream py-16  relative  z-20 lg:px-10 px-6 ">
-            <img
+        <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+        <img
               src={"/vectors/vector3.png"}
               alt="image"
               height={1000}
@@ -185,13 +185,13 @@ export default function Landing() {
             <div className="">
               <div className="flex flex-row justify-between items-center">
                 {" "}
-                <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4 ">
+                <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans pl-4 ">
                   Popular{" "}
                   <span className="font-dancing-script">Destinations</span>
                 </p>
                 <Link
                   href={"/venues"}
-                  className="mt-2 text-[#C9184A] underline text-md font-dancing-script"
+                  className="mt-2 text-[#C9184A] underline text-md font-sans"
                 >
                   See all
                 </Link>
@@ -256,8 +256,8 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white py-16  relative  px-10 ">
-            <img
+        <div className="bg-white py-16  relative  px-6 md:px-20 ">
+        <img
               src={"/vectors/vector4.png"}
               alt="image"
               height={1000}
@@ -266,14 +266,13 @@ export default function Landing() {
             />
 
             <div className="flex flex-row justify-between items-center">
-              {" "}
               <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans md:p-4 ">
                 Popular{" "}
                 <span className="font-dancing-script">Mendhi Artists</span>
               </p>
               <Link
                 href={"/mehandivendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-dancing-script"
+                className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
                 See all
               </Link>
@@ -334,8 +333,8 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-cream py-16 relative z-20  px-10 ">
-            <img
+        <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+        <img
               src={"/vectors/vector2.png"}
               alt="image"
               height={1000}
@@ -351,7 +350,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/makeupvendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-dancing-script"
+                className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
                 See all
               </Link>
@@ -413,7 +412,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white py-16  relative  px-10 ">
+          <div className="bg-white py-16  relative  px-6 md:px-20 ">
             <img
               src={"/vectors/Vector.png"}
               alt="image"
@@ -430,7 +429,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/photograpgervendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-dancing-script"
+                className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
                 See all
               </Link>

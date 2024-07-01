@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Space50px from "./Space50px";
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -16,13 +17,12 @@ const Footer = () => {
         <div className="flex flex-col pt-32 gap-5">
           <p className="font-[600] text-[24px] ">CONTACT US</p>
           <p className="w-[292px] text-start text-base">
-            B-36, Nehru colony, We ara a lorem ipsum dolor sit amet, conse
-            ctetur adipiscing elit
+          B, 36, Nehru Colony Rd, C-Block, Nehru Colony, Dalanwala, Dehradun, Uttarakhand 248001
           </p>
           <p className="w-[292px] text-start text-base">
             Email: enquire@shadivyah.com{" "}
           </p>
-          <p className="w-[292px] text-start text-base">Phone: 2346457787</p>
+          <p className="w-[292px] text-start text-base">Phone: 9084684360</p>
         </div>
         <div className="flex pt-5 flex-col gap-5">
           <img
@@ -53,16 +53,15 @@ const Footer = () => {
         <div className="flex gap-6 pt-32">
           <div className="flex flex-col gap-4">
             <p className="text-white font-[600] text-xl">USEFUL LINKS</p>
-            <p>Privacy Policy</p>
-            <p>Term and Conditions</p>
-            <p>Support</p>
+            <Link href={'/privacypolicy'}>Privacy Policy</Link>
+            <Link href={'/terms&condition'}>Term and Conditions</Link>
+            <Link href={'/support'}>Support</Link>
           </div>
 
           <div className="flex flex-col gap-4">
             <p className="text-white font-[600]  text-xl">FOLLOW US</p>
-            <p>Facebook</p>
-            <p>Youtube</p>
-            <p>Instagram</p>
+            <Link href={'https://www.instagram.com/shaadivyah_/'}>Instagram</Link>
+            <Link href={'https://www.facebook.com/shaadivyahofficial'}>Facebook</Link>
           </div>
         </div>
         <Space50px />
@@ -86,19 +85,17 @@ const Footer = () => {
         <div className=" flex justify-between mt-6">
           <div className=" flex flex-col gap-3">
             <h1 className="font-medium">CONTACT US</h1>
-            <p className="text-[12px] w-[162px]">
-              B-36, Nehru colony, We ara a lorem ipsum dolor sit amet, conse
-              ctetur adipiscing elit,{" "}
+            <p className="text-[12px] w-[180px] ">
+            B, 36, Nehru Colony Road, C-Block, Nehru Colony, Dalanwala, Dehradun, Uttarakhand 248001
             </p>
             <p className="text-[12px]">Email -enquire@shadivyah.com</p>
-            <p className="text-[12px]">Phone - 9149057322</p>
+            <p className="text-[12px]">Phone - 9084684360</p>
           </div>
 
           <div className="flex flex-col gap-3">
             <h1>FOLLOW US</h1>
-            <p>Facebook</p>
-            <p>Facebook</p>
-            <p>Facebook</p>
+            <Link href={'https://www.instagram.com/shaadivyah_/'}>Instagram</Link>
+            <Link href={'https://www.facebook.com/shaadivyahofficial'}>Facebook</Link>
           </div>
         </div>
         <div className="flex justify-center items-center">
@@ -110,7 +107,9 @@ const Footer = () => {
           </button> */}
         </div>
         <div className="flex justify-between mt-4">
-          <p>Privacy Policy</p> <p>Term and Conditions</p> <p>Support</p>
+        <Link href={'/privacypolicy'}>Privacy Policy</Link>
+            <Link href={'/terms&condition'}>Term and Conditions</Link>
+            <Link href={'/support'}>Support</Link>
         </div>
       </div>
     </>

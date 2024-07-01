@@ -7,9 +7,9 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 60000); // 60000ms = 1 minute
+    }, 60000); 
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval); 
   }, []);
 
   const handleClose = () => {
@@ -20,7 +20,7 @@ const Popup = () => {
     <>
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="lg:w-[1100px] lg:h-[636px] mx-4 p-5 rounded-xl border border-[#C9184A] flex justify-between bg-white">
+          <div className="w-screen p-10 md:p-5 lg:w-[1100px] lg:h-[636px] mx-4  rounded-xl border border-[#C9184A] flex justify-between bg-white">
             <div className="hidden lg:block w-[515px] bg-black h-full rounded-l-xl">
               <img src="./images/form.png" alt="" />
             </div>

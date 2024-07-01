@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div className='xl:px-[100px] xl:py-32 lg:py-20 py-10'>
+    <div className='xl:px-[100px]  lg:py-20 py-10 mt-10 md:mt-0'>
       <div className='md:px-20 px-6'>
         <h1 className='font-semibold md:text-[48px] text-[32px] text-[#C9184A] text-center'> SUPPORT</h1>
         <div className='text-[18px] mt-10'>

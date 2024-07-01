@@ -231,11 +231,11 @@ export default function Page() {
           </div>
         ) : (
           <>
-            <div className="xl:px-[140px] pl-6 md:pl-16 lg:pl-32 flex flex-col justify-center items-center ">
+            <div className="xl:px-[140px]  md:pl-16 lg:pl-32 flex flex-col justify-center items-center ">
               <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
                 Please share your{" "}
                 <input
-                  className="placeholder:text-center  border-b border-b-black bg-transparent"
+                  className="placeholder:text-center  border-b border-b-black bg-transparent w-[120px] md:w-[800px]"
                   type="text"
                   name="name"
                   placeholder="name"
@@ -246,7 +246,7 @@ export default function Page() {
               <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
                 and your{" "}
                 <input
-                  className="placeholder:text-center border-b border-b-black bg-transparent"
+                  className="placeholder:text-center  border-b border-b-black bg-transparent w-[220px] md:w-[800px]"
                   type="text"
                   name="phone"
                   placeholder="phone number"
@@ -257,7 +257,7 @@ export default function Page() {
               <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
                 {" "}
                 <input
-                  className="placeholder:text-center border-b border-b-black bg-transparent lg:w-[800px] md:w-[600px] xl:w-[1037px] mt-10"
+                  className="placeholder:text-center border-b border-b-black bg-transparent w-[400px] lg:w-[800px] md:w-[600px] xl:w-[1037px] mt-10"
                   type="text"
                   name="message"
                   placeholder=" message"
@@ -265,7 +265,7 @@ export default function Page() {
                   onChange={handleChange}
                 />{" "}
               </p>
-              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light">
+              <p className="text-[#02394A] text-[32px] xl:text-[56px] font-light pl-5">
                 {" "}
                 Lets figure out what project we can do together.{" "}
               </p>
