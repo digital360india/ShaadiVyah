@@ -272,7 +272,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/mehandivendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-sans"
+                className="mt-2 text-[#C9184A] underline text-md font-sans z-10         "
               >
                 See all
               </Link>
