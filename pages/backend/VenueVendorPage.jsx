@@ -35,7 +35,19 @@ const VenueVendorPage = () => {
     floating: "",
     sitting: "",
   });
+  const [additionalServices, setAdditionalServices] = useState([]);
+  const [userAdditionalServices, setUserAdditionalServices] = useState([]);
+  const [isEditingAdditionalServices, setIsEditingAdditionalServices] =
+    useState(false);
+  const [safetyAndSecurityOptions, setSafetyAndSecurityOptions] = useState([]);
+  const [userSafetyAndSecurityOptions, setUserSafetyAndSecurityOptions] =
+    useState([]);
+  const [isEditingSafetyAndSecurity, setIsEditingSafetyAndSecurity] =
+    useState(false);
 
+  const [accessibilityOptions, setAccessibilityOptions] = useState([]);
+  const [userAccessibilityOptions, setUserAccessibilityOptions] = useState([]);
+  const [isEditingAccessibility, setIsEditingAccessibility] = useState(false);
   const fetchUser = async (uid) => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", uid));
@@ -48,16 +60,14 @@ const VenueVendorPage = () => {
         setUserFacilities(userData.facilitiesUID || []);
         setUserAccessibilityOptions(userData.accessibilityOptionsUID || []);
         setUserAdditionalServices(userData.additionalServicesUID || []);
-        setUserSafetyAndSecurityOptions(userData.safetyAndSecurityOptionsUID || []);
+        setUserSafetyAndSecurityOptions(
+          userData.safetyAndSecurityOptionsUID || []
+        );
       }
     } catch (error) {
       console.error("Error fetching user:", error);
     }
   };
-  const [additionalServices, setAdditionalServices] = useState([]);
-  const [userAdditionalServices, setUserAdditionalServices] = useState([]);
-  const [isEditingAdditionalServices, setIsEditingAdditionalServices] =
-    useState(false);
 
   const fetchAdditionalServices = async () => {
     try {
@@ -74,12 +84,14 @@ const VenueVendorPage = () => {
 
   useEffect(() => {
     fetchAdditionalServices();
+    fetchUser(uid);
+    fetchAmenities();
+    fetchFacilities();
+    fetchSpaces();
+    fetchSafetyAndSecurityOptions();
+    fetchAccessibilityOptions()
   }, []);
-  const [safetyAndSecurityOptions, setSafetyAndSecurityOptions] = useState([]);
-  const [userSafetyAndSecurityOptions, setUserSafetyAndSecurityOptions] =
-    useState([]);
-  const [isEditingSafetyAndSecurity, setIsEditingSafetyAndSecurity] =
-    useState(false);
+
 
   const fetchSafetyAndSecurityOptions = async () => {
     try {
@@ -191,16 +203,6 @@ const VenueVendorPage = () => {
   const cookies = parseCookies();
   const uid = cookies.token;
 
-  useEffect(() => {
-    if (uid) {
-      fetchUser(uid);
-      fetchAmenities();
-      fetchFacilities();
-      fetchSpaces();
-      fetchSafetyAndSecurityOptions();
-
-    }
-  }, []);
 
   const handleAmenityChange = (e) => {
     const { value, checked } = e.target;
@@ -209,12 +211,11 @@ const VenueVendorPage = () => {
     );
   };
 
-  const [accessibilityOptions, setAccessibilityOptions] = useState([]);
-  const [userAccessibilityOptions, setUserAccessibilityOptions] = useState([]);
-  const [isEditingAccessibility, setIsEditingAccessibility] = useState(false);
   const fetchAccessibilityOptions = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "accessibilityOptions"));
+      const querySnapshot = await getDocs(
+        collection(db, "accessibility")
+      );
       const accessibilityOptionsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -247,13 +248,6 @@ const VenueVendorPage = () => {
       toast.error("Error updating accessibility options.");
     }
   };
-
-
-
-
-
-
-
 
   const handleSaveAmenities = async () => {
     try {
@@ -293,7 +287,12 @@ const VenueVendorPage = () => {
   };
 
   const handleSaveSpaces = async () => {
-    if (!spaceForm.spaceName || !spaceForm.spaceType || !spaceForm.floating || !spaceForm.sitting) {
+    if (
+      !spaceForm.spaceName ||
+      !spaceForm.spaceType ||
+      !spaceForm.floating ||
+      !spaceForm.sitting
+    ) {
       toast.error("Please fill all fields before saving.");
       return;
     }
@@ -507,76 +506,72 @@ const VenueVendorPage = () => {
         )}
       </div>
       <div className=" md:px-10 p-4 max-w-xl">
-      {isEditingFacilities ? (
-        <div className="px-10">
-          <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Edit New Facilities
-          </p>
+        {isEditingFacilities ? (
+          <div className="px-10">
+            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+              Edit New Facilities
+            </p>
 
-          {facilities.map((facility) => (
-            <div
-              key={facility.id}
-              className="flex items-center mb-4 text-black  "
-            >
-              <input
-                type="checkbox"
-                id={facility.id}
-                value={facility.id}
-                checked={userFacilities.includes(facility.id)}
-                onChange={handleFacilityChange}
-                className="mr-2"
-              />
-              <label htmlFor={facility.id}>{facility.name}</label>
-            </div>
-          ))}
-          <button
-            onClick={handleSaveFacilities}
-            className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
-          >
-            Save
-          </button>
-        </div>
-      ) : (
-        <div className="bg-white shadow-md rounded-lg p-4  ">
-          <div className="flex flex-row justify-between   ">
-            {" "}
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
-              Current Facilities
-            </h2>{" "}
-            <div className="mb-4 pt-4">
-              <button
-                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                onClick={() => setIsEditingFacilities(!isEditingFacilities)}
+            {facilities.map((facility) => (
+              <div
+                key={facility.id}
+                className="flex items-center mb-4 text-black  "
               >
-                {isEditingFacilities ? "Cancel" : <MdEdit />}
-              </button>
-            </div>
+                <input
+                  type="checkbox"
+                  id={facility.id}
+                  value={facility.id}
+                  checked={userFacilities.includes(facility.id)}
+                  onChange={handleFacilityChange}
+                  className="mr-2"
+                />
+                <label htmlFor={facility.id}>{facility.name}</label>
+              </div>
+            ))}
+            <button
+              onClick={handleSaveFacilities}
+              className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
+            >
+              Save
+            </button>
           </div>
-          <ul className="list-disc list-inside space-y-2">
-            {userFacilities.map((facilityId) => {
-              const facility = facilities.find((f) => f.id === facilityId);
-              return facility ? (
-                <li key={facilityId} className="text-gray-700">
-                  {facility.name}
-                </li>
-              ) : null;
-            })}
-          </ul>
-        </div>
-      )}
+        ) : (
+          <div className="bg-white shadow-md rounded-lg p-4  ">
+            <div className="flex flex-row justify-between   ">
+              {" "}
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
+                Current Facilities
+              </h2>{" "}
+              <div className="mb-4 pt-4">
+                <button
+                  className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                  onClick={() => setIsEditingFacilities(!isEditingFacilities)}
+                >
+                  {isEditingFacilities ? "Cancel" : <MdEdit />}
+                </button>
+              </div>
+            </div>
+            <ul className="list-disc list-inside space-y-2">
+              {userFacilities.map((facilityId) => {
+                const facility = facilities.find((f) => f.id === facilityId);
+                return facility ? (
+                  <li key={facilityId} className="text-gray-700">
+                    {facility.name}
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </div>
+        )}
       </div>
       <div className=" md:px-10 p-4 max-w-xl">
         <ToastContainer />
 
-
-
-
-
         {isEditingAdditionalServices ? (
           <div className="px-10">
-             <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Edit New Services
-          </p>
+            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+              Edit New Services
+            </p>
             {additionalServices.map((service) => (
               <div
                 key={service.id}
@@ -634,135 +629,132 @@ const VenueVendorPage = () => {
         )}
       </div>
 
-
-
       <div className=" md:px-10 p-4 max-w-xl">
-      {isEditingSafetyAndSecurity ? (
-        <div className="px-10">
-          <p className="text-xl font-semibold mb-4 text-gray-800 ">
-            Edit New Options
-          </p>
-          {safetyAndSecurityOptions.map((option) => (
-            <div key={option.id} className="flex items-center mb-4 text-black">
-              <input
-                type="checkbox"
-                id={option.id}
-                value={option.id}
-                checked={userSafetyAndSecurityOptions.includes(option.id)}
-                onChange={handleSafetyAndSecurityOptionChange}
-                className="mr-2"
-              />
-              <label htmlFor={option.id}>{option.name}</label>
-            </div>
-          ))}
-          <button
-            onClick={handleSaveSafetyAndSecurityOptions}
-            className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
-          >
-            Save
-          </button>
-        </div>
-      ) : (
-        <div className="bg-white shadow-md rounded-lg p-4 ">
-          <div className="flex flex-row justify-between">
-            {" "}
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
-              Safety and Security Options
-            </h2>{" "}
-            <div className="mb-4 pt-4">
-              <button
-                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                onClick={() =>
-                  setIsEditingSafetyAndSecurity(!isEditingSafetyAndSecurity)
-                }
+        {isEditingSafetyAndSecurity ? (
+          <div className="px-10">
+            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+              Edit New Options
+            </p>
+            {safetyAndSecurityOptions.map((option) => (
+              <div
+                key={option.id}
+                className="flex items-center mb-4 text-black"
               >
-                {isEditingSafetyAndSecurity ? "Cancel" : <MdEdit />}
-              </button>
-            </div>
+                <input
+                  type="checkbox"
+                  id={option.id}
+                  value={option.id}
+                  checked={userSafetyAndSecurityOptions.includes(option.id)}
+                  onChange={handleSafetyAndSecurityOptionChange}
+                  className="mr-2"
+                />
+                <label htmlFor={option.id}>{option.name}</label>
+              </div>
+            ))}
+            <button
+              onClick={handleSaveSafetyAndSecurityOptions}
+              className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
+            >
+              Save
+            </button>
           </div>
-          <ul className="list-disc list-inside space-y-2">
-            {userSafetyAndSecurityOptions.map((optionId) => {
-              const option = safetyAndSecurityOptions.find(
-                (o) => o.id === optionId
-              );
-              return option ? (
-                <li key={optionId} className="text-gray-700">
-                  {option.name}
-                </li>
-              ) : null;
-            })}
-          </ul>
-        </div>
-      )}
-      
+        ) : (
+          <div className="bg-white shadow-md rounded-lg p-4 ">
+            <div className="flex flex-row justify-between">
+              {" "}
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
+                Safety and Security Options
+              </h2>{" "}
+              <div className="mb-4 pt-4">
+                <button
+                  className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                  onClick={() =>
+                    setIsEditingSafetyAndSecurity(!isEditingSafetyAndSecurity)
+                  }
+                >
+                  {isEditingSafetyAndSecurity ? "Cancel" : <MdEdit />}
+                </button>
+              </div>
+            </div>
+            <ul className="list-disc list-inside space-y-2">
+              {userSafetyAndSecurityOptions.map((optionId) => {
+                const option = safetyAndSecurityOptions.find(
+                  (o) => o.id === optionId
+                );
+                return option ? (
+                  <li key={optionId} className="text-gray-700">
+                    {option.name}
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </div>
+        )}
 
+        <Space50px />
 
-
-
-<Space50px  />
-
-      {isEditingAccessibility ? (
-        <div>
-             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+        {isEditingAccessibility ? (
+          <div>
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               Edit Accessibility Options
             </h2>{" "}
-          {accessibilityOptions.map((option) => (
-            <div
-              key={option.id}
-              className="flex items-center mb-10 text-black"
-            >
-              <input
-                type="checkbox"
-                id={option.id}
-                value={option.id}
-                checked={userAccessibilityOptions.includes(option.id)}
-                onChange={handleAccessibilityOptionChange}
-                className="mr-2"
-              />
-              <label htmlFor={option.id}>{option.name}</label>
-            </div>
-          ))}
-          <button
-            onClick={handleSaveAccessibilityOptions}
-            className="px-4 py-2 rounded bg-green-500 text-white mt-4"
-          >
-            Save
-          </button>
-        </div>
-      ) : (
-        <div className="bg-white shadow-md rounded-lg p-4">
-          <div className="flex flex-row justify-between">
-            {" "}
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Accessibility Options
-            </h2>{" "}
-            <div className="mb-4">
-              <button
-                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                onClick={() =>
-                  setIsEditingAccessibility(!isEditingAccessibility)
-                }
+            {accessibilityOptions.map((option) => (
+              <div
+                key={option.id}
+                className="flex items-center mb-10 text-black"
               >
-                {isEditingAccessibility ? "Cancel" : <MdEdit />}
-              </button>
-            </div>
+                <input
+                  type="checkbox"
+                  id={option.id}
+                  value={option.id}
+                  checked={userAccessibilityOptions.includes(option.id)}
+                  onChange={handleAccessibilityOptionChange}
+                  className="mr-2"
+                />
+                <label htmlFor={option.id}>{option.name}</label>
+              </div>
+            ))}
+            <button
+              onClick={handleSaveAccessibilityOptions}
+              className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+            >
+              Save
+            </button>
           </div>
-          <ul className="list-disc list-inside space-y-2">
-            {userAccessibilityOptions.map((optionId) => {
-              const option = accessibilityOptions.find((o) => o.id === optionId);
-              return option ? (
-                <li key={optionId} className="text-gray-700">
-                  {option.optionName}
-                </li>
-              ) : null;
-            })}
-          </ul>
-        </div>
-      )}
-
-
+        ) : (
+          <div className="bg-white shadow-md rounded-lg p-4">
+            <div className="flex flex-row justify-between">
+              {" "}
+              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                Accessibility Options
+              </h2>{" "}
+              <div className="mb-4">
+                <button
+                  className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                  onClick={() =>
+                    setIsEditingAccessibility(!isEditingAccessibility)
+                  }
+                >
+                  {isEditingAccessibility ? "Cancel" : <MdEdit />}
+                </button>
+              </div>
+            </div>
+            <ul className="list-disc list-inside space-y-2">
+              {userAccessibilityOptions.map((optionId) => {
+                const option = accessibilityOptions.find(
+                  (o) => o.id === optionId
+                );
+                return option ? (
+                  <li key={optionId} className="text-gray-700">
+                    {option.name}
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </div>
+        )}
       </div>
-    <Space50px/>
+      <Space50px />
     </div>
   );
 };

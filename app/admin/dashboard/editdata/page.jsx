@@ -30,11 +30,14 @@ const AmenitiesPage = () => {
   const [isEditingfacilities, setIsEditingfacilities] = useState(false);
   const [editingIDfacilities, setEditingIDfacilities] = useState(null);
 
-
   const [additionalServices, setAdditionalServices] = useState([]);
-  const [formDataAdditionalServices, setFormDataAdditionalServices] = useState({ name: "" });
-  const [isEditingAdditionalServices, setIsEditingAdditionalServices] = useState(false);
-  const [editingIDAdditionalServices, setEditingIDAdditionalServices] = useState(null);
+  const [formDataAdditionalServices, setFormDataAdditionalServices] = useState({
+    name: "",
+  });
+  const [isEditingAdditionalServices, setIsEditingAdditionalServices] =
+    useState(false);
+  const [editingIDAdditionalServices, setEditingIDAdditionalServices] =
+    useState(null);
 
   const [saftey, setSaftey] = useState([]);
   const [safteyFormData, setsafteyFormData] = useState({ name: "" });
@@ -42,9 +45,17 @@ const AmenitiesPage = () => {
   const [editingIDsaftey, setEditingIDsaftey] = useState(null);
 
   const [accessibility, setAccessibility] = useState([]);
-  const [accessibilityFormData, setAccessibilityFormData] = useState({ name: "" });
+  const [accessibilityFormData, setAccessibilityFormData] = useState({
+    name: "",
+  });
   const [isEditingAccessibility, setIsEditingsAccessibility] = useState(false);
   const [editingIDAccessibility, setEditingIDAccessibility] = useState(null);
+
+  const [attractions, setAttractions] = useState([]);
+  const [attractionsFormData, setattractionsFormData] = useState({ name: "" });
+  const [isEditingattractions, setIsEditingattractions] = useState(false);
+  const [editingIDattractions, setEditingIDattractions] = useState(null);
+
   useEffect(() => {
     const fetchAmenities = async () => {
       try {
@@ -66,7 +77,7 @@ const AmenitiesPage = () => {
           id: doc.id,
         }));
         setfacilities(data);
-        console.log(data)
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -85,7 +96,9 @@ const AmenitiesPage = () => {
     };
     const fetchAdditionalServices = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "additionalServices"));
+        const querySnapshot = await getDocs(
+          collection(db, "additionalServices")
+        );
         const data = querySnapshot.docs.map((doc) => ({
           name: doc.data().name,
           id: doc.id,
@@ -97,12 +110,26 @@ const AmenitiesPage = () => {
     };
     const fetchSaftey = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "safteyAndSecurity"));
+        const querySnapshot = await getDocs(
+          collection(db, "safteyAndSecurity")
+        );
         const data = querySnapshot.docs.map((doc) => ({
           name: doc.data().name,
           id: doc.id,
         }));
         setSaftey(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    const fetchAttractions = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "attractions"));
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setAttractions(data);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -114,46 +141,46 @@ const AmenitiesPage = () => {
           name: doc.data().name,
           id: doc.id,
         }));
-        setSaftey(data);
+        setAccessibility(data);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
     fetchAmenities();
+    fetchAttractions();
     fetchSpaces();
     fetchfacilites();
     fetchAdditionalServices();
     fetchSaftey();
     fetchAccessibility();
   }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleChangeSpaces = (e) => {
     const { name, value } = e.target;
     setSpacesFormData({ ...spacesFormData, [name]: value });
   };
-
   const handleChangeFacilities = (e) => {
     const { name, value } = e.target;
     setFormDatafacilities({ ...formData, [name]: value });
   };
-
   const handleChangeAdditionalServices = (e) => {
     const { name, value } = e.target;
     setFormDataAdditionalServices({ ...formData, [name]: value });
   };
-
   const handleChangeSaftey = (e) => {
     const { name, value } = e.target;
     setsafteyFormData({ ...spacesFormData, [name]: value });
   };
   const handleChangeAccessibility = (e) => {
     const { name, value } = e.target;
-    setsafteyFormData({ ...spacesFormData, [name]: value });
+    setAccessibilityFormData({ ...spacesFormData, [name]: value });
+  };
+  const handleChangeAttractions = (e) => {
+    const { name, value } = e.target;
+    setattractionsFormData({ ...attractionsFormData, [name]: value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -191,7 +218,10 @@ const AmenitiesPage = () => {
   const handleSubmitAdditionalServices = async (e) => {
     e.preventDefault();
     if (isEditingAdditionalServices) {
-      await handleEditAdditionalServices(editingIDAdditionalServices, formDataAdditionalServices.name);
+      await handleEditAdditionalServices(
+        editingIDAdditionalServices,
+        formDataAdditionalServices.name
+      );
     } else {
       await handleAdditionalServices(formDataAdditionalServices.name);
     }
@@ -213,7 +243,10 @@ const AmenitiesPage = () => {
   const handleSubmitAccessibility = async (e) => {
     e.preventDefault();
     if (isEditingAccessibility) {
-      await handleEditAccessibility(editingIDAccessibility, accessibilityFormData.name);
+      await handleEditAccessibility(
+        editingIDAccessibility,
+        accessibilityFormData.name
+      );
     } else {
       await handleAddAccessibility(accessibilityFormData.name);
     }
@@ -221,12 +254,26 @@ const AmenitiesPage = () => {
     setIsEditingsAccessibility(false);
     setEditingIDAccessibility(null);
   };
+  const handleSubmitAttractions = async (e) => {
+    e.preventDefault();
+    if (isEditingattractions) {
+      await handleEditAttractions(
+        editingIDattractions,
+        attractionsFormData.name
+      );
+    } else {
+      await handleAddAttractions(attractionsFormData.name);
+    }
+    setattractionsFormData({ name: "" });
+    setIsEditingattractions(false);
+    setEditingIDattractions(null);
+  };
   const handleAddFacility = async (name) => {
     try {
       const docRef = await addDoc(collection(db, "hotelfacilities"), {
         name,
       });
-      await updateDoc(docRef, { id: docRef.id  });
+      await updateDoc(docRef, { id: docRef.id });
 
       setAmenities([...facilities, { name, id: docRef.id }]);
       toast.success("Facility added successfully!");
@@ -235,13 +282,12 @@ const AmenitiesPage = () => {
       toast.error("Error adding Facility.");
     }
   };
-
   const handleAddAmenity = async (amenityName) => {
     try {
       const docRef = await addDoc(collection(db, "hotelamenities"), {
         amenityName,
       });
-      await updateDoc(docRef, { id: docRef.id  });
+      await updateDoc(docRef, { id: docRef.id });
       setAmenities([...amenities, { amenityName, amenityUID: docRef.id }]);
       toast.success("Amenity added successfully!");
     } catch (error) {
@@ -249,57 +295,64 @@ const AmenitiesPage = () => {
       toast.error("Error adding amenity.");
     }
   };
-
   const handleAddSpace = async (name) => {
     try {
       const docRef = await addDoc(collection(db, "spacesTypes"), { name });
+      await updateDoc(docRef, { id: docRef.id });
+
       setSpacesTypes([...spacesTypes, { name, id: docRef.id }]);
       toast.success("Space type added successfully!");
     } catch (error) {
       console.error("Error adding space type: ", error);
       toast.error("Error adding space type.");
     }
-  }; 
-
+  };
   const handleAddSaftey = async (name) => {
     try {
-      const docRef = await addDoc(collection(db, "safteyAndSecurity"), { name });
+      const docRef = await addDoc(collection(db, "safteyAndSecurity"), {
+        name,
+      });
+      await updateDoc(docRef, { id: docRef.id });
+
       setSaftey([...saftey, { name, id: docRef.id }]);
       toast.success("Added successfully!");
     } catch (error) {
       console.error("Error adding ", error);
       toast.error("Error adding ");
     }
-  }; 
+  };
   const handleAddAccessibility = async (name) => {
     try {
       const docRef = await addDoc(collection(db, "accessibility"), { name });
+      await updateDoc(docRef, { id: docRef.id });
+
       setAccessibility([...accessibility, { name, id: docRef.id }]);
       toast.success("Added successfully!");
     } catch (error) {
       console.error("Error adding ", error);
       toast.error("Error adding ");
     }
-  }; 
-
-
-
+  };
   const handleAdditionalServices = async (name) => {
     try {
-      const docRef = await addDoc(collection(db, "additionalServices"), { name });
+      const docRef = await addDoc(collection(db, "additionalServices"), {
+        name,
+      });
+      1;
+      await updateDoc(docRef, { id: docRef.id });
+
       setAdditionalServices([...additionalServices, { name, id: docRef.id }]);
       toast.success("Additional Services added successfully!");
     } catch (error) {
       console.error("Error : ", error);
       toast.error("Error .");
     }
-  }; 
-
+  };
   const handleEditFacility = async (id, name) => {
     try {
       const facilityRef = doc(db, "hotelfacilities", id);
-      await updateDoc(facilityRef, { name }); 
-  
+      await updateDoc(facilityRef, { name });
+
       setfacilities(
         facilities.map((facility) =>
           facility.id === id ? { name, id } : facility
@@ -311,12 +364,28 @@ const AmenitiesPage = () => {
       toast.error("Error updating Facility.");
     }
   };
-  
+
+  const handleAddAttractions = async (id, name) => {
+    try {
+      const facilityRef = doc(db, "attractions", id);
+      await updateDoc(facilityRef, { name });
+
+      setAttractions(
+        attractions.map((facility) =>
+          facility.id === id ? { name, id } : facility
+        )
+      );
+      toast.success("Attractions updated successfully!");
+    } catch (error) {
+      console.error("Error updating Attractions: ", error);
+      toast.error("Error updating Attractions.");
+    }
+  };
   const handleEditAdditionalServices = async (id, name) => {
     try {
       const docRef = doc(db, "additionalServices", id);
-      await updateDoc(facilityRef, { name }); 
-  
+      await updateDoc(docRef, { name });
+
       setAdditionalServices(
         additionalServices.map((service) =>
           service.id === id ? { name, id } : service
@@ -328,7 +397,6 @@ const AmenitiesPage = () => {
       toast.error("Error updating AdditionalService");
     }
   };
-  
   const handleEditAmenity = async (id, amenityName) => {
     try {
       const amenityRef = doc(db, "hotelamenities", id);
@@ -344,7 +412,6 @@ const AmenitiesPage = () => {
       toast.error("Error updating amenity.");
     }
   };
-
   const handleEditSpace = async (id, name) => {
     try {
       const spaceRef = doc(db, "spacesTypes", id);
@@ -371,15 +438,25 @@ const AmenitiesPage = () => {
       toast.error("Error updating accessibility type.");
     }
   };
-
   const handleEditSaftey = async (id, name) => {
     try {
       const spaceRef = doc(db, "safteyAndSecurity", id);
       await updateDoc(spaceRef, { name });
-      setSaftey(
-        saftey.map((data) => (data.id === id ? { name, id } : data))
-      );
+      setSaftey(saftey.map((data) => (data.id === id ? { name, id } : data)));
       toast.success("Saftey and Security updated successfully!");
+    } catch (error) {
+      console.error("Error updating  : ", error);
+      toast.error("Error updating .");
+    }
+  };
+  const handleEditAttractions = async (id, name) => {
+    try {
+      const spaceRef = doc(db, "attractions", id);
+      await updateDoc(spaceRef, { name });
+      setAttractions(
+        attractions.map((data) => (data.id === id ? { name, id } : data))
+      );
+      toast.success("attractions updated successfully!");
     } catch (error) {
       console.error("Error updating  : ", error);
       toast.error("Error updating .");
@@ -396,7 +473,6 @@ const AmenitiesPage = () => {
       toast.error("Error deleting amenity.");
     }
   };
-
   const handleDeleteFacility = async (id) => {
     try {
       await deleteDoc(doc(db, "hotelfacilites", id));
@@ -407,8 +483,7 @@ const AmenitiesPage = () => {
       toast.error("Error deleting facility.");
     }
   };
-
-  const handleDeleteSaftey= async (id) => {
+  const handleDeleteSaftey = async (id) => {
     try {
       await deleteDoc(doc(db, "safteyAndSecurity", id));
       setSaftey(saftey.filter((f) => f.id !== id));
@@ -418,7 +493,7 @@ const AmenitiesPage = () => {
       toast.error("Error deleting safteyAndSecurity.");
     }
   };
-  const handleDeleteAccessibility= async (id) => {
+  const handleDeleteAccessibility = async (id) => {
     try {
       await deleteDoc(doc(db, "accessibility", id));
       setSaftey(saftey.filter((f) => f.id !== id));
@@ -428,8 +503,6 @@ const AmenitiesPage = () => {
       toast.error("Error deleting accessibility.");
     }
   };
-
-
   const handleDeleteAdditionalServices = async (id) => {
     try {
       await deleteDoc(doc(db, "additionalServices", id));
@@ -440,7 +513,6 @@ const AmenitiesPage = () => {
       toast.error("Error deleting additionalServices.");
     }
   };
-
   const handleDeleteSpace = async (id) => {
     try {
       await deleteDoc(doc(db, "spacesTypes", id));
@@ -451,38 +523,47 @@ const AmenitiesPage = () => {
       toast.error("Error deleting space type.");
     }
   };
-
+  const handleDeleteAttractions = async (id) => {
+    try {
+      await deleteDoc(doc(db, "attractions", id));
+      setAttractions(attractions.filter((space) => space.id !== id));
+      toast.success("Attractions type deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting Attractions type: ", error);
+      toast.error("Error deleting Attractions type.");
+    }
+  };
   const startEditing = (id, name) => {
     setIsEditing(true);
     setEditingID(id);
     setFormData({ amenityName: name });
   };
-
   const startEditingFacilities = (id, name) => {
     setIsEditingfacilities(true);
     setEditingIDfacilities(id);
-    setFormDatafacilities({  name });
+    setFormDatafacilities({ name });
   };
-
   const startEditingSpaces = (id, name) => {
     setIsEditingSpaces(true);
     setEditingIDSpaces(id);
     setSpacesFormData({ name });
   };
-
   const startEditingAdditionalServices = (id, name) => {
     setIsEditingAdditionalServices(true);
     setEditingIDAdditionalServices(id);
     setFormDataAdditionalServices({ name });
   };
-
   const startEditingSaftey = (id, name) => {
     setIsEditingsaftey(true);
     setEditingIDsaftey(id);
     setsafteyFormData({ name });
   };
-  
   const startEditingAccessibilty = (id, name) => {
+    setIsEditingsAccessibility(true);
+    setEditingIDAccessibility(id);
+    setAccessibilityFormData({ name });
+  };
+  const startEditingAttractions = (id, name) => {
     setIsEditingsAccessibility(true);
     setEditingIDAccessibility(id);
     setAccessibilityFormData({ name });
@@ -490,8 +571,11 @@ const AmenitiesPage = () => {
   return (
     <div className="p-4">
       <ToastContainer />
-      <h1 className="text-2xl font-bold mb-4 fixed ">Amenities</h1>
-      <form onSubmit={handleSubmit} className="mb-4 mt-20 backdrop-blur-sm z-10 ">
+      <h1 className="text-2xl font-bold mb-4  ">Amenities</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="mb-4 mt-20 backdrop-blur-sm z-10 "
+      >
         <input
           type="text"
           name="amenityName"
@@ -594,7 +678,7 @@ const AmenitiesPage = () => {
         <p>No space types available</p>
       )}
 
-<h1 className="text-2xl font-bold mb-4">Facilities</h1>
+      <h1 className="text-2xl font-bold mb-4">Facilities</h1>
       <form onSubmit={handleSubmitfacilities} className="mb-4">
         <input
           type="text"
@@ -612,7 +696,7 @@ const AmenitiesPage = () => {
           {isEditingfacilities ? "Update" : "Add"}
         </button>
       </form>
-      {facilities.length > 0 ?  (
+      {facilities.length > 0 ? (
         <div className="h-56 overflow-y-scroll">
           {facilities.map((data, index) => (
             <div
@@ -626,9 +710,7 @@ const AmenitiesPage = () => {
               </div>
               <div>
                 <button
-                  onClick={() =>
-                    startEditingFacilities(data.id , data.name)
-                  }
+                  onClick={() => startEditingFacilities(data.id, data.name)}
                   className="text-green-500 text-xl"
                 >
                   <MdEdit />
@@ -647,8 +729,7 @@ const AmenitiesPage = () => {
         <p>No Facility available</p>
       )}
 
-
-<h1 className="text-2xl font-bold mb-4">Additional Services</h1>
+      <h1 className="text-2xl font-bold mb-4">Additional Services</h1>
       <form onSubmit={handleSubmitAdditionalServices} className="mb-4">
         <input
           type="text"
@@ -666,7 +747,7 @@ const AmenitiesPage = () => {
           {isEditingAdditionalServices ? "Update" : "Add"}
         </button>
       </form>
-      {additionalServices.length > 0 ?  (
+      {additionalServices.length > 0 ? (
         <div className="h-56 overflow-y-scroll">
           {additionalServices.map((data, index) => (
             <div
@@ -681,7 +762,7 @@ const AmenitiesPage = () => {
               <div>
                 <button
                   onClick={() =>
-                    startEditingAdditionalServices(data.id , data.name)
+                    startEditingAdditionalServices(data.id, data.name)
                   }
                   className="text-green-500 text-xl"
                 >
@@ -701,7 +782,7 @@ const AmenitiesPage = () => {
         <p>No AdditionalServices available</p>
       )}
 
-<h1 className="text-2xl font-bold mb-4">Saftey and Security Services</h1>
+      <h1 className="text-2xl font-bold mb-4">Saftey and Security Services</h1>
       <form onSubmit={handleSubmitSaftey} className="mb-4">
         <input
           type="text"
@@ -719,7 +800,7 @@ const AmenitiesPage = () => {
           {isEditingsaftey ? "Update" : "Add"}
         </button>
       </form>
-      {saftey.length > 0 ?  (
+      {saftey.length > 0 ? (
         <div className="h-56 overflow-y-scroll">
           {saftey.map((data, index) => (
             <div
@@ -733,9 +814,7 @@ const AmenitiesPage = () => {
               </div>
               <div>
                 <button
-                  onClick={() =>
-                    startEditingSaftey(data.id , data.name)
-                  }
+                  onClick={() => startEditingSaftey(data.id, data.name)}
                   className="text-green-500 text-xl"
                 >
                   <MdEdit />
@@ -751,10 +830,10 @@ const AmenitiesPage = () => {
           ))}
         </div>
       ) : (
-        <p>No Safety and Security keywords   available</p>
+        <p>No Safety and Security keywords available</p>
       )}
 
-<h1 className="text-2xl font-bold mb-4">Accessibility</h1>
+      <h1 className="text-2xl font-bold mb-4">Accessibility</h1>
       <form onSubmit={handleSubmitAccessibility} className="mb-4">
         <input
           type="text"
@@ -772,7 +851,7 @@ const AmenitiesPage = () => {
           {isEditingsaftey ? "Update" : "Add"}
         </button>
       </form>
-      {accessibility.length > 0 ?  (
+      {accessibility.length > 0 ? (
         <div className="h-56 overflow-y-scroll">
           {accessibility.map((data, index) => (
             <div
@@ -786,9 +865,7 @@ const AmenitiesPage = () => {
               </div>
               <div>
                 <button
-                  onClick={() =>
-                    startEditingAccessibilty(data.id , data.name)
-                  }
+                  onClick={() => startEditingAccessibilty(data.id, data.name)}
                   className="text-green-500 text-xl"
                 >
                   <MdEdit />
@@ -807,8 +884,56 @@ const AmenitiesPage = () => {
         <p>No Accessibility available</p>
       )}
 
-
-
+      <h1 className="text-2xl font-bold mb-4">Near by Attractions</h1>
+      <form onSubmit={handleSubmitAttractions} className="mb-4">
+        <input
+          type="text"
+          name="name"
+          value={attractionsFormData.name}
+          onChange={handleChangeAttractions}
+          className="p-2 border border-gray-300 rounded mr-2"
+          placeholder="Additional Service Name"
+          required
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-500 text-white bg-pink rounded"
+        >
+          {isEditingattractions ? "Update" : "Add"}
+        </button>
+      </form>
+      {attractions.length > 0 ? (
+        <div className="h-56 overflow-y-scroll">
+          {attractions.map((data, index) => (
+            <div
+              key={index}
+              className="mb-2 p-2 border border-gray-300 rounded flex justify-between items-center"
+            >
+              <div>
+                <p className="text-lg">
+                  <strong>Name:</strong> {data.name}
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={() => startEditingAttractions(data.id, data.name)}
+                  className="text-green-500 text-xl"
+                >
+                  <MdEdit />
+                </button>
+                <button
+                  onClick={() => handleDeleteAttractions(data.id)}
+                  className=" text-red-500 text-xl "
+                >
+                  <MdDelete />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No Attractions available</p>
+      )}
     </div>
   );
 };

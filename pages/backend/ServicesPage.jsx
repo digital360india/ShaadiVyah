@@ -44,6 +44,8 @@ const ServicesPage = () => {
       {" "}
       {isLoading && <p>Loading user data...</p>}
       {error && <p>Error: {error}</p>}
+<VenueVendorPage />
+
       {user?.vendorTypeUID === "venuevendor" && <VenueVendorPage />}
       {user?.vendorTypeUID === "makeupvendor" && <MakeUpVendorPage />}
       {user?.vendorTypeUID === "photographervendor" && (

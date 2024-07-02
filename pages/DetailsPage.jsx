@@ -12,9 +12,13 @@ const DetailPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
+  const [facilities, setFacilities] = useState([]);
+  const [additionalServices, setAdditionalServices] = useState([]);
+  const [safetyAndSecurityOptions, setSafetyAndSecurityOptions] = useState([]);
+  const [accessibilityOptions, setAccessibilityOptions] = useState([]);
 
   const [data, setData] = useState();
-
+  const [amenities, setAmenities] = useState([]);
   useEffect(() => {
     const fetchRoutineData = async () => {
       const querySnapshot = await getDocs(
@@ -26,9 +30,24 @@ const DetailPage = () => {
 
           return {
             name: values.name,
-            spaces: values.spaces ? values.spaces[0] : {},
-            portfolioImagesUrl: values.portfolioImagesUrl ? values.portfolioImagesUrl[0] : {},
-
+            spaces: values.spaces,
+            portfolioImagesUrl: values.portfolioImagesUrl
+              ? values.portfolioImagesUrl[0]
+              : {},
+            amenitiesUID: values.amenitiesUID ? values.amenitiesUID : {},
+            facilitiesUID: values.facilitiesUID ? values.facilitiesUID : {},
+            accessibilityOptionsUID: values.accessibilityOptionsUID
+              ? values.accessibilityOptionsUID
+              : {},
+            safetyAndSecurityOptionsUID: values.safetyAndSecurityOptionsUID
+              ? values.safetyAndSecurityOptionsUID
+              : {},
+            additionalServicesUID: values.additionalServicesUID
+              ? values.additionalServicesUID
+              : {},
+            accessibilityOptionsUID: values.accessibilityOptionsUID
+              ? values.accessibilityOptionsUID
+              : {},
             uid: values.uid,
             streetAddress: values.streetAddress,
             landmark: values.landmark,
@@ -54,8 +73,90 @@ const DetailPage = () => {
         setData(data[0]);
       }
     };
-
+    const fetchAmenities = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "hotelamenities"));
+        const amenitiesList = querySnapshot.docs.map((doc) => ({
+          amenityName: doc.data().amenityName,
+          amenityUID: doc.id,
+        }));
+        setAmenities(amenitiesList);
+      } catch (error) {
+        console.error("Error fetching amenities: ", error);
+      }
+    };
+    const fetchfacilites = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "hotelfacilities"));
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setFacilities(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    const fetchSpaces = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "spacesTypes"));
+        const spacesList = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setSpacesTypes(spacesList);
+      } catch (error) {
+        console.error("Error fetching spaces: ", error);
+      }
+    };
+    const fetchAdditionalServices = async () => {
+      try {
+        const querySnapshot = await getDocs(
+          collection(db, "additionalServices")
+        );
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setAdditionalServices(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    const fetchSaftey = async () => {
+      try {
+        const querySnapshot = await getDocs(
+          collection(db, "safteyAndSecurity")
+        );
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setSafetyAndSecurityOptions(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    const fetchAccessibility = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "accessibility"));
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setAccessibilityOptions(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchAdditionalServices();
+    fetchSpaces();
+    fetchSaftey();
+    fetchAmenities();
     fetchRoutineData();
+    fetchAccessibility();
+    fetchfacilites();
   }, []);
   return (
     <>
@@ -78,16 +179,23 @@ const DetailPage = () => {
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
                     <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="black" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="black"
+                          d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"
+                        />
+                      </svg>
                     </div>
-                    
-                    <div className="flex gap-2"> 
-                       <p>
-                    {data?.city} , 
 
-                  </p>
-                     {data?.country}
-                     </div>
+                    <div className="flex gap-2">
+                      <p>{data?.city} ,</p>
+                      {data?.country}
+                    </div>
                     {data?.googleLocation && (
                       <Link
                         href={data.googleLocation}
@@ -97,7 +205,9 @@ const DetailPage = () => {
                       </Link>
                     )}
                   </div>
-                  <div className="text-[#909090] text-sm mt-[4px]">{data?.about}</div>
+                  <div className="text-[#909090] text-sm mt-[4px]">
+                    {data?.about}
+                  </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
                     <img
                       src="/icons/call.svg"
@@ -176,20 +286,26 @@ const DetailPage = () => {
           </div>
         </div>
 
-
         <div className="flex justify-between items-start     mx-[100px]">
           <div className="w-[46%] flex flex-col gap-10 ">
             <div className="text-3xl font-semibold text-[#4A4A4A] capitalize ">
-            {data?.businessName}
-            <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
+              {data?.businessName}
+              <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"/></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="white"
+                      d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"
+                    />
+                  </svg>
 
-                  <p>
-                    {data?.city} , 
-
-                  </p>
-                     {data?.country}
+                  <p>{data?.city} ,</p>
+                  {data?.country}
                 </div>
               </div>
             </div>
@@ -201,79 +317,45 @@ const DetailPage = () => {
               </p>
               <div className="flex flex-wrap gap-10">
                 <div className="flex mt-5 gap-6 px-5">
-              <div><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#C9184A" fill-rule="evenodd" d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25" clip-rule="evenodd"/></svg></div>
-              <div className="">
-              {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
-                data.spaces.map((space, index) => (
-                  <div key={index}>
-                    <p>Space Name: {space.spaceName}</p>
-                    <p>Floating Capacity: {space.floating}</p>
-                    <p>Sitting Capacity: {space.sitting}</p>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="#C9184A"
+                        fill-rule="evenodd"
+                        d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
                   </div>
-                ))
-              ) : (
-                <div>
-
-                  <div className="flex gap-2">
-                  <p>{data?.spaces.sitting} Seating</p>
-                  <p>|</p>
-                  <p> {data?.spaces.floating} Floating</p>
+                  <div className="">
+                    {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
+                      data.spaces.map((space, index) => (
+                        <div key={index}>
+                          <p>Space Name: {space.spaceName}</p>
+                          <p>Floating Capacity: {space.floating}</p>
+                          <p>Sitting Capacity: {space.sitting}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <div>
+                        <div className="flex gap-2">
+                          <p>{data?.spaces.sitting || "N/A"} Seating</p>
+                          <p>|</p>
+                          <p> {data?.spaces.floating || "N/A"} Floating</p>
+                        </div>
+                        <p className="text-[#C9184A] text-[14px]">
+                          {data?.spaces.spaceName}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <p className="text-[#C9184A] text-[14px]">{data?.spaces.spaceName}</p>
                 </div>
-              )}
               </div>
-              </div>
-              <div className="flex mt-5 gap-6 px-5">
-              <div><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#C9184A" fill-rule="evenodd" d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25" clip-rule="evenodd"/></svg></div>
-              <div className="">
-              {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
-                data.spaces.map((space, index) => (
-                  <div key={index}>
-                    <p>Space Name: {space.spaceName}</p>
-                    <p>Floating Capacity: {space.floating}</p>
-                    <p>Sitting Capacity: {space.sitting}</p>
-                  </div>
-                ))
-              ) : (
-                <div>
-
-                  <div className="flex gap-2">
-                  <p>{data?.spaces.sitting} Seating</p>
-                  <p>|</p>
-                  <p> {data?.spaces.floating} Floating</p>
-                  </div>
-                  <p className="text-[#C9184A] text-[14px]">{data?.spaces.spaceName}</p>
-                </div>
-              )}
-              </div>
-              </div>
-              <div className="flex  gap-6 px-5">
-              <div><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#C9184A" fill-rule="evenodd" d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25" clip-rule="evenodd"/></svg></div>
-              <div className="">
-              {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
-                data.spaces.map((space, index) => (
-                  <div key={index}>
-                    <p>Space Name: {space.spaceName}</p>
-                    <p>Floating Capacity: {space.floating}</p>
-                    <p>Sitting Capacity: {space.sitting}</p>
-                  </div>
-                ))
-              ) : (
-                <div>
-
-                  <div className="flex gap-2">
-                  <p>{data?.spaces.sitting} Seating</p>
-                  <p>|</p>
-                  <p> {data?.spaces.floating} Floating</p>
-                  </div>
-                  <p className="text-[#C9184A] text-[14px]">{data?.spaces.spaceName}</p>
-                </div>
-              )}
-              </div>
-              </div>
-              </div>
-              
             </div>
           </div>
           <div className="px-20 py-10 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
@@ -342,43 +424,132 @@ const DetailPage = () => {
           <div>FAQ&apos;s</div>
         </div>
         {/* Portfolio*/}
-        <div className=" pl-[100px] "><p className="text-[#4A4A4A] font-semibold text-[32px]">Portfolio</p></div>
-        <Space25px/>
-  {data?.portfolioImagesUrl && data.portfolioImagesUrl.length > 0 && (
-    <Gallery images={data.portfolioImagesUrl} />
-  )}
+        <div className=" pl-[100px] ">
+          <p className="text-[#4A4A4A] font-semibold text-[32px]">Portfolio</p>
+        </div>
+        <Space25px />
+        {data?.portfolioImagesUrl && data.portfolioImagesUrl.length > 0 && (
+          <Gallery images={data.portfolioImagesUrl} />
+        )}
 
-        <div className="bg-[#CFCCBF80]  p-16 m-[100px]  rounded-2xl text-[#0A2D23]">
-          <div className=" flex flex-col  text-[32px] justify-start items-start gap-10">
-            <div><p className="text-[42px] font-medium ">Services</p></div>
-            <div className=" flex text-[20px] gap-60">
-              <div className="space-y-4"><p className="text-[22px] font-medium">Well-being</p>
-              <div className="text-[14px] font-semibold space-y-3">
-                <p>Pool</p>
-                <p>play Room</p>
-                <p>Kid Space</p>
-
+        <div className="bg-[#CFCCBF80] p-8 md:p-16 m-4 md:m-[100px] rounded-2xl text-[#0A2D23]">
+          <div className="flex flex-col text-[32px] gap-4 md:gap-10">
+            <div>
+              <p className="text-[42px] font-medium">Services</p>
+            </div>
+            <div className="flex flex-col md:flex-row text-[20px] gap-10 md:gap-20">
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Amenities</p>
+                <div className="text-[14px] font-semibold space-y-2">
+                  <ul className="list-disc list-inside">
+                    {data &&
+                    data.amenitiesUID &&
+                    Array.isArray(data.amenitiesUID) ? (
+                      data.amenitiesUID.map((amenityId) => {
+                        const amenity = amenities.find(
+                          (a) => a.amenityUID === amenityId
+                        );
+                        return amenity ? (
+                          <li key={amenityId} className="text-gray-700">
+                            {amenity.amenityName}
+                          </li>
+                        ) : null;
+                      })
+                    ) : (
+                      <li className="text-gray-700">No amenities available</li>
+                    )}
+                  </ul>
+                </div>
               </div>
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Accessibility</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+                  {data &&
+                  data.accessibilityOptionsUID &&
+                  Array.isArray(data.accessibilityOptionsUID) ? (
+                    data.accessibilityOptionsUID.map(
+                      (accessibilityOptionsUID) => {
+                        const accessibility = accessibilityOptions.find(
+                          (a) => a.id === accessibilityOptionsUID
+                        );
+                        return accessibility ? (
+                          <li key={accessibility.id} className="text-gray-700">
+                            {accessibility.name}
+                          </li>
+                        ) : null;
+                      }
+                    )
+                  ) : (
+                    <li className="text-gray-700">
+                      No accessibility options available
+                    </li>
+                  )}
+                </ul>
               </div>
-              <div className="space-y-4"><p className="text-[22px] font-medium">Common Areas</p>
-              <div>
-              <div className="text-[14px] font-semibold space-y-3">
-                <p>Pool</p>
-                <p>play Room</p>
-                <p>Kid Space</p>
-
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Security and Safety</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+                  {data &&
+                  data.safetyAndSecurityOptionsUID &&
+                  Array.isArray(data.safetyAndSecurityOptionsUID) ? (
+                    data.safetyAndSecurityOptionsUID.map((id) => {
+                      const safety = safetyAndSecurityOptions.find(
+                        (a) => a.id === id
+                      );
+                      return safety ? (
+                        <li key={safety.id} className="text-gray-700">
+                          {safety.name}
+                        </li>
+                      ) : null;
+                    })
+                  ) : (
+                    <li className="text-gray-700">
+                      No safety and security options available
+                    </li>
+                  )}
+                </ul>
               </div>
-                            </div>
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Facilities</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+                  {data &&
+                  data.facilitiesUID &&
+                  Array.isArray(data.facilitiesUID) ? (
+                    data.facilitiesUID.map((id) => {
+                      const facility = facilities.find((a) => a.id === id);
+                      return facility ? (
+                        <li key={facility.id} className="text-gray-700">
+                          {facility.name}
+                        </li>
+                      ) : null;
+                    })
+                  ) : (
+                    <li className="text-gray-700">No facilities available</li>
+                  )}
+                </ul>
               </div>
-              <div className="space-y-4"><p className="text-[22px] font-medium">Gastronomy</p>
-              <div>
-              <div className="text-[14px] font-semibold space-y-3">
-                <p>Pool</p>
-                <p>play Room</p>
-                <p>Kid Space</p>
-
-              </div>
-                            </div>
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Additional Services</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+                  {data &&
+                  data.additionalServicesUID &&
+                  Array.isArray(data.additionalServicesUID) ? (
+                    data.additionalServicesUID.map((id) => {
+                      const service = additionalServices.find(
+                        (a) => a.id === id
+                      );
+                      return service ? (
+                        <li key={service.id} className="text-gray-700">
+                          {service.name}
+                        </li>
+                      ) : null;
+                    })
+                  ) : (
+                    <li className="text-gray-700">
+                      No additional services available
+                    </li>
+                  )}
+                </ul>
               </div>
             </div>
           </div>
@@ -388,7 +559,6 @@ const DetailPage = () => {
           <div className="w-[46%] flex flex-col gap-6 bg-[#B4D4DF40] p-10 rounded-2xl ">
             <div className="text-xl font-bold capitalize ">
               A hotel perfectly located at your destination
-             
             </div>
           </div>
 
