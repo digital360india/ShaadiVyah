@@ -180,7 +180,7 @@ const AmenitiesPage = () => {
   };
   const handleChangeAttractions = (e) => {
     const { name, value } = e.target;
-    setattractionsFormData({ ...attractionsFormData, [name]: value });
+    setattractionsFormData({ ...spacesFormData, [name]: value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -338,9 +338,7 @@ const AmenitiesPage = () => {
       const docRef = await addDoc(collection(db, "additionalServices"), {
         name,
       });
-      1;
       await updateDoc(docRef, { id: docRef.id });
-
       setAdditionalServices([...additionalServices, { name, id: docRef.id }]);
       toast.success("Additional Services added successfully!");
     } catch (error) {
@@ -365,20 +363,21 @@ const AmenitiesPage = () => {
     }
   };
 
-  const handleAddAttractions = async (id, name) => {
+  const handleAddAttractions = async (name) => {
+    console.log(name)
     try {
-      const facilityRef = doc(db, "attractions", id);
-      await updateDoc(facilityRef, { name });
+      const docRef = await addDoc(collection(db, "attractions"), {
+        name,
+      
+      });
+      console.log(name)
+      await updateDoc(docRef, { id: docRef.id });
 
-      setAttractions(
-        attractions.map((facility) =>
-          facility.id === id ? { name, id } : facility
-        )
-      );
-      toast.success("Attractions updated successfully!");
+      setAdditionalServices([...additionalServices, { name, id: docRef.id }]);
+      toast.success("Additional Services added successfully!");
     } catch (error) {
-      console.error("Error updating Attractions: ", error);
-      toast.error("Error updating Attractions.");
+      console.error("Error : ", error);
+      toast.error("Error .");
     }
   };
   const handleEditAdditionalServices = async (id, name) => {
@@ -564,9 +563,9 @@ const AmenitiesPage = () => {
     setAccessibilityFormData({ name });
   };
   const startEditingAttractions = (id, name) => {
-    setIsEditingsAccessibility(true);
-    setEditingIDAccessibility(id);
-    setAccessibilityFormData({ name });
+    setIsEditingattractions(true);
+    setEditingIDattractions(id);
+    setattractionsFormData({ name });
   };
   return (
     <div className="p-4">
@@ -892,7 +891,7 @@ const AmenitiesPage = () => {
           value={attractionsFormData.name}
           onChange={handleChangeAttractions}
           className="p-2 border border-gray-300 rounded mr-2"
-          placeholder="Additional Service Name"
+          placeholder="Service Name"
           required
         />
         <button

@@ -16,6 +16,8 @@ const DetailPage = () => {
   const [additionalServices, setAdditionalServices] = useState([]);
   const [safetyAndSecurityOptions, setSafetyAndSecurityOptions] = useState([]);
   const [accessibilityOptions, setAccessibilityOptions] = useState([]);
+  const [attraction, setAttractions] = useState([]);
+  const [spaceTypes, setSpaceTypes] = useState([]);
 
   const [data, setData] = useState();
   const [amenities, setAmenities] = useState([]);
@@ -48,6 +50,7 @@ const DetailPage = () => {
             accessibilityOptionsUID: values.accessibilityOptionsUID
               ? values.accessibilityOptionsUID
               : {},
+            attractions: values.attractions ? values.attractions : {},
             uid: values.uid,
             streetAddress: values.streetAddress,
             landmark: values.landmark,
@@ -105,7 +108,7 @@ const DetailPage = () => {
           name: doc.data().name,
           id: doc.id,
         }));
-        setSpacesTypes(spacesList);
+        setSpaceTypes(spacesList);
       } catch (error) {
         console.error("Error fetching spaces: ", error);
       }
@@ -150,6 +153,19 @@ const DetailPage = () => {
         console.error("Error fetching data: ", error);
       }
     };
+    const fetchAttractions = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "attractions"));
+        const data = querySnapshot.docs.map((doc) => ({
+          name: doc.data().name,
+          id: doc.id,
+        }));
+        setAttractions(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchAttractions();
     fetchAdditionalServices();
     fetchSpaces();
     fetchSaftey();
@@ -317,39 +333,53 @@ const DetailPage = () => {
               </p>
               <div className="flex flex-wrap gap-10">
                 <div className="flex mt-5 gap-6 px-5">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="#C9184A"
-                        fill-rule="evenodd"
-                        d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div className="">
+                  <div className="flex flex-warp gap-10 ">
                     {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
-                      data.spaces.map((space, index) => (
-                        <div key={index}>
-                          <p>Space Name: {space.spaceName}</p>
-                          <p>Floating Capacity: {space.floating}</p>
-                          <p>Sitting Capacity: {space.sitting}</p>
-                        </div>
-                      ))
+                      data.spaces.map((space, index) => {
+                        const spaceType = spaceTypes.find(
+                          (type) => type.id === space.spaceType
+                        );
+                        return (
+                          <div key={index} className="flex gap-2 ">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="40"
+                              height="40"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                fill="#C9184A"
+                                fill-rule="evenodd"
+                                d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <div>
+                              {" "}
+                              <p className="text-pink">
+                                {spaceType ? spaceType.name : "Unknown"}
+                              </p>
+                              <p className="text-md">{space.spaceName}</p>
+                              <p className="text-sm">
+                                Floating Capacity: {space.floating}
+                              </p>
+                              <p className="text-sm">
+                                {" "}
+                                Sitting Capacity: {space.sitting}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })
                     ) : (
                       <div>
                         <div className="flex gap-2">
-                          <p>{data?.spaces.sitting || "N/A"} Seating</p>
+                          <p>{data?.spaces?.sitting || "N/A"} Seating</p>
                           <p>|</p>
-                          <p> {data?.spaces.floating || "N/A"} Floating</p>
+                          <p> {data?.spaces?.floating || "N/A"} Floating</p>
                         </div>
                         <p className="text-[#C9184A] text-[14px]">
-                          {data?.spaces.spaceName}
+                          {data?.spaces?.spaceName}
                         </p>
                       </div>
                     )}
@@ -555,25 +585,64 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="flex  justify-between items-start mx-[100px]">
+        <div className="flex justify-between items-start mx-[100px]">
           <div className="w-[46%] flex flex-col gap-6 bg-[#B4D4DF40] p-10 rounded-2xl ">
-            <div className="text-xl font-bold capitalize ">
+            <div className="text-xl font-bold capitalize">
               A hotel perfectly located at your destination
+            </div>
+            <div className="flex justify-between">
+              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+                {data && data.attractions && Array.isArray(data.attractions) ? (
+                  data.attractions.map((place) => {
+                    const attractions = attraction.find(
+                      (a) => a.id === place.locationType
+                    );
+                    console.log(attractions);
+                    return attractions ? (
+                      <>
+                        {" "}
+                        <div className="flex justify-between w-[600px] ">
+                          {" "}
+                          <div
+                            key={attractions.id}
+                            className="text-gray-700 flex gap-2"
+                          >
+                            <img
+                              src="/icons/locationblack.svg"
+                              alt="location"
+                            />
+                            <div>{attractions.name}</div>
+                          </div>
+                          <div className="text-gray-700 flex gap-20">
+                            <div>{place.distance} km </div>{" "}
+                            <div>{place.time} mins </div>
+                          </div>
+                        </div>
+                        <hr className="w-full border-gray-300 mt-2" />
+                      </>
+                    ) : null;
+                  })
+                ) : (
+                  <li className="text-gray-700">
+                    No nearby attractions available
+                  </li>
+                )}
+              </ul>
             </div>
           </div>
 
           {/* <div className="w-[46%] h-full">
-            {data?.googleLocation && (
-              <iframe
-                src={data.googleLocation}
-                width="571"
-                height="598"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            )}
-          </div> */}
+        {data?.googleLocation && (
+          <iframe
+            src={data.googleLocation}
+            width="571"
+            height="598"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        )}
+      </div> */}
         </div>
         <FAQ />
       </div>

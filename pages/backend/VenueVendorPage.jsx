@@ -35,6 +35,18 @@ const VenueVendorPage = () => {
     floating: "",
     sitting: "",
   });
+
+
+  const [userNearByPlaces, setUserNearByPlaces] = useState([]);
+  const [isEditinguserNearByPlaces, setIsEditinguserNearByPlaces] = useState(false);
+  const [nearByPlaces, setNearByPlaces] = useState([]);
+  const [nearByPlacesForm, setNearByPlacesForm] = useState({
+    distance: "",
+    locationType: "",
+    time: "",
+  });
+
+
   const [additionalServices, setAdditionalServices] = useState([]);
   const [userAdditionalServices, setUserAdditionalServices] = useState([]);
   const [isEditingAdditionalServices, setIsEditingAdditionalServices] =
@@ -63,6 +75,7 @@ const VenueVendorPage = () => {
         setUserSafetyAndSecurityOptions(
           userData.safetyAndSecurityOptionsUID || []
         );
+        setUserNearByPlaces(userData.attractions || []);
       }
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -89,9 +102,9 @@ const VenueVendorPage = () => {
     fetchFacilities();
     fetchSpaces();
     fetchSafetyAndSecurityOptions();
-    fetchAccessibilityOptions()
+    fetchAccessibilityOptions();
+    fetchNearByPlaces();
   }, []);
-
 
   const fetchSafetyAndSecurityOptions = async () => {
     try {
@@ -155,13 +168,26 @@ const VenueVendorPage = () => {
         spaces: userSpaces.filter((_, i) => i !== index),
       });
       toast.success("Space deleted successfully!");
-      fetchUser(user.uid); // Fetch updated user data
+      fetchUser(user.uid);
     } catch (error) {
       console.error("Error deleting space:", error);
       toast.error("Error deleting space.");
     }
   };
-
+  const handleDeleteNearByPlaces = async (index) => {
+    try {
+      const spaceToDelete = userNearByPlaces[index];
+      const userRef = doc(db, "users", user.uid);
+      await updateDoc(userRef, {
+        attractions: userNearByPlaces.filter((_, i) => i !== index),
+      });
+      toast.success("Near by Places deleted successfully!");
+      fetchUser(user.uid);
+    } catch (error) {
+      console.error("Error deleting Near by Places:", error);
+      toast.error("Error deleting Near by Places.");
+    }
+  };
   const fetchAmenities = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "hotelamenities"));
@@ -187,6 +213,18 @@ const VenueVendorPage = () => {
       console.error("Error fetching spaces:", error);
     }
   };
+  const fetchNearByPlaces = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "attractions"));
+      const data = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setNearByPlaces(data);
+    } catch (error) {
+      console.error("Error fetching Near By Places:", error);
+    }
+  };
   const fetchFacilities = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "hotelfacilities"));
@@ -203,7 +241,6 @@ const VenueVendorPage = () => {
   const cookies = parseCookies();
   const uid = cookies.token;
 
-
   const handleAmenityChange = (e) => {
     const { value, checked } = e.target;
     setUserAmenities((prev) =>
@@ -213,9 +250,7 @@ const VenueVendorPage = () => {
 
   const fetchAccessibilityOptions = async () => {
     try {
-      const querySnapshot = await getDocs(
-        collection(db, "accessibility")
-      );
+      const querySnapshot = await getDocs(collection(db, "accessibility"));
       const accessibilityOptionsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -285,12 +320,39 @@ const VenueVendorPage = () => {
     const { name, value } = e.target;
     setSpaceForm((prev) => ({ ...prev, [name]: value }));
   };
+  const handleNearByPlacesFormChange = (e) => {
+    const { name, value } = e.target;
+    setNearByPlacesForm((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSaveNearByPlaces = async () => {
+    if (
 
+      !nearByPlacesForm.distance &&
+      !nearByPlacesForm.locationType &&
+      !nearByPlacesForm.time
+
+    ) {
+      toast.error("Please fill all fields before saving.");
+      return;
+    }
+    try {
+      const userRef = doc(db, "users", user.uid);
+      await updateDoc(userRef, {
+        attractions: arrayUnion(nearByPlacesForm),
+      });
+      setIsEditinguserNearByPlaces(false);
+      toast.success("Near by places updated successfully!");
+      fetchUser(user.uid);
+    } catch (error) {
+      console.error("Error updating Near by places: ", error);
+      toast.error("Error updating Near by places.");
+    }
+  };
   const handleSaveSpaces = async () => {
     if (
-      !spaceForm.spaceName ||
-      !spaceForm.spaceType ||
-      !spaceForm.floating ||
+      !spaceForm.spaceName &&
+      !spaceForm.spaceType &&
+      !spaceForm.floating &&
       !spaceForm.sitting
     ) {
       toast.error("Please fill all fields before saving.");
@@ -315,10 +377,18 @@ const VenueVendorPage = () => {
     setSpaceForm({ spaceName: "", spaceType: "", floating: "", sitting: "" });
   };
 
+  const handleAddNearByPlaces = () => {
+    setUserNearByPlaces((prev) => [...prev, nearByPlacesForm]);
+    setNearByPlacesForm({ time: "", distance: "", locationType: ""});
+  };
   return (
     <div>
       <div className="max-w-xl  md:px-10 p-4  mt-6">
         <ToastContainer />
+
+
+
+
 
         {isEditing ? (
           <div>
@@ -377,6 +447,12 @@ const VenueVendorPage = () => {
           </div>
         )}
 
+
+
+
+
+
+
         {/* <div className="mb-4 mt-4 "></div> */}
         {isEditingSpaces ? (
           <div>
@@ -424,7 +500,7 @@ const VenueVendorPage = () => {
               />
               <button
                 onClick={handleAddSpace}
-                className="px-4 py-2 rounded bg-blue-500 text-white"
+                className="px-4 py-2 rounded bg-blue-500 text-black"
               >
                 Edit Space
               </button>
@@ -434,6 +510,12 @@ const VenueVendorPage = () => {
               className="px-4 py-2 rounded bg-green-500 text-white mt-4"
             >
               Save Spaces
+            </button>
+            <button
+              onClick={!isEditingSpaces}
+              className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+            >
+              Cancel{" "}
             </button>
           </div>
         ) : (
@@ -504,6 +586,121 @@ const VenueVendorPage = () => {
             </ul>
           </div>
         )}
+
+<div className="mb-4 mt-4">
+      {isEditinguserNearByPlaces ? (
+        <div>
+          <h2 className="text-xl font-semibold mb-2">Edit New Nearby Attractions</h2>
+          <div className="mb-2">
+            <select
+              name="locationType"
+              value={nearByPlacesForm.locationType}
+              onChange={handleNearByPlacesFormChange}
+              className="border p-2 rounded w-full mb-2"
+            >
+              <option value="">Select Space Type</option>
+              {nearByPlaces.map((space, index) => (
+                <option key={index} value={space.id}>
+                  {space.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="number"
+              name="distance"
+              value={nearByPlacesForm.distance}
+              onChange={handleNearByPlacesFormChange}
+              placeholder="Distance to the place of attraction"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
+            <input
+              type="number"
+              name="time"
+              value={nearByPlacesForm.time}
+              onChange={handleNearByPlacesFormChange}
+              placeholder="Time (min) to the place of attraction"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
+            <button
+              onClick={handleSaveNearByPlaces}
+              className="px-4 py-2 rounded bg-blue-500 text-white bg-green-400"
+            >
+              Add Near By Places
+            </button>
+          </div>
+          <button
+            onClick={() => setIsEditinguserNearByPlaces(false)}
+            className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
+        <div className="bg-white shadow-md rounded-lg p-4 mt-8">
+          <div className="flex flex-row justify-between">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Nearby Places</h2>
+            <button
+              className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+              onClick={() => setIsEditinguserNearByPlaces(true)}
+            >
+              <MdEdit />
+            </button>
+          </div>
+          <ul className="list-disc list-inside space-y-2">
+            {userNearByPlaces.length > 1 ? (
+              userNearByPlaces.map((place, index) => {
+                const placeData = nearByPlaces.find(
+                  (s) => s.id === place.locationType
+                );
+                return placeData ? (
+                  <li key={index} className="text-gray-700">
+                    <span className="font-medium text-lg">{placeData.name}</span>
+                    <span className="text-sm text-gray-600"> ({place.distance} km)</span>
+                    <div className="text-sm text-gray-500 mt-1">
+                      Distance: <span className="font-medium">{place.distance} km</span>, Time:{" "}
+                      <span className="font-medium">{place.time} mins</span>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteNearByPlaces(index)}
+                      className="text-red-500 mt-2 focus:outline-none"
+                    >
+                      Delete
+                    </button>
+                  </li>
+                ) : null;
+              })
+            ) : userNearByPlaces.length === 1 ? (
+              userNearByPlaces.map((place, index) => {
+                const placeData = nearByPlaces.find(
+                  (s) => s.id === place.locationType
+                );
+                return placeData ? (
+                  <li key={index} className="text-gray-700">
+                    <span className="font-medium text-lg">{placeData.name}</span>
+                    <span className="text-sm text-gray-600"> ({place.distance} km)</span>
+                    <div className="text-sm text-gray-500 mt-1">
+                      Distance: <span className="font-medium">{place.distance} km</span>, Time:{" "}
+                      <span className="font-medium">{place.time} mins</span>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteNearByPlaces(index)}
+                      className="text-red-500 mt-2 focus:outline-none"
+                    >
+                      Delete
+                    </button>
+                  </li>
+                ) : null;
+              })
+            ) : (
+              <li className="text-gray-700">No nearby places added.</li>
+            )}
+          </ul>
+        </div>
+      )}
+    </div>
+
       </div>
       <div className=" md:px-10 p-4 max-w-xl">
         {isEditingFacilities ? (
@@ -564,6 +761,11 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
+
+
+
+
+
       <div className=" md:px-10 p-4 max-w-xl">
         <ToastContainer />
 
@@ -628,6 +830,8 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
+
+
 
       <div className=" md:px-10 p-4 max-w-xl">
         {isEditingSafetyAndSecurity ? (
@@ -754,6 +958,9 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
+
+
+
       <Space50px />
     </div>
   );
