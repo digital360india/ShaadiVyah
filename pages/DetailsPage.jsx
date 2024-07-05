@@ -18,6 +18,7 @@ const DetailPage = () => {
   const [accessibilityOptions, setAccessibilityOptions] = useState([]);
   const [attraction, setAttractions] = useState([]);
   const [spaceTypes, setSpaceTypes] = useState([]);
+  const [isCopied, setIsCopied] = useState(false);
 
   const [data, setData] = useState();
   const [amenities, setAmenities] = useState([]);
@@ -174,6 +175,19 @@ const DetailPage = () => {
     fetchAccessibility();
     fetchfacilites();
   }, []);
+  const handleShare = async () => {
+    const siteUrl = window.location.href;
+    navigator.clipboard
+      .writeText(siteUrl)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 3000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
     <>
       <div className="overflow-x-hidden">
@@ -286,16 +300,22 @@ const DetailPage = () => {
                     <p> Write a Review</p>
                   </div>
                   <div className="h-8 border-l border-gray-600"></div>
-                  <div className="flex gap-2 justify-center items-center">
-                    {" "}
+                  <button
+                    className="flex gap-2 justify-center items-center"
+                    onClick={handleShare}
+                  >
                     <img
                       src="/icons/share.svg"
-                      height={1000}
-                      width={1000}
-                      className="h-8 w-4 text-black-600 "
-                    />{" "}
+                      alt="Share icon"
+                      className="h-8 w-4 text-black-600"
+                    />
                     <p>Share</p>
-                  </div>
+                  </button>
+                  {isCopied && (
+                    <div className="fixed bottom-4 right-4 bg-white p-4 rounded-md shadow-md">
+                      Link copied to clipboard!
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
