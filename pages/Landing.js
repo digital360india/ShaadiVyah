@@ -133,21 +133,21 @@ export default function Landing() {
         },
       },
       {
-        breakpoint: 1324, // lg
+        breakpoint: 1324, 
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 768, // md
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 640, // sm
+        breakpoint: 640, 
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
