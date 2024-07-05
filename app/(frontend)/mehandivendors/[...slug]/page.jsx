@@ -1,8 +1,9 @@
+import MendiVendorDetailsPage from '@/pages/MendiVendorDetailsPage'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div><MendiVendorDetailsPage/></div>
   )
 }
 

@@ -63,7 +63,7 @@ const EditImages = () => {
       const downloadURL = await getDownloadURL(bannerRef);
       setBannerImageUrl(downloadURL);
       const userRef = doc(db, "users", user.uid);
-      await updateDoc(userRef, { heroImage: downloadURL });
+      await updateDoc(userRef, { bannerImageUrl: downloadURL });
 
       toast.success("Banner image uploaded successfully!");
     } catch (error) {

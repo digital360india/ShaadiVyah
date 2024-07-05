@@ -7,3 +7,6 @@ select > option {
   background-color: gray;
   opacity: 0;
 }
+html {
+  scroll-behavior: smooth;
+}

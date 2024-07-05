@@ -7,21 +7,19 @@ import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
+import { FaRupeeSign } from "react-icons/fa";
+import { MdCheckCircle, MdCancel } from 'react-icons/md';
+import { SlCalender } from "react-icons/sl";
 
-const DetailPage = () => {
+const MakeUpVendorDetailsPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
-  const [facilities, setFacilities] = useState([]);
-  const [additionalServices, setAdditionalServices] = useState([]);
-  const [safetyAndSecurityOptions, setSafetyAndSecurityOptions] = useState([]);
-  const [accessibilityOptions, setAccessibilityOptions] = useState([]);
-  const [attraction, setAttractions] = useState([]);
-  const [spaceTypes, setSpaceTypes] = useState([]);
+
   const [isCopied, setIsCopied] = useState(false);
 
   const [data, setData] = useState();
-  const [amenities, setAmenities] = useState([]);
+
   useEffect(() => {
     const fetchRoutineData = async () => {
       const querySnapshot = await getDocs(
@@ -37,21 +35,11 @@ const DetailPage = () => {
             portfolioImagesUrl: values.portfolioImagesUrl
               ? values.portfolioImagesUrl[0]
               : {},
-            amenitiesUID: values.amenitiesUID ? values.amenitiesUID : {},
-            facilitiesUID: values.facilitiesUID ? values.facilitiesUID : {},
-            accessibilityOptionsUID: values.accessibilityOptionsUID
-              ? values.accessibilityOptionsUID
-              : {},
-            safetyAndSecurityOptionsUID: values.safetyAndSecurityOptionsUID
-              ? values.safetyAndSecurityOptionsUID
-              : {},
-            additionalServicesUID: values.additionalServicesUID
-              ? values.additionalServicesUID
-              : {},
-            accessibilityOptionsUID: values.accessibilityOptionsUID
-              ? values.accessibilityOptionsUID
-              : {},
-            attractions: values.attractions ? values.attractions : {},
+              advancePayment: values.advancePayment,
+            bridalMehendi: values.bridalMehendi,
+            familyMehendi: values.familyMehendi,
+            outstationTravel:values.outstationTravel,
+            practicingSince: values.practicingSince,
             uid: values.uid,
             streetAddress: values.streetAddress,
             landmark: values.landmark,
@@ -65,6 +53,7 @@ const DetailPage = () => {
             facebook: values.facebook,
             twitter: values.twitter,
             title: values.title,
+            travelsToVenue: values.travelsToVenue,
             id: values.id,
             googleLocation: values.googleLocation,
             businessName: values.businessName,
@@ -77,103 +66,7 @@ const DetailPage = () => {
         setData(data[0]);
       }
     };
-    const fetchAmenities = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "hotelamenities"));
-        const amenitiesList = querySnapshot.docs.map((doc) => ({
-          amenityName: doc.data().amenityName,
-          amenityUID: doc.id,
-        }));
-        setAmenities(amenitiesList);
-      } catch (error) {
-        console.error("Error fetching amenities: ", error);
-      }
-    };
-    const fetchfacilites = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "hotelfacilities"));
-        const data = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setFacilities(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    const fetchSpaces = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "spacesTypes"));
-        const spacesList = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setSpaceTypes(spacesList);
-      } catch (error) {
-        console.error("Error fetching spaces: ", error);
-      }
-    };
-    const fetchAdditionalServices = async () => {
-      try {
-        const querySnapshot = await getDocs(
-          collection(db, "additionalServices")
-        );
-        const data = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setAdditionalServices(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    const fetchSaftey = async () => {
-      try {
-        const querySnapshot = await getDocs(
-          collection(db, "safteyAndSecurity")
-        );
-        const data = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setSafetyAndSecurityOptions(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    const fetchAccessibility = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "accessibility"));
-        const data = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setAccessibilityOptions(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    const fetchAttractions = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "attractions"));
-        const data = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          id: doc.id,
-        }));
-        setAttractions(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    fetchAttractions();
-    fetchAdditionalServices();
-    fetchSpaces();
-    fetchSaftey();
-    fetchAmenities();
     fetchRoutineData();
-    fetchAccessibility();
-    fetchfacilites();
   }, []);
   const handleShare = async () => {
     const siteUrl = window.location.href;
@@ -345,13 +238,13 @@ const DetailPage = () => {
                   </svg>
 
                   <p>{data?.city},</p>
-                  {data?.country}
+                  {data?.country || "India"}
                 </div>
               </div>
             </div>
 
             <div className="text-[#0A2D23] ">{data?.about}</div>
-            <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
+            {/* <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
               </p>
@@ -410,7 +303,7 @@ const DetailPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="px-20 py-10 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
             <p className="">{data?.bussinessName}</p>
@@ -433,17 +326,7 @@ const DetailPage = () => {
                 placeholder="Email*"
                 required
               />
-              <input
-                type="text"
-                className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Function Name*"
-                required
-              />
-              <textarea
-                className="w-full h-32 px-4 py-2 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Function Details (at most 100 words)*"
-                required
-              ></textarea>
+
               <div className="flex justify-between items-center">
                 <p className="mr-2">Notify me on Whatsapp</p>
                 <div className="relative">
@@ -491,185 +374,82 @@ const DetailPage = () => {
         <div className="bg-[#CFCCBF80] p-8 md:p-16 m-4 md:m-[100px] rounded-2xl text-[#0A2D23]">
           <div className="flex flex-col text-[32px] gap-4 md:gap-10">
             <div id="services">
-              <p className="text-[42px] font-medium">Services</p>
+              <p className="text-[42px] font-medium">Information</p>
             </div>
             <div className="flex flex-col md:flex-row text-[20px] gap-10 md:gap-20">
               <div className="space-y-4">
-                <p className="text-[22px] font-medium">Amenities</p>
+                <p className="text-[22px] font-medium">Charges</p>
                 <div className="text-[14px] font-semibold space-y-2">
-                  <ul className="list-disc list-inside">
-                    {data &&
-                    data.amenitiesUID &&
-                    Array.isArray(data.amenitiesUID) ? (
-                      data.amenitiesUID.map((amenityId) => {
-                        const amenity = amenities.find(
-                          (a) => a.amenityUID === amenityId
-                        );
-                        return amenity ? (
-                          <li key={amenityId} className="text-gray-700">
-                            {amenity.amenityName}
-                          </li>
-                        ) : null;
-                      })
-                    ) : (
-                      <li className="text-gray-700">No amenities available</li>
-                    )}
+                  <ul className="list-disc list-inside items-start">
+                    <li className="text-gray-700 flex gap-1 justify-center items-center">
+                      <p>Bridal Mendhi : </p>
+                      <FaRupeeSign className="text-sm" />
+                      <p>{data?.bridalMehendi}</p>
+                    </li>
+                    <li className="text-gray-700 flex gap-1 justify-center items-center">
+                      <p>Family Mehndi : </p>
+                      <FaRupeeSign className="text-sm" />
+                      <p>{data?.familyMehendi}</p>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div className="space-y-4">
-                <p className="text-[22px] font-medium">Accessibility</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
-                  {data &&
-                  data.accessibilityOptionsUID &&
-                  Array.isArray(data.accessibilityOptionsUID) ? (
-                    data.accessibilityOptionsUID.map(
-                      (accessibilityOptionsUID) => {
-                        const accessibility = accessibilityOptions.find(
-                          (a) => a.id === accessibilityOptionsUID
-                        );
-                        return accessibility ? (
-                          <li key={accessibility.id} className="text-gray-700">
-                            {accessibility.name}
-                          </li>
-                        ) : null;
-                      }
-                    )
-                  ) : (
-                    <li className="text-gray-700">
-                      No accessibility options available
-                    </li>
-                  )}
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Security and Safety</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
-                  {data &&
-                  data.safetyAndSecurityOptionsUID &&
-                  Array.isArray(data.safetyAndSecurityOptionsUID) ? (
-                    data.safetyAndSecurityOptionsUID.map((id) => {
-                      const safety = safetyAndSecurityOptions.find(
-                        (a) => a.id === id
-                      );
-                      return safety ? (
-                        <li key={safety.id} className="text-gray-700">
-                          {safety.name}
-                        </li>
-                      ) : null;
-                    })
-                  ) : (
-                    <li className="text-gray-700">
-                      No safety and security options available
-                    </li>
-                  )}
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Facilities</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
-                  {data &&
-                  data.facilitiesUID &&
-                  Array.isArray(data.facilitiesUID) ? (
-                    data.facilitiesUID.map((id) => {
-                      const facility = facilities.find((a) => a.id === id);
-                      return facility ? (
-                        <li key={facility.id} className="text-gray-700">
-                          {facility.name}
-                        </li>
-                      ) : null;
-                    })
-                  ) : (
-                    <li className="text-gray-700">No facilities available</li>
-                  )}
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Additional Services</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
-                  {data &&
-                  data.additionalServicesUID &&
-                  Array.isArray(data.additionalServicesUID) ? (
-                    data.additionalServicesUID.map((id) => {
-                      const service = additionalServices.find(
-                        (a) => a.id === id
-                      );
-                      return service ? (
-                        <li key={service.id} className="text-gray-700">
-                          {service.name}
-                        </li>
-                      ) : null;
-                    })
-                  ) : (
-                    <li className="text-gray-700">
-                      No additional services available
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-start mx-[100px]">
-          <div className="w-[46%] flex flex-col gap-6 bg-[#B4D4DF40] p-10 rounded-2xl ">
-            <div className="text-xl font-bold capitalize">
-              A hotel perfectly located at your destination
-            </div>
-            <div className="flex justify-between">
-              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
-                {data && data.attractions && Array.isArray(data.attractions) ? (
-                  data.attractions.map((place) => {
-                    const attractions = attraction.find(
-                      (a) => a.id === place.locationType
-                    );
-                    console.log(attractions);
-                    return attractions ? (
-                      <>
-                        {" "}
-                        <div className="flex justify-between w-[600px] ">
-                          {" "}
-                          <div
-                            key={attractions.id}
-                            className="text-gray-700 flex gap-2"
-                          >
-                            <img
-                              src="/icons/locationblack.svg"
-                              alt="location"
-                            />
-                            <div>{attractions.name}</div>
-                          </div>
-                          <div className="text-gray-700 flex gap-20">
-                            <div>{place.distance} km </div>{" "}
-                            <div>{place.time} mins </div>
-                          </div>
-                        </div>
-                        <hr className="w-full border-gray-300 mt-2" />
-                      </>
-                    ) : null;
-                  })
-                ) : (
-                  <li className="text-gray-700">
-                    No nearby attractions available
+                <p className="text-[22px] font-medium">Travels to Venue</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 ">
+                  <li className="text-gray-700 flex gap-1 justify-start items-center">
+                    {data?.travelsToVenue ? (
+                      <MdCheckCircle className="text-green-500" />
+                    ) : (
+                      <MdCancel className="text-red-500" />
+                    )}
+                    <p>
+                      {data?.travelsToVenue
+                        ? "Yes, travels to venue available"
+                        : "No, does not travel to venue"}
+                    </p>
                   </li>
-                )}
-              </ul>
+                  <li className="text-gray-700 flex gap-1 justify-start items-center">
+                    {data?.outstationTravel ? (
+                      <MdCheckCircle className="text-green-500" />
+                    ) : (
+                      <MdCheckCircle className="text-red-500" />
+                    )}
+                    <p>
+                      {data?.outstationTravel
+                        ? "Travel paid by client"
+                        : "Travel paid by self"}
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Practicing Since</p>
+                <ul className="list-disc list-inside items-start">
+                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold  justify-center items-center">
+                      <p>Practicing Since : </p>
+                      <SlCalender className="text-sm" />
+                      <p>{data?.practicingSince}</p>
+                    </li>
+               
+                  </ul>
+              </div>
+              <div className="space-y-4">
+                <p className="text-[22px] font-medium">Advance Payment</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 ">
+                <li className="text-gray-700 flex gap-1 justify-center items-center text-start">
+                      <p>Advance Payment : </p>
+   
+                      <p>{data?.advancePayment}</p><p>%</p>
+                    </li>
+                </ul>
+              </div>
+    
             </div>
           </div>
-
-          {/* <div className="w-[46%] h-full">
-        {data?.googleLocation && (
-          <iframe
-            src={data.googleLocation}
-            width="571"
-            height="598"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        )}
-      </div> */}
         </div>
+
+
         <div id="faq">
           <FAQ />
         </div>
@@ -678,4 +458,4 @@ const DetailPage = () => {
   );
 };
 
-export default DetailPage;
+export default MakeUpVendorDetailsPage;

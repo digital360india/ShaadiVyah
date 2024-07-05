@@ -281,7 +281,7 @@ export default function Landing() {
               <Slider {...sliderSettings}>
                 {mendhiArtists.map((arr, index) => (
                   <Link
-                    href={`/venues/${arr.uid}`}
+                    href={`/mehandivendors/${arr.uid}`}
                     key={arr.uid}
                     className=" py-4  md:px-16 "
                   >
@@ -359,7 +359,7 @@ export default function Landing() {
               <Slider {...sliderSettings}>
                 {makeupArtist.map((arr, index) => (
                   <Link
-                    href={`/venues/${arr.uid}`}
+                    href={`/makeupvendors/${arr.uid}`}
                     key={arr.uid}
                     className=" py-4  md:px-16 "
                   >
