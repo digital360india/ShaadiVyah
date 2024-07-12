@@ -285,7 +285,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.pricePerDay
                   ? formData.pricePerDay
-                  : "Enter amount of price Per Day"}
+                  : <p className="text-gray-400">Enter amount of price Per Day</p>}
               </span>
             </div>
             <div className="mb-4">
@@ -298,7 +298,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.photoPackage
                   ? formData.photoPackage
-                  : "Enter amount of photo Package"}
+                  : <p className="text-gray-400">Enter amount of photo Package</p>}
               </span>
             </div>
             <div className="mb-4">
@@ -311,7 +311,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.photoVideoPackage
                   ? formData.photoVideoPackage
-                  : " Enter amount of photo Video Package"}
+                  : <p className="text-gray-400">Enter amount of photo Video Package</p>}
               </span>
             </div>
             <div className="mb-4">
@@ -324,7 +324,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.albumPages
                   ? formData.albumPages
-                  : "Enter no. of album Pages"}
+                  : <p className="text-gray-400">Enter no. of album Pages</p>}
               </span>
             </div>
             <div className="mb-4">
@@ -348,7 +348,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.practicingSince
                   ? formData.practicingSince
-                  : "Enter amount of  practicing Since"}
+                  :  <p className="text-gray-400">Practicing Since which year ?</p>}
               </span>
             </div>
             <div className="mb-4">
@@ -372,7 +372,7 @@ const PhotographerVendorPage = () => {
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
                 {formData.advancePayment
                   ? formData.advancePayment
-                  : "Enter amount of  advance Payment"}
+                  :  <p className="text-gray-400">Enter amount of  advance Payment</p>}
               </span>
             </div>
             <div className="flex justify-end">

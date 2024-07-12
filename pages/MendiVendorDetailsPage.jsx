@@ -10,6 +10,7 @@ import Space25px from "@/components/Space25px";
 import { FaRupeeSign } from "react-icons/fa";
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
 import { SlCalender } from "react-icons/sl";
+import Review from "@/components/Review";
 
 const MendiVendorDetailsPage = () => {
   const currentPage = usePathname();
@@ -357,7 +358,7 @@ const MendiVendorDetailsPage = () => {
           <div>Portfolio</div>
           <a href="#services">Services</a>
           <div>Location</div>
-          <div>Reviews</div>
+          <a href="#reviews">Reviews</a>
           <a href="#faq">FAQ&apos;s</a>
         </div>
         {/* Portfolio*/}
@@ -448,7 +449,9 @@ const MendiVendorDetailsPage = () => {
             </div>
           </div>
         </div>
-
+        <div id="reviews">
+          <Review id={uniqueID} title={data?.businessName} />
+        </div>
 
         <div id="faq">
           <FAQ />

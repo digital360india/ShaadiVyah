@@ -46,7 +46,7 @@ const ServicesPage = () => {
       {error && <p>Error: {error}</p>}
       {user?.vendorTypeUID === "venuevendor" && <VenueVendorPage />}
       {user?.vendorTypeUID === "makeupvendor" && <MakeUpVendorPage />}
-      {user?.vendorTypeUID === "photographervendor" && (
+      {user?.vendorTypeUID === "photographersvendor" && (
         <PhotographerVendorPage />
       )}
       {user?.vendorTypeUID === "mehndivendor" && <MehndiVendorPage />}

@@ -7,6 +7,7 @@ import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
+import Review from "@/components/Review";
 
 const DetailPage = () => {
   const currentPage = usePathname();
@@ -19,7 +20,6 @@ const DetailPage = () => {
   const [attraction, setAttractions] = useState([]);
   const [spaceTypes, setSpaceTypes] = useState([]);
   const [isCopied, setIsCopied] = useState(false);
-
   const [data, setData] = useState();
   const [amenities, setAmenities] = useState([]);
   useEffect(() => {
@@ -474,7 +474,7 @@ const DetailPage = () => {
           <div>Portfolio</div>
           <a href="#services">Services</a>
           <div>Location</div>
-          <div>Reviews</div>
+          <a href="#reviews">Reviews</a>
           <a href="#faq">FAQ&apos;s</a>
         </div>
         {/* Portfolio*/}
@@ -669,6 +669,9 @@ const DetailPage = () => {
           ></iframe>
         )}
       </div> */}
+        </div>
+        <div id="reviews">
+          <Review id={uniqueID} title={data?.businessName} />
         </div>
         <div id="faq">
           <FAQ />

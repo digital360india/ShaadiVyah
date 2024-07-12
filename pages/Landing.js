@@ -428,7 +428,7 @@ export default function Landing() {
                 <span className="font-dancing-script">Photographers</span>
               </p>
               <Link
-                href={"/photograpgervendors"}
+                href={"/photographersvendors"}
                 className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
                 See all
@@ -438,7 +438,7 @@ export default function Landing() {
               <Slider {...sliderSettings}>
                 {photographersArtists.map((arr, index) => (
                   <Link
-                    href={`/photographervendors/${arr.uid}`}
+                    href={`/photographersvendors/${arr.uid}`}
                     key={arr.uid}
                     className=" py-4  md:px-16 "
                   >
