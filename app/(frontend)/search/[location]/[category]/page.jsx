@@ -13,19 +13,21 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 export default function Page(params) {
   const [data, setData] = useState([]);
-  const router = useRouter();
   const [route, setRoute] = useState("");
   const fetchData = async (params) => {
     try {
       const location = params.params.location;
       const category = params.params.category;
       let collectionName = "";
-      let route = "";
       switch (category.toLowerCase()) {
         case "makeup":
           collectionName = "makeupvendor";
           setRoute("makeupvendor");
           break;
+          case "mehndi":
+            collectionName = "mehndivendor";
+            setRoute("mehndivendor");
+            break;
         case "photographers":
           collectionName = "photographersvendor";
           setRoute("photographersvendor");
@@ -45,7 +47,7 @@ export default function Page(params) {
         where('approval' , "==", true)
 
       );
-
+console.log(params.params)
       const querySnapshot = await getDocs(q);
       const fetchedData = querySnapshot.docs.map((doc) => ({
         id: doc.id,

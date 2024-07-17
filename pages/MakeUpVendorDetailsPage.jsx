@@ -37,11 +37,14 @@ const MakeUpVendorDetailsPage = () => {
               ? values.portfolioImagesUrl[0]
               : {},
               advancePayment: values.advancePayment,
+              makeupPerFamilyMember: values.makeupPerFamilyMember,
+              pricePerFunction:values.pricePerFunction,
             bridalMehendi: values.bridalMehendi,
             familyMehendi: values.familyMehendi,
             outstationTravel:values.outstationTravel,
             practicingSince: values.practicingSince,
             uid: values.uid,
+            pricePerDay:values.pricePerDay,
             streetAddress: values.streetAddress,
             landmark: values.landmark,
             postCode: values.postCode,
@@ -381,16 +384,21 @@ const MakeUpVendorDetailsPage = () => {
               <div className="space-y-4">
                 <p className="text-[22px] font-medium">Charges</p>
                 <div className="text-[14px] font-semibold space-y-2">
-                  <ul className="list-disc list-inside items-start">
+                  <ul className="list-disc list-inside items-start flex flex-col ">
                     <li className="text-gray-700 flex gap-1 justify-center items-center">
-                      <p>Bridal Mendhi : </p>
+                      <p>Makeup Per Family Member : </p>
                       <FaRupeeSign className="text-sm" />
-                      <p>{data?.bridalMehendi}</p>
+                      <p>{data?.makeupPerFamilyMember}</p>
                     </li>
                     <li className="text-gray-700 flex gap-1 justify-center items-center">
-                      <p>Family Mehndi : </p>
+                      <p>Price Per Function : </p>
                       <FaRupeeSign className="text-sm" />
-                      <p>{data?.familyMehendi}</p>
+                      <p>{data?.pricePerFunction}</p>
+                    </li>
+                    <li className="text-gray-700 flex gap-1 justify-center items-center">
+                      <p>Price Per Day : </p>
+                      <FaRupeeSign className="text-sm" />
+                      <p>{data?.pricePerDay}</p>
                     </li>
                   </ul>
                 </div>

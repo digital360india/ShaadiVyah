@@ -40,12 +40,12 @@ const Popup = () => {
                   </g>
                 </svg>
               </p>
-              <p className="font-medium text-[#02394A] text-[24px] text-center lg:text-[48px]">
-                Lorem ipsum dolor
+              <p className="font-medium text-[#02394A] text-[24px] text-start lg:text-[36px]">
+              Unforgettable Moments
+
               </p>
-              <p className="lg:text-[18px] text-[14px] lg:w-[432px]">
-                Lorem ipsum dolor sit amet consectetur. Vitae interdum
-                consectetur lobortis leo elementum viverra ut quam.
+              <p className="lg:text-[16px] text-[14px] lg:w-[432px]">
+              Whether you are planning your dream wedding or a grand celebration, we are here to make it unforgettable. 
               </p>
               <div className="space-y-4 mt-6">
                 <input

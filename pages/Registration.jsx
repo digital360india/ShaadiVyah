@@ -24,7 +24,7 @@ const Registration = () => {
     email: "",
     name: "",
     phone: "",
-    location: "",
+    city: "",
     vendorType: "",
     vendorTypeUID: "",
   });
@@ -248,13 +248,13 @@ const Registration = () => {
                       <option className="text-white" value="Rudraprayag">
                         Rudraprayag
                       </option>
-                      <option className="text-white" value="Tehri Garhwal">
+                      <option className="text-white" value="TehriGarhwal">
                         Tehri Garhwal
                       </option>
                       <option className="text-white" value="Uttarkashi">
                         Uttarkashi
                       </option>
-                      <option className="text-white" value="Pauri Garhwal">
+                      <option className="text-white" value="PauriGarhwal">
                         Pauri Garhwal
                       </option>
                     </select>

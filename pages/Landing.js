@@ -9,18 +9,16 @@ import "slick-carousel/slick/slick-theme.css";
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import Testimonials from "@/components/Testimonials";
-import Gallery from "@/components/Gallery";
 import AboutShadivyah from "@/components/AboutShadivyah";
 import HowToWork from "@/components/HowToWork";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
-import Review from "@/components/Review";
 
 export default function Landing() {
   // Custom Next Arrow Component
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
-      style={{ ...style, display: "block", background: "pink" }}
+
       onClick={onClick}
     />
   );
@@ -29,7 +27,6 @@ export default function Landing() {
   const PrevArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-prev-arrow`}
-      style={{ ...style, display: "block", background: "pink" }}
       onClick={onClick}
     />
   );
@@ -268,7 +265,7 @@ export default function Landing() {
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans md:p-4 ">
                 Popular{" "}
-                <span className="font-dancing-script">Mendhi Artists</span>
+                <span className="font-dancing-script">Mehndi Artists</span>
               </p>
               <Link
                 href={"/mehandivendors"}
@@ -328,7 +325,7 @@ export default function Landing() {
                 ))}
               </Slider>
             ) : (
-              <p>No Mendhi Artists available</p>
+              <p>No Mehndi Artists available</p>
             )}
           </div>
         </div>

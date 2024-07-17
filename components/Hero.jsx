@@ -40,11 +40,30 @@ export default function Hero() {
                 value={selectedLocation}
                 onChange={handleLocationChange} 
               >
-                <option value="">Location</option>
-                <option value="Dehradun">Dehradun</option>
-                <option value="Nanital">Nanital</option>
-                <option value="Tehri">Tehri</option>
-                <option value="Mussorrie">Mussoorie</option>
+ <option value="" disabled>
+                        Select Location
+                      </option>
+                      <option value="Dehradun" className="text-white">
+                        Dehradun
+                      </option>
+                      <option className="text-white" value="Haridwar">
+                        Haridwar
+                      </option>
+                      <option className="text-white" value="Chamoli">
+                        Chamoli
+                      </option>
+                      <option className="text-white" value="Rudraprayag">
+                        Rudraprayag
+                      </option>
+                      <option className="text-white" value="TehriGarhwal">
+                        Tehri Garhwal
+                      </option>
+                      <option className="text-white" value="Uttarkashi">
+                        Uttarkashi
+                      </option>
+                      <option className="text-white" value="PauriGarhwal">
+                        Pauri Garhwal
+                      </option>
               </select>
             </div>
             <div className="hidden md:block">|</div>
