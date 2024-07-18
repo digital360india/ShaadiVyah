@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { db, storage } from "@/firebase/firebase";
@@ -56,7 +56,7 @@ const PortfolioPage = () => {
   const [isButtonActive, setIsButtonActive] = useState(false);
   const [hasSentRequest, setHasSentRequest] = useState(false);
   const [showRejectionDialog, setShowRejectionDialog] = useState(false);
-  const [rejectionReason, setRejectionReason] = useState('');
+  const [rejectionReason, setRejectionReason] = useState("");
   const [rejectionTimestamp, setRejectionTimestamp] = useState(null);
 
   useEffect(() => {
@@ -198,7 +198,7 @@ const PortfolioPage = () => {
 
   const handleCloseRejectionDialog = () => {
     setShowRejectionDialog(false);
-    setRejectionReason('');
+    setRejectionReason("");
     setRejectionTimestamp(null);
   };
 
@@ -395,48 +395,48 @@ const PortfolioPage = () => {
                     </button>
                   </div>
                   <p>
-                    Name: <span className="font-normal">{user.name}</span>
+                  <span className="font-semibold text-gray-700">    Name:</span>  <span className="font-normal">{user.name}</span>
                   </p>
                   <p>
-                    Business Name:{" "}
+                  <span className="font-semibold text-gray-700">  Business Name:{" "}</span> 
                     <span className="font-normal">{user.businessName}</span>
                   </p>
                   <p>
-                    Street Address:{" "}
+                  <span className="font-semibold text-gray-700">  Street Address:{" "}</span> 
                     <span className="font-normal">{user.streetAddress}</span>
                   </p>
                   <p>
-                    Landmark:{" "}
+                  <span className="font-semibold text-gray-700">     Landmark:{" "}</span> 
                     <span className="font-normal">{user.landmark}</span>
                   </p>
                   <p>
-                    Post Code:{" "}
+                  <span className="font-semibold text-gray-700">     Post Code:{" "}</span> 
                     <span className="font-normal">{user.postCode}</span>
                   </p>
                   <p>
-                    City: <span className="font-normal">{user.city}</span>
+                  <span className="font-semibold text-gray-700">   City:</span>  <span className="font-normal">{user.city}</span>
                   </p>
                   <p>
-                    Country: <span className="font-normal">{user.country}</span>
+                  <span className="font-semibold text-gray-700">  Country:</span>  <span className="font-normal">{user.country}</span>
                   </p>
                   <p>
-                    About: <span className="font-normal">{user.about}</span>
+                  <span className="font-semibold text-gray-700">About:</span> <span className="font-normal text-gray-600">{user.about}</span>
                   </p>
                   <p>
-                    Phone Number:{" "}
+                  <span className="font-semibold text-gray-700">   Phone Number:{" "}</span> 
                     <span className="font-normal">{user.phone}</span>
                   </p>
                   <p>
-                    Alternate Number:{" "}
+                  <span className="font-semibold text-gray-700">    Alternate Number:{" "}</span> 
                     <span className="font-normal">{user.alternateNumber}</span>
                   </p>
                   <p>
-                    Aadhaar Card Number:{" "}
+                  <span className="font-semibold text-gray-700">   Aadhaar Card Number:{" "}</span> 
                     <span className="font-normal">{user.adharCardNumber}</span>
                   </p>
                   {user.adharCardPhoto && (
                     <div className="flex flex-col">
-                      <p>Aadhaar Card Photo</p>
+                      <p>  <span className="font-semibold text-gray-700">  Aadhaar Card Photo</span> </p>
                       <div className="mt-2">
                         <img
                           src={user.adharCardPhoto}
@@ -448,23 +448,32 @@ const PortfolioPage = () => {
                     </div>
                   )}
                   <p>
-                    Pan Card Number:{" "}
+                  <span className="font-semibold text-gray-700">   Pan Card Number:{" "}</span> 
                     <span className="font-normal">{user.panCardNumber}</span>
                   </p>
                   <p>
-                    GSTIN: <span className="font-normal">{user.GSTIN}</span>
+                  <span className="font-semibold text-gray-700">   GSTIN:</span>  <span className="font-normal">{user.GSTIN}</span>
                   </p>
-                  <button
-                    onClick={handleSendApproval}
-                    className={`col-span-2 w-full h-10 bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] rounded-lg text-white border-cream border-2 ${
-                      isButtonActive && !hasSentRequest
-                        ? ""
-                        : "cursor-not-allowed opacity-50"
-                    }`}
-                    disabled={!isButtonActive || hasSentRequest}
-                  >
-                    {hasSentRequest ? "Approval Request Sent" : "Send Profile Approval"}
-                  </button>
+                  {!user.approval ? (
+                    <>
+                      {" "}
+                      <button
+                        onClick={handleSendApproval}
+                        className={`col-span-2 w-full h-10 bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] rounded-lg text-white border-cream border-2 ${
+                          isButtonActive && !hasSentRequest
+                            ? ""
+                            : "cursor-not-allowed opacity-50"
+                        }`}
+                        disabled={!isButtonActive || hasSentRequest}
+                      >
+                        {hasSentRequest
+                          ? "Approval Request Sent"
+                          : "Send Profile Approval"}
+                      </button>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   {user.rejectionReason && (
                     <button
                       onClick={handleShowRejectionDialog}
@@ -480,7 +489,7 @@ const PortfolioPage = () => {
           {user && (
             <div className="mt-4 w-full">
               {editing2 ? (
-                <form onSubmit={handleSave} className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleSave} className="grid grid-cols-2 gap-4 ">
                   <div className="col-span-2 text-xl font-medium">
                     YOUR SOCIAL LINKS
                   </div>
@@ -516,23 +525,25 @@ const PortfolioPage = () => {
                   </button>
                 </form>
               ) : (
-                <div className="w-full max-w-lg bg-gray-100 p-6 rounded-lg shadow-md text-lg space-x-2 space-y-3 font- mb-2">
-                  <div className="flex flex-row justify-between gap-5">
-                    <div className="font-bold text-xl">My Social Links</div>
-                    <button onClick={handleEditSocials} className="">
-                      <MdEdit />
-                    </button>
-                  </div>
-                  <p className="flex items-center justify-start gap-2">
-                    <CiFacebook /> :<span className="">{user.facebook}</span>
+                <div className="w-full max-w-lg bg-gray-100 p-6 rounded-lg shadow-md text-lg space-y-3 font-poppins mb-2 overflow-hidden">
+                <div className="flex justify-between items-center">
+                  <div className="font-bold text-xl">My Social Links</div>
+                  <button onClick={handleEditSocials} className="text-blue-500 hover:text-blue-700 transition duration-300">
+                    <MdEdit size={24} />
+                  </button>
+                </div>
+                <div className="space-y-2">
+                  <p className="flex items-center justify-start gap-2 break-words ml-1">
+                    <CiFacebook size={50} /> <span className="truncate">{user.facebook}</span>
                   </p>
-                  <p className="flex items-center justify-start gap-2">
-                    <CiInstagram /> :<span className="">{user.instagram}</span>
+                  <p className="flex items-center justify-start gap-2 break-words ml-1">
+                    <CiInstagram size={50} /> <span className="truncate">{user.instagram}</span>
                   </p>
-                  <p className="flex items-center justify-start gap-2">
-                    <BsTwitterX /> :<span className="">{user.twitter}</span>
+                  <p className="flex items-center justify-start gap-2 break-words ml-1">
+                    <BsTwitterX size={50} /> <span className="truncate">{user.twitter}</span>
                   </p>
                 </div>
+              </div>
               )}
             </div>
           )}
@@ -546,7 +557,8 @@ const PortfolioPage = () => {
             <p className="mb-4">{rejectionReason}</p>
             {rejectionTimestamp && (
               <p className="text-sm text-gray-500">
-                Rejection Timestamp: {new Date(rejectionTimestamp.seconds * 1000).toLocaleString()}
+                Rejection Timestamp:{" "}
+                {new Date(rejectionTimestamp.seconds * 1000).toLocaleString()}
               </p>
             )}
             <div className="flex justify-end mt-4">

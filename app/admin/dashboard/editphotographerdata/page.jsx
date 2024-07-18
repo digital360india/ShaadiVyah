@@ -44,7 +44,7 @@ const AmenitiesPage = () => {
 
   const handleChangePhotographers = (e) => {
     const { name, value } = e.target;
-    setphotographersFormData({ ...spacesFormData, [name]: value });
+    setphotographersFormData({ ...photographersFormData, [name]: value });
   };
   
   const handleSubmitPhotographers = async (e) => {
