@@ -364,6 +364,7 @@ const VenueVendorPage = () => {
         spaces: arrayUnion(spaceForm),
       });
       setIsEditingSpaces(false);
+      setSpaceForm()
       toast.success("Spaces updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
@@ -453,139 +454,107 @@ const VenueVendorPage = () => {
 
 
 
-        {/* <div className="mb-4 mt-4 "></div> */}
-        {isEditingSpaces ? (
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Edit New Space</h2>
-            <div className="mb-2">
-              <input
-                type="text"
-                name="spaceName"
-                value={spaceForm.spaceName}
-                onChange={handleSpaceFormChange}
-                placeholder="Space Name"
-                className="border p-2 rounded w-full mb-2"
-                required
-              />
-              <select
-                name="spaceType"
-                value={spaceForm.spaceType}
-                onChange={handleSpaceFormChange}
-                className="border p-2 rounded w-full mb-2"
-              >
-                <option value="">Select Space Type</option>
-                {spaces.map((space) => (
-                  <option key={space.id} value={space.id}>
-                    {space.name}
-                  </option>
-                ))}
-              </select>
-              <input
-                type="number"
-                name="floating"
-                value={spaceForm.floating}
-                onChange={handleSpaceFormChange}
-                placeholder="Floating Capacity"
-                className="border p-2 rounded w-full mb-2"
-                required
-              />
-              <input
-                type="number"
-                name="sitting"
-                value={spaceForm.sitting}
-                onChange={handleSpaceFormChange}
-                placeholder="Sitting Capacity"
-                className="border p-2 rounded w-full mb-2"
-                required
-              />
-              <button
-                onClick={handleAddSpace}
-                className="px-4 py-2 rounded bg-blue-500 text-black"
-              >
-                Edit Space
-              </button>
-            </div>
-            <button
-              onClick={handleSaveSpaces}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+{isEditingSpaces ? (
+        <div>
+          <h2 className="text-xl font-semibold mb-2">Edit New Space</h2>
+          <div className="mb-2">
+            <input
+              type="text"
+              name="spaceName"
+              value={spaceForm.spaceName}
+              onChange={handleSpaceFormChange}
+              placeholder="Space Name"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
+            <select
+              name="spaceType"
+              value={spaceForm.spaceType}
+              onChange={handleSpaceFormChange}
+              className="border p-2 rounded w-full mb-2"
             >
-              Save Spaces
-            </button>
+              <option value="">Select Space Type</option>
+              {spaces.map((space) => (
+                <option key={space.id} value={space.id}>
+                  {space.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="number"
+              name="floating"
+              value={spaceForm.floating}
+              onChange={handleSpaceFormChange}
+              placeholder="Floating Capacity"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
+            <input
+              type="number"
+              name="sitting"
+              value={spaceForm.sitting}
+              onChange={handleSpaceFormChange}
+              placeholder="Sitting Capacity"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
             <button
-              onClick={!isEditingSpaces}
-              className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+              onClick={handleAddSpace}
+              className="px-4 py-2 rounded bg-blue-500 text-white"
             >
-              Cancel{" "}
+              Edit Space
             </button>
           </div>
-        ) : (
-          <div className="bg-white shadow-md rounded-lg p-4 mt-8">
-            <div className="flex flex-row  justify-between">
-              {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                Current Spaces
-              </h2>{" "}
-              <button
-                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                onClick={() => setIsEditingSpaces(!isEditingSpaces)}
-              >
-                {isEditingSpaces ? "Cancel" : <MdEdit />}
-              </button>{" "}
-            </div>{" "}
-            <ul className="list-disc list-inside space-y-2">
-              {userSpaces.length > 1 ? (
-                userSpaces.map((space, index) => {
-                  const spaceData = spaces.find(
-                    (s) => s.id === space.spaceType
-                  );
-                  return spaceData ? (
-                    <li key={index} className="text-gray-700">
-                      <span className="font-medium text-lg">
-                        {space.spaceName}
-                      </span>
-                      <span className="text-sm text-gray-600">
-                        {" "}
-                        ({spaceData.name})
-                      </span>
-                      <div className="text-sm text-gray-500 mt-1">
-                        Floating:{" "}
-                        <span className="font-medium">{space.floating}</span>,
-                        Sitting:{" "}
-                        <span className="font-medium">{space.sitting}</span>
-                      </div>
-                      <button
-                        onClick={() => handleDeleteSpace(index)}
-                        className="text-red-500 mt-2 focus:outline-none"
-                      >
-                        Delete
-                      </button>
-                    </li>
-                  ) : null;
-                })
-              ) : userSpaces.length === 1 ? (
-                <li className="text-gray-700">
-                  <span className="font-medium text-lg">
-                    {userSpaces[0].name}
-                  </span>
-                  <span className="text-sm text-gray-600">
-                    {" "}
-                    (
-                    {spaces.find((s) => s.id === userSpaces[0].spaceType)?.name}
-                    )
-                  </span>
-                  <div className="text-sm text-gray-500 mt-1">
-                    Floating:{" "}
-                    <span className="font-medium">
-                      {userSpaces[0].floating}
-                    </span>
-                    , Sitting:{" "}
-                    <span className="font-medium">{userSpaces[0].sitting}</span>
-                  </div>
-                </li>
-              ) : null}
-            </ul>
+          <button
+            onClick={handleSaveSpaces}
+            className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+          >
+            Save Spaces
+          </button>
+          <button
+            onClick={() => setIsEditingSpaces(false)}
+            className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
+        <div className="bg-white shadow-md rounded-lg p-4 mt-8">
+          <div className="flex flex-row justify-between">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Spaces</h2>
+            <button
+              className="px-4 py-2 rounded bg-blue-500 text-white mb-4"
+              onClick={() => setIsEditingSpaces(!isEditingSpaces)}
+            >
+              {isEditingSpaces ? "Cancel" : <MdEdit />}
+            </button>
           </div>
-        )}
+          <ul className="list-disc list-inside space-y-2">
+            {userSpaces.length > 0 ? (
+              userSpaces.map((space, index) => {
+                const spaceData = spaces.find((s) => s.id === space.spaceType);
+                return spaceData ? (
+                  <li key={index} className="text-gray-700">
+                    <span className="font-medium text-lg">{space.spaceName}</span>
+                    <span className="text-sm text-gray-600"> ({spaceData.name})</span>
+                    <div className="text-sm text-gray-500 mt-1">
+                      Floating: <span className="font-medium">{space.floating}</span>, Sitting: <span className="font-medium">{space.sitting}</span>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteSpace(index)}
+                      className="text-red-500 mt-2 focus:outline-none"
+                    >
+                      Delete
+                    </button>
+                  </li>
+                ) : null;
+              })
+            ) : (
+              <li className="text-gray-700">No spaces available</li>
+            )}
+          </ul>
+        </div>
+      )}
 
 <div className="mb-4 mt-4">
       {isEditinguserNearByPlaces ? (
