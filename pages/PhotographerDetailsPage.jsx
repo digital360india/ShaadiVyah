@@ -132,7 +132,7 @@ const PhotographerDetailsPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-2 text-[10px] md:text-[16px]">
+                    <div className="flex gap-2 text-[14px] md:text-[16px]">
                       <p>{data?.city},</p>
                       {data?.country}
                     </div>
@@ -238,7 +238,7 @@ const PhotographerDetailsPage = () => {
 
         <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
         <div className="lg:w-[46%] flex flex-col gap-10 ">
-        <div className="md:text-3xl text-[18px] -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
+        <div className="md:text-3xl text-2xl -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">

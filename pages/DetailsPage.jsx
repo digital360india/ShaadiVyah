@@ -199,7 +199,7 @@ const DetailPage = () => {
             className="w-full rounded-b-[40px] h-[550px] object-cover "
           />
 
-<div className="absolute lg:-bottom-32 md:-bottom-20 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px] w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
+<div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
 <div className="flex flex-col justify-between">
               {" "}
               <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
@@ -222,7 +222,7 @@ const DetailPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-2 text-[10px] md:text-[16px]">
+                    <div className="flex gap-2 text-[14px] md:text-[16px]">
                       <p>{data?.city},</p>
                       {data?.country}
                     </div>
@@ -231,7 +231,7 @@ const DetailPage = () => {
                         href={data?.googleLocation}
                         className="underline text-gray-700"
                       >
-                        <p className="text-[#909090] text-[10px] md:text-[14px]">(View on Map)</p>
+                        <p className="text-[#909090] text-[12px] md:text-[14px]">(View on Map)</p>
                         </Link>
                     )}
                   </div>
@@ -328,7 +328,7 @@ const DetailPage = () => {
 
         <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
           <div className="lg:w-[46%] flex flex-col gap-10 ">
-            <div className="text-3xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
+            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
