@@ -222,7 +222,7 @@ const MendiVendorDetailsPage = () => {
 
         <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
         <div className="lg:w-[46%] flex flex-col gap-10 ">
-        <div className="md:text-3xl text-[18px] -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
+        <div className="text-3xl -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
@@ -427,7 +427,7 @@ const MendiVendorDetailsPage = () => {
               <div className="space-y-4  w-[250px] ">
                 <p className="md:text-[22px] text-[18px] font-medium">Practicing Since</p>
                 <ul className="list-disc list-inside items-start space-y-3">
-                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold  justify-center items-center">
+                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold ">
                       <p>Practicing Since : </p>
                       <SlCalender className="text-sm" />
                       <p>{data?.practicingSince}</p>
@@ -438,7 +438,7 @@ const MendiVendorDetailsPage = () => {
               <div className="space-y-4  w-[250px] ">
                 <p className="md:text-[22px] text-[18px] font-medium">Advance Payment</p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
-                <li className="text-gray-700 flex gap-1 justify-center items-center text-start">
+                <li className="text-gray-700 flex gap-1 ">
                       <p>Advance Payment : </p>
    
                       <p>{data?.advancePayment}</p><p>%</p>
@@ -457,7 +457,7 @@ const MendiVendorDetailsPage = () => {
           <FAQ />
         </div>
       </div>
-    </>
+    </> 
   );
 };
 

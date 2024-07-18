@@ -448,7 +448,7 @@ const PhotographerDetailsPage = () => {
               <div className="space-y-4  w-[250px] ">
                 <p className="md:text-[22px] text-[18px] font-medium">Practicing Since</p>
                 <ul className="list-disc list-inside items-start space-y-3">
-                  <li className="text-gray-700 flex gap-1 text-[14px] font-semibold  justify-center items-center">
+                  <li className="text-gray-700 flex gap-1 text-[14px] font-semibold  ">
                     <p>Practicing Since : </p>
                     <SlCalender className="text-sm" />
                     <p>{data?.practicingSince}</p>
@@ -458,7 +458,7 @@ const PhotographerDetailsPage = () => {
               <div className="space-y-4  w-[250px] ">
                 <p className="md:text-[22px] text-[18px] font-medium">Advance Payment</p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
-                  <li className="text-gray-700 flex gap-1 justify-center items-center text-start">
+                  <li className="text-gray-700 flex gap-1 ">
                     <p>Advance Payment : </p>
 
                     <p className="flex gap-0 justify-start items-center">

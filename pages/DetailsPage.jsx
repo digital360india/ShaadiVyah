@@ -199,13 +199,13 @@ const DetailPage = () => {
             className="w-full rounded-b-[40px] h-[550px] object-cover "
           />
 
-          <div className="absolute -bottom-32 z-10 border  bg-[#FFFFFF] justify-center items-center w-[1078px]  rounded-xl">
-            <div className="flex flex-col justify-between">
+<div className="absolute lg:-bottom-32 md:-bottom-20 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px] w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
+<div className="flex flex-col justify-between">
               {" "}
-              <div className="flex flex-row justify-between mx-16 my-5">
+              <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
                 <div className="flex flex-col justify-start items-start">
-                  <div className="text-2xl font-semibold text-[#4A4A4A]">
-                    {data?.businessName}
+                <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
+                {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
                     <div>
@@ -222,7 +222,7 @@ const DetailPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-[10px] md:text-[16px]">
                       <p>{data?.city},</p>
                       {data?.country}
                     </div>
@@ -231,11 +231,11 @@ const DetailPage = () => {
                         href={data?.googleLocation}
                         className="underline text-gray-700"
                       >
-                        <p className="text-[#909090] text-sm">(View on Map)</p>
-                      </Link>
+                        <p className="text-[#909090] text-[10px] md:text-[14px]">(View on Map)</p>
+                        </Link>
                     )}
                   </div>
-                  <div className="text-[#909090] text-sm mt-[4px]">
+                  <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block">
                     {data?.about}
                   </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
@@ -243,29 +243,29 @@ const DetailPage = () => {
                       src="/icons/call.svg"
                       height={1000}
                       width={1000}
-                      className="h-4 w-4 text-black-600 "
+                      className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 ">Contact</div>{" "}
-                  </button>
+                    <div className="text-green-700 text-[10px] md:text-[16px] ">Contact</div>{" "}
+                    </button>
                 </div>
                 <div className="flex flex-col gap-2">
                   {" "}
-                  <div className="h-[40px] w-[80px] rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
+                  <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
                     <img
                       src="/icons/ratingstar.svg"
                       height={1000}
                       width={1000}
-                      className="h-4 w-4 text-black-600 "
-                    />{" "}
-                    <p className="mt-1 text-white">4.5</p>
-                  </div>
-                  <div className="flex justify-center items-center gap-2 text-[13px] text-[#909090]">
+                      className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
+                      />{" "}
+                      <p className=" text-[12px] md:text-[16px] text-white">4.5</p>
+                    </div>
+                    <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090]">
                     <p>19</p>
                     <p>Reviews</p>
                   </div>
                 </div>
               </div>
-              <div className=" py-3 flex  bg-[#FBFBFB] justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
+              <div className=" py-3 lg:flex  bg-[#FBFBFB] hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
                 <div className="flex gap-12">
                   {" "}
                   <a href="#photos">
@@ -326,9 +326,9 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-start   mx-[100px]">
-          <div className="w-[46%] flex flex-col gap-10 ">
-            <div className="text-3xl font-semibold text-[#4A4A4A] capitalize ">
+        <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
+          <div className="lg:w-[46%] flex flex-col gap-10 ">
+            <div className="text-3xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
@@ -351,20 +351,20 @@ const DetailPage = () => {
             </div>
 
             <div className="text-[#0A2D23] ">{data?.about}</div>
-            <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
+            <div className="bg-[#FFB5A71A] py-3 xl:w-[520px] rounded-xl shadow-lg ">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
               </p>
-              <div className="flex flex-wrap gap-10">
-                <div className="flex mt-5 gap-6 px-5">
-                  <div className="flex flex-warp gap-10 ">
+              <div className="flex flex-wrap   ">
+                <div className=" flex flex-warp  mt-5 gap-6 px-5">
+                  <div className=" flex flex-wrap justify-between gap-4  ">
                     {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
                       data.spaces.map((space, index) => {
                         const spaceType = spaceTypes.find(
                           (type) => type.id === space.spaceType
                         );
                         return (
-                          <div key={index} className="flex gap-2 ">
+                          <div key={index} className="flex gap-4     ">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="40"
@@ -380,18 +380,26 @@ const DetailPage = () => {
                             </svg>
                             <div>
                               {" "}
-                              <p className="text-pink">
+                              <div className="flex gap-2 ">
+                              <p className="text-pink text-md">
                                 {spaceType ? spaceType.name : "Unknown"}
-                              </p>
-                              <p className="text-md">{space.spaceName}</p>
-                              <p className="text-sm">
-                                Floating Capacity: {space.floating}
-                              </p>
+                              </p> <p className="text-pink">|</p>
+                              <p className="text-md text-pink">{space.spaceName}</p>
+                              </div>
+
+                             <div className="flex gap-2 ">
+                             <p className="text-sm">
+                                {space.floating} Floating
+                              </p>  
+                              <p className="-mt-1">|</p>
                               <p className="text-sm">
                                 {" "}
-                                Sitting Capacity: {space.sitting}
+                               {space.sitting}  Sitting 
                               </p>
+                              
+                             </div>
                             </div>
+                            
                           </div>
                         );
                       })
@@ -412,7 +420,7 @@ const DetailPage = () => {
               </div>
             </div>
           </div>
-          <div className="px-20 py-10 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
+          <div className="xl:px-20 md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
             <p className="">{data?.bussinessName}</p>
             <form className="max-w-sm ">
               <input
@@ -470,7 +478,7 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="m-20 flex justify-center items-center gap-10  text-[#0A2D23] text-[18px]">
+        <div className="m-20 md:flex justify-center items-center gap-10  text-[#0A2D23] text-[18px] hidden ">
           <div>Portfolio</div>
           <a href="#services">Services</a>
           <div>Location</div>
@@ -479,8 +487,8 @@ const DetailPage = () => {
         </div>
         {/* Portfolio*/}
         <div className=" pl-[100px] ">
-          <p className="text-[#4A4A4A] font-semibold text-[32px]" id="photos">
-            Portfolio
+        <p className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0" id="photos">
+        Portfolio
           </p>
         </div>
         <Space25px />
@@ -488,16 +496,16 @@ const DetailPage = () => {
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80] p-8 md:p-16 m-4 md:m-[100px] rounded-2xl text-[#0A2D23]">
-          <div className="flex flex-col text-[32px] gap-4 md:gap-10">
+<div className="bg-[#CFCCBF80] p-8 md:p-16  m-4 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
+<div className="flex flex-col text-[32px] ">
             <div id="services">
-              <p className="text-[42px] font-medium">Services</p>
+              <p className="text-[42px] font-medium py-5">Services</p>
             </div>
-            <div className="flex flex-col md:flex-row text-[20px] gap-10 md:gap-20">
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Amenities</p>
-                <div className="text-[14px] font-semibold space-y-2">
-                  <ul className="list-disc list-inside">
+            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between ">
+              <div className="space-y-4  w-[250px]  ">
+                <p className="md:text-[22px] text-[18px] font-medium">Amenities</p>
+                <div className="text-[14px] font-semibold ">
+                  <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
                     {data &&
                     data.amenitiesUID &&
                     Array.isArray(data.amenitiesUID) ? (
@@ -517,9 +525,9 @@ const DetailPage = () => {
                   </ul>
                 </div>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Accessibility</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">Accessibility</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.accessibilityOptionsUID &&
                   Array.isArray(data.accessibilityOptionsUID) ? (
@@ -542,9 +550,9 @@ const DetailPage = () => {
                   )}
                 </ul>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Security and Safety</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium"> Security and Safety</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.safetyAndSecurityOptionsUID &&
                   Array.isArray(data.safetyAndSecurityOptionsUID) ? (
@@ -565,9 +573,9 @@ const DetailPage = () => {
                   )}
                 </ul>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Facilities</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium"> Security and Safety</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.facilitiesUID &&
                   Array.isArray(data.facilitiesUID) ? (
@@ -584,9 +592,9 @@ const DetailPage = () => {
                   )}
                 </ul>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Additional Services</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">  Additional Services</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.additionalServicesUID &&
                   Array.isArray(data.additionalServicesUID) ? (
@@ -611,8 +619,8 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-start mx-[100px]">
-          <div className="w-[46%] flex flex-col gap-6 bg-[#B4D4DF40] p-10 rounded-2xl ">
+        <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-4 ">
+          <div className="lg:w-[600px]  flex flex-col gap-6 bg-[#B4D4DF40] md:p-10 p-4 rounded-2xl ">
             <div className="text-xl font-bold capitalize">
               A hotel perfectly located at your destination
             </div>
@@ -627,7 +635,7 @@ const DetailPage = () => {
                     return attractions ? (
                       <>
                         {" "}
-                        <div className="flex justify-between w-[600px] ">
+                        <div className="flex justify-between lg:w-[500px] md:w-[450px] sm:w-[400px] w-[350px] ">
                           {" "}
                           <div
                             key={attractions.id}
