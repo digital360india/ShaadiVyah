@@ -341,6 +341,11 @@ const VenueVendorPage = () => {
         attractions: arrayUnion(nearByPlacesForm),
       });
       setIsEditinguserNearByPlaces(false);
+      setNearByPlacesForm({
+        distance: "",
+        locationType: "",
+        time: "",
+      })
       toast.success("Near by places updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
@@ -364,7 +369,12 @@ const VenueVendorPage = () => {
         spaces: arrayUnion(spaceForm),
       });
       setIsEditingSpaces(false);
-      setSpaceForm()
+      setSpaceForm({
+        spaceName: "",
+        spaceType: "",
+        floating: "",
+        sitting: "",
+      })
       toast.success("Spaces updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
@@ -500,7 +510,7 @@ const VenueVendorPage = () => {
             />
             <button
               onClick={handleAddSpace}
-              className="px-4 py-2 rounded bg-blue-500 text-white"
+              className="px-4 py-2 rounded bg-blue-500 text-black"
             >
               Edit Space
             </button>
@@ -523,7 +533,7 @@ const VenueVendorPage = () => {
           <div className="flex flex-row justify-between">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Spaces</h2>
             <button
-              className="px-4 py-2 rounded bg-blue-500 text-white mb-4"
+              className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
               onClick={() => setIsEditingSpaces(!isEditingSpaces)}
             >
               {isEditingSpaces ? "Cancel" : <MdEdit />}
