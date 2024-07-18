@@ -201,7 +201,7 @@ export default function Landing() {
                       <Link
                         href={`/venues/${arr.uid}`}
                         key={arr.uid}
-                        className=" py-4 md:px-16 "
+                        className=" py-4 md:px-1 "
                       >
                         <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px]  ">
                           <img
@@ -280,7 +280,7 @@ export default function Landing() {
                   <Link
                     href={`/mehandivendors/${arr.uid}`}
                     key={arr.uid}
-                    className=" py-4  md:px-16 "
+                    className=" py-4  md:px-1 "
                   >
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                       <img
@@ -358,7 +358,7 @@ export default function Landing() {
                   <Link
                     href={`/makeupvendors/${arr.uid}`}
                     key={arr.uid}
-                    className=" py-4  md:px-16 "
+                    className=" py-4  md:px-1 "
                   >
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                       <img
@@ -437,7 +437,7 @@ export default function Landing() {
                   <Link
                     href={`/photographersvendors/${arr.uid}`}
                     key={arr.uid}
-                    className=" py-4  md:px-16 "
+                    className=" py-4  md:px-1 "
                   >
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                       <img

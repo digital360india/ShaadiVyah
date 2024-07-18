@@ -8,15 +8,36 @@ export default function Gallery({ images }) {
     return null; 
   }
 
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   return (
     <div className="w-screen  ">
-      <Carousel
+     <div className="hidden md:block">
+     <Carousel
       key={images.index}
         additionalTransfrom={0}
         arrows={false}  
         autoPlaySpeed={3000}
         centerMode
-        className="h-[500px]"
+        className="xl:h-[500px] lg:h-[450px] md:h-[400px]"
         dotListClass=""
         draggable
         focusOnSelect={false}
@@ -35,7 +56,7 @@ export default function Gallery({ images }) {
               min: 1024,
             },
             items: 1,
-            partialVisibilityGutter: 80,
+            // partialVisibilityGutter: 80,
           },
           mobile: {
             breakpoint: {
@@ -43,7 +64,7 @@ export default function Gallery({ images }) {
               min: 0,
             },
             items: 1,
-            partialVisibilityGutter: 80,
+            // partialVisibilityGutter: 80,
           },
           tablet: {
             breakpoint: {
@@ -51,7 +72,7 @@ export default function Gallery({ images }) {
               min: 464,
             },
             items: 1,
-            partialVisibilityGutter: 80,
+            // partialVisibilityGutter: 80,
           },
         }}
         rewind={false}
@@ -66,7 +87,7 @@ export default function Gallery({ images }) {
       >
         {images.map((photo, index) => (
           <img
-            className="xl:w-[700px] xl:h-[350px] w-[300px] h-[250px] object-cover rounded-lg"
+            className="xl:w-[600px] lg:w-[500px] lg:h-[350px] md:w-[350px]   h-[250px]  hidden md:block object-cover rounded-lg"
             src={photo}
             alt={index}
             key={index} 
@@ -74,6 +95,24 @@ export default function Gallery({ images }) {
           />
         ))}
       </Carousel>
+   
+     </div>
+     <div className="mt-10">
+  
+  <Carousel
+  arrows={false}
+  responsive={responsive}>
+  {images.map((photo, index) => (
+          <img
+            className="w-full px-6 md:hidden h-[300px] object-cover rounded-lg"
+            src={photo}
+            alt={index}
+            key={index} 
+
+          />
+        ))}
+  </Carousel>;
+       </div>
     </div>
   );
 }

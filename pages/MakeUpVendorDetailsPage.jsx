@@ -96,12 +96,12 @@ const MakeUpVendorDetailsPage = () => {
             className="w-full rounded-b-[40px] h-[550px] object-cover "
           />
 
-          <div className="absolute -bottom-32 z-10 border  bg-[#FFFFFF] justify-center items-center w-[1078px]  rounded-xl">
+          <div className="absolute lg:-bottom-32 md:-bottom-20 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px] w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
             <div className="flex flex-col justify-between">
               {" "}
-              <div className="flex flex-row justify-between mx-16 my-5">
+              <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
                 <div className="flex flex-col justify-start items-start">
-                  <div className="text-2xl font-semibold text-[#4A4A4A]">
+                  <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
                     {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
@@ -119,7 +119,7 @@ const MakeUpVendorDetailsPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-[10px] md:text-[16px]">
                       <p>{data?.city},</p>
                       {data?.country}
                     </div>
@@ -128,11 +128,11 @@ const MakeUpVendorDetailsPage = () => {
                         href={data?.googleLocation}
                         className="underline text-gray-700"
                       >
-                        <p className="text-[#909090] text-sm">(View on Map)</p>
+                        <p className="text-[#909090] text-[10px] md:text-[14px]">(View on Map)</p>
                       </Link>
                     )}
                   </div>
-                  <div className="text-[#909090] text-sm mt-[4px]">
+                  <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block">
                     {data?.about}
                   </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
@@ -140,29 +140,29 @@ const MakeUpVendorDetailsPage = () => {
                       src="/icons/call.svg"
                       height={1000}
                       width={1000}
-                      className="h-4 w-4 text-black-600 "
+                      className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 ">Contact</div>{" "}
+                    <div className="text-green-700 text-[10px] md:text-[16px] ">Contact</div>{" "}
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
                   {" "}
-                  <div className="h-[40px] w-[80px] rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
+                  <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
                     <img
                       src="/icons/ratingstar.svg"
                       height={1000}
                       width={1000}
-                      className="h-4 w-4 text-black-600 "
+                      className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />{" "}
-                    <p className="mt-1 text-white">4.5</p>
+                    <p className=" text-[12px] md:text-[16px] text-white">4.5</p>
                   </div>
-                  <div className="flex justify-center items-center gap-2 text-[13px] text-[#909090]">
+                  <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px]text-[#909090]">
                     <p>19</p>
                     <p>Reviews</p>
                   </div>
                 </div>
               </div>
-              <div className=" py-3 flex  bg-[#FBFBFB] justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
+              <div className=" py-3 lg:flex  bg-[#FBFBFB] hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
                 <div className="flex gap-12">
                   {" "}
                   <a href="#photos">
@@ -223,9 +223,14 @@ const MakeUpVendorDetailsPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-start   mx-[100px]">
-          <div className="w-[46%] flex flex-col gap-10 ">
-            <div className="text-3xl font-semibold text-[#4A4A4A] capitalize ">
+
+
+
+
+
+        <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
+          <div className="lg:w-[46%] flex flex-col gap-10 ">
+            <div className="text-3xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
                 <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
@@ -309,8 +314,8 @@ const MakeUpVendorDetailsPage = () => {
               </div>
             </div> */}
           </div>
-          <div className="px-20 py-10 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
-            <p className="">{data?.bussinessName}</p>
+          <div className="xl:px-20 md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
+            <p className=" ">{data?.bussinessName}</p>
             <form className="max-w-sm ">
               <input
                 type="text"
@@ -357,7 +362,7 @@ const MakeUpVendorDetailsPage = () => {
           </div>
         </div>
 
-        <div className="m-20 flex justify-center items-center gap-10  text-[#0A2D23] text-[18px]">
+        <div className="m-20 md:flex justify-center items-center gap-10  text-[#0A2D23] text-[18px] hidden ">
           <div>Portfolio</div>
           <a href="#services">Services</a>
           <div>Location</div>
@@ -366,26 +371,25 @@ const MakeUpVendorDetailsPage = () => {
         </div>
         {/* Portfolio*/}
         <div className=" pl-[100px] ">
-          <p className="text-[#4A4A4A] font-semibold text-[32px]" id="photos">
+          <p className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0" id="photos">
             Portfolio
           </p>
         </div>
-        <Space25px />
         {data?.portfolioImagesUrl && data.portfolioImagesUrl.length > 0 && (
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80] p-8 md:p-16 m-4 md:m-[100px] rounded-2xl text-[#0A2D23]">
-          <div className="flex flex-col text-[32px] gap-4 md:gap-10">
+        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-4 xl:mx-[100px] lg:mx-[80px]  rounded-2xl text-[#0A2D23]">
+          <div className="flex flex-col text-[32px] ">
             <div id="services">
-              <p className="text-[42px] font-medium">Information</p>
+              <p className="text-[42px] font-medium py-9">Information</p>
             </div>
-            <div className="flex flex-col md:flex-row text-[20px] gap-10 md:gap-20">
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Charges</p>
-                <div className="text-[14px] font-semibold space-y-2">
-                  <ul className="list-disc list-inside items-start flex flex-col ">
-                    <li className="text-gray-700 flex gap-1 justify-center items-center">
+            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between ">
+              <div className="space-y-4  w-[250px]  ">
+                <p className="md:text-[22px] text-[18px] font-medium">Charges</p>
+                <div className="text-[14px] font-semibold ">
+                  <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
+                    <li className="text-gray-700 flex gap-1  justify-center items-center">
                       <p>Makeup Per Family Member : </p>
                       <FaRupeeSign className="text-sm" />
                       <p>{data?.makeupPerFamilyMember}</p>
@@ -403,14 +407,14 @@ const MakeUpVendorDetailsPage = () => {
                   </ul>
                 </div>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Travels to Venue</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 ">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">Travels to Venue</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   <li className="text-gray-700 flex gap-1 justify-start items-center">
                     {data?.travelsToVenue ? (
                       <MdCheckCircle className="text-green-500" />
                     ) : (
-                      <MdCancel className="text-red-500" />
+                      <MdCancel className="text-red-500" /> 
                     )}
                     <p>
                       {data?.travelsToVenue
@@ -432,10 +436,10 @@ const MakeUpVendorDetailsPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Practicing Since</p>
-                <ul className="list-disc list-inside items-start">
-                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold  justify-center items-center">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">Practicing Since</p>
+                <ul className="list-disc list-inside items-start space-y-3">
+                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold ">
                       <p>Practicing Since : </p>
                       <SlCalender className="text-sm" />
                       <p>{data?.practicingSince}</p>
@@ -443,10 +447,10 @@ const MakeUpVendorDetailsPage = () => {
                
                   </ul>
               </div>
-              <div className="space-y-4">
-                <p className="text-[22px] font-medium">Advance Payment</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 ">
-                <li className="text-gray-700 flex gap-1 justify-center items-center text-start">
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">Advance Payment</p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                <li className="text-gray-700 flex gap-1 text-start">
                       <p>Advance Payment : </p>
    
                       <p>{data?.advancePayment}</p><p>%</p>

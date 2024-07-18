@@ -6,6 +6,17 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import Space50px from "./Space50px";
 
+
+
+
+
+
+
+
+
+
+
+
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
 
@@ -25,6 +36,28 @@ export default function Testimonials() {
     fetchTestimonials();
   }, []);
 
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+
   return (
     <div className="w-full bg-white">
       <div>
@@ -32,6 +65,7 @@ export default function Testimonials() {
           Testimonials
         </p>
       </div>
+      <div className="hidden md:block">
       <Carousel
         additionalTransfrom={0}
         arrows={false}
@@ -114,6 +148,46 @@ export default function Testimonials() {
           </div>
         ))}
       </Carousel>
+      </div>
+
+
+     <div className="md:hidden px-6">
+     <Carousel
+             arrows={false}
+             responsive={responsive}>
+     {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="lg:pt-10  min-h-[400px] pt-4 bg-[#EBECED] md:px-6 text-center border border-[#C9184A] rounded-xl px-6"
+          >
+            <div
+              className="lg:text-[19px] md:text-[14px] text-[18px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10"
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {testimonial.testimonial}
+            </div>
+            <div className="flex items-center justify-center md:pt-6 md:pb-10 py-2">
+              <img
+                className="w-16 h-16 rounded-full object-contain border border-gray-300"
+                src={testimonial.imgURL || "/images/logo1.png"}
+                alt=""
+              />
+              <div className="ml-4 text-left">
+                <p className="text-[18px] font-medium text-[#C9184A]">
+                  {testimonial.name}
+                </p>
+                <p className="text-[#02394A] text-[16px]">
+                  {testimonial.location}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+</Carousel>
+     </div>
       <Space50px />
     </div>
   );
