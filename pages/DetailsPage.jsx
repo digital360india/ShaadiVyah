@@ -639,12 +639,13 @@ const DetailPage = () => {
                           {" "}
                           <div
                             key={attractions.id}
-                            className="text-gray-700 flex gap-2"
+                            className="text-gray-700 flex gap-10"
                           >
                             <img
                               src="/icons/locationblack.svg"
                               alt="location"
                             />
+                            <div>{place.name}</div>
                             <div>{attractions.name}</div>
                           </div>
                           <div className="text-gray-700 flex gap-20">
@@ -684,7 +685,7 @@ const DetailPage = () => {
         <div id="faq">
           <FAQ />
         </div>
-      </div>
+      </div>  
     </>
   );
 };

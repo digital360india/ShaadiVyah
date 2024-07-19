@@ -16,8 +16,7 @@ import Space25px from "./Space25px";
 
 export default function Review({ id, title }) {
   const [active, setActive] = useState(true);
-  const [viewmore, setViewMore] = useState(false);
-  const [display, setDisplay] = useState(false);
+
   const [showView, setShowView] = useState(true);
   const [reviewText, setReviewText] = useState("");
   const [user, setUser] = useState(null);
@@ -133,7 +132,7 @@ export default function Review({ id, title }) {
           setOverallRating(avgRating);
           setRatingsDistribution(
             ratingCounts.map((count) =>
-              ((count / totalReviews) * 100).toFixed(2)
+              totalReviews > 0 ? ((count / totalReviews) * 100).toFixed(2) : "0"
             )
           );
         }
@@ -169,7 +168,7 @@ export default function Review({ id, title }) {
               <p className="text-[40px]">{overallRating.toFixed(1)}</p>
               <div className="flex">
                 {" "}
-                {[...Array(Math.round(overallRating))].map((_, index) => (
+                {[...Array(Math.round(overallRating) || 0)].map((_, index) => (
                   <svg
                     key={index}
                     className="text-yellow-500"
