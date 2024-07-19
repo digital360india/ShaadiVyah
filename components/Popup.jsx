@@ -7,9 +7,9 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 120000); 
+    }, 120000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   const handleClose = () => {
@@ -41,11 +41,12 @@ const Popup = () => {
                 </svg>
               </p>
               <p className="font-medium text-[#02394A] text-[24px] text-start lg:text-[36px]">
-              Unforgettable Moments
-
+                Create Your Dream Day!
               </p>
               <p className="lg:text-[16px] text-[14px] lg:w-[432px]">
-              Ready To Turn Your Dream Wedding into Reality? Contact Us Today and Let&apos;s Start Planning Your Perfect Days!              </p>
+                Planning a wedding or a grand celebration? Register now and
+                let's make your dream wedding happen at your price!{" "}
+              </p>
               <div className="space-y-4 mt-6">
                 <input
                   className="lg:w-[411px] w-full border border-[#D8E2DC] p-4 rounded-md"

@@ -44,7 +44,7 @@ export default function Review({ id, title }) {
         photoURL: user.photoURL,
       });
       console.log("User signed in and data saved:", user);
-      setUser(user); 
+      setUser(user);
     } catch (error) {
       console.error("Error signing in with Google:", error);
     }
@@ -130,7 +130,7 @@ export default function Review({ id, title }) {
 
           userDoc.data().reviews.forEach((review) => {
             totalRating += review.rating;
-            console.log(review.rating)
+            console.log(review.rating);
             ratingCounts[review.rating - 1]++;
           });
 
