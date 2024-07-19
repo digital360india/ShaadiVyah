@@ -44,7 +44,7 @@ export default function Review({ id, title }) {
         photoURL: user.photoURL,
       });
       console.log("User signed in and data saved:", user);
-      setUser(user);
+      setUser(user); 
     } catch (error) {
       console.error("Error signing in with Google:", error);
     }
@@ -130,7 +130,7 @@ export default function Review({ id, title }) {
 
           userDoc.data().reviews.forEach((review) => {
             totalRating += review.rating;
-            console.log(review.rating);
+            console.log(review.rating)
             ratingCounts[review.rating - 1]++;
           });
 
@@ -180,14 +180,14 @@ export default function Review({ id, title }) {
   }, [userReviews]);
 
   return (
-    <div className=" w-full bg-[#F7FEFD]">
-      <div className="md:h-[450px] h-[160px] flex flex-col gap-4 w-full md:py-4 md:px-20 px-6">
-        <p className="text-[42px] font-semibold md:block hidden">
+    <div className="  my-12  space-y-4 xl:mx-[100px] lg:mx-[80px] md:mx-[40px] mx-6">
+      <div className="  flex flex-col gap-4  py-4   ">
+        <p className="text-[42px] font-semibold ">
           Review For {title}{" "}
         </p>
-        <div className="flex lg:flex-row md:flex-col md:gap-10 xl:h-[350px] w-full justify-start items-start">
-          <div className=" md:py-4 py-2 md:px-20 px-6 w-full">
-            <div className="flex flex-col justify-start items-start w-96">
+        <div className="flex flex-col lg:flex-row    justify-between ">
+          <div className=" py-4 px-10  ">
+            <div className="flex flex-col justify-start items-start">
               <p className="text-[40px]">{overallRating.toFixed(1)}</p>
               <div className="flex">
                 {" "}
@@ -245,8 +245,8 @@ export default function Review({ id, title }) {
               </div>
             </div>
           </div>
-          <div className="md:h-full h-[200px] w-full flex flex-col gap-4">
-            <div className="lg:w-[550px] w-full lg:h-[330px] lg:p-10 p-4 bg-[#C9184A] rounded-xl text-white flex flex-col gap-4">
+          <div className=" flex flex-col gap-4  mt-5 lg:mt-0 md:w-[500px] ">
+            <div className="p-10 bg-[#C9184A] rounded-xl text-white flex flex-col gap-4">
               <p className="text-lg">Write a review for {title}</p>
               <p className="text-[12px]">
                 Share your thoughts with other customers
@@ -270,11 +270,16 @@ export default function Review({ id, title }) {
         </div>
       </div>
 
+
+
+
+
+
       {userReviews.length > 0 ? (
         <div>
-          <div className=" md:py-4 py-2 md:px-20 px-6 w-full">
+          <div className="    ">
             <p className="font-semibold text-[35px] my-10">User Reviews</p>
-            <div className=" w-full h-auto flex flex-wrap gap-10 justify-start items-center">
+            <div className=" flex flex-wrap  gap-4 justify-evenly">
               {userReviews.slice(0, reviewsDisplayed).map((review, index) => {
                 return (
                   <div

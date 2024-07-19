@@ -493,7 +493,7 @@ const DetailPage = () => {
           <a href="#faq">FAQ&apos;s</a>
         </div>
         {/* Portfolio*/}
-        <div className=" pl-[100px] ">
+        <div className=" lg:pl-[100px] md:mx-[60px] mx-6 ">
           <p
             className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0"
             id="photos"
@@ -506,7 +506,7 @@ const DetailPage = () => {
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-4 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
+        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-6 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
           <div className="flex flex-col text-[32px] ">
             <div id="services">
               <p className="text-[42px] font-medium py-5">Services</p>
@@ -642,7 +642,7 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-4 ">
+        <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-6 ">
           <div className="lg:w-[600px]  flex flex-col gap-6 bg-[#B4D4DF40] md:p-10 p-4 rounded-2xl ">
             <div className="text-xl font-bold capitalize">
               A hotel perfectly located at your destination
