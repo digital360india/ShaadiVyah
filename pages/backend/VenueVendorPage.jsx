@@ -41,6 +41,7 @@ const VenueVendorPage = () => {
   const [isEditinguserNearByPlaces, setIsEditinguserNearByPlaces] = useState(false);
   const [nearByPlaces, setNearByPlaces] = useState([]);
   const [nearByPlacesForm, setNearByPlacesForm] = useState({
+    name:"",
     distance: "",
     locationType: "",
     time: "",
@@ -329,7 +330,7 @@ const VenueVendorPage = () => {
 
       !nearByPlacesForm.distance &&
       !nearByPlacesForm.locationType &&
-      !nearByPlacesForm.time
+      !nearByPlacesForm.time && !nearByPlacesForm.name
 
     ) {
       toast.error("Please fill all fields before saving.");
@@ -345,6 +346,7 @@ const VenueVendorPage = () => {
         distance: "",
         locationType: "",
         time: "",
+        name:""
       })
       toast.success("Near by places updated successfully!");
       fetchUser(user.uid);
@@ -390,7 +392,7 @@ const VenueVendorPage = () => {
 
   const handleAddNearByPlaces = () => {
     setUserNearByPlaces((prev) => [...prev, nearByPlacesForm]);
-    setNearByPlacesForm({ time: "", distance: "", locationType: ""});
+    setNearByPlacesForm({name:"", time: "", distance: "", locationType: ""});
   };
   return (
     <div>
@@ -594,6 +596,15 @@ const VenueVendorPage = () => {
               required
             />
             <input
+              type="string"
+              name="name"
+              value={nearByPlacesForm.name}
+              onChange={handleNearByPlacesFormChange}
+              placeholder="Name of the place"
+              className="border p-2 rounded w-full mb-2"
+              required
+            />
+            <input
               type="number"
               name="time"
               value={nearByPlacesForm.time}
@@ -635,7 +646,8 @@ const VenueVendorPage = () => {
                 );
                 return placeData ? (
                   <li key={index} className="text-gray-700">
-                    <span className="font-medium text-lg">{placeData.name}</span>
+                    <span className="font-medium text-lg">{place.name} </span>
+                    <span className="text-sm text-black "> {placeData.name}</span>
                     <span className="text-sm text-gray-600"> ({place.distance} km)</span>
                     <div className="text-sm text-gray-500 mt-1">
                       Distance: <span className="font-medium">{place.distance} km</span>, Time:{" "}
