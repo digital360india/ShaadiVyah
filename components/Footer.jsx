@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Space50px from "./Space50px";
 import Link from "next/link";
+import { MdOutlineStar } from "react-icons/md";
 
 
 const Footer = () => {
@@ -88,7 +89,7 @@ const Footer = () => {
             <p className="text-[12px] w-[180px] ">
             B, 36, Nehru Colony Road, C-Block, Nehru Colony, Dalanwala, Dehradun, Uttarakhand 248001
             </p>
-            <p className="text-[12px]">Email -enquire@shadivyah.com</p>
+            <p className="text-[12px]">Email -shaadivyahwork@gmail.com</p>
             <p className="text-[12px]">Phone - 9084684360</p>
           </div>
 

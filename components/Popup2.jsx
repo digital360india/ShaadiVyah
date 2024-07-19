@@ -32,8 +32,7 @@ const Popup2 = ({ onClose }) => {
 
               </p>
               <p className="lg:text-[16px] text-[14px] lg:w-[432px]">
-              Whether you are planning your dream wedding or a grand celebration, we are here to make it unforgettable. 
-              </p>
+              Ready To Turn Your Dream Wedding into Reality? Contact Us Today and Let&apos;s Start Planning Your Perfect Days!              </p>
           <div className="space-y-4 mt-6">
             <input
               className="lg:w-[411px] w-full border border-[#D8E2DC] p-4 rounded-md"

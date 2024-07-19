@@ -6,7 +6,7 @@ export default function HowToWork() {
       <div className="  w-full xl:px-[100px] md:px-[60px] px-6  bg-white   lg:flex justify-between">
         <div className="space-y-6  md:pt-20">
           <h1 className="md:text-[48px] text-[32px] md:text-start font-semibold text-[#C9184A] text-center font-fira-sans xl:pb-12  lg:pb-6">
-            How we Work
+          Our Process: Turning Your Vision into Reality
           </h1>
           <div className="flex gap-10">
             <div>
@@ -14,13 +14,10 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-                Initial Consultation{" "}
-              </p>
+              Discover Your Vision              </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-                We start with an in-depth consultation to understand your needs
-                and preferences. Whether it&apos;s for a special event or everyday
-                glam, our goal is to tailor our services to meet your
-                expectations perfectly.
+              We begin with a chat to dive into your vision be it a spectacular wedding, a special celebration, or a memorable photoshoot. We&apos;re here to bring your dreams to life with a personal touch.
+
               </p>
             </div>
           </div>
@@ -30,12 +27,10 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-                Personalized Planning
+              Design Your Dream Day
               </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-                Based on our consultation, we create a customized plan that
-                includes product recommendations, makeup techniques, and styling
-                tips.
+              After our chat, we create a plan that covers all the essentials beautiful makeup, perfect photos, magical decor, vibrant mehendi, and more. Our team handles every detail with care, making your day truly special.
               </p>
             </div>
           </div>
@@ -45,11 +40,10 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-                Professional Execution
+              Bring It All Together
               </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-                On the day of your appointment or event, our skilled makeup
-                artists bring the plan to life with precision and creativity.
+              Our team handles everything with flair and care on the big day. We craft the perfect atmosphere, capture every special moment, and offer it all at affordable rates so you can relax and enjoy.
               </p>
             </div>
           </div>

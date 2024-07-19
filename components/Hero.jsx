@@ -24,9 +24,11 @@ export default function Hero() {
     <>
       <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[90vh] ">
         <div className="md:w-[800px] mt-[160px] ">
-          <p className="font-semibold font-fira-sans  text-center mb-16 text-3xl md:text-4xl">
-            Let’s Celebrate Your Festival Party With Us{" "}
+          <p className="font-semibold font-fira-sans  text-center mb-4 text-3xl md:text-4xl">
+            Uttarakhand main Shaadi? Shaadivyah Hai Na!
           </p>
+          <p className="font-dancing-script  text-center mb-10 text-md md:text-xl  ">
+          Affordable Dreams for Clients, Expanding Networks for Vendors – All with Shaadivyah!          </p>
           <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-white rounded-[40px] py-4 flex flex-col md:flex-row items-center justify-evenly">
             <div className="flex gap-2 items-center w-[300px] text-xl md:w-[40%]">
               <img
@@ -38,32 +40,32 @@ export default function Hero() {
               <select
                 className="bg-transparent  w-full outline-none"
                 value={selectedLocation}
-                onChange={handleLocationChange} 
+                onChange={handleLocationChange}
               >
- <option value="" disabled>
-                        Select Location
-                      </option>
-                      <option value="Dehradun" className="text-white">
-                        Dehradun
-                      </option>
-                      <option className="text-white" value="Haridwar">
-                        Haridwar
-                      </option>
-                      <option className="text-white" value="Chamoli">
-                        Chamoli
-                      </option>
-                      <option className="text-white" value="Rudraprayag">
-                        Rudraprayag
-                      </option>
-                      <option className="text-white" value="TehriGarhwal">
-                        Tehri Garhwal
-                      </option>
-                      <option className="text-white" value="Uttarkashi">
-                        Uttarkashi
-                      </option>
-                      <option className="text-white" value="PauriGarhwal">
-                        Pauri Garhwal
-                      </option>
+                <option value="" disabled>
+                  Select Location
+                </option>
+                <option value="Dehradun" className="text-white">
+                  Dehradun
+                </option>
+                <option className="text-white" value="Haridwar">
+                  Haridwar
+                </option>
+                <option className="text-white" value="Chamoli">
+                  Chamoli
+                </option>
+                <option className="text-white" value="Rudraprayag">
+                  Rudraprayag
+                </option>
+                <option className="text-white" value="TehriGarhwal">
+                  Tehri Garhwal
+                </option>
+                <option className="text-white" value="Uttarkashi">
+                  Uttarkashi
+                </option>
+                <option className="text-white" value="PauriGarhwal">
+                  Pauri Garhwal
+                </option>
               </select>
             </div>
             <div className="hidden md:block">|</div>

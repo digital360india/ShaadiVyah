@@ -54,7 +54,7 @@ export default function Page() {
       <div className="xl:px-[100px] lg:px-[50px] md:px-[50px] px-6 py-[70px] flex flex-col lg:flex-row justify-between">
         <div>
           <p className="lg:text-[56px] text-[43px] font-medium xl:w-[676px] lg:w-[500px] ">
-            <span className="gradient-text">About ShadiVyah</span>{" "}
+            <span className="gradient-text">About ShaadiVyah</span>{" "}
             <span>: where excellence meets innovation</span>
           </p>
         </div>

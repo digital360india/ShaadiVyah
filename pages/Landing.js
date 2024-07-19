@@ -12,13 +12,15 @@ import Testimonials from "@/components/Testimonials";
 import AboutShadivyah from "@/components/AboutShadivyah";
 import HowToWork from "@/components/HowToWork";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
+import { MdOutlineStar } from "react-icons/md";
+import Space25px from "@/components/Space25px";
+import Space50px from "@/components/Space50px";
 
 export default function Landing() {
   // Custom Next Arrow Component
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
-
       onClick={onClick}
     />
   );
@@ -130,7 +132,7 @@ export default function Landing() {
         },
       },
       {
-        breakpoint: 1324, 
+        breakpoint: 1324,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -144,7 +146,7 @@ export default function Landing() {
         },
       },
       {
-        breakpoint: 640, 
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -171,8 +173,8 @@ export default function Landing() {
       </div>
       <div className="w-full ">
         <div className="sticky top-0">
-        <div className="bg-cream py-16  relative  px-6 md:px-20 ">
-        <img
+          <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+            <img
               src={"/vectors/vector3.png"}
               alt="image"
               height={1000}
@@ -216,7 +218,16 @@ export default function Landing() {
                               <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                                 {arr.businessName}
                               </h3>
-                              <p>rating</p>
+                              <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>
                             </div>
                             <div className="flex justify-start gap-2">
                               <img src="/icons/locationred.svg" />
@@ -253,8 +264,8 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-        <div className="bg-white py-16  relative  px-6 md:px-20 ">
-        <img
+          <div className="bg-white py-16  relative  px-6 md:px-20 ">
+            <img
               src={"/vectors/vector4.png"}
               alt="image"
               height={1000}
@@ -295,8 +306,16 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p>rating</p>
-                        </div>
+                          <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -330,8 +349,8 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-        <div className="bg-cream py-16  relative  px-6 md:px-20 ">
-        <img
+          <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+            <img
               src={"/vectors/vector2.png"}
               alt="image"
               height={1000}
@@ -373,8 +392,16 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p>rating</p>
-                        </div>
+                          <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -452,8 +479,16 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p>rating</p>
-                        </div>
+                          <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -495,7 +530,10 @@ export default function Landing() {
         </div>
       </div>
       <HowToWork />
+      <Space50px/>
       <ContactUsPhoto />
+      <Space50px/>
+
     </div>
   );
 }

@@ -69,7 +69,7 @@ const Registration = () => {
         const docRef = await addDoc(collection(db, "users"), {
           email: formData.email,
           phone: formData.phone,
-          location: formData.location,
+          city: formData.city,
           name: formData.name,
           approval: false,
           seoRating: 0,
@@ -109,7 +109,7 @@ const Registration = () => {
       email: "",
       name: "",
       phone: "",
-      location: "",
+      city: "",
       vendorType: "",
       vendorTypeUID: "",
     });
@@ -227,8 +227,8 @@ const Registration = () => {
                   </label>
                   <div className="relative">
                     <select
-                      name="location"
-                      value={formData.location}
+                      name="city"
+                      value={formData.city}
                       onChange={handleChange}
                       className="block appearance-none w-full bg-white  border border-gray-300 hover:border-gray-400 px-4 py-3 pr-8 rounded-lg shadow-sm leading-tight focus:outline-none focus:shadow-outline transition duration-200 ease-in-out"
                       required

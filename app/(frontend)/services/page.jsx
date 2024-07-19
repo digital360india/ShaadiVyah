@@ -42,7 +42,7 @@ const page = () => {
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
             <Link href={`/venues`} className="border-b-2 border-spacing-0 border-pink text-pink">
-              <p>explore now</p>
+              <p>Explore now</p>
             </Link>
           </div>
         </div>
@@ -77,7 +77,7 @@ const page = () => {
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#FFB5A7] to-[#C9184A] h-[2px] w-[270px] xl:ml-[100px]"></div>
             <Link  href={`/photographervendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
-              <p className="">explore now</p>
+              <p className="">Explore now</p>
             </Link>
           </div>
         </div>
@@ -114,7 +114,7 @@ const page = () => {
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
             <Link href={`/makeupvendors`} className="border-b-2 border-spacing-0 border-pink text-pink">
-              <p>explore now</p>
+              <p>Explore now</p>
             </Link>
           </div>
         </div>
@@ -150,7 +150,7 @@ const page = () => {
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#FFB5A7] to-[#C9184A] h-[2px] w-[270px] xl:ml-[100px]"></div>
             <Link href={`/mehandivendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
-              <p className="">explore now</p>
+              <p className="">Explore now</p>
             </Link>
           </div>
         </div>
@@ -185,7 +185,7 @@ const page = () => {
           <div className="flex flex-row xl:pt-14 xl:gap-16 xl:pr-10 lg:pr-52 xl:justify-start  pt-4 gap-16  justify-center items-center pb-8    ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[270px] ml-[64px]"></div>
             <Link href={`/`} className="border-b-2 border-spacing-0 border-pink text-pink">
-              <p>explore now</p>
+              <p>Explore now</p>
             </Link>
           </div>
         </div>
