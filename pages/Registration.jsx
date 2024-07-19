@@ -236,27 +236,24 @@ const Registration = () => {
                       <option value="" disabled>
                         Select Location
                       </option>
-                      <option value="Dehradun" className="text-white">
+                      <option value="Dehradun" className="text-pink  bg-white">
                         Dehradun
                       </option>
-                      <option className="text-white" value="Haridwar">
-                        Haridwar
+                      <option className="text-pink  bg-white" value="Mussoorie">
+                      Mussoorie
                       </option>
-                      <option className="text-white" value="Chamoli">
-                        Chamoli
+                      <option className="text-pink  bg-white" value="Haridwar">
+                      Haridwar
                       </option>
-                      <option className="text-white" value="Rudraprayag">
-                        Rudraprayag
+                      <option className="text-pink  bg-white" value="Rishikesh">
+                      Rishikesh
                       </option>
-                      <option className="text-white" value="TehriGarhwal">
-                        Tehri Garhwal
+                      <option className="text-pink  bg-white" value="Ramnagar">
+                      Ramnagar                      </option>
+                      <option className="text-pink  bg-white" value="Nainital">
+                      Nainital
                       </option>
-                      <option className="text-white" value="Uttarkashi">
-                        Uttarkashi
-                      </option>
-                      <option className="text-white" value="PauriGarhwal">
-                        Pauri Garhwal
-                      </option>
+      
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                       <svg

@@ -69,8 +69,8 @@ const Page = () => {
   const sliderwedding = {
     dots: false,
     infinite: true,
-    centerMode: true,
-    centerPadding: "100px",
+    // centerMode: true,
+    // centerPadding: "100px",
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -174,122 +174,91 @@ const Page = () => {
           </p>
           <div className="px-[15px] ">
             {makeupArtist.length > 0 ? (
-              <Slider {...sliderwedding}>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Rishikesh")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frishikesh.png?alt=media&token=f64cf5e5-4b9d-43d3-befa-197992b4c2f6"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Rishikesh</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Dehradun")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fdehradun.png?alt=media&token=ca835133-20d4-49da-8df8-265abe292acb"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Dehradun</p>
-                </div>
-                <div>
-                  <button onClick={() => handleSearch("Almora")} className="  ">
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Falmora.png?alt=media&token=5e99c7e5-2e71-4803-8349-f28325cb33b4"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Almora</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Haridwar")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Haridwar</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Chamoli")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Chamoli</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Rudraprayag")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Rudraprayag</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("TehriGarhwal")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Tehri Garhwal</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Uttarkashi")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Futtarkashi.png?alt=media&token=c57d61d7-3998-4d82-9c7b-c203cb4a5a33"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Uttarkashi</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("PauriGarhwal")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fpaurigarhwal.png?alt=media&token=eb02f9f7-d18c-4749-8aa0-ec02458c5807"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Pauri Garhwal</p>
-                </div>
-              </Slider>
+        <Slider {...sliderwedding}>
+        <div>
+          <button
+            onClick={() => handleSearch("Rishikesh")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frishikesh.png?alt=media&token=f64cf5e5-4b9d-43d3-befa-197992b4c2f6"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Rishikesh</p>
+        </div>
+        <div>
+          <button
+            onClick={() => handleSearch("Dehradun")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fdehradun.png?alt=media&token=ca835133-20d4-49da-8df8-265abe292acb"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Dehradun</p>
+        </div>
+    
+        <div>
+          <button
+            onClick={() => handleSearch("Haridwar")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Haridwar</p>
+        </div>
+        <div>
+          <button
+            onClick={() => handleSearch("Mussoorie")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Mussoorie</p>
+        </div>
+        <div>
+          <button
+            onClick={() => handleSearch("Ramnagar")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Ramnagar</p>
+        </div>
+        <div>
+          <button
+            onClick={() => handleSearch("Nainital")}
+            className="  "
+          >
+            <img
+              className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+              src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545"
+              alt=""
+            />
+          </button>
+          <p className="px-[70px] text-[#02394A]">Nainital</p>
+        </div>
+        <div>
+
+        </div>
+
+      </Slider>
             ) : (
               <p>No data available</p>
             )}

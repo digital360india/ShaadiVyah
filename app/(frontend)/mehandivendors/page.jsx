@@ -72,8 +72,8 @@ const Page = () => {
     dots: false,
     infinite: true,
     speed: 500,
-      centerMode: true,
-  centerPadding: "100px",
+  //     centerMode: true,
+  // centerPadding: "100px",
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
@@ -200,16 +200,7 @@ const Page = () => {
                   </button>
                   <p className="px-[70px] text-[#02394A]">Dehradun</p>
                 </div>
-                <div>
-                  <button onClick={() => handleSearch("Almora")} className="  ">
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Falmora.png?alt=media&token=5e99c7e5-2e71-4803-8349-f28325cb33b4"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Almora</p>
-                </div>
+            
                 <div>
                   <button
                     onClick={() => handleSearch("Haridwar")}
@@ -225,7 +216,7 @@ const Page = () => {
                 </div>
                 <div>
                   <button
-                    onClick={() => handleSearch("Chamoli")}
+                    onClick={() => handleSearch("Mussoorie")}
                     className="  "
                   >
                     <img
@@ -234,11 +225,11 @@ const Page = () => {
                       alt=""
                     />
                   </button>
-                  <p className="px-[70px] text-[#02394A]">Chamoli</p>
+                  <p className="px-[70px] text-[#02394A]">Mussoorie</p>
                 </div>
                 <div>
                   <button
-                    onClick={() => handleSearch("Rudraprayag")}
+                    onClick={() => handleSearch("Ramnagar")}
                     className="  "
                   >
                     <img
@@ -247,11 +238,11 @@ const Page = () => {
                       alt=""
                     />
                   </button>
-                  <p className="px-[70px] text-[#02394A]">Rudraprayag</p>
+                  <p className="px-[70px] text-[#02394A]">Ramnagar</p>
                 </div>
                 <div>
                   <button
-                    onClick={() => handleSearch("TehriGarhwal")}
+                    onClick={() => handleSearch("Nainital")}
                     className="  "
                   >
                     <img
@@ -260,34 +251,12 @@ const Page = () => {
                       alt=""
                     />
                   </button>
-                  <p className="px-[70px] text-[#02394A]">Tehri Garhwal</p>
+                  <p className="px-[70px] text-[#02394A]">Nainital</p>
                 </div>
                 <div>
-                  <button
-                    onClick={() => handleSearch("Uttarkashi")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Futtarkashi.png?alt=media&token=c57d61d7-3998-4d82-9c7b-c203cb4a5a33"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Uttarkashi</p>
+ 
                 </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("PauriGarhwal")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fpaurigarhwal.png?alt=media&token=eb02f9f7-d18c-4749-8aa0-ec02458c5807"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Pauri Garhwal</p>
-                </div>
+  
               </Slider>
               </div>
           
