@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import { MdOutlineStar } from "react-icons/md";
 export default function Page(params) {
   const [data, setData] = useState([]);
   const [route, setRoute] = useState("");
@@ -42,7 +43,7 @@ export default function Page(params) {
       }
       const q = query(
         collection(db, "users"),
-        where("city", "==", location),
+        where("location", "==", location || "city", "==", location  ),
         where("vendorTypeUID", "==", collectionName),
         where('approval' , "==", true)
 
@@ -263,7 +264,7 @@ console.log(params.params)
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
-                    src={arr.bannerImageUrl}
+                    src={arr.bannerImageUrl || '/images/logo1.png'}
                     alt={arr.businessName}
                     className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                   />
@@ -274,8 +275,16 @@ console.log(params.params)
                       <h3 className="lg:text-xl font-semibold mb-2">
                         {arr.businessName}
                       </h3>
-                      <p>rating</p>
-                    </div>
+                      <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>                    </div>
                     <div className="flex justify-start gap-2">
                       <img src="/icons/locationred.svg" />
                       <p className="text-[18px] text-[#666666]">
@@ -286,7 +295,7 @@ console.log(params.params)
                       {" "}
                       {truncateText(arr.about, 20)}
                     </p>
-                    <div className="flex justify-between">
+                    {/* <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                           100-200 pax
@@ -302,7 +311,7 @@ console.log(params.params)
                           32 rooms
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </Link>

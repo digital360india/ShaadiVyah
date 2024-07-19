@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function HowToWork() {
   return (
     <div>
-      <div className="  w-full xl:px-[100px] md:px-[60px] px-6  bg-white   lg:flex justify-between">
+      <div className=" pb-10  w-full xl:px-[100px] md:px-[60px] px-6  bg-white   lg:flex justify-between">
         <div className="space-y-6  md:pt-20">
           <h1 className="md:text-[48px] text-[32px] md:text-start font-semibold text-[#C9184A] text-center font-fira-sans xl:pb-12  lg:pb-6">
-          Our Process: Turning Your Vision into Reality
+            Our Process: Turning Your Vision into Reality
           </h1>
           <div className="flex gap-10">
             <div>
@@ -14,10 +14,13 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-              Discover Your Vision              </p>
+                Discover Your Vision{" "}
+              </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-              We begin with a chat to dive into your vision be it a spectacular wedding, a special celebration, or a memorable photoshoot. We&apos;re here to bring your dreams to life with a personal touch.
-
+                We begin with a chat to dive into your vision be it a
+                spectacular wedding, a special celebration, or a memorable
+                photoshoot. We&apos;re here to bring your dreams to life with a
+                personal touch.
               </p>
             </div>
           </div>
@@ -27,10 +30,13 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-              Design Your Dream Day
+                Design Your Dream Day
               </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-              After our chat, we create a plan that covers all the essentials beautiful makeup, perfect photos, magical decor, vibrant mehendi, and more. Our team handles every detail with care, making your day truly special.
+                After our chat, we create a plan that covers all the essentials
+                beautiful makeup, perfect photos, magical decor, vibrant
+                mehendi, and more. Our team handles every detail with care,
+                making your day truly special.
               </p>
             </div>
           </div>
@@ -40,10 +46,12 @@ export default function HowToWork() {
             </div>
             <div className="flex-col gap-2">
               <p className="text-[24px] font-semibold text-[#043565] font-fira-sans">
-              Bring It All Together
+                Bring It All Together
               </p>
               <p className="font-lato xl:w-[507px] lg:w-[400px]">
-              Our team handles everything with flair and care on the big day. We craft the perfect atmosphere, capture every special moment, and offer it all at affordable rates so you can relax and enjoy.
+                Our team handles everything with flair and care on the big day.
+                We craft the perfect atmosphere, capture every special moment,
+                and offer it all at affordable rates so you can relax and enjoy.
               </p>
             </div>
           </div>

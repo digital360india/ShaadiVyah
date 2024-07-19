@@ -17,32 +17,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
+import { useRouter } from "next/navigation";
+import { MdOutlineStar } from "react-icons/md";
 
 // import ContactUSPhoto from "@/components/ContactUSPhoto";
 
 const Page = () => {
-  // const [venues, setVenues] = useState([]);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const fetchVenues = async () => {
-  //     try {
-  //       const q = query(
-  //         collection(db, "users"),
-  //         where("vendorTypeUID", "==", "venuesvendor")
-  //       );
-  //       const venuesSnapshot = await getDocs(q);
-  //       const venuesList = venuesSnapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-  //       setVenues(venuesList);
-  //     } catch (error) {
-  //       console.error("Error fetching venues: ", error);
-  //     }
-  //   };
 
-  //   fetchVenues();
-  // }, []);
 
   // Custom Next Arrow Component
   const NextArrow = ({ className,  onClick }) => (
@@ -82,6 +65,9 @@ const Page = () => {
   useEffect(() => {
     fetchVenue();
   }, []);
+  const handleSearch = (selectedLocation) => {
+    router.push(`/search/${selectedLocation}/Venues`);
+  };
 
   const sliderSettings = {
     dots: false,
@@ -346,8 +332,16 @@ const Page = () => {
                           <h3 className="lg:text-xl font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p>rating</p>
-                        </div>
+                          <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {venue.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -359,7 +353,7 @@ const Page = () => {
                           {truncateText(arr.about, 20)}{" "}
                           {/* {truncateText(arr.about, 30)} */}
                         </p>
-                        <div className="flex justify-between">
+                        {/* <div className="flex justify-between">
                           <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                             <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                               100-200 pax
@@ -375,7 +369,7 @@ const Page = () => {
                               32 rooms
                             </p>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </Link>
@@ -396,8 +390,8 @@ const Page = () => {
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {venue.map((venue, index) => (
-              <div
-                key={index}
+              <Link
+              href={`/venues/${venue.uid}`}
                 className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
               >
                 <img
@@ -410,7 +404,16 @@ const Page = () => {
                     <h3 className="lg:text-xl font-semibold mb-2">
                       {venue.businessName}
                     </h3>
-                    <p>rating</p>
+                    <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {venue.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>
                   </div>
                   <div className="flex justify-start gap-2">
                     <img src="/icons/locationred.svg" alt="location icon" />
@@ -438,7 +441,7 @@ const Page = () => {
                     </div>
                   </div>
                 </div> */}
-              </div>
+              </Link>
             ))}
           </div>
         </div>

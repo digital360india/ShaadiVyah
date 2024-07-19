@@ -28,7 +28,9 @@ export default function Hero() {
             Uttarakhand main Shaadi? Shaadivyah Hai Na!
           </p>
           <p className="font-dancing-script  text-center mb-10 text-md md:text-xl  ">
-          Affordable Dreams for Clients, Expanding Networks for Vendors – All with Shaadivyah!          </p>
+            Affordable Dreams for Clients, Expanding Networks for Vendors – All
+            with Shaadivyah!{" "}
+          </p>
           <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-white rounded-[40px] py-4 flex flex-col md:flex-row items-center justify-evenly">
             <div className="flex gap-2 items-center w-[300px] text-xl md:w-[40%]">
               <img
@@ -38,32 +40,32 @@ export default function Hero() {
                 className="w-8 h-8 md:w-5 md:h-5 "
               />
               <select
-                className="bg-transparent  w-full outline-none"
+                className="bg-transparent  w-full outline-none  "
                 value={selectedLocation}
                 onChange={handleLocationChange}
               >
-                <option value="" disabled>
+                <option value=" " className="bg-white text-pink " >
                   Select Location
                 </option>
-                <option value="Dehradun" className="text-white">
+                <option value="Dehradun" className="text-pink  bg-white">
                   Dehradun
                 </option>
-                <option className="text-white" value="Haridwar">
+                <option className="text-pink  bg-white " value="Haridwar">
                   Haridwar
                 </option>
-                <option className="text-white" value="Chamoli">
+                <option className="text-pink  bg-white" value="Chamoli">
                   Chamoli
                 </option>
-                <option className="text-white" value="Rudraprayag">
+                <option className="text-pink  bg-white" value="Rudraprayag">
                   Rudraprayag
                 </option>
-                <option className="text-white" value="TehriGarhwal">
+                <option className="text-pink  bg-white" value="TehriGarhwal">
                   Tehri Garhwal
                 </option>
-                <option className="text-white" value="Uttarkashi">
+                <option className="text-pink  bg-white" value="Uttarkashi">
                   Uttarkashi
                 </option>
-                <option className="text-white" value="PauriGarhwal">
+                <option className="text-pink  bg-white" value="PauriGarhwal">
                   Pauri Garhwal
                 </option>
               </select>
@@ -81,12 +83,22 @@ export default function Hero() {
                 value={selectedCategory}
                 onChange={handleCategoryChange}
               >
-                <option value="">Choose a category</option>
-                <option value="Photographers">Photographers</option>
-                <option value="Makeup">Makeup</option>
+                <option className="text-pink  bg-white" value="" disabled>
+                  Choose a category
+                </option>
+                <option className="text-pink  bg-white" value="Photographers">
+                  Photographers
+                </option>
+                <option className="text-pink  bg-white" value="Makeup">
+                  Makeup
+                </option>
 
-                <option value="Venue">Venue</option>
-                <option value="Mehndi Artists">Mehndi Artists</option>
+                <option className="text-pink  bg-white" value="Venue">
+                  Venue
+                </option>
+                <option className="text-pink  bg-white" value="Mehndi Artists">
+                  Mehndi Artists
+                </option>
               </select>
             </div>
             <div className="flex flex-row">

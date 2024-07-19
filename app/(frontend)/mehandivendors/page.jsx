@@ -1,14 +1,12 @@
 "use client";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
-import HeadingsVenueSection from "@/components/HeadingsVenueSection";
 import Hero_2 from "@/components/Hero_2";
 import Space25px from "@/components/Space25px";
 import Space50px from "@/components/Space50px";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import MehandiCard from "@/components/MehandiCard ";
 import { useRouter } from "next/navigation";
 
 import Slider from "react-slick";
@@ -16,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
+import { MdOutlineStar } from "react-icons/md";
 
 const Page = () => {
   const [mendhiArtists, setmendhiArtists] = useState([]);
@@ -323,7 +322,16 @@ const Page = () => {
                       <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                         {arr.businessName}
                       </h3>
-                      <p>rating</p>
+                      <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {arr.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>
                     </div>
                     <div className="flex justify-start gap-2">
                       <img src="/icons/locationred.svg" />
@@ -353,7 +361,7 @@ const Page = () => {
                 ))}
               </Slider>
             ) : (
-              <p>No venues available</p>
+              <p>No data available</p>
             )}
           </div>
         </div>
@@ -384,7 +392,16 @@ const Page = () => {
                     <h3 className="lg:text-xl font-semibold mb-2">
                       {mendhiArtists.businessName}
                     </h3>
-                    <p>rating</p>
+                    <p className="flex justify-end items-center mb-2  gap-0">
+                                {" "}
+                                <p className="text-pink mt-1  ">
+                                  {" "}
+                                  {mendhiArtists.averageRating?.toFixed(2) || 3}{" "}
+                                </p>{" "}
+                                <p>
+                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                </p>
+                              </p>
                   </div>
                   <div className="flex justify-start gap-2">
                     <img src="/icons/locationred.svg" alt="location icon" />
