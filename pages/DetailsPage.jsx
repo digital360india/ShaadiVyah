@@ -34,6 +34,7 @@ const DetailPage = () => {
           return {
             name: values.name,
             spaces: values.spaces,
+            averageRating:values.averageRating,
             portfolioImagesUrl: values.portfolioImagesUrl
               ? values.portfolioImagesUrl[0]
               : {},
@@ -199,13 +200,13 @@ const DetailPage = () => {
             className="w-full rounded-b-[40px] h-[550px] object-cover "
           />
 
-<div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
-<div className="flex flex-col justify-between">
+          <div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
+            <div className="flex flex-col justify-between">
               {" "}
               <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
                 <div className="flex flex-col justify-start items-start">
-                <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
-                {data?.businessName}
+                  <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
+                    {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
                     <div>
@@ -231,8 +232,10 @@ const DetailPage = () => {
                         href={data?.googleLocation}
                         className="underline text-gray-700"
                       >
-                        <p className="text-[#909090] text-[12px] md:text-[14px]">(View on Map)</p>
-                        </Link>
+                        <p className="text-[#909090] text-[12px] md:text-[14px]">
+                          (View on Map)
+                        </p>
+                      </Link>
                     )}
                   </div>
                   <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block">
@@ -245,8 +248,10 @@ const DetailPage = () => {
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 text-[10px] md:text-[16px] ">Contact</div>{" "}
-                    </button>
+                    <div className="text-green-700 text-[10px] md:text-[16px] ">
+                      Contact
+                    </div>{" "}
+                  </button>
                 </div>
                 <div className="flex flex-col gap-2">
                   {" "}
@@ -256,11 +261,13 @@ const DetailPage = () => {
                       height={1000}
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
-                      />{" "}
-                      <p className=" text-[12px] md:text-[16px] text-white">4.5</p>
-                    </div>
-                    <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090]">
-                    <p>19</p>
+                    />{" "}
+                    <p className=" text-[12px] md:text-[16px] text-white">
+                   {data?.averageRating || "3"}
+                    </p>
+                  </div>
+                  <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090]">
+                    <p>{data?.totalRating || "3"}</p>
                     <p>Reviews</p>
                   </div>
                 </div>
@@ -381,25 +388,25 @@ const DetailPage = () => {
                             <div>
                               {" "}
                               <div className="flex gap-2 ">
-                              <p className="text-pink text-md">
-                                {spaceType ? spaceType.name : "Unknown"}
-                              </p> <p className="text-pink">|</p>
-                              <p className="text-md text-pink">{space.spaceName}</p>
+                                <p className="text-pink text-md">
+                                  {spaceType ? spaceType.name : "Unknown"}
+                                </p>{" "}
+                                <p className="text-pink">|</p>
+                                <p className="text-md text-pink">
+                                  {space.spaceName}
+                                </p>
                               </div>
-
-                             <div className="flex gap-2 ">
-                             <p className="text-sm">
-                                {space.floating} Floating
-                              </p>  
-                              <p className="-mt-1">|</p>
-                              <p className="text-sm">
-                                {" "}
-                               {space.sitting}  Sitting 
-                              </p>
-                              
-                             </div>
+                              <div className="flex gap-2 ">
+                                <p className="text-sm">
+                                  {space.floating} Floating
+                                </p>
+                                <p className="-mt-1">|</p>
+                                <p className="text-sm">
+                                  {" "}
+                                  {space.sitting} Sitting
+                                </p>
+                              </div>
                             </div>
-                            
                           </div>
                         );
                       })
@@ -487,8 +494,11 @@ const DetailPage = () => {
         </div>
         {/* Portfolio*/}
         <div className=" pl-[100px] ">
-        <p className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0" id="photos">
-        Portfolio
+          <p
+            className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0"
+            id="photos"
+          >
+            Portfolio
           </p>
         </div>
         <Space25px />
@@ -496,14 +506,16 @@ const DetailPage = () => {
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-<div className="bg-[#CFCCBF80] p-8 md:p-16  m-4 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
-<div className="flex flex-col text-[32px] ">
+        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-4 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
+          <div className="flex flex-col text-[32px] ">
             <div id="services">
               <p className="text-[42px] font-medium py-5">Services</p>
             </div>
             <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between ">
               <div className="space-y-4  w-[250px]  ">
-                <p className="md:text-[22px] text-[18px] font-medium">Amenities</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Amenities
+                </p>
                 <div className="text-[14px] font-semibold ">
                   <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
                     {data &&
@@ -526,7 +538,9 @@ const DetailPage = () => {
                 </div>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">Accessibility</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Accessibility
+                </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.accessibilityOptionsUID &&
@@ -551,7 +565,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium"> Security and Safety</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  {" "}
+                  Security and Safety
+                </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.safetyAndSecurityOptionsUID &&
@@ -574,7 +591,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium"> Security and Safety</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  {" "}
+                  Security and Safety
+                </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.facilitiesUID &&
@@ -593,7 +613,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">  Additional Services</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  {" "}
+                  Additional Services
+                </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   {data &&
                   data.additionalServicesUID &&
@@ -685,7 +708,7 @@ const DetailPage = () => {
         <div id="faq">
           <FAQ />
         </div>
-      </div>  
+      </div>
     </>
   );
 };

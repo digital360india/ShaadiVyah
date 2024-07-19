@@ -10,6 +10,7 @@ import {
   getDoc,
   updateDoc,
   arrayUnion,
+  average,
 } from "firebase/firestore";
 import Space100px from "./Space100px";
 import Space25px from "./Space25px";
@@ -43,7 +44,7 @@ export default function Review({ id, title }) {
         photoURL: user.photoURL,
       });
       console.log("User signed in and data saved:", user);
-      setUser(user); // Save user in state
+      setUser(user); 
     } catch (error) {
       console.error("Error signing in with Google:", error);
     }
@@ -82,6 +83,10 @@ export default function Review({ id, title }) {
       console.error("Review text is required");
       return;
     }
+    if (!rating) {
+      console.error("Review text is required");
+      return;
+    }
 
     const reviewData = {
       displayName: user.displayName,
@@ -107,7 +112,7 @@ export default function Review({ id, title }) {
       }
 
       setReviewText("");
-      fetchUserReviews(); // Refresh reviews after submitting a new one
+      fetchUserReviews();
     } catch (error) {
       console.error("Error submitting review:", error);
     }
@@ -125,11 +130,29 @@ export default function Review({ id, title }) {
 
           userDoc.data().reviews.forEach((review) => {
             totalRating += review.rating;
+            console.log(review.rating)
             ratingCounts[review.rating - 1]++;
           });
 
           const avgRating = totalRating / totalReviews;
           setOverallRating(avgRating);
+
+          const userReviewDocRef = doc(db, "users", id);
+          const userReviewDocSnap = await getDoc(userReviewDocRef);
+
+          if (userReviewDocSnap.exists()) {
+            await updateDoc(userReviewDocRef, {
+              totalRating: totalRating,
+              averageRating: avgRating,
+            });
+          } else {
+            await setDoc(userReviewDocRef, {
+              userId: user.uid,
+              totalRating: totalRating,
+
+              averageRating: avgRating,
+            });
+          }
           setRatingsDistribution(
             ratingCounts.map((count) =>
               totalReviews > 0 ? ((count / totalReviews) * 100).toFixed(2) : "0"
@@ -164,7 +187,7 @@ export default function Review({ id, title }) {
         </p>
         <div className="flex lg:flex-row md:flex-col md:gap-10 xl:h-[350px] w-full justify-start items-start">
           <div className=" md:py-4 py-2 md:px-20 px-6 w-full">
-            <div className="flex flex-col justify-start items-start">
+            <div className="flex flex-col justify-start items-start w-96">
               <p className="text-[40px]">{overallRating.toFixed(1)}</p>
               <div className="flex">
                 {" "}
@@ -185,7 +208,7 @@ export default function Review({ id, title }) {
                 ))}
               </div>
               {/* Render half star if applicable */}
-              {overallRating % 1 !== 0 && (
+              {/* {overallRating % 1 !== 0 && (
                 <svg
                   className="text-yellow-500"
                   xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +221,7 @@ export default function Review({ id, title }) {
                     d="m12 15.39l-3.76 2.27l.99-4.28l-3.32-2.88l4.38-.37L12 6.09l1.71 4.04l4.38.37l-3.32 2.88l.99 4.28M22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.45 4.73L5.82 21L12 17.27L18.18 21l-1.64-7.03z"
                   />
                 </svg>
-              )}
+              )} */}
               <p className="text-[15px]">Average Rating</p>
               <p className="text-[15px]">
                 Overall {userReviews.length} reviews{" "}
