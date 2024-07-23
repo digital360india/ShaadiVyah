@@ -17,6 +17,32 @@ import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { MdOutlineStar } from "react-icons/md";
 
 const Page = () => {
+  const mendhiArtistsFAQ =[
+    {
+      question: "How do I choose the best Mehndi artist for my wedding on Shaadivyah?",
+      answer: "Browse through the profiles of Mehndi artists on our platform. Shaadivyah will help you select the best artist based on your style preferences and requirements."
+    },
+    {
+      question: "What styles of mehndi designs do the artists offer?",
+      answer: "Our mehndi artists offer a variety of styles, including traditional, Arabic, Indo-Arabic, and customized designs. Shaadivyah will help match you with an artist who specializes in your preferred style."
+    },
+    {
+      question: "How long does it take to apply for bridal mehndi?",
+      answer: "The application time varies depending on the complexity of the design. Typically, bridal mehndi can take anywhere from 2 to 6 hours to complete."
+    },
+    {
+      question: "When should I schedule my Mehndi application before the wedding?",
+      answer: "It is recommended to schedule your mehndi application 1-2 days before the wedding to ensure the color has fully developed."
+    },
+    {
+      question: "Do Mehndi artists provide aftercare instructions?",
+      answer: "Yes, our mehndi artists will provide detailed aftercare instructions to ensure your mehndi design lasts longer and maintains its color."
+    },
+    {
+      question: "What is the cost of hiring a Mehndi artist through Shaadivyah?",
+      answer: "The cost varies based on the artist’s experience and the complexity of the design. Shaadivyah will provide you with a detailed quote after discussing your specific requirements."
+    }
+  ];
   const [mendhiArtists, setmendhiArtists] = useState([]);
   const router = useRouter();
 
@@ -407,9 +433,9 @@ const Page = () => {
 
       <ContactUsPhoto />
       <Space50px />
-      <Discription />
+      {/* <Discription /> */}
       <div>
-        <FAQ />
+        <FAQ faqData={mendhiArtistsFAQ} />
       </div>
     </>
   );

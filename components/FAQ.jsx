@@ -2,39 +2,7 @@
 "use client"
 import React, { useState } from 'react';
 
-const FAQ = () => {
-  const faqData = [
-    {
-      question: '1.Can I get a refund/exchange if I’m not satisfied with my purchase?',
-      answer:
-        'Yes, absolutely! If you aren’t happy with your product, let us know within 30 days from the date of delivery.You can return your product even after you’ve opened it and you’ll get all your money back. No questions asked.'
-    },
-    {
-      question: '2.Which CBD product should I use?',
-      answer:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-    },
-    {
-      question: '3. When will my order be delivered?',
-      answer:
-        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.'
-    },
-    {
-        question: '4. How frequently can I take CBD?',
-        answer:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.'
-      },
-      {
-        question: '5. Will CBD affect other medications?',
-        answer:
-          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-      },
-      {
-        question: '6. Can I travel with CBD?',
-        answer:
-          'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.'
-      }
-  ];
+const FAQ = ({faqData}) => {
 
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 

@@ -55,17 +55,19 @@ export default function Page() {
         <div>
           <p className="lg:text-[56px] text-[43px] font-medium xl:w-[676px] lg:w-[500px] ">
             <span className="gradient-text">About ShaadiVyah</span>{" "}
-            <span>: where excellence meets innovation</span>
+            <span>
+              :Where Dreams Meet Perfection, and Prices Meet Your Budget
+            </span>
           </p>
         </div>
         <div className="space-y-7 mt-6 lg:mt-0">
           <p className="lg:text-[18px] text-[14px]  xl:w-[504px]">
-            Welcome to Shaadivyah, your premier choice for destination weddings
-            in Rishikesh and the enchanting region of Uttarakhand. We are proud
-            to be at the forefront of Prime Minister Narendra Modi&apos;s
-            visionary &apos;Wed in India&apos; movement, offering couples from
-            around the world the chance to celebrate their love in one of
-            India&apos;s most spiritually uplifting and picturesque locations.
+            Welcome to Shaadivyah, Uttarakhand&apos;s first wedding destination
+            portal and your premier choice for destination weddings in
+            Uttarakhand. Proudly supporting Prime Minister Narendra Modi&apos;s
+            Wed in India&apos;s initiative, we offer couples from around the
+            globe the chance to celebrate their love in one of India&apos;s most
+            picturesque and spiritually uplifting locations.
           </p>
           <button className="py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] text-white rounded-3xl">
             Contact Us
@@ -88,20 +90,16 @@ export default function Page() {
           </p>
           <div className="md:space-y-4 space-y-2 text-white lg:w-[503px] md:w-[350px] text-[14px] lg:text-[18px]">
             <p>
-            Our commitment to excellence, combined with our deep knowledge of
-  Uttarakhand&apos;s most beautiful wedding destinations, makes us the
-  ideal partner for your destination wedding in Nainital. Let us
-  turn your dream wedding into a reality, surrounded by the
-  breathtaking beauty of the Himalayas and the tranquil charm of
-  Nainital&apos;s lakes.
-            </p>
-            <p>
-            At Shaadivyah, we understand that your wedding day is one of the
-  most significant events in your life. That&apos;s why we provide
-  comprehensive wedding planning services tailored to your unique
-  vision and preferences. From stunning venues and professional
-  photographers to expert makeup artists and intricate mehndi
-  designs, we ensure every detail is perfect.
+              At Shaadivyah, we&apos;re dedicated to excellence, specializing in
+              destination weddings in Uttarakhand. With our deep knowledge of
+              the region&apos;s most stunning venues, we&apos;re the perfect
+              partner to transform your dream wedding into reality. We recognize
+              that your wedding day is one of life&apos;s most important
+              moments. That&apos;s why we offer personalized planning services
+              to match your unique vision. From picturesque venues and skilled
+              photographers to expert makeup artists and intricate mehndi
+              designs, we handle every detail with care to ensure your day is
+              flawless.
             </p>
           </div>
         </div>
@@ -113,9 +111,9 @@ export default function Page() {
           OUR SPECIALIST SERVICES
         </p>
         <p className="lg:text-[17px] text-[13px] font-medium text-[#C9184A] text-center">
-          Led by experts in each respective field, our specialist services teams
-          execute requests with swift authority whilst always watching for
-          what&apos;s next.
+          Our skilled team brings your vision to life with expertise in every
+          detail. From top photographers, and trusted vendors, to talented
+          make-up and mehendi artists to create your perfect day.
         </p>
         <div className="xl:px-[60px] lg:px-[30px] lg:flex-nowrap px-10 flex flex-col md:flex-row md:flex-wrap xl:gap-10 lg:gap-5 md:gap-10 gap-5  mt-12 justify-center items-center">
           <Link
@@ -189,16 +187,14 @@ export default function Page() {
         <div className="lg:flex justify-between">
           <div className="lg:w-[509px]  space-y-7 ">
             <li className="lg:text-[18px] text-[14px]">
-              We discuss your vision and requirements to create a personalized
-              plan.
+              Bringing your dream to life with a custom plan.
             </li>
             <li className="lg:text-[18px] text-[14px]">
-              Our team manages all logistics, ensuring a seamless experience.
+              Handling all details so your day is effortless and smooth.
             </li>
             <li className="lg:text-[18px] text-[14px]">
               {" "}
-              We oversee every detail on your big day, providing support and
-              coordination.
+              Ensuring every moment is perfect on your special day.
             </li>
             <button className="hidden lg:block py-[14px] w-[234px] bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-3xl text-white">
               Contact Us

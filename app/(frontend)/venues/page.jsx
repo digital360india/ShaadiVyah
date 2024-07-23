@@ -25,7 +25,32 @@ import { MdOutlineStar } from "react-icons/md";
 const Page = () => {
   const router = useRouter();
 
-
+const venueFAQ=[
+  {
+    question: "What types of wedding venues do hotels typically offer?",
+    answer: "Hotels usually offer a variety of wedding venues, including grand ballrooms, intimate garden spaces, rooftop terraces, and beachfront locations, catering to different styles and sizes of weddings."
+  },
+  {
+    question: "Can I tour the hotel venues before making a decision?",
+    answer: "Yes, most hotels allow prospective couples to tour the venues, meet with the event staff, and discuss wedding plans in detail before making a booking."
+  },
+  {
+    question: "What wedding services do hotels provide?",
+    answer: "Hotels often provide comprehensive wedding services, including catering, decoration, event planning, accommodation for guests, and coordination on the wedding day to ensure everything runs smoothly."
+  },
+  {
+    question: "Do hotels offer wedding packages?",
+    answer: "Yes, many hotels offer wedding packages that bundle together various services like venue rental, catering, decoration, and accommodation. These packages are designed to provide convenience and value."
+  },
+  {
+    question: "Can I customize my wedding package at a hotel?",
+    answer: "Absolutely! Hotels typically offer customizable wedding packages that allow you to tailor services to your specific needs and preferences, ensuring your wedding day is exactly how you envision it."
+  },
+  {
+    question: "How far in advance should I book a hotel for my wedding?",
+    answer: "It is recommended to book your hotel wedding venue at least 6-12 months in advance to ensure availability and provide ample time for planning and preparation."
+  }
+];
 
   // Custom Next Arrow Component
   const NextArrow = ({ className,  onClick }) => (
@@ -419,9 +444,9 @@ const Page = () => {
 
       <ContactUsPhoto />
       <Space50px />
-      <Discription />
+      {/* <Discription /> */}
       <div>
-        <FAQ />
+        <FAQ faqData={venueFAQ} />
       </div>
     </>
   );

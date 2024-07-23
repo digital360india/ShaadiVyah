@@ -80,9 +80,9 @@ const Registration = () => {
           timestamp: Timestamp.now(),
         });
 
-        const serviceId = "service_z19n848";
-        const templateId = "template_ztcc4u9";
-        const publicKey = "1Yj2KQoWA-s8hz3mP";
+        const serviceId = "service_ocr1p2m";
+        const templateId = "template_57kpfms";
+        const publicKey = "cPK9os8MsP293AxW5";
         const templateParams = {
           nameOfClient: formData.name,
           receiverEmail: formData.email,
@@ -250,7 +250,7 @@ const Registration = () => {
                       </option>
                       <option className="text-pink  bg-white" value="Ramnagar">
                       Ramnagar                      </option>
-                      <option className="text-pink  bg-white" value="Nainital">
+                      <option className="text-pink  bg-white" value="x">
                       Nainital
                       </option>
       

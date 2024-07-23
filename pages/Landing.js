@@ -15,8 +15,43 @@ import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { MdOutlineStar } from "react-icons/md";
 import Space25px from "@/components/Space25px";
 import Space50px from "@/components/Space50px";
+import FAQ from "@/components/FAQ";
 
 export default function Landing() {
+  const HomeFaqData = [
+    {
+      question: "What services does Shaadivyah offer?",
+      answer:
+        "Shaadivyah provides comprehensive wedding planning services, including venue selection, decoration, catering, photography, makeup artists, mehndi artists, and more. We also offer a platform for vendors and artists to showcase their services.",
+    },
+    {
+      question: "How do I register as a vendor on Shaadivyah?",
+      answer:
+        'To register as a vendor, simply click on the "Register" button on our homepage, fill out the required details, and submit your application. Once approved, you can start showcasing your products and services to our wide audience.',
+    },
+    {
+      question: "Can Shaadivyah help with destination weddings in Uttarakhand?",
+      answer:
+        "Yes, Shaadivyah specializes in destination weddings in Uttarakhand, providing beautiful venues, breathtaking backdrops, and complete wedding planning services to ensure your special day is perfect.",
+    },
+    {
+      question: "How do I start planning my wedding with Shaadivyah? ",
+      answer:
+        "Start by contacting us through our website or by phone. We will discuss your vision and preferences, create a personalized plan, and take care of all the details to make your dream wedding a reality.",
+    },
+    
+    {
+    question: "What makes Shaadivyah different from other wedding planners?",
+      answer:
+        "Shaadivyah is unique because we offer a seamless, stress-free experience, personalized planning, and access to top-rated vendors and artists. Our commitment to quality and attention to detail ensures that every wedding we plan is truly special.",
+    },
+    {
+      question: "Can I customize my wedding package with Shaadivyah? ",
+        answer:
+          "Absolutely! We believe every wedding is unique, and we offer customizable packages to suit your specific needs and preferences. Discuss your vision with us, and we'll tailor our services accordingly.",
+      },
+  ];
+
   // Custom Next Arrow Component
   const NextArrow = ({ className, style, onClick }) => (
     <div
@@ -307,15 +342,16 @@ export default function Landing() {
                             {arr.businessName}
                           </h3>
                           <p className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {arr.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </p>                        </div>
+                            {" "}
+                            <p className="text-pink mt-1  ">
+                              {" "}
+                              {arr.averageRating?.toFixed(2) || 3}{" "}
+                            </p>{" "}
+                            <p>
+                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                            </p>
+                          </p>{" "}
+                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -393,15 +429,16 @@ export default function Landing() {
                             {arr.businessName}
                           </h3>
                           <p className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {arr.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </p>                        </div>
+                            {" "}
+                            <p className="text-pink mt-1  ">
+                              {" "}
+                              {arr.averageRating?.toFixed(2) || 3}{" "}
+                            </p>{" "}
+                            <p>
+                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                            </p>
+                          </p>{" "}
+                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -480,15 +517,16 @@ export default function Landing() {
                             {arr.businessName}
                           </h3>
                           <p className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {arr.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </p>                        </div>
+                            {" "}
+                            <p className="text-pink mt-1  ">
+                              {" "}
+                              {arr.averageRating?.toFixed(2) || 3}{" "}
+                            </p>{" "}
+                            <p>
+                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                            </p>
+                          </p>{" "}
+                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -530,10 +568,10 @@ export default function Landing() {
         </div>
       </div>
       <HowToWork />
-      <Space50px/>
+      <Space50px />
       <ContactUsPhoto />
-      <Space50px/>
-
+      <Space50px />
+      <FAQ faqData={HomeFaqData} />
     </div>
   );
 }

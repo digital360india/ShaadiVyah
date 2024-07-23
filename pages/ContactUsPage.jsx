@@ -46,8 +46,8 @@ const Popup = ({ onClose }) => {
             Lorem ipsum dolor
           </p>
           <p className="lg:text-[18px] text-[14px] lg:w-[432px]">
-            Lorem ipsum dolor sit amet consectetur. Vitae interdum
-            consectetur lobortis leo elementum viverra ut quam.
+            Lorem ipsum dolor sit amet consectetur. Vitae interdum consectetur
+            lobortis leo elementum viverra ut quam.
           </p>
           <div className="space-y-4 mt-6">
             <input
@@ -132,11 +132,11 @@ const AboutUS = () => {
               Register as a Vendor
             </p>
             <p className="lg:text-lg lg:font-[400] text-center text-blue leading-5 xl:w-[549px] lg:w-[430px] text-sm  ">
-              Join our vibrant community of vendors and showcase your unique
-              products and services. We provide a platform that connects you
-              with a wide audience, helping you grow your business and reach new
-              customers. Don&apos;t miss this opportunity to become a part of our
-              trusted network and boost your sales.
+              Unlock exclusive access to quality clients, enhanced digital
+              marketing, and prime networking opportunities by Joining Us! Boost
+              your business with Shaadivyah&apos;s trusted platform. Connect with
+              like-minded professionals and showcase your unique services to a
+              wider audience. Register now!
             </p>
             <div className=" flex justify-center items-center mt-4 lg:mt-0">
               <div className="bg-gradient-to-r  from-[#C9184A] to-[#FFB5A7]  w-[234px] h-[55px] rounded-full shadow-xl">
@@ -168,12 +168,7 @@ const AboutUS = () => {
               Have a question in mind?{" "}
             </p>
             <p className="lg:text-lg lg:font-[400] text-center text-blue leading-5 xl:w-[549px] lg:w-[430px] text-sm  ">
-              We are here to help! Whether you have questions about our
-              services, need assistance with your account, or just want to learn
-              more about what we do, our team is ready to assist you. Get in
-              touch with us and we will provide the answers you need. Your
-              satisfaction is our top priority, and we are committed to ensuring
-              you have the best experience possible.
+            We&apos;re here to help! Whether you need details about our services, assistance with your account, or just want to know more about us, our team is ready to assist. Reach out to us and get the answers you need. Your satisfaction is our priority, and we&apos;re committed to providing you with the best experience. Let&apos;s make your dreams a reality!
             </p>
             <div className=" flex justify-center items-center mt-4 lg:mt-0">
               <div className="bg-gradient-to-r  from-[#C9184A] to-[#FFB5A7]  w-[234px] h-[55px] rounded-full shadow-xl">

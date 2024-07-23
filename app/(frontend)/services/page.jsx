@@ -8,7 +8,7 @@ const page = () => {
       {/*Hero section*/}
       <Hero_2
         img={"/images/hero_services_page.png"}
-        text={"Because in your dreams, every detail matters"}
+        text={"Turn Wedding Dreams into Stunning Reality with Shaadivyah"}
       />
       {/*left component section */}
       <Space100px />

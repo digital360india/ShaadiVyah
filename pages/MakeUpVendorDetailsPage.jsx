@@ -466,7 +466,7 @@ const MakeUpVendorDetailsPage = () => {
           <Review id={uniqueID} title={data?.businessName} />
         </div>
         <div id="faq">
-          <FAQ />
+          <FAQ faqData={vendorsFAQs} />
         </div>
       </div>
     </>

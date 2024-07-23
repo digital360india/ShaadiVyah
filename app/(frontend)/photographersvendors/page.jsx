@@ -20,7 +20,46 @@ import { MdOutlineStar } from "react-icons/md";
 
 const Page = () => {
   const [data, setData] = useState([]);
-
+  const photographerFAQs = [
+    {
+      question: "How do I find the right photographer for my wedding on Shaadivyah?",
+      answer: "Browse through the photographers' profiles on our platform. Shaadivyah will help you select the best photographer based on your style and requirements."
+    },
+    {
+      question: "What types of wedding photography services do photographers offer?",
+      answer: "Our photographers offer a range of services, including pre-wedding shoots, wedding day photography, candid photography, traditional photography, and videography. Shaadivyah will help you choose the right package."
+    },
+    {
+      question: "Can I see examples of a photographer’s previous work before booking?",
+      answer: "Yes, each photographer’s profile includes a portfolio of their previous work. Shaadivyah will also provide additional samples and references upon request."
+    },
+    {
+      question: "Do photographers offer customizable packages?",
+      answer: "Yes, many photographers offer customizable packages tailored to your specific needs and preferences. Shaadivyah will assist in creating a package that suits your requirements."
+    },
+    {
+      question: "How long in advance should I book a photographer for my wedding?",
+      answer: "It is recommended to book a photographer at least 6-12 months in advance to ensure their availability, especially during peak wedding seasons. Shaadivyah will help you with the booking process."
+    },
+    {
+      question: "What is the cost of hiring a photographer through Shaadivyah?",
+      answer: "The cost varies based on the photographer’s experience, the type of services required, and the duration of the event. Shaadivyah will provide you with a detailed quote after discussing your specific requirements."
+    }
+  ];
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   useEffect(() => {
     const fetchVenues = async () => {
       try {
@@ -405,9 +444,9 @@ const Page = () => {
 
       <ContactUsPhoto />
       <Space50px />
-      <Discription />
+      {/* <Discription /> */}
       <div>
-        <FAQ />
+        <FAQ faqData={photographerFAQs}/>
       </div>
     </>
   );

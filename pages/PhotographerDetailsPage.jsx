@@ -478,7 +478,7 @@ const PhotographerDetailsPage = () => {
         </div>
 
         <div id="faq">
-          <FAQ />
+        <FAQ faqData={vendorsFAQs} />
         </div>
       </div>
     </>

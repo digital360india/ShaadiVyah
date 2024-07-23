@@ -20,7 +20,51 @@ import { MdOutlineStar } from "react-icons/md";
 const Page = () => {
   const [makeupArtist, setMakeupArtist] = useState([]);
   const router = useRouter();
+  const makeupArtistsFAQs = [
+    {
+      question: "How do I find a makeup artist for my wedding on Shaadivyah?",
+      answer: "Browse through the makeup artists' profiles on our platform. Shaadivyah will help you select the best artist based on your preferences and needs."
+    },
+    {
+      question: "What makeup styles can I choose from for my wedding?",
+      answer: "Our makeup artists offer a range of styles, including traditional bridal, contemporary, natural, glamorous, and customized looks. Shaadivyah will help match you with an artist who can create your desired look."
+    },
+    {
+      question: "Do makeup artists offer trial sessions?",
+      answer: "Yes, many makeup artists offer trial sessions so you can test their services and finalize your look before the wedding day. Shaadivyah will assist in arranging these trials."
+    },
+    {
+      question: "How long does bridal makeup usually take?",
+      answer: "Bridal makeup typically takes around 1.5 to 3 hours, depending on the complexity of the look and any additional services such as hair styling."
+    },
+    {
+      question: "Can makeup artists accommodate group bookings for my bridal party?",
+      answer: "Yes, most makeup artists can accommodate group bookings for your bridal party, including bridesmaids, family members, and guests. Shaadivyah will help coordinate these arrangements."
+    },
+    {
+      question: "What is the cost of hiring a makeup artist through Shaadivyah?",
+      answer: "The cost varies based on the artist’s experience and the type of services required. Shaadivyah will provide you with a detailed quote after discussing your specific requirements."
+    }
+  ];
+  
+  
+  
+  
+  
+  
+  
+  
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   useEffect(() => {
     const fetchMakeupArtist = async () => {
       try {
@@ -409,9 +453,9 @@ const Page = () => {
 
       <ContactUsPhoto />
       <Space50px />
-      <Discription />
+      {/* <Discription /> */}
       <div>
-        <FAQ />
+        <FAQ faqData={makeupArtistsFAQs} />
       </div>
     </>
   );
