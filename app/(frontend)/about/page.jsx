@@ -181,8 +181,9 @@ export default function Page() {
           OUR APPROACH
         </p>
         <p className="lg:text-[48px] text-[32px] font-medium text-[#02394A] mb-10">
-          <span>REMOTE</span>, <span className="text-[#C9184A]">EXCLUSIVE</span>
-          , <span>SEAMLESS</span>
+          <span>Turning </span> 
+          <span className="text-[#C9184A]">Dreams </span>
+          <span>into Reality</span>
         </p>
         <div className="lg:flex justify-between">
           <div className="lg:w-[509px]  space-y-7 ">
