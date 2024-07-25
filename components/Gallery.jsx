@@ -37,7 +37,7 @@ export default function Gallery({ images }) {
         arrows={false}  
         autoPlaySpeed={3000}
         centerMode
-        className="xl:h-[500px] lg:h-[450px] md:h-[400px]"
+        className="xl:h-[600px] lg:h-[600px] md:h-[400px]"
         dotListClass=""
         draggable
         focusOnSelect={false}
@@ -55,7 +55,7 @@ export default function Gallery({ images }) {
               max: 3000,
               min: 1024,
             },
-            items: 1,
+            items: 2,
             // partialVisibilityGutter: 80,
           },
           mobile: {
@@ -74,6 +74,14 @@ export default function Gallery({ images }) {
             items: 1,
             // partialVisibilityGutter: 80,
           },
+          lagre: {
+            breakpoint: {
+              max: 1440,
+              min: 1024,
+            },
+            items: 2,
+            // partialVisibilityGutter: 80,
+          },
         }}
         rewind={false}
         rewindWithAnimation={false}
@@ -87,7 +95,7 @@ export default function Gallery({ images }) {
       >
         {images.map((photo, index) => (
           <img
-            className="xl:w-[600px] lg:w-[500px] lg:h-[350px] md:w-[350px]   h-[250px]  hidden md:block  object-fit rounded-lg"
+            className="xl:w-[450px] lg:w-[320px] lg:h-[450px] md:w-[350px]   md:h-[300px]  hidden md:block  object-fit rounded-lg"
             src={photo}
             alt={index}
             key={index} 
@@ -104,15 +112,17 @@ export default function Gallery({ images }) {
   arrows={false}
   responsive={responsive}>
   {images.map((photo, index) => (
-          <img
-            className="w-full px-6 md:hidden h-[300px] object-cover rounded-lg"
+         <div className="px-6">
+           <img
+            className="w-full  md:hidden h-[450px] object-cover rounded-xl bg-black"
             src={photo}
             alt={index}
             key={index} 
 
           />
+         </div>
         ))}
-  </Carousel>;
+  </Carousel>
        </div>
     </div>
   );

@@ -391,7 +391,7 @@ export default function Landing() {
               alt="image"
               height={1000}
               width={1000}
-              className=" md:w-[769px] md:h-[471px] w-[350px] h-[300px]    absolute lg:-top-[100px] lg:right-[140px] -top-8 p4 z-100 opacity-20 "
+              className=" md:w-[569px] md:h-[471px] w-[350px] h-[300px]    absolute lg:-top-[100px] lg:right-[140px] -top-8 p4 z-100 opacity-20 "
             />
 
             <div className="flex flex-row justify-between items-center">

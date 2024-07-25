@@ -15,19 +15,19 @@ export default function Navbar() {
       <div className="hidden md:flex justify-around items-center font-lato font-medium text-lg z-50">
         <div>
           <Link href={"/"}>
-            <img src={"/logo.png"} className="w-32 h-32 object-fill" />
+            <img src={"/logo.png"} className="lg:w-28 lg:h-28 w-16 h-16 object-fill" />
           </Link>
         </div>
-        <div className="flex pl-48 gap-8 font-medium">
+        <div className="flex lg:pl-48 gap-8 lg:text-[20px] md:text-[14px] font-medium">
           <Link href={"/services"}>Our Services</Link>
           <Link href={"/about"}>About Us</Link>
           <Link href={"/contact"}>Contact</Link>
         </div>
         <div className="flex gap-2">
-          <div className="border border-pink text-pink px-4 py-2 rounded-3xl">
+          <div className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
             <Link href={"/login"}>Login as vendor</Link>
           </div>
-          <div className="border border-pink text-pink px-4 py-2 rounded-3xl">
+          <div className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
             <Link href={"/register"}>Register as vendor</Link>
           </div>
         </div>
@@ -53,20 +53,20 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-[#013244] flex flex-col items-start justify-center p-6 z-20 font-lato ">
+        <div className="fixed inset-0 bg-white flex flex-col items-start justify-center p-6 z-20 font-lato ">
           <div className="flex justify-center items-center">
             {" "}
             <Link href={"/"}>
-              <img src={"/logo.png"} className="w-48 h-48  object-fill " />
+              <img src={"/logo.png"} className="  object-fill " />
             </Link>{" "}
           </div>
           <button
             onClick={toggleMenu}
-            className="absolute top-4 right-4 text-white text-3xl"
+            className="absolute top-4 right-4 text-red-700 text-3xl"
           >
             &times;
           </button>
-          <ul className="text-white text-xl font-medium text-left hover:underline space-y-6 mt-12">
+          <ul className="text-red-700 text-xl font-medium  text-left hover:underline space-y-6 mt-12">
             <li>
               <Link href={"/"} onClick={toggleMenu}>
                 <span className=" ">Home</span>
@@ -90,12 +90,12 @@ export default function Navbar() {
           </ul>
           <div className="mt-8 flex flex-col space-y-10">
             <Link href={"/login"}>
-              <span className=" bg-gradient-to-r from-red-500 to-pink-500 text-white text-center p-4  rounded-md mb-4">
+              <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8  rounded-md mb-4">
                 Login as Vendor
               </span>
             </Link>
             <Link href={"/register"}>
-              <span className=" bg-gradient-to-r from-red-500 to-pink-500 text-white p-4 text-center  rounded-md">
+              <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center  rounded-md">
                 Register as Vendor
               </span>
             </Link>
