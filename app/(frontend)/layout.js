@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "../globals.css";
 import Footer from "@/components/Footer";
 import Popup from "@/components/Popup";
+import PopupVendorOffers from "@/components/PopupVendorOffers";
 
 export const metadata = {
   title: "Shaadi Vyah",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer/>
         <Popup/>
+        <PopupVendorOffers />
       </main>
     </html>
   );

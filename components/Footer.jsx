@@ -21,7 +21,7 @@ const Footer = () => {
           B, 36, Nehru Colony Rd, C-Block, Nehru Colony, Dalanwala, Dehradun, Uttarakhand 248001
           </p>
           <p className="w-[292px] text-start text-base">
-            Email: enquire@shadivyah.com{" "}
+            Email: shaadivyahwork@gmail.com
           </p>
           <p className="w-[292px] text-start text-base">Phone: 9084684360</p>
         </div>
