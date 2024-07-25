@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
 import Review from "@/components/Review";
 import { FaRupeeSign } from "react-icons/fa";
+import vendorsFAQs from '@/utils/faq.js'
 
 import { MdCheckCircle, MdCancel } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";

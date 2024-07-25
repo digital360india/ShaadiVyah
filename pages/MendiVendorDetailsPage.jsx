@@ -11,6 +11,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
 import { SlCalender } from "react-icons/sl"; 
 import Review from "@/components/Review";
+import {vendorsFAQs} from '@/utils/faq.js'
 
 const MendiVendorDetailsPage = () => {
   const currentPage = usePathname();

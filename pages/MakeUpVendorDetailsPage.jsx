@@ -11,7 +11,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
 import { SlCalender } from "react-icons/sl";
 import Review from "@/components/Review";
-
+import {vendorsFAQs} from '@/utils/faq.js'
 const MakeUpVendorDetailsPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
@@ -93,7 +93,7 @@ const MakeUpVendorDetailsPage = () => {
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
-            className="w-full rounded-b-[40px] h-[550px] object-cover "
+            className="w-full rounded-b-[40px] h-[550px] object-top object-fill "
           />
 
           <div className="absolute lg:-bottom-32 md:-bottom-20 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px] w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">

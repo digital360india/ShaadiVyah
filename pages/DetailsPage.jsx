@@ -8,6 +8,7 @@ import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
 import Review from "@/components/Review";
+import {vendorsFAQs} from '@/utils/faq.js'
 
 const DetailPage = () => {
   const currentPage = usePathname();

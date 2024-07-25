@@ -87,12 +87,13 @@ export default function Gallery({ images }) {
       >
         {images.map((photo, index) => (
           <img
-            className="xl:w-[600px] lg:w-[500px] lg:h-[350px] md:w-[350px]   h-[250px]  hidden md:block object-cover rounded-lg"
+            className="xl:w-[600px] lg:w-[500px] lg:h-[350px] md:w-[350px]   h-[250px]  hidden md:block  object-fit rounded-lg"
             src={photo}
             alt={index}
             key={index} 
 
           />
+
         ))}
       </Carousel>
    

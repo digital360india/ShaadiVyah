@@ -472,7 +472,7 @@ const PortfolioPage = () => {
                       </button>
                     </>
                   ) : (
-                    <></>
+                    <><div className="w-46 h-24 bg-green-600 rounded-md text-white">Profile Approved</div></>
                   )}
                   {user.rejectionReason && (
                     <button
