@@ -198,7 +198,7 @@ const DetailPage = () => {
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
-            className="w-full rounded-b-[40px] h-[550px] object-cover "
+            className="w-full rounded-b-[40px] h-[550px] bg-gray-300 object-contain "
           />
 
           <div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
