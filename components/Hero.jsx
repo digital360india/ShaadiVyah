@@ -22,14 +22,14 @@ export default function Hero() {
 
   return (
     <>
-      <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[90vh] ">
+      <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[100vh]  ">
         <div className="md:w-[800px] mt-[160px] ">
           <p className="font-semibold font-fira-sans  text-center mb-4 text-3xl md:text-4xl">
           Shaadi Ka Har Pal Khaas, Shaadivyah ke saath          </p>
           <p className="font-dancing-script  text-center mb-10 text-md md:text-xl  ">
           Engage with expert vendors and artists for a perfect celebration.
           </p>
-          <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-white rounded-[40px] py-4 flex flex-col md:flex-row items-center justify-evenly">
+          <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-white rounded-[40px] py-4 mx-5 flex flex-col md:flex-row items-center justify-evenly">
             <div className="flex gap-2 items-center w-[300px] text-xl md:w-[40%]">
               <img
                 src={"/icons/location.svg"}

@@ -24,23 +24,23 @@ export default function Navbar() {
           <Link href={"/contact"}>Contact</Link>
         </div>
         <div className="flex gap-2">
-          <div className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
-            <Link href={"/login"}>Login as vendor</Link>
-          </div>
-          <div className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
-            <Link href={"/register"}>Register as vendor</Link>
-          </div>
+          <Link href={"/login"} className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
+            <div>Login as vendor</div>
+          </Link>
+          <Link href={"/register"} className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
+            <div >Register as vendor</div>
+          </Link>
         </div>
       </div>
 
       <div className="flex w-full items-center bg-transparent fixed top-0 md:hidden z-10 rounded-lg ">
-        <div className="w-[40%] px-6">f
+        <div className="w-[40%] px-6">
           <button onClick={toggleMenu}>
           <CgMenuLeftAlt className="text-pink text-2xl" />
 
           </button>
         </div>
-        <div>
+        <div className="">
           <Link href={"/"}>
             <img
               src={"/logo.png"}

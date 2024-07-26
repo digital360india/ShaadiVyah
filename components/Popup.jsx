@@ -7,7 +7,7 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 180000);
+    }, 180);
 
     return () => clearInterval(interval);
   }, []);
@@ -20,11 +20,11 @@ const Popup = () => {
     <>
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="w-screen p-10 md:p-5 lg:w-[1100px] lg:h-[636px] mx-4  rounded-xl border border-[#C9184A] flex justify-between bg-white">
+          <div className="w-screen m-16 md:m-0 md:p-5 lg:w-[1100px] lg:h-[636px] mx-4  rounded-xl border border-[#C9184A] flex justify-between bg-white">
             <div className="hidden lg:block w-[515px] bg-black h-full rounded-l-xl">
               <img src="./images/form.png" alt="" />
             </div>
-            <div className=" w-[432px]">
+            <div className=" p-10 md:p-0 md:w-[432px]">
               <p className="flex justify-end">
                 <svg
                   onClick={handleClose}
