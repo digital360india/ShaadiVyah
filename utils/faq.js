@@ -1,4 +1,4 @@
-export default vendorsFAQs = [
+const vendorsFAQs = [
     {
       question: "How do I find the right vendor for my wedding on Shaadivyah?",
       answer: "Browse through the vendor categories on our platform. Shaadivyah will help you select the best vendors based on your requirements and preferences."
@@ -24,3 +24,4 @@ export default vendorsFAQs = [
       answer: "Shaadivyah maintains high standards by conducting thorough background checks and ongoing performance reviews for all listed vendors. Client feedback is also a crucial part of our quality assurance."
     }
   ];
+  export default vendorsFAQs;
