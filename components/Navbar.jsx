@@ -34,7 +34,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex w-full items-center bg-transparent fixed top-0 md:hidden z-10 rounded-lg ">
-        <div className="w-[40%] px-6">
+        <div className="w-[40%] px-6">f
           <button onClick={toggleMenu}>
           <CgMenuLeftAlt className="text-pink text-2xl" />
 

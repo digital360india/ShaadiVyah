@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { db } from "@/firebase/firebase";
+import WhyJoinShaadiVyah from "@/components/WhyJoinShaadiVyah";
 
 const Registration = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -302,6 +303,7 @@ const Registration = () => {
           </div>
         </div>
       )}
+      <WhyJoinShaadiVyah/>
     </div>
   );
 };
