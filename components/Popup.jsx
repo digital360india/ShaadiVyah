@@ -7,7 +7,7 @@ const Popup = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPopup(true);
-    }, 180);
+    }, 24000);
 
     return () => clearInterval(interval);
   }, []);

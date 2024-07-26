@@ -22,7 +22,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed text-white h-[100vh]  ">
+      <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed object-left text-white h-[100vh]  ">
         <div className="md:w-[800px] mt-[160px] ">
           <p className="font-semibold font-fira-sans  text-center mb-4 text-3xl md:text-4xl">
           Shaadi Ka Har Pal Khaas, Shaadivyah ke saath          </p>
