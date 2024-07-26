@@ -1,4 +1,4 @@
-export const vendorsFAQs = [
+export default vendorsFAQs = [
     {
       question: "How do I find the right vendor for my wedding on Shaadivyah?",
       answer: "Browse through the vendor categories on our platform. Shaadivyah will help you select the best vendors based on your requirements and preferences."

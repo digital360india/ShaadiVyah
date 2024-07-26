@@ -386,6 +386,7 @@ const venueFAQ=[
             {venue.map((venue, index) => (
               <Link
               href={`/venues/${venue.uid}`}
+              key={index}
                 className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
               >
                 <img

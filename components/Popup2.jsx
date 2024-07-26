@@ -31,7 +31,7 @@ const Popup2 = ({ onClose }) => {
             Create Your Dream Day!
           </p>
           <p className="lg:text-[16px] text-[14px] lg:w-[432px]">
-            Planning a wedding or a grand celebration? Register now and let's
+            Planning a wedding or a grand celebration? Register now and let&apos;s
             make your dream wedding happen at your price!{" "}
           </p>
           <div className="space-y-4 mt-6">
