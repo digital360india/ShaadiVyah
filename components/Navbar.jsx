@@ -24,10 +24,10 @@ export default function Navbar() {
           <Link href={"/contact"}>Contact</Link>
         </div>
         <div className="flex gap-2">
-          <Link href={"/login"} className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
+          <Link href={"/login"}  className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
             <div>Login as vendor</div>
           </Link>
-          <Link href={"/register"} className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
+          <Link href={"/register"}  className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
             <div >Register as vendor</div>
           </Link>
         </div>
@@ -89,12 +89,12 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="mt-8 flex flex-col space-y-10">
-            <Link href={"/login"}>
+            <Link href={"/login"} onClick={toggleMenu}>
               <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8  rounded-md mb-4">
                 Login as Vendor
               </span>
             </Link>
-            <Link href={"/register"}>
+            <Link href={"/register"}onClick={toggleMenu} >
               <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center  rounded-md">
                 Register as Vendor
               </span>
