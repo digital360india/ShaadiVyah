@@ -76,7 +76,7 @@ const page = () => {
           </div>
           <div className=" flex-row-reverse xl:pt-14 gap-72 xl:pr-24 xl:justify-start flex justify-center items-center pt-4 pb-8  ">
             <div className="hidden lg:block border-0 border-transparent bg-gradient-to-r from-[#FFB5A7] to-[#C9184A] h-[2px] w-[270px] xl:ml-[100px]"></div>
-            <Link  href={`/photographervendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
+            <Link  href={`/photographersvendors`} className="border-b-2 border-spacing-0 border-pink text-pink  ">
               <p className="">Explore now</p>
             </Link>
           </div>
