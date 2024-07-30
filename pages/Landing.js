@@ -63,7 +63,7 @@ export default function Landing() {
   // Custom Prev Arrow Component
   const PrevArrow = ({ className, style, onClick }) => (
     <div
-      className={`${className} custom-arrow custom-prev-arrow`}
+      className={`${className} custom-arrow custom-prev-arrow `}
       onClick={onClick}
     />
   );

@@ -18,7 +18,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
         />
         <img
           src={"/vectors/vector2.png"}
@@ -34,7 +34,7 @@ const page = () => {
             <div className=" lg:hidden  border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
-            <div className="text-lg text-blue xl:w-[479px]">
+            <div className="text-lg text-blue xl:w-[479px] md:h-[100px] h-[110px]">
             Discover a variety of stunning wedding venues in Uttarakhand. Whether you prefer a luxurious hotel or a rustic outdoor setting, we have options to suit every taste.
 
             </div>
@@ -54,7 +54,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center object-cover "
+          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center object-cover "
         />
         <img
           src={"/vectors/Vector.png"}
@@ -70,7 +70,7 @@ const page = () => {
             <div className=" lg:hidden border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
-            <div className="text-lg text-blue xl:w-[479px] w-full">
+            <div className="text-lg text-blue xl:w-[479px] h-[100px] w-full">
             Choose from our selection of top photographers who specialize in capturing the essence of your wedding day.
             </div>
           </div>
@@ -89,7 +89,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none   border-b-8 object-center object-cover"
+          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none   border-b-8 object-center object-cover"
         />
         <img
           src={"/vectors/vector2.png"}
@@ -106,7 +106,7 @@ const page = () => {
             <div className=" lg:hidden  border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
-            <div className="text-lg text-blue xl:w-[479px]">
+            <div className="text-lg text-blue xl:w-[479px] h-[100px]">
             Our professional makeup artists will enhance your natural beauty, making sure you look radiant on your special day.
 
             </div>
@@ -126,7 +126,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[800px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
+          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
         />
         <img
           src={"/vectors/Vector.png"}
@@ -137,13 +137,13 @@ const page = () => {
         />
         <div className="bg-peach xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 ">
           <div className="xl:pl-[36px] lg:pr-[300px] lg:relative text-pink xl:pt-10 pt-4">
-            <div className="text-2xl font-semibold">MEHNDI ARTISTS
+            <div className="text-2xl font-semibold ">MEHNDI ARTISTS
 </div>
             <div className="flex justify-center items-center">
             <div className=" lg:hidden border-0 border-transparent bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] h-[2px] w-[300px] "></div>
             </div>
             <div className="h-[30px]"></div>
-            <div className="text-lg text-blue xl:w-[479px] w-full">
+            <div className="text-lg text-blue xl:w-[479px] w-full h-[100px]">
             Our talented mehndi artists create beautiful, intricate designs that reflect your style and culture.
             </div>
           </div>

@@ -71,14 +71,16 @@ const Page = () => {
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
-
+  
   // Custom Prev Arrow Component
   const PrevArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-prev-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
@@ -302,7 +304,7 @@ const Page = () => {
                 <Link
                 href={`/mehandivendors/${arr.uid}`}
                 key={arr.uid}
-                className=" py-4  md:px-16 "
+                className=" py-4  "
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
@@ -366,16 +368,16 @@ const Page = () => {
       <Space50px />
       {/* all  */}
       <div>
-        <div>
+        <div className="">
           <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-fira-sans p-4">
             All <span className="font-dancing-script">Mendhi Artists</span>
           </p>
-          <div className="justify-center flex flex-wrap gap-10 px-6">
+          <div className="justify-center flex flex-wrap gap-10 px-6 ">
             {mendhiArtists.map((mendhiArtists, index) => (
               <Link 
               href={`/mehandivendors/${mendhiArtists.uid}`}
               key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
+                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full "
               >
                 <img
                   src={mendhiArtists.bannerImageUrl || "/images/logo1.png"}

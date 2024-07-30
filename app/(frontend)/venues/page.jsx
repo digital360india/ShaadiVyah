@@ -52,21 +52,26 @@ const venueFAQ=[
   }
 ];
 
-  // Custom Next Arrow Component
-  const NextArrow = ({ className,  onClick }) => (
-    <div
-      className={`${className} custom-arrow custom-next-arrow`}
-      onClick={onClick}
-    />
-  );
+ // Custom Next Arrow Component
+const NextArrow = ({ className, style, onClick }) => (
+  <div
+    className={`${className} custom-arrow custom-next-arrow`}
+    style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
+    onClick={onClick}
+  />
+);
 
-  // Custom Prev Arrow Component
-  const PrevArrow = ({ className, onClick }) => (
-    <div
-      className={`${className} custom-arrow custom-prev-arrow`}
-      onClick={onClick}
-    />
-  );
+// Custom Prev Arrow Component
+const PrevArrow = ({ className, style, onClick }) => (
+  <div
+    className={`${className} custom-arrow custom-prev-arrow`}
+    style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
+    onClick={onClick}
+  />
+);
+
+
+ 
   const [venue, setVenues] = useState([]);
 
   const fetchVenue = async () => {
@@ -97,12 +102,11 @@ const venueFAQ=[
   const sliderSettings = {
     dots: false,
     infinite: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1440, // xl
@@ -151,9 +155,10 @@ const venueFAQ=[
     dots: false,
     infinite: true,
     speed: 500,
+    
         //  centerMode: true,
     //  centerPadding: "100px",
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
       {
@@ -299,21 +304,21 @@ const venueFAQ=[
       </div>
       <Space25px />
       {/* populer  */}
-      <div className="   relative  z-20 lg:px-10 px-6 ">
+      <div className="  relative  z-20 lg:px-5 px-2 ">
         <div className="">
           <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4">
             Popular <span className="font-dancing-script">Destinations</span>
           </p>
-          <div className="px-[15px] ">
+          <div className=" xl:px-[48px] lg:px-[45px] md:px-[20px] px-[20px]  ">
             {venue.length > 0 ? (
               <Slider {...sliderSettings}>
                 {venue.map((arr, index) => (
                   <Link
                     href={`/venues/${arr.uid}`}
                     key={index}
-                    className=" py-4 px-4 "
+                    className="  "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] w-full ">
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
@@ -342,7 +347,7 @@ const venueFAQ=[
                             {arr.location}
                           </p>
                         </div>
-                        <p className="text-sm py-4 h-[68px">
+                        <p className="text-sm py-4 h-[68px]">
                           {" "}
                           {truncateText(arr.about, 20)}{" "}
                           {/* {truncateText(arr.about, 30)} */}
@@ -387,12 +392,12 @@ const venueFAQ=[
               <Link
               href={`/venues/${venue.uid}`}
               key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
+                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <img
                   src={venue.bannerImageUrl || "/images/logo1.png"}
                   alt={venue.businessName}
-                  className="w-[380px] h-60 object-cover  rounded-t-[4px] "
+                  className=" h-60 object-cover w-full rounded-t-[4px] "
                 />
                 <div className="px-6 py-4">
                   <div className="flex justify-between items-center h-[30px]">

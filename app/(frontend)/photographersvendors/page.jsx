@@ -85,13 +85,16 @@ const Page = () => {
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
-
+  
+  // Custom Prev Arrow Component
   const PrevArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-prev-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
@@ -167,7 +170,7 @@ const Page = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1440, // xl
+        breakpoint: 1450, // xl
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -315,7 +318,7 @@ const Page = () => {
                     key={index}
                     className=" py-4 px-4 "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div className="bg-whit rounded  shadow-md lg:h-[488px] lg:w-[398px]">
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
@@ -345,7 +348,7 @@ const Page = () => {
                             {arr.location}
                           </p>
                         </div>
-                        <p className="text-sm py-4 h-[120px]">
+                        <p className="text-sm py-4 md:h-[120px] h-[150px]">
                           {truncateText(arr.about, 30)}
                         </p>
                         {/* <div className="flex justify-between">
@@ -379,14 +382,14 @@ const Page = () => {
       <div>
         <div>
           <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-fira-sans p-4">
-            All <span className="font-dancing-script">Mendhi Artists</span>
+            All <span className="font-dancing-script">Photographers </span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {data.map((data, index) => (
               <Link
               href={`/photographersvendor/${data.uid}`}
                 key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
+                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <img
                   src={data.bannerImageUrl || "/images/logo1.png"}

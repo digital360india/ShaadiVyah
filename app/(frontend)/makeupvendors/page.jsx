@@ -88,13 +88,16 @@ const Page = () => {
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
-
+  
+  // Custom Prev Arrow Component
   const PrevArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-prev-arrow`}
+      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
       onClick={onClick}
     />
   );
@@ -169,14 +172,14 @@ const Page = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1440, // xl
+        breakpoint: 1480, // xl
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 1324, // lg
+        breakpoint: 1024, // lg
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -211,12 +214,12 @@ const Page = () => {
 
       {/* populer  */}
       <div className=" py-16  relative  z-20  ">
-        <div className="bg-cream pb-10">
+        <div className="bg-cream pb-10  lg:px-10 px-6">
           {" "}
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 pl-16 ">
+          <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4  ">
             Makeup <span className="font-dancing-script">Artists</span>
           </p>
-          <div className="px-[15px] ">
+          <div className=" ">
             {makeupArtist.length > 0 ? (
         <Slider {...sliderwedding}>
         <div>
@@ -310,9 +313,9 @@ const Page = () => {
         </div>
       </div>
       <div>
-        <div className=" py-16  relative  z-20 lg:px-10 px-6 ">
+        <div className=" py-16  relative  z-20  lg:px-10 px-6 ">
           <div className="">
-            <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4">
+            <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4 ">
               Popular{" "}
               <span className="font-dancing-script"> Mehndi Artists</span>
             </p>
@@ -323,7 +326,7 @@ const Page = () => {
                     <Link
                       href={`/makeupvendors/${arr.uid}`}
                       key={arr.uid}
-                      className=" py-4  md:px-16 "
+                      className=" py-4  md:px-1 "
                     >
                       <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                         <img
@@ -349,28 +352,16 @@ const Page = () => {
                               </p>
                             </p>
                           </div>
-                          <div className="flex justify-start gap-2">
+                          <div className="flex justify-start gap-2 ">
                             <img src="/icons/locationred.svg" />
-                            <p className="text-[18px] text-[#666666]">
+                            <p className="text-[18px] text-[#666666] h-8">
                               {arr.location}
                             </p>
                           </div>
-                          <p className="text-sm py-4 h-[120px]">
+                          <p className="text-sm py-4 md:h-[120px] h-[150px]">
                             {truncateText(arr.about, 30)}
                           </p>
-                          {/* <div className="flex justify-between">
-                 <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                   <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                     100-200 pax
-                   </p>
-                 </div>
-                 <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                   <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                 </div>{" "}
-                 <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                   <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                 </div>
-               </div> */}
+                       
                         </div>
                       </div>
                     </Link>
@@ -395,7 +386,7 @@ const Page = () => {
               <Link
                 href={`/makeupvendors/${data.uid}`}
                 key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px]"
+                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <img
                   src={data.bannerImageUrl || "/images/logo1.png"}
