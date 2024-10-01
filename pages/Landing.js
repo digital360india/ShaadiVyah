@@ -16,6 +16,7 @@ import { MdOutlineStar } from "react-icons/md";
 import Space25px from "@/components/Space25px";
 import Space50px from "@/components/Space50px";
 import FAQ from "@/components/FAQ";
+import BookingForm from "@/components/BookingForm";
 
 export default function Landing() {
   const HomeFaqData = [
@@ -208,13 +209,13 @@ export default function Landing() {
       </div>
       <div className="w-full ">
         <div className="sticky top-0">
-          <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+          <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20 ">
             <img
               src={"/vectors/vector3.png"}
               alt="image"
               height={1000}
               width={1000}
-              className="w-[350px] lg:w-[880px] lg:h-[310px]   absolute lg:-top-[50px] lg:right-[250px] top-4 z-100 opacity-10 "
+              className="w-[350px] lg:w-[880px] lg:h-[310px]   absolute lg:-top-[50px] lg:right-[250px] top-4 z-10 opacity-10 "
             />
             <div className="">
               <div className="flex flex-row justify-between items-center">
@@ -227,7 +228,7 @@ export default function Landing() {
                   href={"/venues"}
                   className="mt-2 text-[#C9184A] underline text-md font-sans"
                 >
-                  See all
+                  more.
                 </Link>
               </div>
 
@@ -299,13 +300,13 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white py-16  relative  px-6 md:px-20 ">
+          <div className="bg-white pt-24 pb-12   relative  px-6 md:px-20 ">
             <img
               src={"/vectors/vector4.png"}
               alt="image"
               height={1000}
               width={1000}
-              className=" w-[300px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-100 opacity-10 "
+              className=" w-[300px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
             />
 
             <div className="flex flex-row justify-between items-center">
@@ -317,7 +318,7 @@ export default function Landing() {
                 href={"/mehandivendors"}
                 className="mt-2 text-[#C9184A] underline text-md font-sans z-10         "
               >
-                See all
+                more.
               </Link>
             </div>
             {mendhiArtists.length > 0 ? (
@@ -385,13 +386,13 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-cream py-16  relative  px-6 md:px-20 ">
+          <div className="bg-cream pt-24 pb-12   relative  px-6 md:px-20 ">
             <img
               src={"/vectors/vector2.png"}
               alt="image"
               height={1000}
               width={1000}
-              className=" md:w-[569px] md:h-[471px] w-[350px] h-[300px]    absolute lg:-top-[100px] lg:right-[140px] -top-8 p4 z-100 opacity-20 "
+              className=" md:w-[569px] md:h-[471px] w-[350px] h-[300px]    absolute lg:-top-[100px] lg:right-[140px] -top-8 p4 z-10 opacity-20 "
             />
 
             <div className="flex flex-row justify-between items-center">
@@ -404,7 +405,7 @@ export default function Landing() {
                 href={"/makeupvendors"}
                 className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
-                See all
+                more.
               </Link>
             </div>
             {makeupArtist.length > 0 ? (
@@ -473,13 +474,13 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white py-16  relative  px-6 md:px-20 ">
+          <div className="bg-white pt-24 pb-12   relative  px-6 md:px-20 ">
             <img
               src={"/vectors/Vector.png"}
               alt="image"
               height={1000}
               width={1000}
-              className=" lg:w-[430px] lg:h-[330px] w-[300px] h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-100 opacity-10 "
+              className=" lg:w-[430px] lg:h-[330px] w-[300px] h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
             />
 
             <div className="flex flex-row justify-between items-center">
@@ -492,7 +493,7 @@ export default function Landing() {
                 href={"/photographersvendors"}
                 className="mt-2 text-[#C9184A] underline text-md font-sans"
               >
-                See all
+                more.
               </Link>
             </div>
             {photographersArtists.length > 0 ? (

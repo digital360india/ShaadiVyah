@@ -53,13 +53,13 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white flex flex-col items-start justify-center p-6 z-20 font-lato ">
-          <div className="flex justify-center items-center">
+        <div className="fixed top-0 bg-transparent backdrop-blur-xl  w-1/2 h-full flex flex-col items-start justify-center p-6 z-50 font-lato ">
+          {/* <div className="flex justify-center items-center">
             {" "}
             <Link href={"/"}>
               <img src={"/logo.png"} className="  object-fill " />
             </Link>{" "}
-          </div>
+          </div> */}
           <button
             onClick={toggleMenu}
             className="absolute top-4 right-4 text-red-700 text-3xl"
@@ -88,14 +88,14 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-          <div className="mt-8 flex flex-col space-y-10">
+          <div className="mt-8 flex flex-col space-y-10 text-[10px]">
             <Link href={"/login"} onClick={toggleMenu}>
               <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8  rounded-md mb-4">
                 Login as Vendor
               </span>
             </Link>
             <Link href={"/register"}onClick={toggleMenu} >
-              <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center  rounded-md">
+              <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center   rounded-md">
                 Register as Vendor
               </span>
             </Link>

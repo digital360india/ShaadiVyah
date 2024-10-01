@@ -6,7 +6,6 @@ import { db } from "@/firebase/firebase";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import Gallery from "@/components/Gallery";
-import Space25px from "@/components/Space25px";
 import { FaRupeeSign } from "react-icons/fa";
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
 import { SlCalender } from "react-icons/sl";
@@ -16,11 +15,8 @@ const MakeUpVendorDetailsPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
-
   const [isCopied, setIsCopied] = useState(false);
-
   const [data, setData] = useState();
-
   useEffect(() => {
     const fetchRoutineData = async () => {
       const querySnapshot = await getDocs(
