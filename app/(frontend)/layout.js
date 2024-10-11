@@ -12,13 +12,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <main>
-        <Navbar />
-        {children}
-        <Footer/>
-        <Popup/>
-        <PopupVendorOffers />
-      </main>
+      <body>
+        
+        {" "}
+        <main>
+          <Navbar />
+          {children}
+          <Footer />
+          <Popup />
+          <PopupVendorOffers />
+        </main>
+      </body>
     </html>
   );
 }

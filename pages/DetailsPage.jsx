@@ -8,7 +8,7 @@ import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
 import Review from "@/components/Review";
-import vendorsFAQs from '@/utils/faq.js'
+import vendorsFAQs from "@/utils/faq.js";
 
 const DetailPage = () => {
   const currentPage = usePathname();
@@ -35,7 +35,7 @@ const DetailPage = () => {
           return {
             name: values.name,
             spaces: values.spaces,
-            averageRating:values.averageRating,
+            averageRating: values.averageRating,
             portfolioImagesUrl: values.portfolioImagesUrl
               ? values.portfolioImagesUrl[0]
               : {},
@@ -198,10 +198,10 @@ const DetailPage = () => {
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
-            className="w-full rounded-b-[40px] h-[550px] bg-gray-300 object-contain "
+            className="w-full rounded-b-[40px] h-[550px] bg-gray-300 object-cover "
           />
 
-          <div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
+          <div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16  border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
             <div className="flex flex-col justify-between">
               {" "}
               <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
@@ -224,9 +224,8 @@ const DetailPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-2 text-[14px] md:text-[16px]">
-                      <p>{data?.city},</p>
-                      {data?.country}
+                    <div className="flex gap-1 text-[14px] md:text-[16px]">
+                      <p>{data?.city}</p>
                     </div>
                     {data?.googleLocation && (
                       <Link
@@ -249,9 +248,7 @@ const DetailPage = () => {
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 text-[10px] md:text-[16px] ">
-                      Contact
-                    </div>{" "}
+                    <div className="text-green-700 text-[16px] ">Contact</div>{" "}
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -264,7 +261,7 @@ const DetailPage = () => {
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />{" "}
                     <p className=" text-[12px] md:text-[16px] text-white">
-                   {data?.averageRating || "3"}
+                      {data?.averageRating || "3"}
                     </p>
                   </div>
                   <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090]">
@@ -334,12 +331,12 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
-          <div className="lg:w-[46%] flex flex-col gap-10 ">
+        <div className="lg:flex space-y-4 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
+          <div className="lg:w-[46%] flex flex-col gap-5 ">
             <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
-                <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
+                <div className="rounded-full flex justify-center items-center gap-2  px-4 py-2 bg-[#FF8FA3]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -352,15 +349,14 @@ const DetailPage = () => {
                     />
                   </svg>
 
-                  <p>{data?.city},</p>
-                  {data?.country}
+                  <p>{data?.city}</p>
                 </div>
               </div>
             </div>
 
             <div className="text-[#0A2D23] ">{data?.about}</div>
             <div className="bg-[#FFB5A71A] py-3 xl:w-[520px] rounded-xl shadow-lg ">
-              <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
+              <p className="border-b-2 border-gray-300  px-4 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
               </p>
               <div className="flex flex-wrap   ">
@@ -648,7 +644,7 @@ const DetailPage = () => {
             <div className="text-xl font-bold capitalize">
               A hotel perfectly located at your destination
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
                 {data && data.attractions && Array.isArray(data.attractions) ? (
                   data.attractions.map((place) => {
@@ -659,22 +655,26 @@ const DetailPage = () => {
                     return attractions ? (
                       <>
                         {" "}
-                        <div className="flex justify-between lg:w-[500px] md:w-[450px] sm:w-[400px] w-[350px] ">
+                        <div className="flex justify-between  items-center lg:w-[500px] md:w-[450px] sm:w-[400px] w-[350px] ">
                           {" "}
                           <div
                             key={attractions.id}
-                            className="text-gray-700 flex gap-10"
+                            className="text-gray-700 flex gap-2 "
                           >
                             <img
                               src="/icons/locationblack.svg"
                               alt="location"
                             />
-                            <div>{place.name}</div>
-                            <div>{attractions.name}</div>
+                            <div className="md:flex">
+                              {" "}
+                              <div className="text-gray-500">{place.name}</div>
+
+                              <div className="text-gray-900">({attractions.name})</div>
+                            </div>
                           </div>
-                          <div className="text-gray-700 flex gap-20">
-                            <div>{place.distance} km </div>{" "}
-                            <div>{place.time} mins </div>
+                          <div className="text-gray-700 flex ">
+                            <div>{place.distance}km</div> <div>/</div>
+                            <div>{place.time}mins </div>
                           </div>
                         </div>
                         <hr className="w-full border-gray-300 mt-2" />
@@ -707,7 +707,7 @@ const DetailPage = () => {
           <Review id={uniqueID} title={data?.businessName} />
         </div>
         <div id="faq">
-        <FAQ faqData={vendorsFAQs} />
+          <FAQ faqData={vendorsFAQs} />
         </div>
       </div>
     </>

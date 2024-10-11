@@ -254,7 +254,7 @@ export default function Landing() {
                               <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                                 {arr.businessName}
                               </h3>
-                              <p className="flex justify-end items-center mb-2  gap-0">
+                              <div className="flex justify-end items-center mb-2  gap-0">
                                 {" "}
                                 <p className="text-pink mt-1  ">
                                   {" "}
@@ -263,7 +263,7 @@ export default function Landing() {
                                 <p>
                                   <MdOutlineStar className="text-yellow-300 text-xl " />
                                 </p>
-                              </p>
+                              </div>
                             </div>
                             <div className="flex justify-start gap-2">
                               <img src="/icons/locationred.svg" />
@@ -342,7 +342,7 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p className="flex justify-end items-center mb-2  gap-0">
+                          <div className="flex justify-end items-center mb-2  gap-0">
                             {" "}
                             <p className="text-pink mt-1  ">
                               {" "}
@@ -351,7 +351,7 @@ export default function Landing() {
                             <p>
                               <MdOutlineStar className="text-yellow-300 text-xl " />
                             </p>
-                          </p>{" "}
+                          </div>{" "}
                         </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
@@ -429,7 +429,7 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p className="flex justify-end items-center mb-2  gap-0">
+                          <div className="flex justify-end items-center mb-2  gap-0">
                             {" "}
                             <p className="text-pink mt-1  ">
                               {" "}
@@ -438,7 +438,7 @@ export default function Landing() {
                             <p>
                               <MdOutlineStar className="text-yellow-300 text-xl " />
                             </p>
-                          </p>{" "}
+                          </div>{" "}
                         </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
@@ -517,7 +517,7 @@ export default function Landing() {
                           <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p className="flex justify-end items-center mb-2  gap-0">
+                          <div className="flex justify-end items-center mb-2  gap-0">
                             {" "}
                             <p className="text-pink mt-1  ">
                               {" "}
@@ -526,7 +526,7 @@ export default function Landing() {
                             <p>
                               <MdOutlineStar className="text-yellow-300 text-xl " />
                             </p>
-                          </p>{" "}
+                          </div>{" "}
                         </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />

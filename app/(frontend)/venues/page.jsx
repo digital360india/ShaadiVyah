@@ -331,7 +331,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                           <h3 className="lg:text-xl font-semibold mb-2">
                             {arr.businessName}
                           </h3>
-                          <p className="flex justify-end items-center mb-2  gap-0">
+                          <div className="flex justify-end items-center mb-2  gap-0">
                                 {" "}
                                 <p className="text-pink mt-1  ">
                                   {" "}
@@ -340,7 +340,7 @@ const PrevArrow = ({ className, style, onClick }) => (
                                 <p>
                                   <MdOutlineStar className="text-yellow-300 text-xl " />
                                 </p>
-                              </p>                        </div>
+                              </div>                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">

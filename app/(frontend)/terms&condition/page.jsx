@@ -34,6 +34,7 @@ export default function page() {
               {" "}
               Terms of Payment{" "}
             </p>
+              
             <p className="text-[18px] mt-6">
               {" "}
               The agreed-upon schedule for payments for services must be

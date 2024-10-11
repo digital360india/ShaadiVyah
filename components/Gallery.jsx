@@ -94,7 +94,7 @@ export default function Gallery({ images }) {
         >
           {images.map((photo, index) => (
             <img
-              className="xl:w-[450px] lg:w-[320px] lg:h-[450px] md:w-[350px]   md:h-[300px]  hidden md:block  object-fit rounded-lg"
+              className="xl:w-[450px] lg:w-[320px] lg:h-[450px] md:w-[350px]   md:h-[300px]  hidden md:block  object-cover rounded-lg"
               src={photo}
               alt={index}
               key={index}

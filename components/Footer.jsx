@@ -29,12 +29,12 @@ const Footer = () => {
             height={1000}
             className="w-[205px]"
           />
-          <p className="w-[292px] text-start text-base flex flex-col">
+          <div className="w-[292px] text-start text-base flex flex-col">
             <p className="text-[32px] font-normal items-start">
               {" "}
               WE INVITE YOU
             </p>
-          </p>
+          </div>
           <p className="w-[250px] text-end text-base items-end">
             to tell us your story
           </p>

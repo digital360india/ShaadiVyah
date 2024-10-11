@@ -51,7 +51,7 @@ export default function Page() {
     <div>
       <ToastContainer />
       {/* About ShadiVyah */}
-      <div className="xl:px-[100px] lg:px-[50px] md:px-[50px] px-6 py-[70px] flex flex-col lg:flex-row justify-between">
+      <div className="xl:px-[100px] lg:px-[50px] md:px-[50px] px-6 py-[70px] flex flex-col lg:flex-row justify-between mt-10 md:mt-0">
         <div>
           <p className="lg:text-[56px] text-[43px] font-medium xl:w-[676px] lg:w-[500px] ">
             <span className="gradient-text">About ShaadiVyah</span>{" "}
@@ -81,7 +81,7 @@ export default function Page() {
           src="/images/bgimageourcommitment.png"
           height={1000}
           width={1000}
-          className="w-screen h-[600px] absolute"
+          className="w-screen h-[600px] absolute object-cover"
         />
         <div className="absolute  space-x-8  xl:px-[100px] lg:px-[50px] md:px-[50px] px-6  mt-20 ">
           <p className="xl:text-[56px] text-[32px] font-medium">

@@ -14,6 +14,8 @@ import {
 } from "firebase/firestore";
 import Space100px from "./Space100px";
 import Space25px from "./Space25px";
+import { FiStar } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
 
 export default function Review({ id, title }) {
   const [active, setActive] = useState(true);
@@ -231,8 +233,8 @@ export default function Review({ id, title }) {
             <div className="flex gap-4">
               <div className="flex flex-col items-start gap-4 justify-start">
                 {ratingsDistribution.map((percentage, index) => (
-                  <div className="flex gap-4" key={index}>
-                    <p className="text-[15px]">{index + 1} Star</p>
+                  <div className="flex gap-4 md:gap-2" key={index}>
+                    <p className="text-[15px] flex justify-start items-center gap-1"><div >{index + 1}</div><FaStar className="text-yellow-300"/></p>
                     <div className="w-[200px] h-[20px] rounded-md bg-white border">
                       <div
                         className="rounded-l-md h-[18px] bg-[#C9184A]"
