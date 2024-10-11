@@ -118,8 +118,8 @@ const Registration = () => {
   };
 
   return (
-    <div className=" pb-10">
-      <div className="text-pink text-3xl pb-20 pt-10 text-center">
+    <div className=" pt-20 md:pt-0 pb-10">
+      <div className="text-pink text-3xl pb-2 pt-10 text-center">
         Register as
       </div>
 

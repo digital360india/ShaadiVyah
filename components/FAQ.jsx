@@ -1,4 +1,3 @@
-// components/FAQ.js
 "use client"
 import React, { useState } from 'react';
 
@@ -17,7 +16,7 @@ const FAQ = ({faqData}) => {
   return (
     <div className="py-8 xl:px-[100px] lg:px-[40px] md:px-[50px] px-6">
       <div className='font-bold text-3xl'>FAQs</div>
-      {faqData.map((faq, index) => (
+      {faqData?.map((faq, index) => (
         <div key={index} className="mb-4">
           <div
             className="cursor-pointer flex justify-between items-center  p-4 rounded"
