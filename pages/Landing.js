@@ -155,15 +155,34 @@ export default function Landing() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    //   centerMode: true,
-    // centerPadding: "100px",
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
+        breakpoint: 2860, // For screens larger than 1440px
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 2240, // xl
+        settings: {
+          slidesToShow: 4 ,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1840, // xl
+        settings: {
+          slidesToShow: 3 ,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 1440, // xl
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3 ,
           slidesToScroll: 1,
         },
       },
@@ -300,13 +319,13 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white pt-24 pb-12   relative  px-6 md:px-20 ">
+          <div className="bg-white pt-24 pb-12 relative  px-6 md:px-20 ">
             <img
               src={"/vectors/vector4.png"}
               alt="image"
               height={1000}
               width={1000}
-              className=" w-[300px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
+              className=" w-[275px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
             />
 
             <div className="flex flex-row justify-between items-center">
@@ -480,7 +499,7 @@ export default function Landing() {
               alt="image"
               height={1000}
               width={1000}
-              className=" lg:w-[430px] lg:h-[330px] w-[300px] h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
+              className=" lg:w-[430px] lg:h-[330px] w-[270px] h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
             />
 
             <div className="flex flex-row justify-between items-center">
