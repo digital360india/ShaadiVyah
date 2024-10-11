@@ -66,7 +66,7 @@ export default function Navbar() {
           >
             &times;
           </button>
-          <ul className="text-red-700 text-xl font-medium  text-left hover:underline space-y-6 mt-12">
+          <ul className="text-white text-xl font-medium  text-left hover:underline space-y-6 mt-12">
             <li>
               <Link href={"/"} onClick={toggleMenu}>
                 <span className=" ">Home</span>
@@ -88,7 +88,7 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-          <div className="mt-8 flex flex-col space-y-10 text-[10px]">
+          <div className="mt-8 flex flex-col space-y-10 text-[12px]">
             <Link href={"/login"} onClick={toggleMenu}>
               <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8  rounded-md mb-4">
                 Login as Vendor

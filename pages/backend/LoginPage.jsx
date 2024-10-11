@@ -8,6 +8,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhyJoinShaadiVyah from "@/components/WhyJoinShaadiVyah";
 
 const auth = getAuth(firebaseApp);
 
@@ -133,6 +134,7 @@ const AuthPage = () => {
           </div>
         </div>
       </div>
+      <WhyJoinShaadiVyah/>
       <Footer />
     </>
   );

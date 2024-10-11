@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <div lang="en">
       <div className="lg:flex">
         <div className="w-1/5  ">
           <SideNavBar />
@@ -24,6 +24,6 @@ export default function RootLayout({ children }) {
           </main>
         </div>
       </div>
-    </html>
+    </div>
   );
 }

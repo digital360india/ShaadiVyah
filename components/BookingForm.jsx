@@ -73,7 +73,7 @@ const BookingForm = () => {
           </div>
 
           {isDropdownOpen && (
-            <ul className="absolute w-full border border-blue-900 mt-2 overflow-auto rounded-md shadow-lg z-100 backdrop-blur-md">
+            <ul className="absolute w-full border border-blue-900 mt-2  rounded-md shadow-lg z-100 bg-white max-h-40 overflow-y-scroll backdrop-blur-md">
               {fieldsOptions.map((option) => (
                 <li key={option} className="p-2 flex items-center hover:bg-pink-100 text-xl text-pink">
                   <input
