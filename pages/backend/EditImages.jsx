@@ -147,11 +147,12 @@ const EditImages = () => {
 
   return (
     <>
-      <div className="m-8 ">
+      <div className="m-8">
         <ToastContainer />
-        <div className="flex flex-col gap-4 ">
-          <p className="font-medium">BANNER IMAGE</p>
-          <div className="flex gap-6 pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+        <div className="flex flex-col gap-8">
+          {/* Banner Image Section */}
+          <div className="text-2xl font-medium text-gray-800">Banner Image</div>
+          <div className="flex gap-6 pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-xl shadow-md hover:shadow-xl transition-all">
             <input
               type="file"
               name="bannerImage"
@@ -161,33 +162,35 @@ const EditImages = () => {
             />
             <label
               htmlFor="image-upload"
-              className="px-4 py-2 rounded bg-[#A11C5C] text-white cursor-pointer"
+              className="px-6 py-2 rounded-xl bg-[#A11C5C] text-white cursor-pointer shadow-md hover:bg-[#9a125c] transition-all"
             >
-              {isLoading ? "Loading.." : "Upload"}
+              {isLoading ? "Uploading..." : "Upload"}
             </label>
           </div>
-        </div>
-        {isLoading && (
-          <div className="text-center mt-4">Uploading banner image...</div>
-        )}
-        {bannerImageUrl && (
-          <div className="relative w-[146px] h-[107px] mt-4">
-            <img
-              src={bannerImageUrl}
-              alt="Banner Image"
-              className="w-full h-full object-contain border border-gray-200"
-            />
-            <button
-              className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
-              onClick={handleDeleteBannerImage}
-            >
-              Delete
-            </button>
-          </div>
-        )}
-        <div className="flex flex-col gap-4 mt-4">
-          <p className="font-medium">PORTFOLIO IMAGES</p>
-          <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-lg">
+
+          {/* Banner Image Preview */}
+          {isLoading && (
+            <div className="text-center mt-4 text-gray-500">Uploading banner image...</div>
+          )}
+          {bannerImageUrl && (
+            <div className="relative w-[146px] h-[107px] mt-4 border-2 border-gray-300 rounded-lg overflow-hidden">
+              <img
+                src={bannerImageUrl}
+                alt="Banner"
+                className="w-full h-full object-cover"
+              />
+              <button
+                className="absolute top-0 right-0 bg-red-500 text-white p-2 rounded-full"
+                onClick={handleDeleteBannerImage}
+              >
+                ✕
+              </button>
+            </div>
+          )}
+
+          {/* Portfolio Images Section */}
+          <div className="text-2xl font-medium text-gray-800 mt-8">Portfolio Images</div>
+          <div className="pl-[20px] lg:w-[46vw] md:w-[56vw] w-[80vw] py-[16px] border border-[#E7E7E7] rounded-xl shadow-md hover:shadow-xl transition-all">
             <input
               type="file"
               multiple
@@ -195,36 +198,40 @@ const EditImages = () => {
               onChange={handleFileSelect}
             />
             <button
-              className="px-4 py-2 rounded bg-[#A11C5C] text-white cursor-pointer mt-2"
+              className="px-6 py-2 mt-2 rounded-xl bg-[#A11C5C] text-white cursor-pointer shadow-md hover:bg-[#9a125c] transition-all"
               onClick={handleVenueFilesChange}
             >
               {isLoading2 ? "Uploading..." : "Upload"}
             </button>
           </div>
-        </div>
-        {isLoading2 && (
-          <div className="text-center mt-4">Uploading venue images...</div>
-        )}
-        <div className="flex gap-4 flex-wrap mt-4">
-          {venueLinks &&
-            venueLinks.map((link, index) => (
-              <div key={index} className="relative w-[146px] h-[107px]">
-                <img
-                  src={link}
-                  alt={`Venue Image ${index + 1}`}
-                  className="w-full h-full object-contain border border-gray-200"
-                />
-                <button
-                  className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
-                  onClick={() => handleDeleteVenueImage(index)}
+
+          {/* Portfolio Image Preview */}
+          {isLoading2 && (
+            <div className="text-center mt-4 text-gray-500">Uploading venue images...</div>
+          )}
+          <div className="flex gap-4 flex-wrap mt-4">
+            {venueLinks &&
+              venueLinks.map((link, index) => (
+                <div
+                  key={index}
+                  className="relative w-[146px] h-[107px] mt-4 border-2 border-gray-300 rounded-lg overflow-hidden"
                 >
-                  Delete
-                </button>
-              </div>
-            ))}
+                  <img
+                    src={link}
+                    alt={`Venue Image ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <button
+                    className="absolute top-0 right-0 bg-red-500 text-white p-2 rounded-full"
+                    onClick={() => handleDeleteVenueImage(index)}
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
-      
     </>
   );
 };

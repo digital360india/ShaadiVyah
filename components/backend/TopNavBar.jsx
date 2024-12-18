@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Updated import
+import { useRouter } from "next/navigation";
 import { destroyCookie } from "nookies";
 import { FiUser } from "react-icons/fi";
 import React from "react";
@@ -14,22 +14,16 @@ const TopNavBar = () => {
   };
 
   return (
-    <div className="flex bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white fixed lg:w-4/5 w-full text-2xl text-slate bg-primary h-20">
-      <div className="justify-center items-center flex lg:hidden">
+    <div className="flex bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white fixed top-0 w-full h-16 lg:h-20 z-50 shadow-lg">
+      <div className="flex items-center justify-center lg:hidden px-4">
         <img
-          src="/images/logo1.png"
-          height={1000}
-          width={1000}
-          className="w-32 h-32 object-cover"
+          src="/logo.png"
           alt="Logo"
+          className="h-12 w-12 lg:h-16 lg:w-16 object-cover rounded-full"
         />
       </div>
-      <div className="flex space-x-5 pb-5 px-10 justify-end items-end w-full">
-        <div onClick={handleLogout} className=" p-1 shadow-md hover:bg-pink gap-2 bg-white rounded full  flex cursor-pointer text-base text-[#F7ACCF] z-10 ">
-            <FiUser className="" />
-            <p>Logout</p>
-        </div>
-      </div>
+
+ 
     </div>
   );
 };

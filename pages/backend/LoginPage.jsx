@@ -69,7 +69,7 @@ const AuthPage = () => {
         />
         <div className="absolute bg-opacity-20 rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="font-normal text-center p-8">
-            <p className="text-white text-4xl">Welcome Vendor</p>
+            <p className="text-white text-2xl">Welcome Vendor</p>
             <p className="text-white text-xl">
               Login to Access Admin Dashboard
             </p>

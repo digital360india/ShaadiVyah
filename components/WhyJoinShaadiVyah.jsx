@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhyJoinShaadiVyah = () => {
   return (
-    <div className="min-h-screen   flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 ">
+    <div className="min-h-screen   flex flex-col items-center justify-center pb-6 px-4 sm:px-6 lg:px-8 ">
     <div className="max-w-2xl  w-full space-y-8 p-10 bg-white rounded-xl shadow-md">
       <h2 className="text-center text-3xl font-extrabold text-red-500">
         Why Collaborate with Shaadivyah?

@@ -15,7 +15,10 @@ export default function Navbar() {
       <div className="hidden md:flex justify-around items-center font-lato font-medium text-lg z-50">
         <div>
           <Link href={"/"}>
-            <img src={"/logo.png"} className="lg:w-28 lg:h-28 w-16 h-16 object-fill" />
+            <img
+              src={"/logo.png"}
+              className="lg:w-28 lg:h-28 w-16 h-16 object-fill"
+            />
           </Link>
         </div>
         <div className="flex lg:pl-48 gap-8 lg:text-[20px] md:text-[14px] font-medium">
@@ -24,11 +27,17 @@ export default function Navbar() {
           <Link href={"/contact"}>Contact</Link>
         </div>
         <div className="flex gap-2">
-          <Link href={"/login"}  className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]">
+          <Link
+            href={"/login"}
+            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]"
+          >
             <div>Login as vendor</div>
           </Link>
-          <Link href={"/register"}  className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl">
-            <div >Register as vendor</div>
+          <Link
+            href={"/register"}
+            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl"
+          >
+            <div>Register as vendor</div>
           </Link>
         </div>
       </div>
@@ -36,8 +45,7 @@ export default function Navbar() {
       <div className="flex w-full items-center  bg-white fixed top-0 md:hidden z-10 rounded-lg ">
         <div className="w-[40%] px-6">
           <button onClick={toggleMenu}>
-          <CgMenuLeftAlt className="text-pink text-2xl" />
-
+            <CgMenuLeftAlt className="text-pink text-2xl" />
           </button>
         </div>
         <div className="">
@@ -53,20 +61,23 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed top-0 bg-transparent backdrop-blur-xl  w-1/2 h-full flex flex-col items-start justify-center p-6 z-50 font-lato ">
-          {/* <div className="flex justify-center items-center">
-            {" "}
-            <Link href={"/"}>
-              <img src={"/logo.png"} className="  object-fill " />
-            </Link>{" "}
-          </div> */}
+        <div className="fixed top-0 bg-gradient-to-r from-black to-transparent   backdrop-blur-lg  w-3/4 h-full flex flex-col items-start justify-center p-6 z-50 font-lato text-white ">
           <button
             onClick={toggleMenu}
-            className="absolute top-4 right-4 text-red-700 text-3xl"
+            className="absolute top-4 right-4  text-3xl"z
           >
             &times;
           </button>
-          <ul className="text-red-700 text-xl font-medium  text-left hover:underline space-y-6 mt-12">
+          <div>
+          <Link href={"/"}>
+            <img
+              src={"/logo.png"}
+              className="w-40 h-40 object-fill"
+            />
+          </Link>
+        </div>
+          <ul className=" text-xl font-medium  text-left hover:underline space-y-6 mt-12">
+            
             <li>
               <Link href={"/"} onClick={toggleMenu}>
                 <span className=" ">Home</span>
@@ -94,7 +105,7 @@ export default function Navbar() {
                 Login as Vendor
               </span>
             </Link>
-            <Link href={"/register"}onClick={toggleMenu} >
+            <Link href={"/register"} onClick={toggleMenu}>
               <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center   rounded-md">
                 Register as Vendor
               </span>

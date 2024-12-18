@@ -31,7 +31,7 @@ export default function Hero() {
           <p className="font-semibold font-fira-sans  text-center mb-4 text-[30px] md:text-4xl">
             Shaadi Ka Har Pal Khaas, Shaadivyah ke saath
           </p>
-          <p className="font-dancing-script  text-center mb-10 text-md md:text-xl   ">
+          <p className="font-dancing-script  text-center mb-10 text-lg md:text-xl font-bold ">
             Engage with expert vendors and artists for a perfect celebration.
           </p>
           <BookingForm />

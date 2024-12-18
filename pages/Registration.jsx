@@ -174,118 +174,119 @@ const Registration = () => {
         </div>
       </div>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="bg-white p-8 rounded-lg">
-            <h2 className="text-2xl mb-4">
-              Registering as {formData.vendorType}
-            </h2>
-            <form onSubmit={handleSubmit}>
-              <div className="flex gap-4 mb-4">
-                <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="flex gap-4 mb-4">
-                <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-800 text-sm font-medium mb-2">
-                    Location
-                  </label>
-                  <div className="relative">
-                    <select
-                      name="city"
-                      value={formData.city}
-                      onChange={handleChange}
-                      className="block appearance-none w-full bg-white  border border-gray-300 hover:border-gray-400 px-4 py-3 pr-8 rounded-lg shadow-sm leading-tight focus:outline-none focus:shadow-outline transition duration-200 ease-in-out"
-                      required
-                    >
-                      <option value="" disabled>
-                        Select Location
-                      </option>
-                      <option value="Dehradun" className="text-pink  bg-white">
-                        Dehradun
-                      </option>
-                      <option className="text-pink  bg-white" value="Mussoorie">
-                      Mussoorie
-                      </option>
-                      <option className="text-pink  bg-white" value="Haridwar">
-                      Haridwar
-                      </option>
-                      <option className="text-pink  bg-white" value="Rishikesh">
-                      Rishikesh
-                      </option>
-                      <option className="text-pink  bg-white" value="Ramnagar">
-                      Ramnagar                      </option>
-                      <option className="text-pink  bg-white" value="x">
-                      Nainital
-                      </option>
-      
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 12l-5-5h10l-5 5z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="bg-pink-500 hover:bg-pink-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
+  <div className="bg-white w-full max-w-lg mx-4 p-6 rounded-lg shadow-lg">
+    {/* Modal Title */}
+    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      Registering as <span className="text-blue-600">{formData.vendorType}</span>
+    </h2>
+
+    {/* Form */}
+    <form onSubmit={handleSubmit}>
+      {/* Name & Email */}
+      <div className="flex flex-col md:flex-row md:gap-4 mb-4">
+        <div className="w-full">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div className="w-full mt-4 md:mt-0">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+      </div>
+
+      {/* Phone & Location */}
+      <div className="flex flex-col md:flex-row md:gap-4 mb-4">
+        <div className="w-full">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Your Phone Number"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div className="w-full mt-4 md:mt-0">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Location
+          </label>
+          <div className="relative">
+            <select
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="" disabled>
+                Select Location
+              </option>
+              <option value="Dehradun">Dehradun</option>
+              <option value="Mussoorie">Mussoorie</option>
+              <option value="Haridwar">Haridwar</option>
+              <option value="Rishikesh">Rishikesh</option>
+              <option value="Ramnagar">Ramnagar</option>
+              <option value="Nainital">Nainital</option>
+            </select>
+            <div className="absolute inset-y-0 right-2 flex items-center text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M10 12l-5-5h10l-5 5z" />
+              </svg>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex items-center justify-between mt-6">
+        <button
+          type="button"
+          onClick={handleClose}
+          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
       )}
       {isSubmitted && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

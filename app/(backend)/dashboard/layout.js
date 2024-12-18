@@ -18,10 +18,8 @@ export default function Layout({ children }) {
           <div className="h-16 ">
             <TopNavBar />
           </div>
-         
-          <main className="min-h-screen ">
-      {children}
-          </main>
+
+          <main className="min-h-screen ">{children}</main>
         </div>
       </div>
     </div>

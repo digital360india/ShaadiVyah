@@ -1,12 +1,13 @@
-import WhyJoinShaadiVyah from '@/components/WhyJoinShaadiVyah'
-import AuthPage from '@/pages/backend/LoginPage'
-import React from 'react'
+import WhyJoinShaadiVyah from "@/components/WhyJoinShaadiVyah";
+import AuthPage from "@/pages/backend/LoginPage";
+import React from "react";
 
 const page = () => {
   return (
-    <div><AuthPage/>     
-</div>
-  )
-}
+    <div>
+      <AuthPage />
+    </div>
+  );
+};
 
-export default page
+export default page;
