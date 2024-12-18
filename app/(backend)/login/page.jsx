@@ -1,4 +1,3 @@
-import WhyJoinShaadiVyah from "@/components/WhyJoinShaadiVyah";
 import AuthPage from "@/pages/backend/LoginPage";
 import React from "react";
 

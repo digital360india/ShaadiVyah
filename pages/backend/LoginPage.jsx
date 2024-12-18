@@ -67,7 +67,7 @@ const AuthPage = () => {
           height={1200}
           className="rounded-3xl h-[500px] w-[400px] md:w-[1500px] shadow-2xl shadow-gray-600 object-cover object-left md:object-center md:object-cover mt-20 md:mt-0"
         />
-        <div className="absolute bg-opacity-20 rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute bg-opacity-20 rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
           <div className="font-normal text-center p-8">
             <p className="text-white text-2xl">Welcome Vendor</p>
             <p className="text-white text-xl">
