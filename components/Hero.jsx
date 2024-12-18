@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BookingForm from "./BookingForm";
@@ -22,16 +21,20 @@ export default function Hero() {
   };
 
   return (
-    <>
-      <div className="flex items-center bg-[url('/images/hero.png')] justify-center bg-no-repeat bg-cover bg-fixed object-left text-white  ">
+    <div className="relative bg-gradient-to-b from-transparent to-black ">
+      <img
+        className="absolute -z-10 w-full h-[120vh] object-cover object-left bg-no-repeat"
+        src="/images/hero.png"
+      />
+      <div className="flex items-center  justify-center bg-no-repeat bg-cover bg-fixed object-left text-white  ">
         <div className="md:w-[800px] mt-[160px] ">
-          <p className="font-semibold font-fira-sans  text-center mb-4 text-3xl md:text-4xl">
-          Shaadi Ka Har Pal Khaas, Shaadivyah ke saath          </p>
-          <p className="font-dancing-script  text-center mb-10 text-md md:text-xl  ">
-          Engage with expert vendors and artists for a perfect celebration.
+          <p className="font-semibold font-fira-sans  text-center mb-4 text-[30px] md:text-4xl">
+            Shaadi Ka Har Pal Khaas, Shaadivyah ke saath
+          </p>
+          <p className="font-dancing-script  text-center mb-10 text-md md:text-xl   ">
+            Engage with expert vendors and artists for a perfect celebration.
           </p>
           <BookingForm />
-
 
           <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-[#FEC5BB] rounded-[40px] py-4 mb-10 mx-4 flex flex-col md:flex-row items-center justify-evenly bg-[#FFB5A71A] text-grey-600">
             <div className="flex gap-2 items-center w-[300px] text-xl md:w-[40%]">
@@ -132,6 +135,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

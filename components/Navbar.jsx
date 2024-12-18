@@ -66,7 +66,7 @@ export default function Navbar() {
           >
             &times;
           </button>
-          <ul className="text-white text-xl font-medium  text-left hover:underline space-y-6 mt-12">
+          <ul className="text-red-700 text-xl font-medium  text-left hover:underline space-y-6 mt-12">
             <li>
               <Link href={"/"} onClick={toggleMenu}>
                 <span className=" ">Home</span>
