@@ -184,8 +184,8 @@ export default function Review({ id, title }) {
   return (
     <div className="  my-12  space-y-4 xl:mx-[100px] lg:mx-[80px] md:mx-[40px] mx-6">
       <div className="  flex flex-col gap-4  py-4   ">
-        <p className="text-[42px] font-semibold ">
-          Review For {title}{" "}
+        <p className="text-[30px] font-semibold text-[#4A4A4A]">
+          Reviews For <span className="text-[#A11C5C]">{title}</span>
         </p>
         <div className="flex flex-col lg:flex-row    justify-between ">
           <div className=" py-4 px-10  ">
@@ -248,23 +248,29 @@ export default function Review({ id, title }) {
             </div>
           </div>
           <div className=" flex flex-col gap-4  mt-5 lg:mt-0 md:w-[500px] ">
-            <div className="p-10 bg-[#C9184A] rounded-xl text-white flex flex-col gap-4">
-              <p className="text-lg">Write a review for {title}</p>
+            <div className="p-10  rounded-xl text-[#4A4A4A] flex flex-col gap-4">
+              <p className="text-lg">Review for {title}</p>
               <p className="text-[12px]">
                 Share your thoughts with other customers
               </p>
               <textarea
-                className="w-full p-2 rounded-lg text-red-500"
+                className="w-full p-12 rounded-lg text-[#4A4A4A]"
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
               ></textarea>
               <div className="flex gap-4 mt-2">{renderStars()}</div>
               <div className="flex gap-4">
                 <button
-                  className="lg:min-w-[150px] w-[100px] bg-white rounded-md text-[#C9184A] p-2"
+                  className="lg:min-w-[150px] w-[100px] border border-[#A11C5C] rounded-3xl text-[#A11C5C] p-2"
                   onClick={handleSubmitReview}
                 >
-                  Submit Review {user ? <p>{user.displayName}</p> : <></>}
+                  Add Photos {user ? <p>{user.displayName}</p> : <></>}
+                </button>
+                <button
+                  className="lg:min-w-[150px] w-[100px] bg-[#A11C5C] rounded-3xl text-white p-2"
+                  onClick={handleSubmitReview}
+                >
+                  Submit {user ? <p>{user.displayName}</p> : <></>}
                 </button>
               </div>
             </div>

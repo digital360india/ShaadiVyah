@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "@/styles/gallery.css";
+import Image from "next/image";
 
 export default function Gallery({ images }) {
   if (!Array.isArray(images)) {
@@ -93,12 +94,24 @@ export default function Gallery({ images }) {
           customButtonGroup={<CustomButtonGroup />}
         >
           {images.map((photo, index) => (
-            <img
-              className="xl:w-[450px] lg:w-[320px] lg:h-[450px] md:w-[350px]   md:h-[300px]  hidden md:block  object-cover rounded-lg"
-              src={photo}
-              alt={index}
+            <div
               key={index}
-            />
+              className="relative xl:w-[450px] lg:w-[320px] lg:h-[450px] md:w-[350px] md:h-[300px] flex justify-center items-center"
+            >
+              <Image
+                src="/icons/imgframe.svg"
+                alt="frame"
+                width={450}
+                height={450}
+                className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+              />
+
+              <img
+                className="relative z-10 w-[67.5%] h-[67.5%] object-cover "
+                src={photo}
+                alt={`Photo ${index}`}
+              />
+            </div>
           ))}
         </Carousel>
       </div>
@@ -121,12 +134,12 @@ export default function Gallery({ images }) {
 }
 function CustomButtonGroup({ next, previous }) {
   return (
-    <div className="custom-button-group">
+    <div className="custom-button-group space-x-10 ">
       <button onClick={previous} className="button-previous">
-        <img src="/icons/previous.png" alt="Previous" className="arrow-icon" />
+        <img src="/icons/lefticon.svg" alt="Previous" className="arrow-icon" />
       </button>
       <button onClick={next} className="button-next">
-        <img src="/icons/next.png" alt="Next" className="arrow-icon" />
+        <img src="/icons/righticon.svg" alt="Next" className="arrow-icon" />
       </button>
     </div>
   );

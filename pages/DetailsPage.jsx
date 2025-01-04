@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import Space25px from "@/components/Space25px";
 import Review from "@/components/Review";
 import vendorsFAQs from "@/utils/faq.js";
+import Image from "next/image";
 
 const DetailPage = () => {
   const currentPage = usePathname();
@@ -192,21 +193,31 @@ const DetailPage = () => {
 
   return (
     <>
-      <div className="overflow-x-hidden">
-        <div className="relative flex justify-center items-center mb-40">
+      <div className="bg-[#F7F6F5] overflow-x-hidden">
+        <div className=" flex justify-center items-center ">
           <img
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
-            className="w-full rounded-b-[40px] h-[550px] bg-gray-300 object-cover "
+            className="w-full  h-[550px] bg-gray-300 object-cover "
           />
-
-          <div className="absolute lg:-bottom-32 md:-bottom-24 -bottom-16  border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px]  w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
+        </div>
+        <div className=" ">
+          {/* <div className="">
+            <Image
+              src="/icons/bg.svg"
+              alt="hero image"
+              width={1000}
+              height={1000}
+              className="w-full h-full"
+            />
+          </div> */}
+          <div className="bg-[url('/icons/Frame.jpeg')] bg-cover bg-center object-cover w-full h-[500px]">
             <div className="flex flex-col justify-between">
               {" "}
-              <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
+              <div className="flex flex-row justify-between mt-32 lg:mx-[15%] md:mx-10 mx-4 my-5">
                 <div className="flex flex-col justify-start items-start">
-                  <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
+                  <div className="lg:text-2xl text-[18px] font-semibold text-[#A11C5C]">
                     {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
@@ -224,7 +235,7 @@ const DetailPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-1 text-[14px] md:text-[16px]">
+                    <div className="flex gap-1 text-[14px] md:text-[16px] text-[#4A4A4A]">
                       <p>{data?.city}</p>
                     </div>
                     {data?.googleLocation && (
@@ -238,7 +249,7 @@ const DetailPage = () => {
                       </Link>
                     )}
                   </div>
-                  <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block">
+                  <div className="text-[#727272] text-[1rem] mt-[4px] hidden  sm:block">
                     {data?.about}
                   </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
@@ -270,7 +281,16 @@ const DetailPage = () => {
                   </div>
                 </div>
               </div>
-              <div className=" py-3 lg:flex  bg-[#FBFBFB] hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
+              <div
+                className=" h-3 mt-5 mx-20"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className=" py-4  lg:flex   hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
                 <div className="flex gap-12">
                   {" "}
                   <a href="#photos">
@@ -295,7 +315,7 @@ const DetailPage = () => {
                       width={1000}
                       className="h-4 w-4 text-black-600 "
                     />
-                    <p>Shortlist</p>
+                    <p>My Picks</p>
                   </div>
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
@@ -331,12 +351,15 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="lg:flex space-y-4 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
+        <div className="lg:flex space-y-4 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6 mt-12">
           <div className="lg:w-[46%] flex flex-col gap-5 ">
-            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
+            <div className="bg-[url('/icons/mandal.svg')] bg-cover bg-center object-cover w-[388px] h-[388px] absolute -left-48">
+              {" "}
+            </div>
+            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#A11C5C] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
-                <div className="rounded-full flex justify-center items-center gap-2  px-4 py-2 bg-[#FF8FA3]">
+                <div className="rounded-full flex justify-center items-center gap-2  px-4 py-2 bg-[#A11C5C]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -353,14 +376,89 @@ const DetailPage = () => {
                 </div>
               </div>
             </div>
-
-            <div className="text-[#0A2D23] ">{data?.about}</div>
-            <div className="bg-[#FFB5A71A] py-3 xl:w-[520px] rounded-xl shadow-lg ">
-              <p className="border-b-2 border-gray-300  px-4 py-3  text-[22px] text=[#1B1B1B]">
+            <div className="text-[#626262] ">{data?.about}</div>
+            <div className=" xl:w-[520px]   ">
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C]">
+                Package Starting from...
+              </p>
+              <div
+                className="w-full h-3"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className="flex flex-wrap   ">
+                <div className=" flex flex-warp mt-2  gap-6 px-5">
+                  <div className="  gap-4  ">
+                    {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
+                      data.spaces.map((space, index) => {
+                        const spaceType = spaceTypes.find(
+                          (type) => type.id === space.spaceType
+                        );
+                        return (
+                          <div key={index} className="flex gap-4 py-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="40"
+                              height="40"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                fill="#C9184A"
+                                fill-rule="evenodd"
+                                d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <div>
+                              <div className="flex gap-2 text-[#A11C5C] ">
+                                <p className=" text-md">
+                                  {spaceType ? spaceType.name : "Unknown"}
+                                </p>
+                              </div>
+                              <div className="flex gap-2 text-[#BE7318]">
+                                <p className="text-[22px]">
+                                  {space.floating} Floating
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div>
+                        <div className="flex gap-2">
+                          <p>{data?.spaces?.sitting || "N/A"} Seating</p>
+                          <p>|</p>
+                          <p> {data?.spaces?.floating || "N/A"} Floating</p>
+                        </div>
+                        <p className="text-[#C9184A] text-[14px]">
+                          {data?.spaces?.spaceName}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="  xl:w-[520px]   ">
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C]">
                 Areas Available
               </p>
+              <div
+                className="w-full h-3"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
               <div className="flex flex-wrap   ">
-                <div className=" flex flex-warp  mt-5 gap-6 px-5">
+                <div className=" flex flex-warp  mt-4 gap-6 px-5">
                   <div className=" flex flex-wrap justify-between gap-4  ">
                     {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
                       data.spaces.map((space, index) => {
@@ -384,16 +482,14 @@ const DetailPage = () => {
                             </svg>
                             <div>
                               {" "}
-                              <div className="flex gap-2 ">
-                                <p className="text-pink text-md">
+                              <div className="flex gap-2 text-[#A11C5C] ">
+                                <p className=" text-md">
                                   {spaceType ? spaceType.name : "Unknown"}
                                 </p>{" "}
-                                <p className="text-pink">|</p>
-                                <p className="text-md text-pink">
-                                  {space.spaceName}
-                                </p>
+                                <p className="">|</p>
+                                <p className="text-md">{space.spaceName}</p>
                               </div>
-                              <div className="flex gap-2 ">
+                              <div className="flex gap-2 text-[#000000]">
                                 <p className="text-sm">
                                   {space.floating} Floating
                                 </p>
@@ -424,36 +520,65 @@ const DetailPage = () => {
               </div>
             </div>
           </div>
-          <div className="xl:px-20 md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
+
+          <div className="bg-[url('/icons/formbg.svg')] bg-cover bg-center relative md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md border-[#CA8B00] border-2 gap-3">
+            <div className="absolute top-[-50px] left-1/2 transform -translate-x-1/2  ">
+              <Image
+                src="/logo.png"
+                width={1000}
+                height={1000}
+                alt="logo"
+                className="w-[100px] h-[100px]"
+              />
+            </div>
             <p className="">{data?.bussinessName}</p>
-            <form className="max-w-sm ">
+            <p className="text-[20px] text-[#1B1B1B] text-center w-[300px]">
+              Your <span className="text-[#CE0D5E]">Precious Day</span> must be
+              Perfect
+            </p>
+            <p className="text-[12px] text-[#1E1E1E] text-center w-[300px]">
+              We are here for your help. Please submit the form below...
+            </p>
+            <form className="max-w-md ">
+              <label className="text-[#1B1B1B] text-[14px]">Name</label>
               <input
                 type="text"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Full Name*"
+                placeholder="Enter your Name*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">Number</label>
+
               <input
                 type="tel"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Phone Number*"
+                placeholder="Enter your Number*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">Email</label>
+
               <input
                 type="email"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Email*"
+                placeholder="Enter your email*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">
+                Function Name
+              </label>
+
               <input
                 type="text"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Function Name*"
+                placeholder="Enter Function Name*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">
+                Function Date
+              </label>
               <textarea
                 className="w-full h-32 px-4 py-2 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Function Details (at most 100 words)*"
+                placeholder="Enter Function Details (at most 100 words)*"
                 required
               ></textarea>
               <div className="flex justify-between items-center">
@@ -474,9 +599,13 @@ const DetailPage = () => {
               </div>
               <button
                 type="submit"
-                className="w-full h-12 mt-4 text-white bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-md"
+                className="w-full h-12 mt-4 text-white rounded-md"
+                style={{
+                  background:
+                    "radial-gradient(50.16% 263.7% at 49.84% 51.98%, #DD0D63 0%, #800F45 100%)",
+                }}
               >
-                Check Availability and Prices
+                Submit
               </button>
             </form>
           </div>
@@ -490,9 +619,9 @@ const DetailPage = () => {
           <a href="#faq">FAQ&apos;s</a>
         </div>
         {/* Portfolio*/}
-        <div className=" lg:pl-[100px] md:mx-[60px] mx-6 ">
+        <div className=" lg:pl-[60px] md:mx-[60px] mx-6 ">
           <p
-            className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0"
+            className="text-[#A11C5C] font-semibold text-[3rem] mt-10 md:mt-0"
             id="photos"
           >
             Portfolio
@@ -503,14 +632,16 @@ const DetailPage = () => {
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-6 xl:mx-[100px] lg:mx-[80px] md:mx-10 rounded-2xl text-[#0A2D23]">
-          <div className="flex flex-col text-[32px] ">
-            <div id="services">
-              <p className="text-[42px] font-medium py-5">Services</p>
+        <div className=" md:mx-[100px]  rounded-2xl text-[#0A2D23] mb-10  ">
+          <div className="flex flex-col text-[32px] bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover border border-[#CA8B00] rounded-2xl">
+            <div id="services ">
+              <p className="text-[42px] font-medium  bg-gradient-to-r from-[#B97C00] to-[#EED68A] md:px-12 mt-10 text-white">
+                Services
+              </p>
             </div>
-            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between ">
+            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between p-10 ">
               <div className="space-y-4  w-[250px]  ">
-                <p className="md:text-[22px] text-[18px] font-medium">
+                <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Amenities
                 </p>
                 <div className="text-[14px] font-semibold ">
@@ -523,19 +654,19 @@ const DetailPage = () => {
                           (a) => a.amenityUID === amenityId
                         );
                         return amenity ? (
-                          <li key={amenityId} className="text-gray-700">
+                          <li key={amenityId} className="text-[#000000] text-[14px]">
                             {amenity.amenityName}
                           </li>
                         ) : null;
                       })
                     ) : (
-                      <li className="text-gray-700">No amenities available</li>
+                      <li className="text-[#000000] text-[14px]">No amenities available</li>
                     )}
                   </ul>
                 </div>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">
+              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Accessibility
                 </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
@@ -548,22 +679,21 @@ const DetailPage = () => {
                           (a) => a.id === accessibilityOptionsUID
                         );
                         return accessibility ? (
-                          <li key={accessibility.id} className="text-gray-700">
+                          <li key={accessibility.id} className="text-[#000000]">
                             {accessibility.name}
                           </li>
                         ) : null;
                       }
                     )
                   ) : (
-                    <li className="text-gray-700">
+                    <li className="text-[#000000]">
                       No accessibility options available
                     </li>
                   )}
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">
-                  {" "}
+              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Security and Safety
                 </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
@@ -575,21 +705,20 @@ const DetailPage = () => {
                         (a) => a.id === id
                       );
                       return safety ? (
-                        <li key={safety.id} className="text-gray-700">
+                        <li key={safety.id} className="text-[#000000]">
                           {safety.name}
                         </li>
                       ) : null;
                     })
                   ) : (
-                    <li className="text-gray-700">
+                    <li className="text-[#000000]">
                       No safety and security options available
                     </li>
                   )}
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">
-                  {" "}
+              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Security and Safety
                 </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
@@ -599,19 +728,18 @@ const DetailPage = () => {
                     data.facilitiesUID.map((id) => {
                       const facility = facilities.find((a) => a.id === id);
                       return facility ? (
-                        <li key={facility.id} className="text-gray-700">
+                        <li key={facility.id} className="text-[#000000]">
                           {facility.name}
                         </li>
                       ) : null;
                     })
                   ) : (
-                    <li className="text-gray-700">No facilities available</li>
+                    <li className="text-[#000000]">No facilities available</li>
                   )}
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">
-                  {" "}
+              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Additional Services
                 </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
@@ -623,13 +751,13 @@ const DetailPage = () => {
                         (a) => a.id === id
                       );
                       return service ? (
-                        <li key={service.id} className="text-gray-700">
+                        <li key={service.id} className="text-[#000000]">
                           {service.name}
                         </li>
                       ) : null;
                     })
                   ) : (
-                    <li className="text-gray-700">
+                    <li className="text-[#000000]">
                       No additional services available
                     </li>
                   )}
@@ -640,12 +768,13 @@ const DetailPage = () => {
         </div>
 
         <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-6 ">
-          <div className="lg:w-[600px]  flex flex-col gap-6 bg-[#B4D4DF40] md:p-10 p-4 rounded-2xl ">
-            <div className="text-xl font-bold capitalize">
+          <div className="w-full bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover  flex flex-col gap-6  md:p-0 md:py-12 p-4 rounded-2xl border border-[#CA8B00]">
+            <div className="text-xl lg:text-[42px] text-white font-bold capitalize bg-gradient-to-r from-[#B97C00] to-[#EED68A] md:px-12">
               A hotel perfectly located at your destination
             </div>
-            <div className="flex justify-between items-center">
-              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2">
+
+            <div className="flex justify-between items-center ">
+              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 md:px-14">
                 {data && data.attractions && Array.isArray(data.attractions) ? (
                   data.attractions.map((place) => {
                     const attractions = attraction.find(
@@ -655,7 +784,7 @@ const DetailPage = () => {
                     return attractions ? (
                       <>
                         {" "}
-                        <div className="flex justify-between  items-center lg:w-[500px] md:w-[450px] sm:w-[400px] w-[350px] ">
+                        <div className="flex justify-between  items-center lg:w-[72vw] md:w-[450px] sm:w-[400px] w-[350px] ">
                           {" "}
                           <div
                             key={attractions.id}
@@ -668,8 +797,9 @@ const DetailPage = () => {
                             <div className="md:flex">
                               {" "}
                               <div className="text-gray-500">{place.name}</div>
-
-                              <div className="text-gray-900">({attractions.name})</div>
+                              <div className="text-gray-900">
+                                ({attractions.name})
+                              </div>
                             </div>
                           </div>
                           <div className="text-gray-700 flex ">
