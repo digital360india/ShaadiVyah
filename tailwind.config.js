@@ -25,6 +25,8 @@ module.exports = {
         "fira-sans": ["Fira Sans"],
         "lato": ["Lato" ],
         "dancing-script": ["Dancing Script"],
+        "Merriweather": ["Merriweather"],
+        "Tangerine" : ["Tangerine"],
       },
       fontSize: {
         xs: "8px",

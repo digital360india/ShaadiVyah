@@ -22,10 +22,12 @@ export default function Hero() {
 
   return (
     <div className="relative bg-gradient-to-b from-transparent to-black ">
+     
       <img
-        className="absolute -z-10 w-full h-[120vh] object-cover object-left bg-no-repeat"
-        src="/images/hero.png"
+        className="absolute -z-10 w-full h-full object-cover object-left bg-no-repeat"
+        src="/images/hero1.svg"
       />
+     
       <div className="flex items-center  justify-center bg-no-repeat bg-cover bg-fixed object-left text-white  ">
         <div className="md:w-[800px] mt-[160px] ">
           <p className="font-semibold font-fira-sans  text-center mb-4 text-[30px] md:text-4xl">

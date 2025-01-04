@@ -40,23 +40,23 @@ export default function Landing() {
       answer:
         "Start by contacting us through our website or by phone. We will discuss your vision and preferences, create a personalized plan, and take care of all the details to make your dream wedding a reality.",
     },
-    
+
     {
-    question: "What makes Shaadivyah different from other wedding planners?",
+      question: "What makes Shaadivyah different from other wedding planners?",
       answer:
         "Shaadivyah is unique because we offer a seamless, stress-free experience, personalized planning, and access to top-rated vendors and artists. Our commitment to quality and attention to detail ensures that every wedding we plan is truly special.",
     },
     {
       question: "Can I customize my wedding package with Shaadivyah? ",
-        answer:
-          "Absolutely! We believe every wedding is unique, and we offer customizable packages to suit your specific needs and preferences. Discuss your vision with us, and we'll tailor our services accordingly.",
-      },
+      answer:
+        "Absolutely! We believe every wedding is unique, and we offer customizable packages to suit your specific needs and preferences. Discuss your vision with us, and we'll tailor our services accordingly.",
+    },
   ];
 
   // Custom Next Arrow Component
   const NextArrow = ({ className, style, onClick }) => (
     <div
-      className={`${className} custom-arrow custom-next-arrow`}
+      className={`${className} custom-arrow custom-next-arrow `}
       onClick={onClick}
     />
   );
@@ -168,21 +168,21 @@ export default function Landing() {
       {
         breakpoint: 2240, // xl
         settings: {
-          slidesToShow: 4 ,
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1840, // xl
         settings: {
-          slidesToShow: 3 ,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1440, // xl
         settings: {
-          slidesToShow: 3 ,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -239,9 +239,9 @@ export default function Landing() {
             <div className="">
               <div className="flex flex-row justify-between items-center">
                 {" "}
-                <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans pl-4 ">
+                <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather pl-4 ">
                   Popular{" "}
-                  <span className="font-dancing-script">Destinations</span>
+                  <span className="font-Tangerine">Destinations</span>
                 </p>
                 <Link
                   href={"/venues"}
@@ -260,11 +260,19 @@ export default function Landing() {
                         key={arr.uid}
                         className=" py-4 md:px-1 "
                       >
-                        <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px]  ">
+                        <div
+                          className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                          style={{
+                            borderWidth: "3px",
+                            borderStyle: "solid",
+                            borderImage:
+                              "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+                          }}
+                        >
                           <img
                             src={arr.bannerImageUrl || "/images/logo1.png"}
                             alt={arr.businessName}
-                            className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+                            className="w-full h-60 object-cover rounded-t-[4px]"
                           />
                           <div className=" px-6 py-4  ">
                             {" "}
@@ -319,7 +327,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="sticky top-0">
-          <div className="bg-white pt-24 pb-12 relative  px-6 md:px-20 ">
+          <div className="bg-white pt-24 pb-12   px-6 md:px-20 ">
             <img
               src={"/vectors/vector4.png"}
               alt="image"
@@ -329,9 +337,9 @@ export default function Landing() {
             />
 
             <div className="flex flex-row justify-between items-center">
-              <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
                 Popular{" "}
-                <span className="font-dancing-script">Mehndi Artists</span>
+                <span className="font-Tangerine">Mehndi Artists</span>
               </p>
               <Link
                 href={"/mehandivendors"}
@@ -340,7 +348,8 @@ export default function Landing() {
                 more.
               </Link>
             </div>
-            {mendhiArtists.length > 0 ? (
+            <div className="">
+              {mendhiArtists.length > 0 ? (
               <Slider {...sliderSettings}>
                 {mendhiArtists.map((arr, index) => (
                   <Link
@@ -348,11 +357,19 @@ export default function Landing() {
                     key={arr.uid}
                     className=" py-4  md:px-1 "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div
+                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                      style={{
+                        borderWidth: "3px",
+                        borderStyle: "solid",
+                        borderImage:
+                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+                      }}
+                    >
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
-                        className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+                        className="w-full h-60 object-cover  rounded-t-[4px]"
                       />
                       <div className=" px-6 py-4 ">
                         {" "}
@@ -403,6 +420,7 @@ export default function Landing() {
               <p>No Mehndi Artists available</p>
             )}
           </div>
+          </div>
         </div>
         <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12   relative  px-6 md:px-20 ">
@@ -416,9 +434,9 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
                 Popular{" "}
-                <span className="font-dancing-script">Makeup Artists</span>
+                <span className="font-Tangerine">Makeup Artists</span>
               </p>
               <Link
                 href={"/makeupvendors"}
@@ -435,11 +453,19 @@ export default function Landing() {
                     key={arr.uid}
                     className=" py-4  md:px-1 "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div
+                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                      style={{
+                        borderWidth: "3px",
+                        borderStyle: "solid",
+                        borderImage:
+                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+                      }}
+                    >
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
-                        className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+                        className="w-full h-60 object-cover  rounded-t-[4px]"
                       />
                       <div className=" px-6 py-4 ">
                         {" "}
@@ -523,11 +549,19 @@ export default function Landing() {
                     key={arr.uid}
                     className=" py-4  md:px-1 "
                   >
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                    <div
+                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                      style={{
+                        borderWidth: "3px",
+                        borderStyle: "solid",
+                        borderImage:
+                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+                      }}
+                    >
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
-                        className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
+                        className="w-full h-60 object-cover  rounded-t-[4px]"
                       />
                       <div className=" px-6 py-4 ">
                         {" "}
