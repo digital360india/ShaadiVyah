@@ -7,7 +7,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="hidden lg:flex  justify-around h-[478px]  text-white bg-gradient-to-t drop-shadow-md from-[#C9184A] to-[#FFB5A7]">
+      <div className="hidden lg:flex bg-[url('/icons/footer.jpeg')] bg-cover bg-center object-cover  justify-around w-full h-[470px]  text-white ">
+        
         <Space50px />
 
         <div className="flex flex-col pt-32 gap-5">

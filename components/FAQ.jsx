@@ -1,8 +1,8 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
 
-const FAQ = ({faqData}) => {
-
+const FAQ = ({ faqData }) => {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 
   const toggleQuestion = (index) => {
@@ -15,34 +15,35 @@ const FAQ = ({faqData}) => {
 
   return (
     <div className="py-8 xl:px-[100px] lg:px-[40px] md:px-[50px] px-6">
-      <div className='font-bold text-3xl'>FAQs</div>
+      <div className="font-bold text-3xl">FAQs</div>
       {faqData?.map((faq, index) => (
         <div key={index} className="mb-4">
           <div
-            className="cursor-pointer flex justify-between items-center  p-4 rounded"
+            className={`cursor-pointer flex justify-between items-center  p-4 rounded
+            ${
+              selectedQuestion === index ? "border rounded-lg border-[#A11C5C] bg-[#F8EDEB] " : ""
+            }
+            `}
             onClick={() => toggleQuestion(index)}
           >
+            <div>
             <h3 className="text-lg font-semibold">{faq.question}</h3>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`h-6 w-6 transition-transform ${
-                selectedQuestion === index ? 'transform rotate-180' : ''
-              }`} 
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+              {selectedQuestion === index && (
+                <p className="mt-2  rounded">{faq.answer}</p>
+              )}
+            </div>
+            <Image
+              width={1000}
+              height={1000}
+              alt="faq-icon"
+              src={`${
+                selectedQuestion === index
+                  ? "/icons/faqminus.svg"
+                  : "/icons/faqplus.svg"
+              }`}
+              className={`h-6 w-6 transition-transform `}
+            />
           </div>
-          {selectedQuestion === index && (
-            <p className="mt-2 p-4 rounded">{faq.answer}</p>
-          )}
         </div>
       ))}
     </div>
