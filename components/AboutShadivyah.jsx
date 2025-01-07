@@ -11,6 +11,16 @@ export default function AboutShadivyah() {
             We Are The Best Event Planner & Organizer In Town
           </h1>
           <div>
+
+          <div className="py-10">
+          <img
+            src={"/images/venus_page.png"}
+            alt={"image"}
+            height={1000}
+            width={1000}
+            className=" lg:w-[503px] md:w-full lg:h-[523px] md:h-[400px] h-[200px] object-cover"
+          />
+        </div>
             <div className="space-y-8 ">
               <p className="md:text-[24px] text-[14px] md:text-start text-[#02394A] font-fira-sans lg:w-[507px] text-center">
                 Get the Best in the Business{" "}
@@ -130,15 +140,7 @@ export default function AboutShadivyah() {
             </div>
           </div>
         </div>
-        <div className="py-10">
-          <img
-            src={"/images/venus_page.png"}
-            alt={"image"}
-            height={1000}
-            width={1000}
-            className=" lg:w-[503px] md:w-full lg:h-[523px] md:h-[400px] h-[200px] object-cover"
-          />
-        </div>
+       
       </div>
     </div>
   );

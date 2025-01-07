@@ -239,9 +239,16 @@ export default function Landing() {
             <div className="">
               <div className="flex flex-row justify-between items-center">
                 {" "}
-                <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather pl-4 ">
+                <p className="md:text-3xl text-[32px]  text-pink  pl-4 ">
                   Popular{" "}
-                  <span className="font-Tangerine">Destinations</span>
+                  <span
+                    className="customText"
+                   
+                   
+                  >
+        
+                    Destinations
+                  </span>
                 </p>
                 <Link
                   href={"/venues"}
@@ -338,8 +345,7 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular{" "}
-                <span className="font-Tangerine">Mehndi Artists</span>
+                Popular <span className="font-Tangerine">Mehndi Artists</span>
               </p>
               <Link
                 href={"/mehandivendors"}
@@ -350,55 +356,55 @@ export default function Landing() {
             </div>
             <div className="">
               {mendhiArtists.length > 0 ? (
-              <Slider {...sliderSettings}>
-                {mendhiArtists.map((arr, index) => (
-                  <Link
-                    href={`/mehandivendors/${arr.uid}`}
-                    key={arr.uid}
-                    className=" py-4  md:px-1 "
-                  >
-                    <div
-                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
-                      style={{
-                        borderWidth: "3px",
-                        borderStyle: "solid",
-                        borderImage:
-                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-                      }}
+                <Slider {...sliderSettings}>
+                  {mendhiArtists.map((arr, index) => (
+                    <Link
+                      href={`/mehandivendors/${arr.uid}`}
+                      key={arr.uid}
+                      className=" py-4  md:px-1 "
                     >
-                      <img
-                        src={arr.bannerImageUrl || "/images/logo1.png"}
-                        alt={arr.businessName}
-                        className="w-full h-60 object-cover  rounded-t-[4px]"
-                      />
-                      <div className=" px-6 py-4 ">
-                        {" "}
-                        <div className="flex justify-between items-center h-[30px]">
+                      <div
+                        className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                        style={{
+                          borderWidth: "3px",
+                          borderStyle: "solid",
+                          borderImage:
+                            "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+                        }}
+                      >
+                        <img
+                          src={arr.bannerImageUrl || "/images/logo1.png"}
+                          alt={arr.businessName}
+                          className="w-full h-60 object-cover  rounded-t-[4px]"
+                        />
+                        <div className=" px-6 py-4 ">
                           {" "}
-                          <h3 className="lg:text-xl text-blue  font-semibold mb-2">
-                            {arr.businessName}
-                          </h3>
-                          <div className="flex justify-end items-center mb-2  gap-0">
+                          <div className="flex justify-between items-center h-[30px]">
                             {" "}
-                            <p className="text-pink mt-1  ">
+                            <h3 className="lg:text-xl text-blue  font-semibold mb-2">
+                              {arr.businessName}
+                            </h3>
+                            <div className="flex justify-end items-center mb-2  gap-0">
                               {" "}
-                              {arr.averageRating?.toFixed(2) || 3}{" "}
-                            </p>{" "}
-                            <p>
-                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                              <p className="text-pink mt-1  ">
+                                {" "}
+                                {arr.averageRating?.toFixed(2) || 3}{" "}
+                              </p>{" "}
+                              <p>
+                                <MdOutlineStar className="text-yellow-300 text-xl " />
+                              </p>
+                            </div>{" "}
+                          </div>
+                          <div className="flex justify-start gap-2">
+                            <img src="/icons/locationred.svg" />
+                            <p className="text-[18px] text-[#666666]">
+                              {arr.location}
                             </p>
-                          </div>{" "}
-                        </div>
-                        <div className="flex justify-start gap-2">
-                          <img src="/icons/locationred.svg" />
-                          <p className="text-[18px] text-[#666666]">
-                            {arr.location}
+                          </div>
+                          <p className="text-sm py-4 h-[120px]">
+                            {truncateText(arr.about, 30)}
                           </p>
-                        </div>
-                        <p className="text-sm py-4 h-[120px]">
-                          {truncateText(arr.about, 30)}
-                        </p>
-                        {/* <div className="flex justify-between">
+                          {/* <div className="flex justify-between">
                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                        <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                          100-200 pax
@@ -411,15 +417,15 @@ export default function Landing() {
                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
                      </div>
                    </div> */}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </Slider>
-            ) : (
-              <p>No Mehndi Artists available</p>
-            )}
-          </div>
+                    </Link>
+                  ))}
+                </Slider>
+              ) : (
+                <p>No Mehndi Artists available</p>
+              )}
+            </div>
           </div>
         </div>
         <div className="sticky top-0">
@@ -435,8 +441,7 @@ export default function Landing() {
             <div className="flex flex-row justify-between items-center">
               {" "}
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular{" "}
-                <span className="font-Tangerine">Makeup Artists</span>
+                Popular <span className="font-Tangerine">Makeup Artists</span>
               </p>
               <Link
                 href={"/makeupvendors"}
@@ -564,22 +569,18 @@ export default function Landing() {
                         className="w-full h-60 object-cover  rounded-t-[4px]"
                       />
                       <div className=" px-6 py-4 ">
-                        {" "}
                         <div className="flex justify-between items-center h-[30px]">
-                          {" "}
                           <h3 className="lg:text-xl text-blue  font-semibold mb-2">
                             {arr.businessName}
                           </h3>
                           <div className="flex justify-end items-center mb-2  gap-0">
-                            {" "}
                             <p className="text-pink mt-1  ">
-                              {" "}
-                              {arr.averageRating?.toFixed(2) || 3}{" "}
-                            </p>{" "}
+                              {arr.averageRating?.toFixed(2) || 3}
+                            </p>
                             <p>
                               <MdOutlineStar className="text-yellow-300 text-xl " />
                             </p>
-                          </div>{" "}
+                          </div>
                         </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
@@ -588,7 +589,6 @@ export default function Landing() {
                           </p>
                         </div>
                         <p className="text-sm py-4 h-[120px]">
-                          {" "}
                           {truncateText(arr.about, 30)}
                         </p>
                         {/* <div className="flex justify-between">
@@ -621,7 +621,7 @@ export default function Landing() {
           <AboutShadivyah />
         </div>
       </div>
-      <HowToWork />
+      {/* <HowToWork /> */}
       <Space50px />
       <ContactUsPhoto />
       <Space50px />
