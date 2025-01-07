@@ -11,7 +11,6 @@ export default function Gallery({ images }) {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -25,9 +24,11 @@ export default function Gallery({ images }) {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 1.5,
+      partialVisibilityGutter: 40,
     },
   };
+
   return (
     <div className="w-screen  ">
       <div className="hidden md:block">
@@ -115,19 +116,24 @@ export default function Gallery({ images }) {
           ))}
         </Carousel>
       </div>
-      <div className="mt-10">
-        <Carousel arrows={false} responsive={responsive}>
-          {images.map((photo, index) => (
-            <div className="px-6" key={index}>
-              <img
-                className="w-full  md:hidden h-[450px] object-cover rounded-xl bg-black"
-                src={photo}
-                alt={index}
-                key={index}
-              />
-            </div>
-          ))}
-        </Carousel>
+      <div className="my-10">
+        <div className="md:hidden">
+          <Carousel
+            arrows={false}
+            responsive={responsive}
+            customButtonGroup={<CustomButtonGroup />}
+          >
+            {images.map((photo, index) => (
+              <div className="px-4 h-[240px]" key={index}>
+                <img
+                  className="w-[278px] h-[180px] object-cover rounded-xl bg-black"
+                  src={photo}
+                  alt={`Photo ${index}`}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
     </div>
   );
@@ -136,10 +142,28 @@ function CustomButtonGroup({ next, previous }) {
   return (
     <div className="custom-button-group space-x-10 ">
       <button onClick={previous} className="button-previous">
-        <img src="/icons/lefticon.svg" alt="Previous" className="arrow-icon" />
+        <img
+          src="/icons/previous.png"
+          alt="Previous"
+          className="arrow-icon lg:hidden"
+        />
+        <img
+          src="/icons/lefticon.svg"
+          alt="Previous"
+          className="arrow-icon hidden lg:block"
+        />
       </button>
       <button onClick={next} className="button-next">
-        <img src="/icons/righticon.svg" alt="Next" className="arrow-icon" />
+        <img
+          src="/icons/next.png"
+          alt="Next"
+          className="arrow-icon lg:hidden"
+        />
+        <img
+          src="/icons/righticon.svg"
+          alt="Next"
+          className="arrow-icon hidden lg:block"
+        />
       </button>
     </div>
   );

@@ -26,6 +26,7 @@ module.exports = {
         "lato": ["Lato" ],
         "dancing-script": ["Dancing Script"],
         "Merriweather": ["Merriweather"],
+        "Merriweather-Sans": ["Merriweather Sans"],
         "Tangerine" : ["Tangerine"],
       },
       fontSize: {

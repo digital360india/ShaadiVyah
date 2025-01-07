@@ -212,12 +212,12 @@ const DetailPage = () => {
               className="w-full h-full"
             />
           </div> */}
-          <div className="bg-[url('/icons/Frame.jpeg')] bg-cover bg-center object-cover w-full h-[500px]">
+          <div className="bg-[url('/icons/BackgroundShadow.svg')] lg:bg-[url('/icons/Frame.jpeg')] bg-cover bg-center object-cover w-full h-auto md:h-[500px]">
             <div className="flex flex-col justify-between">
               {" "}
-              <div className="flex flex-row justify-between mt-32 lg:mx-[15%] md:mx-10 mx-4 my-5">
+              <div className="flex flex-row justify-between mt-14 md:mt-32 lg:mx-[15%] md:mx-10 mx-4 my-5">
                 <div className="flex flex-col justify-start items-start">
-                  <div className="lg:text-2xl text-[18px] font-semibold text-[#A11C5C]">
+                  <div className="lg:text-2xl text-[18px] font-semibold text-[#A11C5C] font-Merriweather">
                     {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
@@ -235,7 +235,7 @@ const DetailPage = () => {
                       </svg>
                     </div>
 
-                    <div className="flex gap-1 text-[14px] md:text-[16px] text-[#4A4A4A]">
+                    <div className="flex gap-1 text-[14px] md:text-[16px] text-[#4A4A4A] font-Merriweather-Sans">
                       <p>{data?.city}</p>
                     </div>
                     {data?.googleLocation && (
@@ -249,7 +249,7 @@ const DetailPage = () => {
                       </Link>
                     )}
                   </div>
-                  <div className="text-[#727272] text-[1rem] mt-[4px] hidden  sm:block">
+                  <div className="text-[#727272] text-[1rem] mt-[4px] hidden  sm:block font-Merriweather-Sans">
                     {data?.about}
                   </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
@@ -259,7 +259,7 @@ const DetailPage = () => {
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 text-[16px] ">Contact</div>{" "}
+                    <div className="text-green-700 text-[16px] font-Merriweather-Sans">Contact</div>{" "}
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -275,14 +275,14 @@ const DetailPage = () => {
                       {data?.averageRating || "3"}
                     </p>
                   </div>
-                  <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090]">
+                  <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090] font-Merriweather-Sans">
                     <p>{data?.totalRating || "3"}</p>
                     <p>Reviews</p>
                   </div>
                 </div>
               </div>
               <div
-                className=" h-3 mt-5 mx-20"
+                className=" h-3 mt-5 mx-20 hidden lg:block"
                 style={{
                   borderTop: "1.17px solid",
                   borderImageSource:
@@ -290,20 +290,20 @@ const DetailPage = () => {
                   borderImageSlice: 1,
                 }}
               ></div>
-              <div className=" py-4  lg:flex   hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
-                <div className="flex gap-12">
+              <div className="font-Merriweather-Sans py-4  flex    justify-center items-center text-[13px]  lg:text-sm rounded-xl  text-[#4A4A4A]">
+                <div className="flex gap-[10px] lg:gap-12">
                   {" "}
                   <a href="#photos">
                     {" "}
-                    <div className="flex gap-2 justify-center items-center">
+                    <div className="flex gap-2 justify-center items-center pt-1">
                       {" "}
                       <img
                         src="/icons/image.svg"
                         height={1000}
                         width={1000}
                         className="h-4 w-4 text-black-600 "
-                      />{" "}
-                      <p>Photos</p>{" "}
+                      />
+                      <p>Photos</p>
                     </div>{" "}
                   </a>
                   <div className="h-8 border-l border-gray-600"></div>
@@ -351,15 +351,15 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="lg:flex space-y-4 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6 mt-12">
+        <div className="lg:flex space-y-16 lg:space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6 mt-24 lg:mt-12">
           <div className="lg:w-[46%] flex flex-col gap-5 ">
             <div className="bg-[url('/icons/mandal.svg')] bg-cover bg-center object-cover w-[388px] h-[388px] absolute -left-48">
               {" "}
             </div>
-            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#A11C5C] capitalize ">
+            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#A11C5C] capitalize font-Merriweather ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
-                <div className="rounded-full flex justify-center items-center gap-2  px-4 py-2 bg-[#A11C5C]">
+                <div className="rounded-full flex justify-center items-center gap-2  px-4 py-2 bg-[#A11C5C] font-Merriweather-Sans">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -376,10 +376,17 @@ const DetailPage = () => {
                 </div>
               </div>
             </div>
-            <div className="text-[#626262] ">{data?.about}</div>
+            <div className="text-[#626262] font-Merriweather-Sans">{data?.about}</div>
             <div className=" xl:w-[520px]   ">
-              <p className=" px-4 py-3  text-[30px] text-[#A11C5C]">
-                Package Starting from...
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
+                Package{' '}
+                <span
+                  style={{
+                    fontFamily: "Gabriola",
+                  }}
+                >
+                  Starting from...
+                </span>
               </p>
               <div
                 className="w-full h-3"
@@ -399,7 +406,7 @@ const DetailPage = () => {
                           (type) => type.id === space.spaceType
                         );
                         return (
-                          <div key={index} className="flex gap-4 py-2">
+                          <div key={index} className="flex gap-4 py-2 font-Merriweather-Sans">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="40"
@@ -429,7 +436,7 @@ const DetailPage = () => {
                         );
                       })
                     ) : (
-                      <div>
+                      <div className="font-Merriweather-Sans">
                         <div className="flex gap-2">
                           <p>{data?.spaces?.sitting || "N/A"} Seating</p>
                           <p>|</p>
@@ -445,8 +452,15 @@ const DetailPage = () => {
               </div>
             </div>
             <div className="  xl:w-[520px]   ">
-              <p className=" px-4 py-3  text-[30px] text-[#A11C5C]">
-                Areas Available
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
+                Areas{" "}
+                <span
+                  style={{
+                    fontFamily: "Gabriola",
+                  }}
+                >
+                  Available
+                </span>
               </p>
               <div
                 className="w-full h-3"
@@ -480,7 +494,7 @@ const DetailPage = () => {
                                 clip-rule="evenodd"
                               />
                             </svg>
-                            <div>
+                            <div className="font-Merriweather-Sans">
                               {" "}
                               <div className="flex gap-2 text-[#A11C5C] ">
                                 <p className=" text-md">
@@ -532,14 +546,14 @@ const DetailPage = () => {
               />
             </div>
             <p className="">{data?.bussinessName}</p>
-            <p className="text-[20px] text-[#1B1B1B] text-center w-[300px]">
+            <p className="text-[20px] text-[#1B1B1B] text-center w-[300px] font-Merriweather">
               Your <span className="text-[#CE0D5E]">Precious Day</span> must be
               Perfect
             </p>
-            <p className="text-[12px] text-[#1E1E1E] text-center w-[300px]">
+            <p className="text-[12px] text-[#1E1E1E] text-center w-[300px] font-Merriweather-Sans">
               We are here for your help. Please submit the form below...
             </p>
-            <form className="max-w-md ">
+            <form className="max-w-md font-Merriweather-Sans">
               <label className="text-[#1B1B1B] text-[14px]">Name</label>
               <input
                 type="text"
@@ -621,30 +635,32 @@ const DetailPage = () => {
         {/* Portfolio*/}
         <div className=" lg:pl-[60px] md:mx-[60px] mx-6 ">
           <p
-            className="text-[#A11C5C] font-semibold text-[3rem] mt-10 md:mt-0"
+            className="text-[#A11C5C] font-semibold text-[3rem] mt-10 md:mt-0 font-Merriweather"
             id="photos"
           >
             Portfolio
           </p>
         </div>
-        <Space25px />
+        <div className="hidden lg:block">
+          <Space25px />
+        </div>
         {data?.portfolioImagesUrl && data.portfolioImagesUrl.length > 0 && (
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className=" md:mx-[100px]  rounded-2xl text-[#0A2D23] mb-10  ">
+        <div className=" md:mx-[100px] mx-6  rounded-2xl text-[#0A2D23] mb-10 font-Merriweather ">
           <div className="flex flex-col text-[32px] bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover border border-[#CA8B00] rounded-2xl">
             <div id="services ">
-              <p className="text-[42px] font-medium  bg-gradient-to-r from-[#B97C00] to-[#EED68A] md:px-12 mt-10 text-white">
+              <p className="text-xl lg:text-[42px] font-medium  bg-gradient-to-r from-[#B97C00] to-[#EED68A] px-4 md:px-12 mt-7 md:mt-10 py-2 text-white">
                 Services
               </p>
             </div>
-            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between p-10 ">
+            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between p-7 md:p-10 ">
               <div className="space-y-4  w-[250px]  ">
                 <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Amenities
                 </p>
-                <div className="text-[14px] font-semibold ">
+                <div className="text-[14px] ">
                   <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
                     {data &&
                     data.amenitiesUID &&
@@ -654,22 +670,27 @@ const DetailPage = () => {
                           (a) => a.amenityUID === amenityId
                         );
                         return amenity ? (
-                          <li key={amenityId} className="text-[#000000] text-[14px]">
+                          <li
+                            key={amenityId}
+                            className="text-[#000000] text-[14px]"
+                          >
                             {amenity.amenityName}
                           </li>
                         ) : null;
                       })
                     ) : (
-                      <li className="text-[#000000] text-[14px]">No amenities available</li>
+                      <li className="text-[#000000] text-[14px]">
+                        No amenities available
+                      </li>
                     )}
                   </ul>
                 </div>
               </div>
               <div className="space-y-4  w-[250px] ">
-              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
+                <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Accessibility
                 </p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                <ul className="list-disc list-inside text-[14px]  space-y-3 ">
                   {data &&
                   data.accessibilityOptionsUID &&
                   Array.isArray(data.accessibilityOptionsUID) ? (
@@ -693,10 +714,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
+                <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Security and Safety
                 </p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                <ul className="list-disc list-inside text-[14px]  space-y-3 ">
                   {data &&
                   data.safetyAndSecurityOptionsUID &&
                   Array.isArray(data.safetyAndSecurityOptionsUID) ? (
@@ -718,10 +739,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
+                <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Security and Safety
                 </p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                <ul className="list-disc list-inside text-[14px] space-y-3 ">
                   {data &&
                   data.facilitiesUID &&
                   Array.isArray(data.facilitiesUID) ? (
@@ -739,10 +760,10 @@ const DetailPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-              <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
+                <p className="md:text-[1rem] text-[14px] font-medium text-[#A11C5C]">
                   Additional Services
                 </p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                <ul className="list-disc list-inside text-[14px]  space-y-3 ">
                   {data &&
                   data.additionalServicesUID &&
                   Array.isArray(data.additionalServicesUID) ? (
@@ -767,14 +788,14 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-6 ">
-          <div className="w-full bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover  flex flex-col gap-6  md:p-0 md:py-12 p-4 rounded-2xl border border-[#CA8B00]">
-            <div className="text-xl lg:text-[42px] text-white font-bold capitalize bg-gradient-to-r from-[#B97C00] to-[#EED68A] md:px-12">
+        <div className="flex justify-between items-start xl:mx-[100px] lg:mx-[80px] md:mx-10 mx-6 font-Merriweather">
+          <div className="w-full bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover  flex flex-col gap-6 py-7  md:py-12  rounded-2xl border border-[#CA8B00]">
+            <div className="text-xl lg:text-[42px] text-white font-bold capitalize bg-gradient-to-r from-[#B97C00] to-[#EED68A] px-4 md:px-12 py-2">
               A hotel perfectly located at your destination
             </div>
 
             <div className="flex justify-between items-center ">
-              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 md:px-14">
+              <ul className="list-disc list-inside text-[14px] font-semibold space-y-2 px-4 md:px-14">
                 {data && data.attractions && Array.isArray(data.attractions) ? (
                   data.attractions.map((place) => {
                     const attractions = attraction.find(
@@ -784,7 +805,7 @@ const DetailPage = () => {
                     return attractions ? (
                       <>
                         {" "}
-                        <div className="flex justify-between  items-center lg:w-[72vw] md:w-[450px] sm:w-[400px] w-[350px] ">
+                        <div className="flex justify-between  items-center lg:w-[72vw] md:w-[450px] sm:w-[400px] w-[300px] ">
                           {" "}
                           <div
                             key={attractions.id}
