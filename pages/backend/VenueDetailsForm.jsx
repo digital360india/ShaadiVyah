@@ -16,7 +16,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="name"
-          value={formData.name}
+          value={formData?.name}
           onChange={handleChange}
           placeholder="Owner"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -24,7 +24,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="businessName"
-          value={formData.businessName}
+          value={formData?.businessName}
           onChange={handleChange}
           placeholder="Your business name*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -37,7 +37,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="streetAddress"
-          value={formData.streetAddress}
+          value={formData?.streetAddress}
           onChange={handleChange}
           placeholder="Street Address*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -45,7 +45,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="landmark"
-          value={formData.landmark}
+          value={formData?.landmark}
           onChange={handleChange}
           placeholder="Landmark (Optional)"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -53,7 +53,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="postCode"
-          value={formData.postCode}
+          value={formData?.postCode}
           onChange={handleChange}
           placeholder="Post Code*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -61,7 +61,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="city"
-          value={formData.city}
+          value={formData?.city}
           onChange={handleChange}
           placeholder="City*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -69,7 +69,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="country"
-          value={formData.country}
+          value={formData?.country}
           onChange={handleChange}
           placeholder="Country*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -77,7 +77,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="googleLocation"
-          value={formData.googleLocation}
+          value={formData?.googleLocation}
           onChange={handleChange}
           placeholder="Google Location*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -88,7 +88,7 @@ const VenueDetailsForm = ({
       <div className="text-xl font-medium text-gray-800">ABOUT</div>
       <textarea
         name="about"
-        value={formData.about}
+        value={formData?.about}
         onChange={handleChange}
         placeholder="About"
         className="w-full h-28 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -100,7 +100,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="phone"
-          value={formData.phone}
+          value={formData?.phone}
           onChange={handleChange}
           placeholder="Phone Number*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -108,7 +108,7 @@ const VenueDetailsForm = ({
         <input
           type="text"
           name="alternateNumber"
-          value={formData.alternateNumber}
+          value={formData?.alternateNumber}
           onChange={handleChange}
           placeholder="Alternate Number (Optional)"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -120,7 +120,7 @@ const VenueDetailsForm = ({
       <input
         type="text"
         name="adharCardNumber"
-        value={formData.adharCardNumber}
+        value={formData?.adharCardNumber}
         onChange={handleChange}
         placeholder="Aadhaar Card Number*"
         className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -151,7 +151,7 @@ const VenueDetailsForm = ({
       <input
         type="text"
         name="panCardNumber"
-        value={formData.panCardNumber}
+        value={formData?.panCardNumber}
         onChange={handleChange}
         placeholder="Pan Card Number (Optional)"
         className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -159,7 +159,7 @@ const VenueDetailsForm = ({
       <input
         type="text"
         name="GSTIN"
-        value={formData.GSTIN}
+        value={formData?.GSTIN}
         onChange={handleChange}
         placeholder="GSTIN (Optional)"
         className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"

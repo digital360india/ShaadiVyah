@@ -15,45 +15,45 @@ const UserProfileDetails = ({ user, handleEdit, handleSendApproval, handleShowRe
       {/* User Information */}
       <div className="space-y-4">
         <p>
-          <span className="font-semibold text-gray-700">Name:</span> <span className="font-normal">{user.name}</span>
+          <span className="font-semibold text-gray-700">Name:</span> <span className="font-normal">{user?.name}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Business Name:</span> <span className="font-normal">{user.businessName}</span>
+          <span className="font-semibold text-gray-700">Business Name:</span> <span className="font-normal">{user?.businessName}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Street Address:</span> <span className="font-normal">{user.streetAddress}</span>
+          <span className="font-semibold text-gray-700">Street Address:</span> <span className="font-normal">{user?.streetAddress}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Landmark:</span> <span className="font-normal">{user.landmark}</span>
+          <span className="font-semibold text-gray-700">Landmark:</span> <span className="font-normal">{user?.landmark}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Post Code:</span> <span className="font-normal">{user.postCode}</span>
+          <span className="font-semibold text-gray-700">Post Code:</span> <span className="font-normal">{user?.postCode}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">City:</span> <span className="font-normal">{user.city}</span>
+          <span className="font-semibold text-gray-700">City:</span> <span className="font-normal">{user?.city}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Country:</span> <span className="font-normal">{user.country}</span>
+          <span className="font-semibold text-gray-700">Country:</span> <span className="font-normal">{user?.country}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">About:</span> <span className="font-normal text-gray-600">{user.about}</span>
+          <span className="font-semibold text-gray-700">About:</span> <span className="font-normal text-gray-600">{user?.about}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Phone Number:</span> <span className="font-normal">{user.phone}</span>
+          <span className="font-semibold text-gray-700">Phone Number:</span> <span className="font-normal">{user?.phone}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Alternate Number:</span> <span className="font-normal">{user.alternateNumber}</span>
+          <span className="font-semibold text-gray-700">Alternate Number:</span> <span className="font-normal">{user?.alternateNumber}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">Aadhaar Card Number:</span> <span className="font-normal">{user.adharCardNumber}</span>
+          <span className="font-semibold text-gray-700">Aadhaar Card Number:</span> <span className="font-normal">{user?.adharCardNumber}</span>
         </p>
 
         {/* Aadhaar Card Photo */}
-        {user.adharCardPhoto && (
+        {user?.adharCardPhoto && (
           <div className="flex flex-col mt-4">
             <p className="font-semibold text-gray-700">Aadhaar Card Photo:</p>
             <img
-              src={user.adharCardPhoto}
+              src={user?.adharCardPhoto}
               alt="Aadhaar Card"
               className="mt-2 max-w-xs rounded-lg shadow-sm"
             />
@@ -61,14 +61,14 @@ const UserProfileDetails = ({ user, handleEdit, handleSendApproval, handleShowRe
         )}
 
         <p>
-          <span className="font-semibold text-gray-700">Pan Card Number:</span> <span className="font-normal">{user.panCardNumber}</span>
+          <span className="font-semibold text-gray-700">Pan Card Number:</span> <span className="font-normal">{user?.panCardNumber}</span>
         </p>
         <p>
-          <span className="font-semibold text-gray-700">GSTIN:</span> <span className="font-normal">{user.GSTIN}</span>
+          <span className="font-semibold text-gray-700">GSTIN:</span> <span className="font-normal">{user?.GSTIN}</span>
         </p>
 
         {/* Approval Button or Status */}
-        {!user.approval ? (
+        {!user?.approval ? (
           <button
             onClick={handleSendApproval}
             className={`w-full h-12 bg-gradient-to-r from-pink to-pink border border-pink text-white rounded-lg mt-4 ${isButtonActive && !hasSentRequest ? '' : 'opacity-50 cursor-not-allowed'}`}
@@ -83,7 +83,7 @@ const UserProfileDetails = ({ user, handleEdit, handleSendApproval, handleShowRe
         )}
 
         {/* Rejection Reason Button */}
-        {user.rejectionReason && (
+        {user?.rejectionReason && (
           <button
             onClick={handleShowRejectionDialog}
             className="w-full h-12 bg-red-500 text-white rounded-lg mt-4"

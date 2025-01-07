@@ -20,7 +20,7 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
         <div className="flex items-center gap-3">
           <CiFacebook size={40} className="text-blue-600" />
           <span className="truncate text-black">
-            {user.facebook || "Not provided"}
+            {user?.facebook || "Not provided"}
           </span>
         </div>
 
@@ -28,7 +28,7 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
         <div className="flex items-center gap-3">
           <CiInstagram size={40} className="text-pink-500" />
           <span className="truncate text-black">
-            {user.instagram || "Not provided"}
+            {user?.instagram || "Not provided"}
           </span>
         </div>
 
@@ -36,7 +36,7 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
         <div className="flex items-center gap-3">
           <BsTwitterX size={40} className="text-blue-400" />
           <span className="truncate text-black">
-            {user.twitter || "Not provided"}
+            {user?.twitter || "Not provided"}
           </span>
         </div>
       </div>

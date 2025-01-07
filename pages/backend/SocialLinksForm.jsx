@@ -16,7 +16,7 @@ const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
           <input
             type="text"
             name="facebook"
-            value={formData.facebook}
+            value={formData?.facebook}
             onChange={handleChange}
             placeholder="Facebook"
             className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:ring-2 focus:ring-pink-400 transition-all"
@@ -28,7 +28,7 @@ const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
           <input
             type="text"
             name="instagram"
-            value={formData.instagram}
+            value={formData?.instagram}
             onChange={handleChange}
             placeholder="Instagram"
             className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:ring-2 focus:ring-pink-400 transition-all"
@@ -40,7 +40,7 @@ const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
           <input
             type="text"
             name="twitter"
-            value={formData.twitter}
+            value={formData?.twitter}
             onChange={handleChange}
             placeholder="Twitter"
             className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:ring-2 focus:ring-pink-400 transition-all"
