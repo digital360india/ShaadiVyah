@@ -37,6 +37,7 @@ const DetailPage = () => {
             name: values.name,
             spaces: values.spaces,
             averageRating: values.averageRating,
+            totalRating: values.totalRating,
             portfolioImagesUrl: values.portfolioImagesUrl
               ? values.portfolioImagesUrl[0]
               : {},
@@ -194,28 +195,24 @@ const DetailPage = () => {
   return (
     <>
       <div className="bg-[#F7F6F5] overflow-x-hidden">
-        <div className=" flex justify-center items-center ">
+        <div className="relative w-full h-[550px] bg-gray-300">
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${data?.bannerImageUrl})`,
+            }}
+          ></div>
           <img
-            src={data?.bannerImageUrl}
-            height={1000}
-            width={1000}
-            className="w-full  h-[550px] bg-gray-300 object-cover "
+            src="/icons/gradient.svg"
+            alt="Overlay"
+            className="absolute inset-0 w-full h-full object-cover "
           />
         </div>
         <div className=" ">
-          {/* <div className="">
-            <Image
-              src="/icons/bg.svg"
-              alt="hero image"
-              width={1000}
-              height={1000}
-              className="w-full h-full"
-            />
-          </div> */}
           <div className="bg-[url('/icons/BackgroundShadow.svg')] lg:bg-[url('/icons/Frame.jpeg')] bg-cover bg-center object-cover w-full h-auto md:h-[500px]">
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-end h-full ">
               {" "}
-              <div className="flex flex-row justify-between mt-14 md:mt-32 lg:mx-[15%] md:mx-10 mx-4 my-5">
+              <div className="flex flex-row justify-between mt-14 lg:mt-0 lg:mx-[15%] md:mx-10 mx-4 my-3 lg:my-20">
                 <div className="flex flex-col justify-start items-start">
                   <div className="lg:text-2xl text-[18px] font-semibold text-[#A11C5C] font-Merriweather">
                     {data?.businessName}
@@ -259,21 +256,37 @@ const DetailPage = () => {
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 text-[16px] font-Merriweather-Sans">Contact</div>{" "}
+                    <div className="text-green-700 text-[16px] font-Merriweather-Sans">
+                      Contact
+                    </div>
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  {" "}
-                  <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
+                  {/* <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm  flex justify-center items-center gap-2">
                     <img
-                      src="/icons/ratingstar.svg"
+                      src="/icons/starVector.svg"
                       height={1000}
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
-                    />{" "}
-                    <p className=" text-[12px] md:text-[16px] text-white">
+                    />
+                  
+                    <p className=" text-[12px] md:text-[16px] text-[#909090]">
                       {data?.averageRating || "3"}
                     </p>
+                  </div> */}
+                  <div className="flex gap-2 justify-start items-center mt-[10px]">
+                    {Array.from(
+                      { length: Math.floor(data?.averageRating || 0) },
+                      (_, index) => (
+                        <img
+                          key={index}
+                          src="/icons/starVector.svg"
+                          height={1000}
+                          width={1000}
+                          className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
+                        />
+                      )
+                    )}
                   </div>
                   <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090] font-Merriweather-Sans">
                     <p>{data?.totalRating || "3"}</p>
@@ -281,70 +294,69 @@ const DetailPage = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className=" h-3 mt-5 mx-20 hidden lg:block"
-                style={{
-                  borderTop: "1.17px solid",
-                  borderImageSource:
-                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
-                  borderImageSlice: 1,
-                }}
-              ></div>
-              <div className="font-Merriweather-Sans py-4  flex    justify-center items-center text-[13px]  lg:text-sm rounded-xl  text-[#4A4A4A]">
-                <div className="flex gap-[10px] lg:gap-12">
-                  {" "}
-                  <a href="#photos">
-                    {" "}
-                    <div className="flex gap-2 justify-center items-center pt-1">
+              <div className="flex flex-col justify-between">
+                <div
+                  className=" h-3  mx-20 hidden lg:block"
+                  style={{
+                    borderTop: "1.17px solid",
+                    borderImageSource:
+                      "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                    borderImageSlice: 1,
+                  }}
+                ></div>
+                <div className="font-Merriweather-Sans py-4  flex    justify-center items-center text-[13px]  lg:text-sm rounded-xl  text-[#4A4A4A]">
+                  <div className="flex gap-[10px] lg:gap-12">
+                    <a href="#photos">
+                      <div className="flex gap-2 justify-center items-center pt-1">
+                        <img
+                          src="/icons/image.svg"
+                          height={1000}
+                          width={1000}
+                          className="h-4 w-4 text-black-600 "
+                        />
+                        <p>Photos</p>
+                      </div>{" "}
+                    </a>
+                    <div className="h-8 border-l border-gray-600"></div>
+                    <div className="flex gap-2 justify-center items-center">
                       {" "}
                       <img
-                        src="/icons/image.svg"
+                        src="/icons/like.svg"
                         height={1000}
                         width={1000}
                         className="h-4 w-4 text-black-600 "
                       />
-                      <p>Photos</p>
-                    </div>{" "}
-                  </a>
-                  <div className="h-8 border-l border-gray-600"></div>
-                  <div className="flex gap-2 justify-center items-center">
-                    {" "}
-                    <img
-                      src="/icons/like.svg"
-                      height={1000}
-                      width={1000}
-                      className="h-4 w-4 text-black-600 "
-                    />
-                    <p>My Picks</p>
-                  </div>
-                  <div className="h-8 border-l border-gray-600"></div>
-                  <div className="flex gap-2 justify-center items-center">
-                    {" "}
-                    <img
-                      src="/icons/review_icon.svg"
-                      height={1000}
-                      width={1000}
-                      className="h-4 w-4 text-black-600 "
-                    />
-                    <p> Write a Review</p>
-                  </div>
-                  <div className="h-8 border-l border-gray-600"></div>
-                  <button
-                    className="flex gap-2 justify-center items-center"
-                    onClick={handleShare}
-                  >
-                    <img
-                      src="/icons/share.svg"
-                      alt="Share icon"
-                      className="h-8 w-4 text-black-600"
-                    />
-                    <p>Share</p>
-                  </button>
-                  {isCopied && (
-                    <div className="fixed bottom-4 right-4 bg-white p-4 rounded-md shadow-md">
-                      Link copied to clipboard!
+                      <p>My Picks</p>
                     </div>
-                  )}
+                    <div className="h-8 border-l border-gray-600"></div>
+                    <div className="flex gap-2 justify-center items-center">
+                      {" "}
+                      <img
+                        src="/icons/review_icon.svg"
+                        height={1000}
+                        width={1000}
+                        className="h-4 w-4 text-black-600 "
+                      />
+                      <p> Write a Review</p>
+                    </div>
+                    <div className="h-8 border-l border-gray-600"></div>
+                    <button
+                      className="flex gap-2 justify-center items-center"
+                      onClick={handleShare}
+                    >
+                      <img
+                        src="/icons/share.svg"
+                        alt="Share icon"
+                        className="h-8 w-4 text-black-600"
+                      />
+                      <p>Share</p>
+                    </button>
+                    {isCopied && (
+                      <div className="fixed bottom-4 right-4 bg-white p-4 rounded-md shadow-md">
+                        Link copied to clipboard!
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -376,17 +388,12 @@ const DetailPage = () => {
                 </div>
               </div>
             </div>
-            <div className="text-[#626262] font-Merriweather-Sans">{data?.about}</div>
+            <div className="text-[#626262] font-Merriweather-Sans">
+              {data?.about}
+            </div>
             <div className=" xl:w-[520px]   ">
               <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
-                Package{' '}
-                <span
-                  style={{
-                    fontFamily: "Gabriola",
-                  }}
-                >
-                  Starting from...
-                </span>
+                Package <span className="customGabriola">Starting from...</span>
               </p>
               <div
                 className="w-full h-3"
@@ -406,7 +413,10 @@ const DetailPage = () => {
                           (type) => type.id === space.spaceType
                         );
                         return (
-                          <div key={index} className="flex gap-4 py-2 font-Merriweather-Sans">
+                          <div
+                            key={index}
+                            className="flex gap-4 py-2 font-Merriweather-Sans"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="40"
@@ -453,14 +463,7 @@ const DetailPage = () => {
             </div>
             <div className="  xl:w-[520px]   ">
               <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
-                Areas{" "}
-                <span
-                  style={{
-                    fontFamily: "Gabriola",
-                  }}
-                >
-                  Available
-                </span>
+                Areas <span className="customGabriola">Available</span>
               </p>
               <div
                 className="w-full h-3"

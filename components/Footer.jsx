@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="font-Merriweather-Sans hidden lg:flex bg-[url('/icons/footer.jpeg')] bg-cover bg-center object-cover  justify-around w-full h-[470px]  text-white ">
+      <div className="font-Merriweather hidden lg:flex bg-[url('/icons/footer.jpeg')] bg-cover bg-center object-cover  justify-around w-full h-[470px]  text-white ">
         
         <Space50px />
 
