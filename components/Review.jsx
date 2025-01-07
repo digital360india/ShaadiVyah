@@ -185,7 +185,7 @@ export default function Review({ id, title }) {
     <div className="  my-12  space-y-4 xl:mx-[100px] lg:mx-[80px] md:mx-[40px] mx-6 font-Merriweather-Sans">
       <div className="  flex flex-col gap-4  py-4   ">
         <p className="text-[30px] font-semibold text-[#4A4A4A] font-Merriweather">
-          Reviews For <span className="text-[#A11C5C] font-normal" style={{fontFamily:"Gabriola"}}>{title}</span>
+          Reviews For <span className="text-[#A11C5C] font-normal customGabriola">{title}</span>
         </p>
         <div className="flex flex-col lg:flex-row    justify-between ">
           <div className=" py-4 px-10  ">
@@ -357,7 +357,7 @@ export default function Review({ id, title }) {
         </div>
       ) : (
         <div className="flex justify-between items-center text-[#C9184A] border border-[#C9184A] rounded-3xl text-[14px] lg:text-xl ">
-          <p className="   w-full p-3  ">Write a review</p>
+          <p className="   w-full md:w-[300px] p-3  ">Write a review</p>
           <p className="p-3">&gt;</p>
         </div>
       )}
