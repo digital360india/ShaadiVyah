@@ -46,7 +46,7 @@ export default function Review({ id, title }) {
         photoURL: user.photoURL,
       });
       console.log("User signed in and data saved:", user);
-      setUser(user); 
+      setUser(user);
     } catch (error) {
       console.error("Error signing in with Google:", error);
     }
@@ -132,7 +132,7 @@ export default function Review({ id, title }) {
 
           userDoc.data().reviews.forEach((review) => {
             totalRating += review.rating;
-            console.log(review.rating)
+            console.log(review.rating);
             ratingCounts[review.rating - 1]++;
           });
 
@@ -182,10 +182,10 @@ export default function Review({ id, title }) {
   }, [userReviews]);
 
   return (
-    <div className="  my-12  space-y-4 xl:mx-[100px] lg:mx-[80px] md:mx-[40px] mx-6">
+    <div className="  my-12  space-y-4 xl:mx-[100px] lg:mx-[80px] md:mx-[40px] mx-6 font-Merriweather-Sans">
       <div className="  flex flex-col gap-4  py-4   ">
-        <p className="text-[30px] font-semibold text-[#4A4A4A]">
-          Reviews For <span className="text-[#A11C5C]">{title}</span>
+        <p className="text-[30px] font-semibold text-[#4A4A4A] font-Merriweather">
+          Reviews For <span className="text-[#A11C5C] font-normal" style={{fontFamily:"Gabriola"}}>{title}</span>
         </p>
         <div className="flex flex-col lg:flex-row    justify-between ">
           <div className=" py-4 px-10  ">
@@ -234,7 +234,10 @@ export default function Review({ id, title }) {
               <div className="flex flex-col items-start gap-4 justify-start">
                 {ratingsDistribution.map((percentage, index) => (
                   <div className="flex gap-4 md:gap-2" key={index}>
-                    <p className="text-[15px] flex justify-start items-center gap-1"><div >{index + 1}</div><FaStar className="text-yellow-300"/></p>
+                    <p className="text-[15px] flex justify-start items-center gap-1">
+                      <div>{index + 1}</div>
+                      <FaStar className="text-yellow-300" />
+                    </p>
                     <div className="w-[200px] h-[20px] rounded-md bg-white border">
                       <div
                         className="rounded-l-md h-[18px] bg-[#C9184A]"
@@ -249,7 +252,7 @@ export default function Review({ id, title }) {
           </div>
           <div className=" flex flex-col gap-4  mt-5 lg:mt-0 md:w-[500px] ">
             <div className="p-10  rounded-xl text-[#4A4A4A] flex flex-col gap-4">
-              <p className="text-lg">Review for {title}</p>
+              <p className="text-lg font-Merriweather">Review for {title}</p>
               <p className="text-[12px]">
                 Share your thoughts with other customers
               </p>
@@ -261,13 +264,13 @@ export default function Review({ id, title }) {
               <div className="flex gap-4 mt-2">{renderStars()}</div>
               <div className="flex gap-4">
                 <button
-                  className="lg:min-w-[150px] w-[100px] border border-[#A11C5C] rounded-3xl text-[#A11C5C] p-2"
+                  className="lg:min-w-[150px] w-[150px] border border-[#A11C5C] rounded-3xl text-[#A11C5C] p-2"
                   onClick={handleSubmitReview}
                 >
                   Add Photos {user ? <p>{user.displayName}</p> : <></>}
                 </button>
                 <button
-                  className="lg:min-w-[150px] w-[100px] bg-[#A11C5C] rounded-3xl text-white p-2"
+                  className="lg:min-w-[150px] w-[150px] bg-[#A11C5C] rounded-3xl text-white p-2"
                   onClick={handleSubmitReview}
                 >
                   Submit {user ? <p>{user.displayName}</p> : <></>}
@@ -278,20 +281,15 @@ export default function Review({ id, title }) {
         </div>
       </div>
 
-
-
-
-
-
       {userReviews.length > 0 ? (
         <div>
-          <div className="    ">
-            <p className="font-semibold text-[35px] my-10">User Reviews</p>
+          <div className=" font-Merriweather-Sans   ">
+            <p className="font-semibold text-[35px] my-10 font-Merriweather">Customer Reviews</p>
             <div className=" flex flex-wrap  gap-4 justify-evenly">
               {userReviews.slice(0, reviewsDisplayed).map((review, index) => {
                 return (
                   <div
-                    className="bg-white h-[300px] w-[400px] rounded-md px-2 py-2 overflow-y-scroll"
+                    className="bg-white h-auto w-full rounded-md px-2 py-2"
                     key={index}
                   >
                     <div className="flex h-[65px] w-[full] px-1 border-b-2 border-[#d1d0d0]  items-center  gap-4 justify-start">
@@ -300,8 +298,8 @@ export default function Review({ id, title }) {
                         src={review.photoURL || "/logo.png"}
                         alt=""
                       />
-                      <div className="flex flex-col justify-start items-start gap-[0.5px]">
-                        <div>
+                      <div className="flex justify-between items-start   w-full">
+                        <div className="">
                           {" "}
                           <p className="text-sm"> {review.displayName}</p>
                           <p className="text-[10px] flex items-center gap-1">
@@ -309,7 +307,7 @@ export default function Review({ id, title }) {
                             {review.displayName}
                           </p>
                         </div>
-                        <div className="flex">
+                        <div className="flex ">
                           {[...Array(review.rating)].map((_, i) => (
                             <svg
                               key={i}
@@ -340,7 +338,7 @@ export default function Review({ id, title }) {
                         </span>
                       </p>
                     </div>
-                    <div className="p-2 text-sm text-pink">
+                    <div className="p-2 text-sm text-[#1B1B1B]">
                       {review.reviewText}
                     </div>
                   </div>
@@ -350,17 +348,18 @@ export default function Review({ id, title }) {
             {userReviews.length > reviewsDisplayed && (
               <button
                 onClick={handleViewMore}
-                className="text-[#04AC8D] text-[12px] font-semibold mt-4 flex justify-center items-center "
+                className="text-[#C9184A] border border-[#C9184A] rounded-3xl text-[12px] font-semibold mt-4 flex justify-center items-center "
               >
-                See More Reviews
+                View more
               </button>
             )}
           </div>
         </div>
       ) : (
-        <p className="flex justify-center items-center text-xl text-red-400 p-10">
-          Be the first to write a review
-        </p>
+        <div className="flex justify-between items-center text-[#C9184A] border border-[#C9184A] rounded-3xl text-[14px] lg:text-xl ">
+          <p className="   w-full p-3  ">Write a review</p>
+          <p className="p-3">&gt;</p>
+        </div>
       )}
     </div>
   );

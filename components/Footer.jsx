@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="hidden lg:flex bg-[url('/icons/footer.jpeg')] bg-cover bg-center object-cover  justify-around w-full h-[470px]  text-white ">
+      <div className="font-Merriweather-Sans hidden lg:flex bg-[url('/icons/footer.jpeg')] bg-cover bg-center object-cover  justify-around w-full h-[470px]  text-white ">
         
         <Space50px />
 
@@ -68,7 +68,7 @@ const Footer = () => {
         </div>
         <Space50px />
       </div>
-      <div className="text-white px-6 py-8 bg-gradient-to-t drop-shadow-md from-[#C9184A] to-[#FFB5A7] lg:hidden">
+      <div className="text-white px-6 py-8 bg-[url('/icons/mobilefooterbg.svg')] bg-cover bg-center object-cover  lg:hidden">
         <div>
           <div className="flex justify-center items-center">
             <img
@@ -76,7 +76,7 @@ const Footer = () => {
               alt={""}
               width={1000}
               height={1000}
-              className="w-[180px] h-[180px] "
+              className="w-[120px] h-[120px] "
             />
           </div>
           <p className="font-medium text-center">
