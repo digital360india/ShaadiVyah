@@ -7,7 +7,7 @@ export default function AboutShadivyah() {
           <p className="font-medium text-center md:text-start">
             About ShadiVyah
           </p>
-          <h1 className="xl:text-[48px] text-[32px] xl:w-[627px] md:text-start  font-semibold text-[#C9184A] font-fira-sans text-center ">
+          <h1 className="xl:text-[48px] text-[32px] xl:w-[627px] md:text-start  font-semibold font-Merriweather text-[#C9184A]  text-center ">
             We Are The Best Event Planner & Organizer In Town
           </h1>
           <div>
@@ -44,7 +44,7 @@ export default function AboutShadivyah() {
                       />
                     </svg>
                   </p>
-                  <p className="md:font-semibold font-medium text-[#02394A]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]">
                     Best Quality Services
                   </p>
                 </div>
@@ -66,7 +66,7 @@ export default function AboutShadivyah() {
                       />
                     </svg>
                   </p>
-                  <p className="md:font-semibold font-medium text-[#02394A]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]">
                     100% Satisfaction Guarantee
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function AboutShadivyah() {
                       />
                     </svg>
                   </p>
-                  <p className="md:font-semibold font-medium text-[#02394A]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]">
                     Quality Control System
                   </p>
                 </div>
@@ -110,7 +110,7 @@ export default function AboutShadivyah() {
                       />
                     </svg>
                   </p>
-                  <p className="md:font-semibold font-medium text-[#02394A]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]">
                     Commitment to Customer
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function AboutShadivyah() {
                       />
                     </svg>
                   </p>
-                  <p className="md:font-semibold font-medium text-[#02394A]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]">
                     Highly Professional Team
                   </p>
                 </div>

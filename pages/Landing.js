@@ -242,7 +242,7 @@ export default function Landing() {
                 <p className="md:text-3xl text-[32px]  text-pink  pl-4 ">
                   Popular{" "}
                   <span
-                    className="customText"
+                    className="customGabriola"
                    
                    
                   >
@@ -345,7 +345,7 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular <span className="font-Tangerine">Mehndi Artists</span>
+                Popular <span className="customGabriola">Mehndi Artists</span>
               </p>
               <Link
                 href={"/mehandivendors"}
@@ -441,7 +441,7 @@ export default function Landing() {
             <div className="flex flex-row justify-between items-center">
               {" "}
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular <span className="font-Tangerine">Makeup Artists</span>
+                Popular <span className="customGabriola">Makeup Artists</span>
               </p>
               <Link
                 href={"/makeupvendors"}
@@ -535,9 +535,9 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium font-Merriweather text-pink md:p-4 ">
                 Popular{" "}
-                <span className="font-dancing-script">Photographers</span>
+                <span className="customGabriola">Photographers</span>
               </p>
               <Link
                 href={"/photographersvendors"}

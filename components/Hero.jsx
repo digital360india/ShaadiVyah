@@ -19,15 +19,25 @@ export default function Hero() {
   const handleSearch = () => {
     router.push(`/search/${selectedLocation}/${selectedCategory}`);
   };
+ 
+
 
   return (
     <div className="mb-10">
-      <div className="">
+      <div className="hidden md:block">
         <img
-          className="  w-full h-[100vh] object-cover  "
+          className="  md:w-full w-[80vh] md:h-[100vh] h-full object-cover  "
           src="/images/hero1.svg"
         />
       </div>
+      <div className="md:hidden">
+        <img
+          className="  md:w-full w-[80vh] md:h-[100vh] h-full object-cover  "
+          src="/images/hero2.svg"
+        />
+      </div>
+
+
       <div className="flex items-center  justify-center text-white mb-20 ">
         <div className="md:w-[800px] ">
           <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-[#C9184A] mt-14 rounded-xl  py-4 mb-10 mx-4 flex flex-col md:flex-row items-center justify-evenly  text-black ">
