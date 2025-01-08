@@ -5,11 +5,24 @@ import React from "react";
 const page = () => {
   return (
     <>
+      <div className="relative w-full h-[105vh] ">
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center">
+          <Hero_2
+            img={"/images/servicehero.jpg"}
+            text={"Turn Wedding Dreams into Stunning Reality with Shaadivyah"}
+          />
+        </div>
+        <img
+          src="/icons/gradient.svg"
+          alt="Overlay"
+          className="absolute inset-0 w-full h-full object-cover "
+        />
+      </div>
       {/*Hero section*/}
-      <Hero_2
-        img={"/images/hero_services_page.png"}
+      {/* <Hero_2
+        img={"/images/servicehero.jpg"}
         text={"Turn Wedding Dreams into Stunning Reality with Shaadivyah"}
-      />
+      /> */}
       {/*left component section */}
       <Space100px />
       <div className="w-full xl:px-[100px] px-6 lg:h-[550px] lg:px-[60px] lg:relative   ">
@@ -18,7 +31,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none border-white border-r-8 border-b-8 "
+          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10  border-white border-r-8 border-b-8 "
         />
         <img
           src={"/vectors/vector2.png"}
@@ -28,11 +41,11 @@ const page = () => {
           className="hidden lg:block w-[580px] h-[410px]  lg:absolute -top-[100px] right-[100px] z-10 opacity-10 "
         />
         <div
-        
-         className="lg:bg-[url('/icons/rightframe.svg')]  xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl "
-         style={{
-          boxShadow: '0 10px 12px rgba(255, 105, 135, 0.2)'
-        }}>
+          className="lg:bg-[url('/icons/rightframe.svg')]  xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl "
+          style={{
+            boxShadow: "0 10px 12px rgba(255, 105, 135, 0.2)",
+          }}
+        >
           <div className="text-center lg:text-start  xl:pl-[400px] px-5 lg:pl-[300px] lg:relative text-pink lg:pt-12 pt-4">
             <div className="text-2xl font-semibold ">WEDDING VENUES</div>
             <div className="flex justify-center items-center">
@@ -63,20 +76,21 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center object-cover "
+          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10  border-white border-l-8 border-b-8 object-center object-cover "
         />
         <img
-          src={"/vectors/Vector.png"}
+          src={"/vectors/Vector.png"} 
           alt="image"
           height={1000}
           width={1000}
           className="hidden lg:block w-[330px] h-[300px] absolute -top-[70px] left-[100px] z-10 opacity-10 "
         />
-        <div 
-         style={{
-          boxShadow: '0 10px 12px rgba(255, 105, 135, 0.2)'
-        }}
-        className="lg:bg-[url('/icons/leftframe.svg')]  xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 ">
+        <div
+          style={{
+            boxShadow: "0 10px 12px rgba(255, 105, 135, 0.2)",
+          }}
+          className="lg:bg-[url('/icons/leftframe.svg')]  xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 "
+        >
           <div className="xl:pl-[36px] lg:pr-[300px] lg:relative text-pink xl:pt-10 pt-4">
             <div className="text-2xl font-semibold">PHOTOGRAPHERS</div>
             <div className="flex justify-center items-center">
@@ -106,7 +120,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10 filter grayscale hover:filter-none   border-b-8 object-center object-cover"
+          className="xl:w-[640px]  xl:h-[410px] md:h-[400px] h-[319px] lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:left-[100px]  lg:z-10    border-b-8 object-center object-cover"
         />
         <img
           src={"/vectors/vector2.png"}
@@ -116,10 +130,11 @@ const page = () => {
           className="hidden lg:block w-[580px] h-[410px]  lg:absolute -top-[100px] right-[100px] z-10 opacity-10 "
         />
         <div
-        style={{
-          boxShadow: '0 10px 12px rgba(255, 105, 135, 0.2)'
-        }}
-        className="lg:bg-[url('/icons/rightframe.svg')]  xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl ">
+          style={{
+            boxShadow: "0 10px 12px rgba(255, 105, 135, 0.2)",
+          }}
+          className="lg:bg-[url('/icons/rightframe.svg')]  xl:h-[400px]  xl:w-[924px] md:h-[300px] lg:h-[350px]   lg:absolute z-0  xl:top-36 lg:top-32 lg:right-16 xl:right-24 lg:w-[700px] shadow-2xl "
+        >
           <div className="text-center lg:text-start  xl:pl-[400px] px-5 lg:pl-[300px] lg:relative text-pink lg:pt-12 pt-4">
             <div className="text-2xl font-semibold ">BRIDAL MAKEUP</div>
             <div className="flex justify-center items-center">
@@ -149,7 +164,7 @@ const page = () => {
           alt="image"
           height={1000}
           width={1000}
-          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10 filter grayscale hover:filter-none border-white border-l-8 border-b-8 object-center "
+          className="xl:w-[640px] xl:h-[410px] md:h-[400px] h-[319px]  lg:w-[450px] lg:h-[350px] lg:absolute xl:top-0 xl:right-[100px] lg:right-[60px]   z-10  border-white border-l-8 border-b-8 object-center "
         />
         <img
           src={"/vectors/Vector.png"}
@@ -159,10 +174,11 @@ const page = () => {
           className="hidden lg:block w-[330px] h-[300px] absolute -top-[70px] left-[100px] z-10 opacity-10 "
         />
         <div
-        style={{
-          boxShadow: '0 10px 12px rgba(255, 105, 135, 0.2)'
-        }}
-        className="lg:bg-[url('/icons/leftframe.svg')]  xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 ">
+          style={{
+            boxShadow: "0 10px 12px rgba(255, 105, 135, 0.2)",
+          }}
+          className="lg:bg-[url('/icons/leftframe.svg')]  xl:h-[400px] xl:w-[924px] lg:absolute z-0 lg:h-[350px] lg:w-[700px] xl:top-36 lg:top-32 xl:left-24  shadow-2xl text-center lg:text-start px-5 "
+        >
           <div className="xl:pl-[36px] lg:pr-[300px] lg:relative text-pink xl:pt-10 pt-4">
             <div className="text-2xl font-semibold ">MEHNDI ARTISTS</div>
             <div className="flex justify-center items-center">
