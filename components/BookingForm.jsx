@@ -52,7 +52,7 @@ const BookingForm = () => {
         ref={formRef}
         className="p-6 rounded-2xl shadow-lg max-w-md w-full  border-[#FEC5BB] border-2"
       >
-        <div className="mt-10">
+        <div className="mt-10 md:justify-center md:px-10 md:pb-8">
           <p className="text-[20px] md:text-[28px] text-[#1B1B1B] text-center w-[300px]">
             Your <span className="text-[#CE0D5E]">Precious Day</span> must be
             Perfect

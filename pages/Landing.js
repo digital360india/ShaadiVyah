@@ -226,7 +226,7 @@ export default function Landing() {
       <div className="">
         <Hero />
       </div>
-      <div className="w-full ">
+      <div className="w-full gap-2 ">
         <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20 ">
             <img
@@ -234,19 +234,14 @@ export default function Landing() {
               alt="image"
               height={1000}
               width={1000}
-              className="w-[350px] lg:w-[880px] lg:h-[310px]   absolute lg:-top-[50px] lg:right-[250px] top-4 z-10 opacity-10 "
+              className="w-[350px] lg:w-[880px] lg:h-[310px]   absolute lg:-top-[0px] lg:right-[250px] top-4 z-10 opacity-10  "
             />
             <div className="">
               <div className="flex flex-row justify-between items-center">
                 {" "}
                 <p className="md:text-3xl text-[32px]  text-pink  pl-4 ">
                   Popular{" "}
-                  <span
-                    className="customGabriola"
-                   
-                   
-                  >
-        
+                  <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
                     Destinations
                   </span>
                 </p>
@@ -258,17 +253,17 @@ export default function Landing() {
                 </Link>
               </div>
 
-              <div className="px-[15px]  ">
+              <div className="px-[15px] ">
                 {venue.length > 0 ? (
                   <Slider {...sliderSettings}>
                     {venue.map((arr, index) => (
                       <Link
                         href={`/venues/${arr.uid}`}
                         key={arr.uid}
-                        className=" py-4 md:px-1 "
+                        className=" py-4 md:px-1 px-2 "
                       >
                         <div
-                          className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                          className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px] "
                           style={{
                             borderWidth: "3px",
                             borderStyle: "solid",
@@ -277,7 +272,7 @@ export default function Landing() {
                           }}
                         >
                           <img
-                            src={arr.bannerImageUrl || "/images/logo1.png"}
+                            src={arr.bannerImageUrl || "/logo.png"}
                             alt={arr.businessName}
                             className="w-full h-60 object-cover rounded-t-[4px]"
                           />
@@ -345,7 +340,10 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular <span className="customGabriola">Mehndi Artists</span>
+                Popular{" "}
+                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                  Mehndi Artists
+                </span>
               </p>
               <Link
                 href={"/mehandivendors"}
@@ -361,10 +359,10 @@ export default function Landing() {
                     <Link
                       href={`/mehandivendors/${arr.uid}`}
                       key={arr.uid}
-                      className=" py-4  md:px-1 "
+                      className=" py-4  md:px-1 px-2 "
                     >
                       <div
-                        className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                        className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
                         style={{
                           borderWidth: "3px",
                           borderStyle: "solid",
@@ -373,7 +371,7 @@ export default function Landing() {
                         }}
                       >
                         <img
-                          src={arr.bannerImageUrl || "/images/logo1.png"}
+                          src={arr.bannerImageUrl || "/logo.png"}
                           alt={arr.businessName}
                           className="w-full h-60 object-cover  rounded-t-[4px]"
                         />
@@ -441,7 +439,10 @@ export default function Landing() {
             <div className="flex flex-row justify-between items-center">
               {" "}
               <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
-                Popular <span className="customGabriola">Makeup Artists</span>
+                Popular{" "}
+                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                  Makeup Artists
+                </span>
               </p>
               <Link
                 href={"/makeupvendors"}
@@ -456,10 +457,10 @@ export default function Landing() {
                   <Link
                     href={`/makeupvendors/${arr.uid}`}
                     key={arr.uid}
-                    className=" py-4  md:px-1 "
+                    className=" py-4  md:px-1 px-2 "
                   >
                     <div
-                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
                       style={{
                         borderWidth: "3px",
                         borderStyle: "solid",
@@ -537,7 +538,9 @@ export default function Landing() {
               {" "}
               <p className="md:text-3xl text-[32px] font-medium font-Merriweather text-pink md:p-4 ">
                 Popular{" "}
-                <span className="customGabriola">Photographers</span>
+                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                  Photographers
+                </span>
               </p>
               <Link
                 href={"/photographersvendors"}
@@ -552,10 +555,10 @@ export default function Landing() {
                   <Link
                     href={`/photographersvendors/${arr.uid}`}
                     key={arr.uid}
-                    className=" py-4  md:px-1 "
+                    className=" py-4  md:px-1 px-2 "
                   >
                     <div
-                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px]"
+                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
                       style={{
                         borderWidth: "3px",
                         borderStyle: "solid",

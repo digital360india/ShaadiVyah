@@ -39,6 +39,27 @@ module.exports = {
         "3xl": "48px",
         "4xl": "60px",
       },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+        type: 'type 1.5s linear forwards',
+        cursor: 'cursor 2s step-end infinite',      
+      },
+
+        keyframes: {
+        type: {
+          '0%': { width: '0' },
+          '100%': { width: '100%' },
+        },
+        cursor: {
+          '50%': { borderColor: 'transparent' },
+        },
+        slidein: {
+          '0%': { transform: 'translateY(100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+     
+     
     },
   },
   plugins: [require("@tailwindcss/typography")],
