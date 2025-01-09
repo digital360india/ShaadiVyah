@@ -7,10 +7,11 @@ import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import { FaRupeeSign } from "react-icons/fa";
-import { MdCheckCircle, MdCancel } from 'react-icons/md';
+import { MdCheckCircle, MdCancel } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import Review from "@/components/Review";
-import vendorsFAQs from '@/utils/faq.js'
+import vendorsFAQs from "@/utils/faq.js";
+import Image from "next/image";
 const MakeUpVendorDetailsPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
@@ -32,15 +33,15 @@ const MakeUpVendorDetailsPage = () => {
             portfolioImagesUrl: values.portfolioImagesUrl
               ? values.portfolioImagesUrl[0]
               : {},
-              advancePayment: values.advancePayment,
-              makeupPerFamilyMember: values.makeupPerFamilyMember,
-              pricePerFunction:values.pricePerFunction,
+            advancePayment: values.advancePayment,
+            makeupPerFamilyMember: values.makeupPerFamilyMember,
+            pricePerFunction: values.pricePerFunction,
             bridalMehendi: values.bridalMehendi,
             familyMehendi: values.familyMehendi,
-            outstationTravel:values.outstationTravel,
+            outstationTravel: values.outstationTravel,
             practicingSince: values.practicingSince,
             uid: values.uid,
-            pricePerDay:values.pricePerDay,
+            pricePerDay: values.pricePerDay,
             streetAddress: values.streetAddress,
             landmark: values.landmark,
             postCode: values.postCode,
@@ -83,21 +84,35 @@ const MakeUpVendorDetailsPage = () => {
 
   return (
     <>
-      <div className="overflow-x-hidden">
-        <div className="relative flex justify-center items-center mb-40">
-          <img
+      <div className="overflow-x-hidden font-Merriweather">
+        <div className=" ">
+          {/* <img
             src={data?.bannerImageUrl}
             height={1000}
             width={1000}
             className="w-full rounded-b-[40px] h-[550px] bg-gray-300 object-contain  "
-          />
+          /> */}
 
-          <div className="absolute lg:-bottom-32 md:-bottom-20 -bottom-16 z-10 border  bg-[#FFFFFF] justify-center items-center xl:w-[1078px] lg:w-[900px] w-[342px] sm:w-[600px] md:w-[650px]  rounded-xl">
-            <div className="flex flex-col justify-between">
+          <div className="relative w-full h-[550px] ">
+            <div
+              className="absolute inset-0 w-full h-full bg-center object-fill bg-cover "
+              style={{
+                backgroundImage: `url(${data?.bannerImageUrl})`,
+              }}
+            ></div>
+            <img
+              src="/icons/gradient.svg"
+              alt="Overlay"
+              className="absolute inset-0 w-full h-full object-cover "
+            />
+          </div>
+
+          <div className="bg-[url('/icons/BackgroundShadow.svg')] lg:bg-[url('/icons/Frame.jpeg')] bg-cover bg-center object-cover w-full h-auto md:h-[500px]">
+            <div className="flex flex-col justify-end h-full">
               {" "}
-              <div className="flex flex-row justify-between lg:mx-16 md:mx-10 mx-4 my-5">
+              <div className="flex flex-row justify-between mt-14 lg:mt-0 lg:mx-[15%] md:mx-10 mx-4 my-2 lg:my-20">
                 <div className="flex flex-col justify-start items-start">
-                  <div className="lg:text-2xl text-[18px] font-semibold text-[#4A4A4A]">
+                  <div className="lg:text-2xl text-[18px] font-semibold text-[#A11C5C] font-Merriweather">
                     {data?.businessName}
                   </div>
                   <div className="flex gap-2 justify-start items-center mt-[10px]">
@@ -124,11 +139,13 @@ const MakeUpVendorDetailsPage = () => {
                         href={data?.googleLocation}
                         className="underline text-gray-700"
                       >
-                        <p className="text-[#909090] text-[10px] md:text-[14px]">(View on Map)</p>
+                        <p className="text-[#909090] text-[10px] md:text-[14px]">
+                          (View on Map)
+                        </p>
                       </Link>
                     )}
                   </div>
-                  <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block">
+                  <div className="text-[#909090] text-sm mt-[4px] hidden  sm:block font-Merriweather-Sans">
                     {data?.about}
                   </div>
                   <button className="flex gap-2 justify-start items-center mt-[10px]">
@@ -138,52 +155,79 @@ const MakeUpVendorDetailsPage = () => {
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />
-                    <div className="text-green-700 text-[10px] md:text-[16px] ">Contact</div>{" "}
+                    <div className="text-green-700 text-[10px] md:text-[16px] ">
+                      Contact
+                    </div>{" "}
                   </button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  {" "}
-                  <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
+                  {/* <div className="md:h-[40px] md:w-[80px] w-[48px] h-[30px]  rounded-sm bg-[#C9184A] flex justify-center items-center gap-2">
                     <img
                       src="/icons/ratingstar.svg"
                       height={1000}
                       width={1000}
                       className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
                     />{" "}
-                    <p className=" text-[12px] md:text-[16px] text-white">4.5</p>
+                    <p className=" text-[12px] md:text-[16px] text-white">
+                      4.5
+                    </p>
                   </div>
                   <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px]text-[#909090]">
                     <p>19</p>
                     <p>Reviews</p>
+                  </div>  */}
+
+                  <div className="flex gap-2 justify-start items-center mt-[10px]">
+                    {Array.from(
+                      { length: Math.floor(data?.averageRating || 0) },
+                      (_, index) => (
+                        <img
+                          key={index}
+                          src="/icons/starVector.svg"
+                          height={1000}
+                          width={1000}
+                          className="md:h-4 md:w-4 h-3 w-3 text-black-600 "
+                        />
+                      )
+                    )}
+                  </div>
+                  <div className="flex justify-center items-center gap-2 text-[10px] md:text-[16px] text-[#909090] font-Merriweather-Sans">
+                    <p>{data?.totalRating || "0"}</p>
+                    <p>Reviews</p>
                   </div>
                 </div>
               </div>
-              <div className=" py-3 lg:flex  bg-[#FBFBFB] hidden justify-center items-center text-sm rounded-xl  text-[#4A4A4A]">
-                <div className="flex gap-12">
-                  {" "}
+              <div
+                className=" h-3  mx-20 hidden lg:block"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className=" py-4 flex    justify-center items-center text-[13px]  lg:text-sm rounded-xl  text-[#4A4A4A]">
+                <div className="flex gap-[10px] lg:gap-12">
                   <a href="#photos">
-                    {" "}
-                    <div className="flex gap-2 justify-center items-center">
-                      {" "}
+                    <div className="flex gap-2 justify-center items-center pt-1">
                       <img
                         src="/icons/image.svg"
                         height={1000}
                         width={1000}
                         className="h-4 w-4 text-black-600 "
-                      />{" "}
-                      <p>Photos</p>{" "}
-                    </div>{" "}
+                      />
+                      <p>Portfolio</p>
+                    </div>
                   </a>
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
-                    {" "}
                     <img
                       src="/icons/like.svg"
                       height={1000}
                       width={1000}
                       className="h-4 w-4 text-black-600 "
                     />
-                    <p>Shortlist</p>
+                    <p>My Picks</p>
                   </div>
                   <div className="h-8 border-l border-gray-600"></div>
                   <div className="flex gap-2 justify-center items-center">
@@ -219,17 +263,13 @@ const MakeUpVendorDetailsPage = () => {
           </div>
         </div>
 
-
-
-
-
-
-        <div className="lg:flex space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6">
+        <div className="lg:flex space-y-16 lg:space-y-6 justify-between items-start   xl:mx-[100px] lg:mx-[80px] md:mx-[60px] mx-6 mt-24 lg:mt-12">
           <div className="lg:w-[46%] flex flex-col gap-10 ">
-            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#4A4A4A] capitalize ">
+            <div className="bg-[url('/icons/mandal.svg')] bg-cover bg-center object-cover w-[388px] h-[388px] absolute -left-48"></div>
+            <div className="md:text-3xl text-2xl  -mt-20 md:-mt-10 lg:-mt-0 font-semibold text-[#A11C5C] capitalize ">
               {data?.businessName}
               <div className="flex  justify-between items-center text-sm font-normal text-white mt-5">
-                <div className="rounded-full flex gap-2  px-4 py-2 bg-[#FF8FA3]">
+                <div className="rounded-full flex gap-2  px-4 py-2 bg-[#A11C5C]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -248,7 +288,9 @@ const MakeUpVendorDetailsPage = () => {
               </div>
             </div>
 
-            <div className="text-[#0A2D23] ">{data?.about}</div>
+            <div className="text-[#626262] font-Merriweather-Sans">
+              {data?.about}
+            </div>
             {/* <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
@@ -310,28 +352,66 @@ const MakeUpVendorDetailsPage = () => {
               </div>
             </div> */}
           </div>
-          <div className="xl:px-20 md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md bg-[#FFB5A71A] border-[#FEC5BB] border-2 gap-3">
-            <p className=" ">{data?.bussinessName}</p>
-            <form className="max-w-sm ">
+          <div className="bg-[url('/icons/formbg.svg')] bg-cover bg-center relative md:px-10 xl:py-10 px-5 py-5 flex justify-center items-center flex-col rounded-md border-[#CA8B00] border-2 gap-3">
+            <div className="absolute top-[-50px] left-1/2 transform -translate-x-1/2  ">
+              <Image
+                src="/logo.png"
+                width={1000}
+                height={1000}
+                alt="logo"
+                className="w-[100px] h-[100px]"
+              />
+            </div>
+            <p className="">{data?.bussinessName}</p>
+            <p className="text-[20px] text-[#1B1B1B] text-center w-[300px] font-Merriweather">
+              Your <span className="text-[#CE0D5E]">Precious Day</span> must be
+              Perfect
+            </p>
+            <p className="text-[12px] text-[#1E1E1E] text-center w-[300px] font-Merriweather-Sans">
+              We are here for your help. Please submit the form below...
+            </p>
+            <form className="max-w-md font-Merriweather-Sans">
+              <label className="text-[#1B1B1B] text-[14px]">Name</label>
               <input
                 type="text"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Full Name*"
+                placeholder="Enter your Name*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">Number</label>
+
               <input
                 type="tel"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Phone Number*"
+                placeholder="Enter your Number*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">Email</label>
+
               <input
                 type="email"
                 className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                placeholder="Email*"
+                placeholder="Enter your email*"
                 required
               />
+              <label className="text-[#1B1B1B] text-[14px]">
+                Function Name
+              </label>
 
+              <input
+                type="text"
+                className="w-full h-12 px-4 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                placeholder="Enter Function Name*"
+                required
+              />
+              <label className="text-[#1B1B1B] text-[14px]">
+                Function Date
+              </label>
+              <textarea
+                className="w-full h-32 px-4 py-2 my-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                placeholder="Enter Function Details (at most 100 words)*"
+                required
+              ></textarea>
               <div className="flex justify-between items-center">
                 <p className="mr-2">Notify me on Whatsapp</p>
                 <div className="relative">
@@ -350,9 +430,13 @@ const MakeUpVendorDetailsPage = () => {
               </div>
               <button
                 type="submit"
-                className="w-full h-12 mt-4 text-white bg-gradient-to-r from-[#C9184A] to-[#FFB5A7] rounded-md"
+                className="w-full h-12 mt-4 text-white rounded-md"
+                style={{
+                  background:
+                    "radial-gradient(50.16% 263.7% at 49.84% 51.98%, #DD0D63 0%, #800F45 100%)",
+                }}
               >
-                Check Availability and Prices
+                Submit
               </button>
             </form>
           </div>
@@ -366,8 +450,11 @@ const MakeUpVendorDetailsPage = () => {
           <a href="#faq">FAQ&apos;s</a>
         </div>
         {/* Portfolio*/}
-        <div className=" lg:pl-[100px] md:mx-[60px] mx-6 ">
-          <p className="text-[#4A4A4A] font-semibold text-[32px] mt-10 md:mt-0" id="photos">
+        <div className=" lg:pl-[60px] md:mx-[60px] mx-6 ">
+          <p
+            className="text-[#A11C5C] font-semibold text-[3rem] mt-10 md:mt-0 font-Merriweather"
+            id="photos"
+          >
             Portfolio
           </p>
         </div>
@@ -375,14 +462,18 @@ const MakeUpVendorDetailsPage = () => {
           <Gallery images={data.portfolioImagesUrl} />
         )}
 
-        <div className="bg-[#CFCCBF80] p-8 md:p-16  m-6 xl:mx-[100px] lg:mx-[80px]  rounded-2xl text-[#0A2D23]">
-          <div className="flex flex-col text-[32px] ">
+        <div className=" p-8 md:p-10   lg:mx-[65px]  rounded-2xl  font-Merriweather">
+          <div className="w-full bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover  flex flex-col gap-6 py-7  md:py-12  rounded-2xl border border-[#CA8B00]">
             <div id="services">
-              <p className="text-[42px] font-medium py-9">Information</p>
+              <div className="text-xl lg:text-[42px] text-white font-bold capitalize bg-gradient-to-r from-[#B97C00] to-[#EED68A] px-4 md:px-12 py-2">
+                Information
+              </div>
             </div>
-            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between ">
-              <div className="space-y-4  w-[250px]  ">
-                <p className="md:text-[22px] text-[18px] font-medium">Charges</p>
+            <div className="flex flex-wrap px-4 md:px-14  gap-8 lg:flex-row text-[20px] md:justify-between ">
+              <div className="space-y-4  ">
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Charges
+                </p>
                 <div className="text-[14px] font-semibold ">
                   <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
                     <li className="text-gray-700 flex gap-1  justify-center items-center">
@@ -404,13 +495,15 @@ const MakeUpVendorDetailsPage = () => {
                 </div>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">Travels to Venue</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Travels to Venue
+                </p>
                 <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
                   <li className="text-gray-700 flex gap-1 justify-start items-center">
                     {data?.travelsToVenue ? (
                       <MdCheckCircle className="text-green-500" />
                     ) : (
-                      <MdCancel className="text-red-500" /> 
+                      <MdCancel className="text-red-500" />
                     )}
                     <p>
                       {data?.travelsToVenue
@@ -433,27 +526,30 @@ const MakeUpVendorDetailsPage = () => {
                 </ul>
               </div>
               <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">Practicing Since</p>
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Practicing Since
+                </p>
                 <ul className="list-disc list-inside items-start space-y-3">
-                    <li className="text-gray-700 flex gap-1 text-[14px] font-semibold ">
-                      <p>Practicing Since : </p>
-                      <SlCalender className="text-sm" />
-                      <p>{data?.practicingSince}</p>
-                    </li>
-               
-                  </ul>
-              </div>
-              <div className="space-y-4  w-[250px] ">
-                <p className="md:text-[22px] text-[18px] font-medium">Advance Payment</p>
-                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
-                <li className="text-gray-700 flex gap-1 text-start">
-                      <p>Advance Payment : </p>
-   
-                      <p>{data?.advancePayment}</p><p>%</p>
-                    </li>
+                  <li className="text-gray-700 flex gap-1 text-[14px] font-semibold ">
+                    <p>Practicing Since : </p>
+                    <SlCalender className="text-sm" />
+                    <p>{data?.practicingSince}</p>
+                  </li>
                 </ul>
               </div>
-    
+              <div className="space-y-4  w-[250px] ">
+                <p className="md:text-[22px] text-[18px] font-medium">
+                  Advance Payment
+                </p>
+                <ul className="list-disc list-inside text-[14px] font-semibold space-y-3 ">
+                  <li className="text-gray-700 flex gap-1 text-start">
+                    <p>Advance Payment : </p>
+
+                    <p>{data?.advancePayment}</p>
+                    <p>%</p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

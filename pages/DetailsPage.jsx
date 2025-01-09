@@ -294,7 +294,7 @@ const DetailPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-between">
+              <di v className="flex flex-col justify-between">
                 <div
                   className=" h-3  mx-20 hidden lg:block"
                   style={{
@@ -358,7 +358,7 @@ const DetailPage = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </di>
             </div>
           </div>
         </div>
