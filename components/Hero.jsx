@@ -2,11 +2,66 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BookingForm from "./BookingForm";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+function GradualSpacing({ text = "", onComplete }) {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div className="flex space-x-1 justify-center">
+      <AnimatePresence>
+        {text.split("").map((char, i) => (
+          <motion.p
+            ref={ref}
+            key={i}
+            initial={{ opacity: 0, x: -18 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            exit="hidden"
+            transition={{
+              duration: 0.5,
+              delay: i * 0.1,
+              onComplete: i === text.length - 1 ? onComplete : undefined, // Call onComplete on the last character
+            }}
+            className="text-[25px] text-center md:text-[50px] tracking-tighter text-white customGabriola pt-3  md:leading-[4rem]"
+          >
+            {char === " " ? <span>&nbsp;</span> : char}
+          </motion.p>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function GradualSpacingTwo({ text = "" }) {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div className="flex space-x-1 justify-center">
+      <AnimatePresence>
+        {text.split("").map((char, i) => (
+          <motion.p
+            ref={ref}
+            key={i}
+            initial={{ opacity: 0, x: -18 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            exit="hidden"
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="text-[25px] text-center md:text-[50px] tracking-tighter text-white customGabriola pt-3  md:leading-[4rem]"
+          >
+            {char === " " ? <span>&nbsp;</span> : char}
+          </motion.p>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Hero() {
   const router = useRouter();
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [showSecond, setShowSecond] = useState(false);
 
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
@@ -22,7 +77,7 @@ export default function Hero() {
 
   return (
     <div className="mb-10">
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="hidden md:block relative overflow-hidden">
           <img
             className="w-full h-[100vh] object-cover"
@@ -32,17 +87,19 @@ export default function Hero() {
 
           <div className="absolute inset-x-0 bottom-20 text-center">
             <div className="border-t border-white w-3/4 mx-auto "></div>
-            <p className="text-[50px] customGabriola mt-4 text-white overflow-hidden whitespace-nowrap   animate-type">
-              Shaadi ka haar pal khaas...
-            </p>
-            <p className="text-[50px] customGabriola mt-2 text-white animate-type">
-              ShaadiVyah ke Saath...
-            </p>
+
+            <div className="h-[150px]">
+              <GradualSpacing
+                text="Shaadi ka haar pal khaas..."
+                onComplete={() => setShowSecond(true)} 
+              />
+              {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
+            </div>
             <div className="border-b border-white w-3/4 mx-auto mt-4"></div>
           </div>
 
           <img
-            className="absolute -bottom-10 -left-14 w-[150px] h-[150px] animate-spin-slow"
+            className="absolute -bottom-10 -left-14 w-[150px] h-[150px] animate-spin-slow-reverse"
             src="/images/chakra.svg"
             alt="Chakra Icon"
           />
@@ -50,12 +107,6 @@ export default function Hero() {
             className="absolute -bottom-10 -right-14 w-[150px] h-[150px] animate-spin-slow"
             src="/images/chakra.svg"
             alt="Chakra Icon"
-          />
-
-          <img
-            className="absolute top-0 right-2 w-full h-full"
-            src="/ani.gif/patels.gif"
-            alt="Decorative Animation"
           />
         </div>
 
@@ -68,38 +119,35 @@ export default function Hero() {
 
           <div className="absolute inset-x-0 bottom-40 text-center">
             <div className="border-t border-white w-3/4 mx-auto "></div>
-            <p className="text-[25px] customGabriola mt-4 text-white overflow-hidden whitespace-nowrap   animate-type">
-              Shaadi ka haar pal khaas...
-            </p>
-            <p className="text-[25px] customGabriola mt-2 text-white animate-type">
-              ShaadiVyah ke Saath...
-            </p>
+            
+            <div className="h-[100px]">
+              <GradualSpacing
+                text="Shaadi ka haar pal khaas..."
+                onComplete={() => setShowSecond(true)} 
+              />
+              {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
+            </div>
             <div className="border-b border-white w-3/4 mx-auto mt-4"></div>
           </div>
 
           <img
-            className="absolute -bottom-10 -left-6 w-[120px] h-[120px] animate-spin-slow"
+            className="absolute -bottom-10 -left-6 w-[120px] h-[120px] animate-spin-slow-reverse"
             src="/images/chakra.svg"
             alt="Chakra Icon"
           />
           <img
-            className="absolute -bottom-10 -right-6 w-[120px] h-[120px] animate-spin-slow"
+            className="absolute -bottom-10 -right-6 w-[120px] h-[120px] animate-spin-slow overflow-hidden"
             src="/images/chakra.svg"
             alt="Chakra Icon"
           />
 
-          <img
-            className="absolute top-0 right-6 w-full h-full"
-            src="/ani.gif/patels.gif"
-            alt="Decorative Animation"
-          />
         </div>
       </div>
 
       <div>
-        <div className=" absolute  z-40"></div>
+        <div className=" absolute z-40"></div>
         <div className="flex items-center  justify-center text-white  ">
-          <div className="md:w-[800px] ">
+          <div className="md:w-[800px] w-full">
             <div className="text-center space-y-3 md:space-y-0 font-lato font-medium text-md border border-[#C9184A] mt-14 rounded-xl  py-4 mb-10 mx-4 flex flex-col md:flex-row items-center justify-evenly  text-black ">
               <div className="flex gap-2 items-center w-[300px] text-[20px] md:w-[40%]">
                 <img
@@ -189,7 +237,7 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-              <div className="block md:hidden">
+              <div className="">
                 <div className="flex  items-center px-5 py-2  border border-[#C9184A] text-[#C9184A] rounded-full  ">
                   <div className="font-fira-sans items-center justify-center">
                     Search
@@ -205,9 +253,9 @@ export default function Hero() {
                 </div>
               </div>{" "}
             </div>
-            <BookingForm />
           </div>
         </div>
+          <BookingForm />
       </div>
     </div>
   );

@@ -12,12 +12,12 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="hidden md:flex justify-around items-center font-lato font-medium text-lg z-50">
+      <div className="hidden md:flex justify-around items-center font-lato font-medium text-lg z-50 ">
         <div>
           <Link href={"/"}>
             <img
               src={"/logo.png"}
-              className="lg:w-28 lg:h-28 w-16 h-16 object-fill"
+              className="lg:w-24 lg:h-24 w-16 h-16 object-fill"
             />
           </Link>
         </div>
@@ -29,13 +29,13 @@ export default function Navbar() {
         <div className="flex gap-2">
           <Link
             href={"/login"}
-            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[12px] md:text-[16px]"
+            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl text-[14px] md:text-[16px]"
           >
             <div>Login as vendor</div>
           </Link>
           <Link
             href={"/register"}
-            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl"
+            className="border border-pink text-pink lg:px-4 lg:py-2 p-[6px] rounded-3xl md:text-[16px]"
           >
             <div>Register as vendor</div>
           </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
         <div className="fixed top-0 bg-gradient-to-r from-black to-transparent   backdrop-blur-lg  w-3/4 h-full flex flex-col items-start justify-center p-6 z-50 font-lato text-white ">
           <button
             onClick={toggleMenu}
-            className="absolute top-4 right-4  text-3xl"z
+            className="absolute top-4 right-4  text-3xl"
           >
             &times;
           </button>
@@ -101,12 +101,12 @@ export default function Navbar() {
           </ul>
           <div className="mt-8 flex flex-col space-y-10 text-[12px]">
             <Link href={"/login"} onClick={toggleMenu}>
-              <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8  rounded-md mb-4">
+              <span className=" bg-gradient-to-r from-red-500 to-red-300 text-white text-center py-4 px-8 text-[14px]  rounded-md mb-4">
                 Login as Vendor
               </span>
             </Link>
             <Link href={"/register"} onClick={toggleMenu}>
-              <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center   rounded-md">
+              <span className=" bg-gradient-to-r from-red-500 to-red-300  text-white py-4 px-8 text-center text-[14px]  rounded-md">
                 Register as Vendor
               </span>
             </Link>

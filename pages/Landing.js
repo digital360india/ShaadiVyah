@@ -53,21 +53,28 @@ export default function Landing() {
     },
   ];
 
-  // Custom Next Arrow Component
-  const NextArrow = ({ className, style, onClick }) => (
+  const NextArrow = ({ onClick }) => (
     <div
-      className={`${className} custom-arrow custom-next-arrow `}
+      className={`absolute lg:-right-10 lg:bottom-[50%] hidden md:block  custom-arrow custom-next-arrow w-[100px]`}
       onClick={onClick}
-    />
+    >
+      <img src="/icons/righticon.svg" alt="Next Arrow" className="lg:w-20 lg:h-20" />
+    </div>
   );
 
-  // Custom Prev Arrow Component
-  const PrevArrow = ({ className, style, onClick }) => (
+  const PrevArrow = ({ onClick }) => (
     <div
-      className={`${className} custom-arrow custom-prev-arrow `}
+      className={`absolute lg:-left-20 lg:bottom-[50%] hidden md:block custom-arrow custom-prev-arrow w-60`}
       onClick={onClick}
-    />
+    >
+      <img
+        src="/icons/lefticon.svg"
+        alt="Previous Arrow"
+        className="lg:w-20 lg:h-20 "
+      />
+    </div>
   );
+
   const [venue, setVenues] = useState([]);
   const [mendhiArtists, setMendhiArtists] = useState([]);
   const [makeupArtist, setMakeupArtist] = useState([]);
@@ -226,7 +233,7 @@ export default function Landing() {
       <div className="">
         <Hero />
       </div>
-      <div className="w-full gap-2 ">
+      <div className="w-full gap-2 font-Merriweather">
         <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20 ">
             <img
@@ -239,9 +246,9 @@ export default function Landing() {
             <div className="">
               <div className="flex flex-row justify-between items-center">
                 {" "}
-                <p className="md:text-3xl text-[32px]  text-pink  pl-4 ">
+                <p className="md:text-3xl text-[32px] text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]  pl-4 ">
                   Popular{" "}
-                  <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                  <span className="customGabriola text-pink bg-clip-text">
                     Destinations
                   </span>
                 </p>
@@ -290,14 +297,23 @@ export default function Landing() {
                                   {arr.averageRating?.toFixed(2) || 3}{" "}
                                 </p>{" "}
                                 <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
+                                  <MdOutlineStar className="text-pink text-xl " />
                                 </p>
                               </div>
                             </div>
-                            <div className="flex justify-start gap-2">
+                            {/* <div className="flex justify-start gap-2">
                               <img src="/icons/locationred.svg" />
-                              <p className="text-[18px] text-[#666666]">
+                              <p className="text-[14px] text-[#666666]">
                                 {arr.location}
+                              </p>
+                            </div> */}
+                            <div className="flex justify-start gap-2">
+                              <img
+                                src="/icons/locationred.svg"
+                                alt="Location Icon"
+                              />
+                              <p className="text-[14px] text-[#666666]">
+                                {arr.location ? arr.location : "Not Specified"}
                               </p>
                             </div>
                             <p className="text-sm py-4 h-[120px]">
@@ -339,9 +355,9 @@ export default function Landing() {
             />
 
             <div className="flex flex-row justify-between items-center">
-              <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather md:p-4 ">
                 Popular{" "}
-                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                <span className="customGabriola text-pink bg-clip-text">
                   Mehndi Artists
                 </span>
               </p>
@@ -389,14 +405,23 @@ export default function Landing() {
                                 {arr.averageRating?.toFixed(2) || 3}{" "}
                               </p>{" "}
                               <p>
-                                <MdOutlineStar className="text-yellow-300 text-xl " />
+                                <MdOutlineStar className="text-pink text-xl " />
                               </p>
                             </div>{" "}
                           </div>
-                          <div className="flex justify-start gap-2">
+                          {/* <div className="flex justify-start gap-2">
                             <img src="/icons/locationred.svg" />
-                            <p className="text-[18px] text-[#666666]">
+                            <p className="text-[14px] text-[#666666]">
                               {arr.location}
+                            </p>
+                          </div> */}
+                          <div className="flex justify-start gap-2">
+                            <img
+                              src="/icons/locationred.svg"
+                              alt="Location Icon"
+                            />
+                            <p className="text-[14px] text-[#666666]">
+                              {arr.location ? arr.location : "Not Specified"}
                             </p>
                           </div>
                           <p className="text-sm py-4 h-[120px]">
@@ -438,9 +463,9 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <p className="md:text-3xl text-[32px] font-medium text-pink font-Merriweather md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather md:p-4 ">
                 Popular{" "}
-                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                <span className="customGabriola text-pink bg-clip-text">
                   Makeup Artists
                 </span>
               </p>
@@ -487,14 +512,23 @@ export default function Landing() {
                               {arr.averageRating?.toFixed(2) || 3}{" "}
                             </p>{" "}
                             <p>
-                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                              <MdOutlineStar className="text-pink text-xl " />
                             </p>
                           </div>{" "}
                         </div>
-                        <div className="flex justify-start gap-2">
+                        {/* <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
-                          <p className="text-[18px] text-[#666666]">
+                          <p className="text-[14px] text-[#666666]">
                             {arr.location}
+                          </p>
+                        </div> */}
+                        <div className="flex justify-start gap-2">
+                          <img
+                            src="/icons/locationred.svg"
+                            alt="Location Icon"
+                          />
+                          <p className="text-[14px] text-[#666666]">
+                            {arr.location ? arr.location : "Not Specified"}
                           </p>
                         </div>
                         <p className="text-sm py-4 h-[120px]">
@@ -536,9 +570,9 @@ export default function Landing() {
 
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <p className="md:text-3xl text-[32px] font-medium font-Merriweather text-pink md:p-4 ">
+              <p className="md:text-3xl text-[32px] font-medium font-Merriweather text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] md:p-4 ">
                 Popular{" "}
-                <span className="customGabriola bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] bg-clip-text text-transparent">
+                <span className="customGabriola text-pink bg-clip-text">
                   Photographers
                 </span>
               </p>
@@ -581,16 +615,27 @@ export default function Landing() {
                               {arr.averageRating?.toFixed(2) || 3}
                             </p>
                             <p>
-                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                              <MdOutlineStar className="text-pink text-xl " />
                             </p>
                           </div>
                         </div>
-                        <div className="flex justify-start gap-2">
+                        {/* <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
-                          <p className="text-[18px] text-[#666666]">
+                          <p className="text-[14px] text-[#666666]">
                             {arr.location}
                           </p>
+                        </div> */}
+
+                        <div className="flex justify-start gap-2">
+                          <img
+                            src="/icons/locationred.svg"
+                            alt="Location Icon"
+                          />
+                          <p className="text-[14px] text-[#666666]">
+                            {arr.location ? arr.location : "Not Specified"}
+                          </p>
                         </div>
+
                         <p className="text-sm py-4 h-[120px]">
                           {truncateText(arr.about, 30)}
                         </p>

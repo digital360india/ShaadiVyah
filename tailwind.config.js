@@ -41,8 +41,7 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 10s linear infinite',
-        type: 'type 1.5s linear forwards',
-        cursor: 'cursor 2s step-end infinite',      
+        'spin-slow-reverse': 'spin 10s linear infinite reverse',      
       },
 
         keyframes: {

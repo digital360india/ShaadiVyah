@@ -139,7 +139,7 @@ export default function Testimonials() {
             <div className="flex items-center justify-center md:pt-6 md:pb-10 py-2">
               <img
                 className="w-16 h-16 rounded-full object-contain border border-gray-300"
-                src={testimonial.imgURL || "/images/logo1.png"}
+                src={testimonial.imgURL || "/logo.png"}
                 alt=""
               />
               <div className="ml-4 text-left">
@@ -183,7 +183,7 @@ export default function Testimonials() {
             <div className="flex items-center justify-center md:pt-6 md:pb-10 py-2">
               <img
                 className="w-16 h-16 rounded-full object-contain border border-gray-300"
-                src={testimonial.imgURL || "/images/logo1.png"}
+                src={testimonial.imgURL || "/logo.png"}
                 alt=""
               />
               <div className="ml-4 text-left">
