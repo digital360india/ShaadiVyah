@@ -6,17 +6,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import Space50px from "./Space50px";
 
-
-
-
-
-
-
-
-
-
-
-
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
 

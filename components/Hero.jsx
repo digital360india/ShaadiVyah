@@ -238,17 +238,12 @@ export default function Hero() {
                 </div>
               </div>
               <div className="">
-                <div className="flex  items-center px-5 py-2  border border-[#C9184A] text-[#C9184A] rounded-full  ">
-                  <div className="font-fira-sans items-center justify-center">
+                <div className="flex  items-center px-5 py-2  border border-[#C9184A] text-[#C9184A] rounded-full text-[20px]  ">
+                  
+                  <button onClick={handleSearch}>
+                  <div className="font-lato items-center justify-center">
                     Search
                   </div>
-                  <button onClick={handleSearch}>
-                    {/* <img
-                    src={"/icons/search.svg"}
-                    width={1000}
-                    height={1000}
-                    className="w-5 h-5"
-                  /> */}
                   </button>
                 </div>
               </div>{" "}
