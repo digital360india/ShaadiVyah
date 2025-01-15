@@ -12,7 +12,6 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
-import { FiGift, FiHome, FiImage, FiTag } from "react-icons/fi";
 
 import "react-toastify/dist/ReactToastify.css";
 import { parseCookies } from "nookies";
@@ -29,6 +28,11 @@ const VenueVendorPage = () => {
   const [spaces, setSpaces] = useState([]);
   const [userSpaces, setUserSpaces] = useState([]);
   const [isEditingSpaces, setIsEditingSpaces] = useState(false);
+  const [isEditingPricing, setIsEditingPricing] = useState(false);
+  const [pricing, setPricing] = useState({
+    vegPlatePricing:"",
+    nonvegPlatePricing:""
+})
   const [spaceForm, setSpaceForm] = useState({
     spaceName: "",
     spaceType: "",
@@ -69,6 +73,8 @@ const VenueVendorPage = () => {
         const userData = querySnapshot.docs[0].data();
         setUser(userData);
         setUserAmenities(userData.amenitiesUID || []);
+        setPricing(userData.pricing || [])
+        console.log(userData)
         setUserSpaces(userData.spaces || []);
         setUserFacilities(userData.facilitiesUID || []);
         setUserAccessibilityOptions(userData.accessibilityOptionsUID || []);
@@ -248,7 +254,24 @@ const VenueVendorPage = () => {
       checked ? [...prev, value] : prev.filter((amenity) => amenity !== value)
     );
   };
-
+  const handlePricingChange = (e) => {
+    const { name, value } = e.target;
+    setPricing((prevPricing) => ({
+      ...prevPricing,
+      [name]: value,
+    }));
+  };
+  const handlePricingSave = async () => {
+    try {
+      const pricingDocRef = doc(db,"users", user.uid ); 
+      await updateDoc(pricingDocRef, {pricing:pricing}); 
+      alert("Pricing updated successfully!");
+      setIsEditingPricing(false);
+    } catch (error) {
+      console.error("Error updating pricing:", error);
+      alert("Error updating pricing.");
+    }
+  };
   const fetchAccessibilityOptions = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "accessibility"));
@@ -459,8 +482,74 @@ const VenueVendorPage = () => {
             </ul>
           </div>
         )}
-
-
+{isEditingPricing ? (
+  <>
+ <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="flex flex-row justify-between">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Edit Pricings</h2>
+            <div className="mb-4">
+              <button
+                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                onClick={() => setIsEditing(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-gray-700">Veg Plate Pricing</label>
+              <input
+                type="text"
+                name="vegPlatePricing"
+                value={pricing.vegPlatePricing}
+                onChange={handlePricingChange}
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Non-Veg Plate Pricing</label>
+              <input
+                type="text"
+                name="nonvegPlatePricing"
+                value={pricing.nonvegPlatePricing}
+                onChange={handlePricingChange}
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <button
+              onClick={handlePricingSave}
+              className="px-4 py-2 bg-green-500 text-white rounded-md"
+            >
+              Save
+            </button>
+          </div>
+        </div>  </>
+) : (
+  <>
+    <div className="bg-white shadow-md rounded-lg p-4">
+      <div className="flex flex-row justify-between">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Pricings</h2>
+        <div className="mb-4">
+          <button
+            className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+            onClick={() => setIsEditingPricing(!isEditingPricing)}
+          >
+            {isEditingPricing ? "Cancel" : <MdEdit />}
+          </button>
+        </div>
+      </div>
+      <ul className="list-disc list-inside space-y-2">
+        <li>
+          <strong>Veg Plate Pricing:</strong> {pricing.vegPlatePricing || "Not Set"}
+        </li>
+        <li>
+          <strong>Non-Veg Plate Pricing:</strong> {pricing.nonvegPlatePricing || "Not Set"}
+        </li>
+      </ul>
+    </div>
+  </>
+)}
 
 
 
