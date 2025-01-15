@@ -15,10 +15,9 @@ import Space50px from "@/components/Space50px";
 
 const PhotographerVendorPage = () => {
   const [formData, setFormData] = useState({
-    pricePerDay: "",
-    photoPackage: "",
-    photoVideoPackage: "",
-    albumPages: "",
+    pricePreWeddingPerDay: "",
+    priceWeddingDayPerDay: "",
+    priceSpecialEventPerDay: "",
     outstationTravelCovered: false,
     practicingSince: "",
     travelsToVenue: false,
@@ -40,10 +39,9 @@ const PhotographerVendorPage = () => {
         if (photographerSnap.exists) {
           const data = photographerSnap.data();
           setFormData({
-            pricePerDay: data.pricePerDay || "",
-            photoPackage: data.photoPackage || "",
-            photoVideoPackage: data.photoVideoPackage || "",
-            albumPages: data.albumPages || "",
+            pricePreWeddingPerDay: data.pricePreWeddingPerDay || "",
+            priceWeddingDayPerDay: data.priceWeddingDayPerDay || "",
+            priceSpecialEventPerDay: data.priceSpecialEventPerDay || "",
             outstationTravelCovered: data.outstationTravelCovered || false,
             practicingSince: data.practicingSince || "",
             travelsToVenue: data.travelsToVenue || false,
@@ -122,16 +120,16 @@ const PhotographerVendorPage = () => {
             </h2>
             <div className="mb-4">
               <label
-                htmlFor="pricePerDay"
+                htmlFor="pricePreWeddingPerDay"
                 className="block text-gray-700 font-medium"
               >
-                Starting price per day
+                Starting price Pre-Wedding (photo + video) per day
               </label>
               <input
                 type="number"
-                id="pricePerDay"
-                name="pricePerDay"
-                value={formData.pricePerDay}
+                id="pricePreWeddingPerDay"
+                name="pricePreWeddingPerDay"
+                value={formData.pricePreWeddingPerDay}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
                 placeholder="Enter amount of price Per Day"
@@ -139,16 +137,15 @@ const PhotographerVendorPage = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="photoPackage"
+                htmlFor="priceWeddingDayPerDay"
                 className="block text-gray-700 font-medium"
               >
-                Photo Package
-              </label>
+Price for Wedding (photo + video) per Day                </label>
               <input
                 type="number"
-                id="photoPackage"
-                name="photoPackage"
-                value={formData.photoPackage}
+                id="priceWeddingDayPerDay"
+                name="priceWeddingDayPerDay"
+                value={formData.priceWeddingDayPerDay}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
                 placeholder="Enter amount of photo Package"
@@ -156,38 +153,21 @@ const PhotographerVendorPage = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="photoVideoPackage"
+                htmlFor="priceSpecialEventPerDay"
                 className="block text-gray-700 font-medium"
               >
-                Photo Video Package
-              </label>
+Price for Special Events (photo + video) per Day              </label>
               <input
                 type="number"
-                id="photoVideoPackage"
-                name="photoVideoPackage"
-                value={formData.photoVideoPackage}
+                id="priceSpecialEventPerDay"
+                name="priceSpecialEventPerDay"
+                value={formData.priceSpecialEventPerDay}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
                 placeholder="Enter amount of photo Video Package"
               />
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="albumPages"
-                className="block text-gray-700 font-medium"
-              >
-                Album Pages
-              </label>
-              <input
-                type="number"
-                id="albumPages"
-                name="albumPages"
-                value={formData.albumPages}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
-                placeholder="Enter no. of album Pages"
-              />
-            </div>
+        
             <div className="mb-4 flex gap-3">
               <input
                 type="checkbox"
@@ -277,56 +257,44 @@ const PhotographerVendorPage = () => {
             </h2>
             <div className="mb-4">
               <label
-                htmlFor="pricePerDay"
+                htmlFor="pricePreWeddingPerDay"
                 className="block text-gray-700 font-medium"
               >
                 Starting price per day
               </label>
               <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.pricePerDay
-                  ? formData.pricePerDay
-                  : <p className="text-gray-400">Enter amount of price Per Day</p>}
+                {formData.pricePreWeddingPerDay
+                  ? formData.pricePreWeddingPerDay
+                  : <p className="text-gray-400">Enter amount of price of pre-wedding Per Day</p>}
               </span>
             </div>
             <div className="mb-4">
               <label
-                htmlFor="photoPackage"
+                htmlFor="priceWeddingDayPerDay"
                 className="block text-gray-700 font-medium"
               >
                 Photo Package
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.photoPackage
-                  ? formData.photoPackage
-                  : <p className="text-gray-400">Enter amount of photo Package</p>}
+                {formData.priceWeddingDayPerDay
+                  ? formData.priceWeddingDayPerDay
+                  : <p className="text-gray-400">Enter amount of Wedding Day photo + vid Package</p>}
               </span>
             </div>
             <div className="mb-4">
               <label
-                htmlFor="photoVideoPackage"
+                htmlFor="priceSpecialEventPerDay"
                 className="block text-gray-700 font-medium"
               >
                 Photo Video Package
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.photoVideoPackage
-                  ? formData.photoVideoPackage
+                {formData.priceSpecialEventPerDay
+                  ? formData.priceSpecialEventPerDay
                   : <p className="text-gray-400">Enter amount of photo Video Package</p>}
               </span>
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="albumPages"
-                className="block text-gray-700 font-medium"
-              >
-                Album Pages
-              </label>
-              <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.albumPages
-                  ? formData.albumPages
-                  : <p className="text-gray-400">Enter no. of album Pages</p>}
-              </span>
-            </div>
+        
             <div className="mb-4">
               <label
                 htmlFor="outstationTravelCovered"

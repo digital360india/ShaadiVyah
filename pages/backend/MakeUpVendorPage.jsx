@@ -22,6 +22,7 @@ const MakeUpVendorPage = () => {
     outstationTravelCovered: false,
     engagementMakeupCharge: "",
     makeupPerFamilyMember: "",
+    preweddingMakeupCharge: "",
   });
   const [editMode, setEditMode] = useState(false);
   const [services, setServices] = useState([]);
@@ -227,6 +228,23 @@ const MakeUpVendorPage = () => {
             <div>
               <label
                 className="block text-gray-700 font-medium"
+                htmlFor="preweddingMakeupCharge"
+              >
+                Pre-Wedding makeup charge
+              </label>
+              <input
+                type="number"
+                id="preweddingMakeupCharge"
+                name="preweddingMakeupCharge"
+                value={formData.preweddingMakeupCharge}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 placeholder:text-gray-300  py-3 border border-gray-300 rounded shadow-sm"
+                placeholder="Pre Wedding Makeup Charge"
+              />
+            </div>
+            <div>
+              <label
+                className="block text-gray-700 font-medium"
                 htmlFor="makeupPerFamilyMember"
               >
                 Makeup Per Family Member
@@ -370,13 +388,13 @@ const MakeUpVendorPage = () => {
             <div className="mb-4">
               <label
                 className="block text-gray-700 font-medium"
-                htmlFor="engagementMakeupCharge"
+                htmlFor="preweddingMakeupCharge"
               >
-                Engagement Makeup Charge
+                Pre-Wedding Makeup Charge
               </label>
               <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm text-gray-700">
-                {formData.engagementMakeupCharge ? (
-                  formData.engagementMakeupCharge
+                {formData.preweddingMakeupCharge ? (
+                  formData.preweddingMakeupCharge
                 ) : (
                   <span className="text-gray-400">
                     Engagement Makeup Charge{" "}
@@ -384,7 +402,23 @@ const MakeUpVendorPage = () => {
                 )}
               </span>
             </div>
-
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-medium"
+                htmlFor="makeupPerFamilyMember"
+              >
+                Makeup Per Family Member
+              </label>
+              <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm text-gray-700">
+                {formData.makeupPerFamilyMember ? (
+                  formData.makeupPerFamilyMember
+                ) : (
+                  <span className="text-gray-400">
+                    Makeup Per Family Member
+                  </span>
+                )}
+              </span>
+            </div>
             <div className="mb-4">
               <label
                 className="block text-gray-700 font-medium"
