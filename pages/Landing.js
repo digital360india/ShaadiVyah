@@ -228,6 +228,7 @@ export default function Landing() {
     return text;
   };
 
+  
   return (
     <div className="">
       <div className="">
@@ -281,7 +282,7 @@ export default function Landing() {
                           <img
                             src={arr.bannerImageUrl || "/logo.png"}
                             alt={arr.businessName}
-                            className="w-full h-60 object-cover rounded-t-[4px]"
+                            className="w-full h-60 object-cover"
                           />
                           <div className=" px-6 py-4  ">
                             {" "}
@@ -313,12 +314,12 @@ export default function Landing() {
                                 alt="Location Icon"
                               />
                               <p className="text-[14px] text-[#666666]">
-                                {arr.location ? arr.location : "Not Specified"}
+                                {arr.city ? arr.city : "Not Specified"}
                               </p>
                             </div>
-                            <p className="text-sm py-4 h-[120px]">
+                            {/* <p className="text-sm py-4 h-[120px]">
                               {truncateText(arr.about, 30)}
-                            </p>
+                            </p> */}
                             {/* <div className="flex justify-between">
                           <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                             <p className="text-[#333333] lg:lg:text-sm text-[10px]">
@@ -389,7 +390,7 @@ export default function Landing() {
                         <img
                           src={arr.bannerImageUrl || "/logo.png"}
                           alt={arr.businessName}
-                          className="w-full h-60 object-cover  rounded-t-[4px]"
+                          className="w-full h-60 object-cover  "
                         />
                         <div className=" px-6 py-4 ">
                           {" "}
@@ -421,7 +422,7 @@ export default function Landing() {
                               alt="Location Icon"
                             />
                             <p className="text-[14px] text-[#666666]">
-                              {arr.location ? arr.location : "Not Specified"}
+                              {arr.city ? arr.city : "Not Specified"}
                             </p>
                           </div>
                           <p className="text-sm py-4 h-[120px]">
@@ -496,7 +497,7 @@ export default function Landing() {
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
-                        className="w-full h-60 object-cover  rounded-t-[4px]"
+                        className="w-full h-60 object-cover "
                       />
                       <div className=" px-6 py-4 ">
                         {" "}
@@ -528,7 +529,7 @@ export default function Landing() {
                             alt="Location Icon"
                           />
                           <p className="text-[14px] text-[#666666]">
-                            {arr.location ? arr.location : "Not Specified"}
+                            {arr.city ? arr.city : "Not Specified"}
                           </p>
                         </div>
                         <p className="text-sm py-4 h-[120px]">
@@ -603,7 +604,7 @@ export default function Landing() {
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
                         alt={arr.businessName}
-                        className="w-full h-60 object-cover  rounded-t-[4px]"
+                        className="w-full h-60 object-cover"
                       />
                       <div className=" px-6 py-4 ">
                         <div className="flex justify-between items-center h-[30px]">
@@ -632,7 +633,7 @@ export default function Landing() {
                             alt="Location Icon"
                           />
                           <p className="text-[14px] text-[#666666]">
-                            {arr.location ? arr.location : "Not Specified"}
+                            {arr?.city ? arr?.city : "Not Specified"}
                           </p>
                         </div>
 

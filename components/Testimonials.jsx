@@ -108,7 +108,7 @@ export default function Testimonials() {
         {testimonials.map((testimonial, index) => (
           <div
           key={index}
-          className="lg:pt-10 min-h-[400px] pt-4 bg-[#EBECED] md:px-6 px-2 text-center border rounded-t-2xl xl:ml-20 lg:ml-10 ml-5"
+          className="lg:pt-10 min-h-[200px] pt-4 bg-[#EBECED] md:px-6 px-2 text-center border rounded-t-2xl xl:ml-20 lg:ml-10 ml-5"
           style={{
             borderWidth: "3px",
             borderStyle: "solid",
@@ -117,7 +117,7 @@ export default function Testimonials() {
         >
         
             <div
-              className="lg:text-[19px] md:text-[14px] text-[12px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10"
+              className="lg:text-[19px] md:text-[14px] text-[12px] xl:h-[100px] lg:h-[140px] md:h-[100px] xl:px-10 "
               style={{
                 overflow: "hidden",
                 textOverflow: "ellipsis",

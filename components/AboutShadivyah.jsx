@@ -9,7 +9,7 @@ export default function AboutShadivyah() {
           </p>
           <div className="flex justify-center ">
           <h1 className="xl:text-[48px] text-[32px] xl:w-[650px]  font-semibold font-Merriweather text-[#C9184A]  text-center  ">
-            We Are The Best Event Planner & Organizer In Town
+            We Are The Best Event Planner In Town
           </h1>
           </div>
           <div className="md:flex  md:gap-40">
