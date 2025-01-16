@@ -55,21 +55,21 @@ const BookingForm = () => {
 
       <form
         ref={formRef}
-        className=" p-6 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full  border-[#FEC5BB] border-2 flex
+        className="  md:pb-6 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full  border-[#FEC5BB] border-2 flex
         bg-[url('/images/formbg.svg')] bg-cover "
       >
 
-        <div className="w-[521px] h-[480px] hidden md:block ">
-          <img src="/images/form.svg" alt="form" className="w-[421px] h-[668px]" />
+        <div className="w-[521px] h-[460px] hidden md:block ">
+          <img src="/images/form.svg" alt="form" className="w-[421px] h-[550px]" />
         </div>
         <div className="">
           {" "}
-          <div className="mt-10 md:justify-center md:px-10 md:pb-8 font-Merriweather">
+          <div className="mt-6 md:justify-center md:px-10 md:pb-8 font-Merriweather">
             <p className="text-[20px] md:text-[28px] text-[#1B1B1B] text-center w-[300px]">
               Your <span className="text-[#CE0D5E]">Precious Day</span> must be
               Perfect
             </p>
-            <p className="text-[12px] md:text-[20px] text-[#1E1E1E] text-center w-[300px]">
+            <p className="text-[12px] md:text-[14px] text-[#555454] text-center w-[300px] font-Merriweather-Sans">
               We are here for your help. Please submit the form below...
             </p>
           </div>

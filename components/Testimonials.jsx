@@ -50,7 +50,7 @@ export default function Testimonials() {
   return (
     <div className="w-full bg-white">
       <div>
-        <p className="font-fira-sans pt-20 font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A] text-center">
+        <p className="font-Merriweather pt-20 font-semibold md:text-[48px] text-[32px] md:pb-11 pb-6 text-[#C9184A] text-center">
           Testimonials
         </p>
       </div>

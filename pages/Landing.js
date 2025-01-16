@@ -280,13 +280,13 @@ export default function Landing() {
         </div>
         <div className="sticky top-0">
           <div className="bg-white pt-24 pb-12   px-6 md:px-20 ">
-            <img
+            {/* <img
               src={"/vectors/vector4.png"}
               alt="image"
               height={1000}
               width={1000}
               className=" w-[275px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
-            />
+            /> */}
 
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather md:p-4 ">
@@ -358,7 +358,7 @@ export default function Landing() {
               alt="image"
               height={1000}
               width={1000}
-              className=" lg:w-[430px] lg:h-[330px] w-[270px] h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
+              className=" lg:w-[300px] lg:h-[230px] w-[270px] h-[270px]  absolute  lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
             />
 
             <div className="flex flex-row justify-between items-center">

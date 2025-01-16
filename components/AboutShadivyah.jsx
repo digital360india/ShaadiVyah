@@ -2,14 +2,15 @@ import React from "react";
 export default function AboutShadivyah() {
   return (
     <div>
-      <div className="  w-full xl:px-[100px] py-[60px] md:px-[60px] px-6  bg-white  lg:flex justify-between ">
-        <div className="space-y-6  pt-10 md:pt-20">
-          <p className="font-medium text-center ">
+      <div className="  w-full xl:px-[100px] py-[60px] md:px-[60px] px-6  bg-white  lg:flex justify-evenly text-center font-Merriweather ">
+        <div className="space-y-6  pt-10 md:pt-20 justify-center text-center">
+          <p className="font-medium text-center font-Merriweather ">
             About ShadiVyah
           </p>
           <div className="flex justify-center ">
-          <h1 className="xl:text-[48px] text-[32px] xl:w-[650px]  font-semibold font-Merriweather text-[#C9184A]  text-center  ">
-            We Are The Best Event Planner In Town
+          <h1 className="xl:text-[48px] text-[32px] xl:w-[650px]  font-semibold font-Merriweather text-[#C9184A] justify-center text-center  ">
+          ShadiVyah: Your Uttarakhand Wedding Experts
+
           </h1>
           </div>
           <div className="md:flex  md:gap-40">

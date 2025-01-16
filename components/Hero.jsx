@@ -62,17 +62,32 @@ export default function Hero() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [showSecond, setShowSecond] = useState(false);
-
+  const [error, setError] = useState({ location: false, category: false });
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
+    setError((prev) => ({ ...prev, location: false }));
   };
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
+    setError((prev) => ({ ...prev, category: false }));
   };
-
   const handleSearch = () => {
-    router.push(`/search/${selectedLocation}/${selectedCategory}`);
+    let hasError = false;
+
+    if (!selectedLocation || selectedLocation.trim() === "") {
+      setError((prev) => ({ ...prev, location: true }));
+      hasError = true;
+    }
+
+    if (!selectedCategory || selectedCategory.trim() === "") {
+      setError((prev) => ({ ...prev, category: true }));
+      hasError = true;
+    }
+
+    if (!hasError) {
+      router.push(`/search/${selectedLocation}/${selectedCategory}`);
+    }
   };
 
   return (
@@ -91,7 +106,7 @@ export default function Hero() {
             <div className="h-[150px]">
               <GradualSpacing
                 text="Shaadi ka haar pal khaas..."
-                onComplete={() => setShowSecond(true)} 
+                onComplete={() => setShowSecond(true)}
               />
               {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
             </div>
@@ -119,11 +134,11 @@ export default function Hero() {
 
           <div className="absolute inset-x-0 bottom-40 text-center">
             <div className="border-t border-white w-3/4 mx-auto "></div>
-            
+
             <div className="h-[100px]">
               <GradualSpacing
                 text="Shaadi ka haar pal khaas..."
-                onComplete={() => setShowSecond(true)} 
+                onComplete={() => setShowSecond(true)}
               />
               {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
             </div>
@@ -140,7 +155,6 @@ export default function Hero() {
             src="/images/chakra.svg"
             alt="Chakra Icon"
           />
-
         </div>
       </div>
 
@@ -157,6 +171,7 @@ export default function Hero() {
                   className="w-8 h-8 md:w-5 md:h-5 "
                 />
                 <select
+                  required
                   className="bg-transparent  w-full outline-none text-[#C9184A] "
                   value={selectedLocation}
                   onChange={handleLocationChange}
@@ -183,6 +198,9 @@ export default function Hero() {
                     Nainital
                   </option>
                 </select>
+                {error.location && (
+                  <p className="text-red-500 text-sm">Required</p>
+                )}
               </div>
               <div className="hidden md:block">|</div>
               <div className="flex gap-2 items-center w-[300px] text-[20px] md:w-[40%]">
@@ -193,6 +211,7 @@ export default function Hero() {
                   className="w-8 h-8 md:w-5 md:h-5 "
                 />
                 <select
+                  required
                   className="bg-transparent w-full outline-none text-[#C9184A]"
                   value={selectedCategory}
                   onChange={handleCategoryChange}
@@ -220,6 +239,9 @@ export default function Hero() {
                     Mehndi Artists
                   </option>
                 </select>
+                {error.category && (
+                  <p className="text-red-500 text-sm">Required</p>
+                )}
               </div>
               <div className="flex flex-row">
                 {" "}
@@ -239,18 +261,17 @@ export default function Hero() {
               </div>
               <div className="">
                 <div className="flex  items-center px-5 py-2  border border-[#C9184A] text-[#C9184A] rounded-full text-[20px]  ">
-                  
                   <button onClick={handleSearch}>
-                  <div className="font-lato items-center justify-center">
-                    Search
-                  </div>
+                    <div className="font-lato items-center justify-center">
+                      Search
+                    </div>
                   </button>
                 </div>
               </div>{" "}
             </div>
           </div>
         </div>
-          <BookingForm />
+        <BookingForm />
       </div>
     </div>
   );
