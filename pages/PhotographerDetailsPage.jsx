@@ -21,7 +21,7 @@ const PhotographerDetailsPage = () => {
   const [isCopied, setIsCopied] = useState(false);
 
   const [data, setData] = useState();
-
+  const [amenities, setAmenities] = useState([]);
   useEffect(() => {
     const fetchRoutineData = async () => {
       const querySnapshot = await getDocs(
@@ -38,10 +38,10 @@ const PhotographerDetailsPage = () => {
               ? values.portfolioImagesUrl[0]
               : {},
             advancePayment: values.advancePayment,
-            serviceID: values.serviceID,
-            photoPackage: values.photoPackage,
-            photoVideoPackage: values.photoVideoPackage,
-            pricePerDay: values.pricePerDay,
+            serviceID: values.servicesID,
+            photoPackage: values.priceWeddingDayPerDay,
+            photoVideoPackage: values.priceSpecialEventPerDay,
+            pricePerDay: values.pricePreWeddingPerDay,
             outstationTravel: values.outstationTravel,
             practicingSince: values.practicingSince,
             uid: values.uid,
@@ -66,7 +66,7 @@ const PhotographerDetailsPage = () => {
             portfolioImagesUrl: values.venueLinks,
           };
         });
-        console.log(data);
+        console.log(data[0]);
         setData(data[0]);
       }
     };
@@ -311,6 +311,41 @@ const PhotographerDetailsPage = () => {
             <div className="text-[#626262] font-Merriweather-Sans">
               {data?.about}
             </div>
+
+            <div>
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
+                Package <span className="customGabriola">Starting from...</span>
+              </p>
+              <div
+                className="w-full h-3"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className="text-[20px]  mt-3 font-semibold ">
+                <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Price Per Day: </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.pricePerDay}</p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Photo Package: </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.photoPackage}</p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Photo Video Package : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.photoVideoPackage}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
             {/* <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
@@ -578,6 +613,42 @@ const PhotographerDetailsPage = () => {
           </div>
         </div>
 
+        <div className=" md:mx-[100px] mx-6  rounded-2xl text-[#0A2D23] mb-10 font-Merriweather ">
+          <div className="flex flex-col text-[32px] bg-[url('/icons/Section.svg')] bg-cover bg-center object-cover border border-[#CA8B00] rounded-2xl">
+            <div id="services ">
+              <p className="text-xl lg:text-[42px] font-medium  bg-gradient-to-r from-[#B97C00] to-[#EED68A] px-4 md:px-12 mt-7 md:mt-10 py-2 text-white">
+                Services
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-8 lg:flex-row text-[20px] md:justify-between p-7 md:p-10">
+              <div className="space-y-4 w-[250px]">
+                <div className="text-[14px]">
+                  <ul className="list-disc list-inside items-start flex flex-col space-y-3">
+                    {data && data.serviceID && Array.isArray(data.serviceID) ? (
+                      data.serviceID.map((serviceId) => {
+                        const service = amenities.find(
+                          (a) => a.id === serviceId
+                        );
+                        return service ? (
+                          <li
+                            key={serviceId}
+                            className="text-[#000000] text-[14px]"
+                          >
+                            {service.name}
+                          </li>
+                        ) : null;
+                      })
+                    ) : (
+                      <li className="text-[#000000] text-[14px]">
+                        No services available
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="reviews">
           <Review id={uniqueID} title={data?.businessName} />
         </div>

@@ -10,6 +10,7 @@ import Space25px from "@/components/Space25px";
 import Review from "@/components/Review";
 import vendorsFAQs from "@/utils/faq.js";
 import Image from "next/image";
+import { FaRupeeSign } from "react-icons/fa";
 
 const DetailPage = () => {
   const currentPage = usePathname();
@@ -70,6 +71,7 @@ const DetailPage = () => {
             twitter: values.twitter,
             title: values.title,
             id: values.id,
+            price: values.pricing,
             googleLocation: values.googleLocation,
             businessName: values.businessName,
             description: values.description,
@@ -77,7 +79,8 @@ const DetailPage = () => {
             portfolioImagesUrl: values.venueLinks,
           };
         });
-        console.log(data);
+        console.log(data[0]);
+
         setData(data[0]);
       }
     };
@@ -404,10 +407,29 @@ const DetailPage = () => {
                   borderImageSlice: 1,
                 }}
               ></div>
-              <div className="flex flex-wrap   ">
+              <div className="text-[20px] font-Merriweather  mt-3 font-semibold ">
+                <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Non Veg Plate: </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">
+                      {data?.price.nonvegPlatePricing}
+                    </p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Veg Plate: </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">
+                      {data?.price.vegPlatePricing}
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              {/* <div className="flex flex-wrap   ">
                 <div className=" flex flex-warp mt-2  gap-6 px-5">
                   <div className="  gap-4  ">
-                    {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
+                  {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
                       data.spaces.map((space, index) => {
                         const spaceType = spaceTypes.find(
                           (type) => type.id === space.spaceType
@@ -459,7 +481,7 @@ const DetailPage = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="  xl:w-[520px]   ">
               <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
@@ -474,7 +496,7 @@ const DetailPage = () => {
                   borderImageSlice: 1,
                 }}
               ></div>
-              <div className="flex flex-wrap   ">
+              <div className="flex flex-wrap  font-Merriweather ">
                 <div className=" flex flex-warp  mt-4 gap-6 px-5">
                   <div className=" flex flex-wrap justify-between gap-4  ">
                     {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
@@ -499,19 +521,19 @@ const DetailPage = () => {
                             </svg>
                             <div className="font-Merriweather-Sans">
                               {" "}
-                              <div className="flex gap-2 text-[#A11C5C] ">
-                                <p className=" text-md">
+                              <div className="flex gap-2 text-[#A11C5C]">
+                                <p className=" text-[20px]">
                                   {spaceType ? spaceType.name : "Unknown"}
                                 </p>{" "}
-                                <p className="">|</p>
-                                <p className="text-md">{space.spaceName}</p>
+                                <p className="font-bold">|</p>
+                                <p className="text-[20px]">{space.spaceName}</p>
                               </div>
-                              <div className="flex gap-2 text-[#000000]">
-                                <p className="text-sm">
+                              <div className="flex gap-2 text-[#000000] mt-2">
+                                <p className="text-[20px]">
                                   {space.floating} Floating
                                 </p>
-                                <p className="-mt-1">|</p>
-                                <p className="text-sm">
+                                <p className="mt-1 font-bold">|</p>
+                                <p className="text-[20px]">
                                   {" "}
                                   {space.sitting} Sitting
                                 </p>

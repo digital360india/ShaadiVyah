@@ -61,9 +61,11 @@ const MakeUpVendorDetailsPage = () => {
             description: values.description,
             bannerImageUrl: values.bannerImageUrl,
             portfolioImagesUrl: values.venueLinks,
+            engagementMakeupCharge: values.engagementMakeupCharge,
+            preweddingMakeupCharge: values.preweddingMakeupCharge,
           };
         });
-        console.log(data);
+        console.log(data[0]);
         setData(data[0]);
       }
     };
@@ -291,6 +293,57 @@ const MakeUpVendorDetailsPage = () => {
             <div className="text-[#626262] font-Merriweather-Sans">
               {data?.about}
             </div>
+
+            <div>
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
+                Package <span className="customGabriola">Starting from...</span>
+              </p>
+              <div
+                className="w-full h-3"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className="text-[16px] font-semibold mt-3 ">
+                <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
+                  <li className="text-[#A11C5C] flex gap-1  justify-center items-center">
+                    <p>Makeup Per Family Member : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">
+                      {data?.makeupPerFamilyMember}
+                    </p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Price Per Function : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.pricePerFunction}</p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Price Per Day : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.pricePerDay}</p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Engagement Makeup Charge : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">
+                      {data?.engagementMakeupCharge}
+                    </p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Prewedding Makeup Charge : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">
+                      {data?.preweddingMakeupCharge}
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
             {/* <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available

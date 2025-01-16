@@ -294,6 +294,92 @@ const MendiVendorDetailsPage = () => {
             <div className="text-[#626262] font-Merriweather-Sans">
               {data?.about}
             </div>
+
+            <div className=" xl:w-[520px]   ">
+              <p className=" px-4 py-3  text-[30px] text-[#A11C5C] font-Merriweather">
+                Package <span className="customGabriola">Starting from...</span>
+              </p>
+              <div
+                className="w-full h-3"
+                style={{
+                  borderTop: "1.17px solid",
+                  borderImageSource:
+                    "linear-gradient(90deg, #BE7217 0%, #FABB4C 52.5%, #BE7217 100%)",
+                  borderImageSlice: 1,
+                }}
+              ></div>
+              <div className="text-[16px] font-semibold mt-3">
+                <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Bridal Mendhi : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.bridalMehendi}</p>
+                  </li>
+                  <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+                    <p>Family Mehndi : </p>
+                    <FaRupeeSign className="text-sm" />
+                    <p className="text-[#BE7318]">{data?.familyMehendi}</p>
+                  </li>
+                </ul>
+              </div>
+              {/* <div className="flex flex-wrap   ">
+                <div className=" flex flex-warp mt-2  gap-6 px-5">
+                  <div className="  gap-4  ">
+                    {Array.isArray(data?.spaces) && data.spaces.length > 0 ? (
+                      data.spaces.map((space, index) => {
+                        const spaceType = spaceTypes.find(
+                          (type) => type.id === space.spaceType
+                        );
+                        return (
+                          <div
+                            key={index}
+                            className="flex gap-4 py-2 font-Merriweather-Sans"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="40"
+                              height="40"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                fill="#C9184A"
+                                fill-rule="evenodd"
+                                d="M8.905 4.25h6.19c.838 0 1.372 0 1.832.091a4.75 4.75 0 0 1 3.732 3.732l-.736.147l.736-.147c.07.35.086.743.09 1.28A2.751 2.751 0 0 1 22.75 12v2.444c0 1.53-.798 2.874-2 3.637V19a.75.75 0 0 1-1.5 0v-.325c-.261.05-.53.075-.806.075H5.556c-.276 0-.545-.026-.806-.075V19a.75.75 0 0 1-1.5 0v-.919a4.302 4.302 0 0 1-2-3.636V12c0-1.26.846-2.32 2.001-2.647c.004-.537.02-.93.09-1.28a4.75 4.75 0 0 1 3.732-3.732c.46-.091.994-.091 1.832-.091M4.752 9.354A2.751 2.751 0 0 1 6.75 12v1.2c0 .028.022.05.05.05h10.4a.05.05 0 0 0 .05-.05V12c0-1.258.845-2.319 1.998-2.646c-.004-.51-.017-.77-.06-.988a3.25 3.25 0 0 0-2.554-2.554c-.296-.058-.669-.062-1.634-.062H9c-.965 0-1.338.004-1.634.062a3.25 3.25 0 0 0-2.554 2.554c-.043.218-.056.479-.06.988M4 10.75c-.69 0-1.25.56-1.25 1.25v2.444a2.806 2.806 0 0 0 2.806 2.806h12.888a2.806 2.806 0 0 0 2.806-2.806V12a1.25 1.25 0 0 0-2.5 0v1.2a1.55 1.55 0 0 1-1.55 1.55H6.8a1.55 1.55 0 0 1-1.55-1.55V12c0-.69-.56-1.25-1.25-1.25"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            <div>
+                              <div className="flex gap-2 text-[#A11C5C] ">
+                                <p className=" text-md">
+                                  {spaceType ? spaceType.name : "Unknown"}
+                                </p>
+                              </div>
+                              <div className="flex gap-2 text-[#BE7318]">
+                                <p className="text-[22px]">
+                                  {space.floating} Floating
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="font-Merriweather-Sans">
+                        <div className="flex gap-2">
+                          <p>{data?.spaces?.sitting || "N/A"} Seating</p>
+                          <p>|</p>
+                          <p> {data?.spaces?.floating || "N/A"} Floating</p>
+                        </div>
+                        <p className="text-[#C9184A] text-[14px]">
+                          {data?.spaces?.spaceName}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div> */}
+            </div>
+
             {/* <div className="bg-[#FFB5A71A] py-3 w-[720px] rounded-xl shadow-lg">
               <p className="border-b-2 border-gray-300  px-5 py-3  text-[22px] text=[#1B1B1B]">
                 Areas Available
