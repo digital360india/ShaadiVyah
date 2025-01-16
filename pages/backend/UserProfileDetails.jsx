@@ -3,7 +3,9 @@ import { FaUserEdit } from 'react-icons/fa';
 
 const UserProfileDetails = ({ user, handleEdit, handleSendApproval, handleShowRejectionDialog, isButtonActive, hasSentRequest }) => {
   return (
-    <div className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg space-y-6 font-poppins">
+
+    <>
+    <div className="w-full max-w-lg  p-6 rounded-lg  space-y-6 font-Merriweather ">
       {/* Header with Edit button */}
       <div className="flex justify-between items-center">
         <div className="font-bold text-2xl text-gray-800">My Details</div>
@@ -93,6 +95,7 @@ const UserProfileDetails = ({ user, handleEdit, handleSendApproval, handleShowRe
         )}
       </div>
     </div>
+    </>
   );
 };
 

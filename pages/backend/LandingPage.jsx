@@ -28,8 +28,8 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div>
-    <div className=" lg:m-10 m-4">
+    <div className="bg-[url('/icons/background.svg')] bg-cover bg-center object-cover w-full h-[100vh]">
+    <div className=" ">
       <div className="flex flex-col w-full h-96 items-center justify-center">
         <img
           src="/logo.png"

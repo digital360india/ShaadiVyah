@@ -14,7 +14,7 @@ const TopNavBar = () => {
   };
 
   return (
-    <div className="flex bg-gradient-to-r from-[#FF1053] to-[#F7ACCF] text-white fixed top-0 w-full h-16 lg:h-20 z-50 shadow-lg">
+    <div className="flex  text-white fixed top-0 w-full h-16 lg:h-20 z-50 bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-white">
       <div className="flex items-center justify-center lg:hidden px-4">
         <img
           src="/logo.png"

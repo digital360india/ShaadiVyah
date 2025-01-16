@@ -206,7 +206,7 @@ const PortfolioPage = () => {
   
   return (
     <>
-      <div className="md:m-10 p-4 ">
+      <div className="md:p-10  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover">
         <ToastContainer />
         <div className="flex flex-col md:flex-row gap-10 items-start justify-start">
           {user && (
