@@ -17,6 +17,10 @@ import Space25px from "@/components/Space25px";
 import Space50px from "@/components/Space50px";
 import FAQ from "@/components/FAQ";
 import BookingForm from "@/components/BookingForm";
+import VenueCard from "@/components/VenuesCard";
+import MendhiVendorCard from "@/components/MendhiCard";
+import MakeupVendorCard from "@/components/MakeupCard";
+import PhotographerVendorCard from "@/components/PhotographerVendorCard";
 
 export default function Landing() {
   const HomeFaqData = [
@@ -264,77 +268,7 @@ export default function Landing() {
                 {venue.length > 0 ? (
                   <Slider {...sliderSettings}>
                     {venue.map((arr, index) => (
-                      <Link
-                        href={`/venues/${arr.uid}`}
-                        key={arr.uid}
-                        className=" py-4 md:px-1 px-2 "
-                      >
-                        <div
-                          className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px] "
-                          style={{
-                            borderWidth: "3px",
-                            borderStyle: "solid",
-                            borderImage:
-                              "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-                          }}
-                        >
-                          <img
-                            src={arr.bannerImageUrl || "/logo.png"}
-                            alt={arr.businessName}
-                            className="w-full h-60 object-cover rounded-t-[4px]"
-                          />
-                          <div className=" px-6 py-4  ">
-                            {" "}
-                            <div className="flex justify-between items-center h-[30px]">
-                              {" "}
-                              <h3 className="lg:text-xl text-blue  font-semibold mb-2">
-                                {arr.businessName}
-                              </h3>
-                              <div className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {arr.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-pink text-xl " />
-                                </p>
-                              </div>
-                            </div>
-                            {/* <div className="flex justify-start gap-2">
-                              <img src="/icons/locationred.svg" />
-                              <p className="text-[14px] text-[#666666]">
-                                {arr.location}
-                              </p>
-                            </div> */}
-                            <div className="flex justify-start gap-2">
-                              <img
-                                src="/icons/locationred.svg"
-                                alt="Location Icon"
-                              />
-                              <p className="text-[14px] text-[#666666]">
-                                {arr.location ? arr.location : "Not Specified"}
-                              </p>
-                            </div>
-                            <p className="text-sm py-4 h-[120px]">
-                              {truncateText(arr.about, 30)}
-                            </p>
-                            {/* <div className="flex justify-between">
-                          <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                              100-200 pax
-                            </p>
-                          </div>
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                          </div>{" "}
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                          </div>
-                        </div> */}
-                          </div>
-                        </div>
-                      </Link>
+                    <VenueCard  arr={arr} index={index} />
                     ))}
                   </Slider>
                 ) : (
@@ -372,77 +306,7 @@ export default function Landing() {
               {mendhiArtists.length > 0 ? (
                 <Slider {...sliderSettings}>
                   {mendhiArtists.map((arr, index) => (
-                    <Link
-                      href={`/mehandivendors/${arr.uid}`}
-                      key={arr.uid}
-                      className=" py-4  md:px-1 px-2 "
-                    >
-                      <div
-                        className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
-                        style={{
-                          borderWidth: "3px",
-                          borderStyle: "solid",
-                          borderImage:
-                            "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-                        }}
-                      >
-                        <img
-                          src={arr.bannerImageUrl || "/logo.png"}
-                          alt={arr.businessName}
-                          className="w-full h-60 object-cover  rounded-t-[4px]"
-                        />
-                        <div className=" px-6 py-4 ">
-                          {" "}
-                          <div className="flex justify-between items-center h-[30px]">
-                            {" "}
-                            <h3 className="lg:text-xl text-blue  font-semibold mb-2">
-                              {arr.businessName}
-                            </h3>
-                            <div className="flex justify-end items-center mb-2  gap-0">
-                              {" "}
-                              <p className="text-pink mt-1  ">
-                                {" "}
-                                {arr.averageRating?.toFixed(2) || 3}{" "}
-                              </p>{" "}
-                              <p>
-                                <MdOutlineStar className="text-pink text-xl " />
-                              </p>
-                            </div>{" "}
-                          </div>
-                          {/* <div className="flex justify-start gap-2">
-                            <img src="/icons/locationred.svg" />
-                            <p className="text-[14px] text-[#666666]">
-                              {arr.location}
-                            </p>
-                          </div> */}
-                          <div className="flex justify-start gap-2">
-                            <img
-                              src="/icons/locationred.svg"
-                              alt="Location Icon"
-                            />
-                            <p className="text-[14px] text-[#666666]">
-                              {arr.location ? arr.location : "Not Specified"}
-                            </p>
-                          </div>
-                          <p className="text-sm py-4 h-[120px]">
-                            {truncateText(arr.about, 30)}
-                          </p>
-                          {/* <div className="flex justify-between">
-                     <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                       <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                         100-200 pax
-                       </p>
-                     </div>
-                     <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                       <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                     </div>{" "}
-                     <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                       <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                     </div>
-                   </div> */}
-                        </div>
-                      </div>
-                    </Link>
+                  <MendhiVendorCard arr={arr} index={index} />
                   ))}
                 </Slider>
               ) : (
@@ -479,78 +343,7 @@ export default function Landing() {
             {makeupArtist.length > 0 ? (
               <Slider {...sliderSettings}>
                 {makeupArtist.map((arr, index) => (
-                  <Link
-                    href={`/makeupvendors/${arr.uid}`}
-                    key={arr.uid}
-                    className=" py-4  md:px-1 px-2 "
-                  >
-                    <div
-                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
-                      style={{
-                        borderWidth: "3px",
-                        borderStyle: "solid",
-                        borderImage:
-                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-                      }}
-                    >
-                      <img
-                        src={arr.bannerImageUrl || "/images/logo1.png"}
-                        alt={arr.businessName}
-                        className="w-full h-60 object-cover  rounded-t-[4px]"
-                      />
-                      <div className=" px-6 py-4 ">
-                        {" "}
-                        <div className="flex justify-between items-center h-[30px]">
-                          {" "}
-                          <h3 className="lg:text-xl text-blue font-semibold mb-2">
-                            {arr.businessName}
-                          </h3>
-                          <div className="flex justify-end items-center mb-2  gap-0">
-                            {" "}
-                            <p className="text-pink mt-1  ">
-                              {" "}
-                              {arr.averageRating?.toFixed(2) || 3}{" "}
-                            </p>{" "}
-                            <p>
-                              <MdOutlineStar className="text-pink text-xl " />
-                            </p>
-                          </div>{" "}
-                        </div>
-                        {/* <div className="flex justify-start gap-2">
-                          <img src="/icons/locationred.svg" />
-                          <p className="text-[14px] text-[#666666]">
-                            {arr.location}
-                          </p>
-                        </div> */}
-                        <div className="flex justify-start gap-2">
-                          <img
-                            src="/icons/locationred.svg"
-                            alt="Location Icon"
-                          />
-                          <p className="text-[14px] text-[#666666]">
-                            {arr.location ? arr.location : "Not Specified"}
-                          </p>
-                        </div>
-                        <p className="text-sm py-4 h-[120px]">
-                          {" "}
-                          {truncateText(arr.about, 30)}
-                        </p>
-                        {/* <div className="flex justify-between">
-                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                          100-200 pax
-                        </p>
-                      </div>
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                      </div>{" "}
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                      </div>
-                    </div> */}
-                      </div>
-                    </div>
-                  </Link>
+               <MakeupVendorCard vendor={arr} index={index} />
                 ))}
               </Slider>
             ) : (
@@ -586,75 +379,7 @@ export default function Landing() {
             {photographersArtists.length > 0 ? (
               <Slider {...sliderSettings}>
                 {photographersArtists.map((arr, index) => (
-                  <Link
-                    href={`/photographersvendors/${arr.uid}`}
-                    key={arr.uid}
-                    className=" py-4  md:px-1 px-2 "
-                  >
-                    <div
-                      className="bg-white rounded shadow-md lg:h-[488px] lg:w-[398px] h-[450px]"
-                      style={{
-                        borderWidth: "3px",
-                        borderStyle: "solid",
-                        borderImage:
-                          "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-                      }}
-                    >
-                      <img
-                        src={arr.bannerImageUrl || "/images/logo1.png"}
-                        alt={arr.businessName}
-                        className="w-full h-60 object-cover  rounded-t-[4px]"
-                      />
-                      <div className=" px-6 py-4 ">
-                        <div className="flex justify-between items-center h-[30px]">
-                          <h3 className="lg:text-xl text-blue  font-semibold mb-2">
-                            {arr.businessName}
-                          </h3>
-                          <div className="flex justify-end items-center mb-2  gap-0">
-                            <p className="text-pink mt-1  ">
-                              {arr.averageRating?.toFixed(2) || 3}
-                            </p>
-                            <p>
-                              <MdOutlineStar className="text-pink text-xl " />
-                            </p>
-                          </div>
-                        </div>
-                        {/* <div className="flex justify-start gap-2">
-                          <img src="/icons/locationred.svg" />
-                          <p className="text-[14px] text-[#666666]">
-                            {arr.location}
-                          </p>
-                        </div> */}
-
-                        <div className="flex justify-start gap-2">
-                          <img
-                            src="/icons/locationred.svg"
-                            alt="Location Icon"
-                          />
-                          <p className="text-[14px] text-[#666666]">
-                            {arr.location ? arr.location : "Not Specified"}
-                          </p>
-                        </div>
-
-                        <p className="text-sm py-4 h-[120px]">
-                          {truncateText(arr.about, 30)}
-                        </p>
-                        {/* <div className="flex justify-between">
-                      <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                          100-200 pax
-                        </p>
-                      </div>
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                      </div>{" "}
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">32 rooms</p>
-                      </div>
-                    </div> */}
-                      </div>
-                    </div>
-                  </Link>
+               <PhotographerVendorCard vendor={arr} index={index} />
                 ))}
               </Slider>
             ) : (
