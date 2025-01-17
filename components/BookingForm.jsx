@@ -55,12 +55,12 @@ const BookingForm = () => {
 
       <form
         ref={formRef}
-        className="  md:pb-6 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full  border-[#FEC5BB] border-2 flex
+        className="  md:pb-6 pb-10 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full  border-[#FEC5BB] border-2 flex
         bg-[url('/images/formbg.svg')] bg-cover "
       >
 
-        <div className="w-[521px] h-[460px] hidden md:block ">
-          <img src="/images/form.svg" alt="form" className="w-[421px] h-[550px]" />
+        <div className="w-[521px] md:h-[460px]  hidden md:block ">
+          <img src="/images/form.svg" alt="form" className="w-[421px] md:h-[550px] " />
         </div>
         <div className="">
           {" "}
