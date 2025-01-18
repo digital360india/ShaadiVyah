@@ -13,7 +13,7 @@ export default function AboutShadivyah() {
 
           </h1>
           </div>
-          <div className="md:flex  md:gap-40">
+          <div className="md:flex  lg:gap-40 md:gap-16">
             <div className="py-10">
               <img
                 src={"/images/venus_page.png"}
@@ -24,12 +24,12 @@ export default function AboutShadivyah() {
               />
             </div>
             <div className="space-y-8 md:mt-10">
-              <p className="md:text-[50px] text-[14px] md:text-start text-[#02394A] font-fira-sans lg:w-[507px] text-center">
+              <p className="lg:text-[50px] md:text-[32px] text-[14px] md:text-start text-[#02394A] font-fira-sans lg:w-[507px] text-center">
                 Get the Best in the Business{" "}
               </p>
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <p className="md:mt-2">
+                  <p className="lg:mt-2">
                     <img
                       src="/images/mandlart.svg"
                       alt={"image"}
@@ -38,12 +38,12 @@ export default function AboutShadivyah() {
                       className=" w-6"
                     />
                   </p>
-                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A] md:text-[25px]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A] lg:text-[25px] md:text-[16px]">
                     Best Quality Services
                   </p>
                 </div>
                 <div className="flex gap-4">
-                <p className="md:mt-2">
+                <p className="lg:mt-2">
                     <img
                       src="/images/mandlart.svg"
                       alt={"image"}
@@ -52,12 +52,12 @@ export default function AboutShadivyah() {
                       className=" w-6"
                     />
                   </p>
-                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  md:text-[25px]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  lg:text-[25px]  md:text-[16px] md:text-start">
                     100% Satisfaction Guarantee
                   </p>
                 </div>
                 <div className="flex gap-4">
-                <p className="md:mt-2"> 
+                <p className="lg:mt-2"> 
                     <img
                       src="/images/mandlart.svg"
                       alt={"image"}
@@ -66,12 +66,12 @@ export default function AboutShadivyah() {
                       className=" w-6"
                     />
                   </p>
-                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  md:text-[25px]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  lg:text-[25px]  md:text-[16px]">
                     Quality Control System
                   </p>
                 </div>
                 <div className="flex gap-4">
-                <p className="md:mt-2">
+                <p className="lg:mt-2">
                     <img
                       src="/images/mandlart.svg"
                       alt={"image"}
@@ -80,12 +80,12 @@ export default function AboutShadivyah() {
                       className=" w-6"
                     />
                   </p>
-                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  md:text-[25px]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  lg:text-[25px]  md:text-[16px] md:text-start">
                     Commitment to Customer
                   </p>
                 </div>
                 <div className="flex gap-4">
-                <p className="md:mt-2">
+                <p className="lg:mt-2">
                     <img
                       src="/images/mandlart.svg"
                       alt={"image"}
@@ -94,7 +94,7 @@ export default function AboutShadivyah() {
                       className=" w-6"
                     />
                   </p>
-                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  md:text-[25px]">
+                  <p className="md:font-semibold font-medium font-Merriweather-Sans text-[#02394A]  lg:text-[25px]  md:text-[16px] md:text-start">
                     Highly Professional Team
                   </p>
                 </div>

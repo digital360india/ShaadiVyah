@@ -59,16 +59,20 @@ export default function Landing() {
 
   const NextArrow = ({ onClick }) => (
     <div
-      className={`absolute lg:-right-10 lg:bottom-[50%] hidden md:block  custom-arrow custom-next-arrow w-[100px]`}
+      className={`absolute lg:-right-10 lg:bottom-[50%] hidden lg:block  custom-arrow custom-next-arrow w-[100px]`}
       onClick={onClick}
     >
-      <img src="/icons/righticon.svg" alt="Next Arrow" className="lg:w-20 lg:h-20" />
+      <img
+        src="/icons/righticon.svg"
+        alt="Next Arrow"
+        className="lg:w-20 lg:h-20"
+      />
     </div>
   );
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className={`absolute lg:-left-20 lg:bottom-[50%] hidden md:block custom-arrow custom-prev-arrow w-60`}
+      className={`absolute lg:-left-20 lg:bottom-[50%] hidden lg:block custom-arrow custom-prev-arrow w-60`}
       onClick={onClick}
     >
       <img
@@ -268,7 +272,7 @@ export default function Landing() {
                 {venue.length > 0 ? (
                   <Slider {...sliderSettings}>
                     {venue.map((arr, index) => (
-                    <VenueCard  arr={arr} index={index} />
+                      <VenueCard arr={arr} index={index} />
                     ))}
                   </Slider>
                 ) : (
@@ -306,7 +310,7 @@ export default function Landing() {
               {mendhiArtists.length > 0 ? (
                 <Slider {...sliderSettings}>
                   {mendhiArtists.map((arr, index) => (
-                  <MendhiVendorCard arr={arr} index={index} />
+                    <MendhiVendorCard arr={arr} index={index} />
                   ))}
                 </Slider>
               ) : (
@@ -343,7 +347,7 @@ export default function Landing() {
             {makeupArtist.length > 0 ? (
               <Slider {...sliderSettings}>
                 {makeupArtist.map((arr, index) => (
-               <MakeupVendorCard vendor={arr} index={index} />
+                  <MakeupVendorCard vendor={arr} index={index} />
                 ))}
               </Slider>
             ) : (
@@ -379,7 +383,7 @@ export default function Landing() {
             {photographersArtists.length > 0 ? (
               <Slider {...sliderSettings}>
                 {photographersArtists.map((arr, index) => (
-               <PhotographerVendorCard vendor={arr} index={index} />
+                  <PhotographerVendorCard vendor={arr} index={index} />
                 ))}
               </Slider>
             ) : (

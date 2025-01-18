@@ -59,7 +59,7 @@ const BookingForm = () => {
         bg-[url('/images/formbg.svg')] bg-cover "
       >
 
-        <div className="w-[521px] md:h-[460px]  hidden md:block ">
+        <div className="w-[521px] md:h-[460px]  hidden lg:block ">
           <img src="/images/form.svg" alt="form" className="w-[421px] md:h-[550px] " />
         </div>
         <div className="">

@@ -33,13 +33,13 @@ const ContactUsPhoto = () => {
               weddings in the heart of Uttarakhand through Shaadivyah.
             </i>
           </div>
-          <div className="lg:w-[1250px] lg:h-[266px] hidden md:block pb-20">
-            <p class="text-[24px] font-semibold text-white font-Merriweather">Best</p>
-            <p class="text-[48px] font-bold text-white font-Merriweather">Wedding Planner</p>
-            <p class="text-[48px] font-bold text-white font-Merriweather">
+          <div className="lg:w-[1250px] md:w-[600px] md:h-[240px] lg:h-[266px] hidden md:block pb-20">
+            <p class="lg:text-[24px] md:text-[16px] font-semibold text-white font-Merriweather">Best</p>
+            <p class="lg:text-[48px] md:text-[32px] font-bold text-white font-Merriweather">Wedding Planner</p>
+            <p class="lg:text-[48px] md:text-[32px] font-bold text-white font-Merriweather">
               <span class="text-[24px] font-medium font-Merriweather">in</span> Uttarakhand
             </p>
-            <i class="lg:w-[914px] w-[80%] text-center lg:text-[20px] md:text-[20px] text-md text-white mb-4 font-Merriweather-Sans">
+            <i class="lg:w-[914px] w-[80%] text-center lg:text-[20px] md:text-[16px]   text-white mb-4 font-Merriweather-Sans">
               Welcome to Shaadivyah, where we proudly carry forward Prime
               Minister Narendra Modi's visionary 'Wed in India' movement. As the
               pioneers of India's First Uttarakhand dedicated destination
