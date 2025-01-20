@@ -25,53 +25,67 @@ import { MdOutlineStar } from "react-icons/md";
 const Page = () => {
   const router = useRouter();
 
-const venueFAQ=[
-  {
-    question: "What types of wedding venues do hotels typically offer?",
-    answer: "Hotels usually offer a variety of wedding venues, including grand ballrooms, intimate garden spaces, rooftop terraces, and beachfront locations, catering to different styles and sizes of weddings."
-  },
-  {
-    question: "Can I tour the hotel venues before making a decision?",
-    answer: "Yes, most hotels allow prospective couples to tour the venues, meet with the event staff, and discuss wedding plans in detail before making a booking."
-  },
-  {
-    question: "What wedding services do hotels provide?",
-    answer: "Hotels often provide comprehensive wedding services, including catering, decoration, event planning, accommodation for guests, and coordination on the wedding day to ensure everything runs smoothly."
-  },
-  {
-    question: "Do hotels offer wedding packages?",
-    answer: "Yes, many hotels offer wedding packages that bundle together various services like venue rental, catering, decoration, and accommodation. These packages are designed to provide convenience and value."
-  },
-  {
-    question: "Can I customize my wedding package at a hotel?",
-    answer: "Absolutely! Hotels typically offer customizable wedding packages that allow you to tailor services to your specific needs and preferences, ensuring your wedding day is exactly how you envision it."
-  },
-  {
-    question: "How far in advance should I book a hotel for my wedding?",
-    answer: "It is recommended to book your hotel wedding venue at least 6-12 months in advance to ensure availability and provide ample time for planning and preparation."
-  }
-];
+  const venueFAQ = [
+    {
+      question: "What types of wedding venues do hotels typically offer?",
+      answer:
+        "Hotels usually offer a variety of wedding venues, including grand ballrooms, intimate garden spaces, rooftop terraces, and beachfront locations, catering to different styles and sizes of weddings.",
+    },
+    {
+      question: "Can I tour the hotel venues before making a decision?",
+      answer:
+        "Yes, most hotels allow prospective couples to tour the venues, meet with the event staff, and discuss wedding plans in detail before making a booking.",
+    },
+    {
+      question: "What wedding services do hotels provide?",
+      answer:
+        "Hotels often provide comprehensive wedding services, including catering, decoration, event planning, accommodation for guests, and coordination on the wedding day to ensure everything runs smoothly.",
+    },
+    {
+      question: "Do hotels offer wedding packages?",
+      answer:
+        "Yes, many hotels offer wedding packages that bundle together various services like venue rental, catering, decoration, and accommodation. These packages are designed to provide convenience and value.",
+    },
+    {
+      question: "Can I customize my wedding package at a hotel?",
+      answer:
+        "Absolutely! Hotels typically offer customizable wedding packages that allow you to tailor services to your specific needs and preferences, ensuring your wedding day is exactly how you envision it.",
+    },
+    {
+      question: "How far in advance should I book a hotel for my wedding?",
+      answer:
+        "It is recommended to book your hotel wedding venue at least 6-12 months in advance to ensure availability and provide ample time for planning and preparation.",
+    },
+  ];
 
- // Custom Next Arrow Component
-const NextArrow = ({ className, style, onClick }) => (
-  <div
-    className={`${className} custom-arrow custom-next-arrow`}
-    style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
-    onClick={onClick}
-  />
-);
+  // Custom Next Arrow Component
+  const NextArrow = ({ className, style, onClick }) => (
+    <div
+      className={`${className} custom-arrow custom-next-arrow`}
+      style={{
+        ...style,
+        backgroundColor: "#F8EDEB",
+        color: "#ffffff",
+        borderRadius: "50%",
+      }} // Add background and text color
+      onClick={onClick}
+    />
+  );
 
-// Custom Prev Arrow Component
-const PrevArrow = ({ className, style, onClick }) => (
-  <div
-    className={`${className} custom-arrow custom-prev-arrow`}
-    style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
-    onClick={onClick}
-  />
-);
+  // Custom Prev Arrow Component
+  const PrevArrow = ({ className, style, onClick }) => (
+    <div
+      className={`${className} custom-arrow custom-prev-arrow`}
+      style={{
+        ...style,
+        backgroundColor: "#F8EDEB",
+        color: "#ffffff",
+        borderRadius: "50%",
+      }} // Add background and text color
+      onClick={onClick}
+    />
+  );
 
-
- 
   const [venue, setVenues] = useState([]);
 
   const fetchVenue = async () => {
@@ -155,8 +169,8 @@ const PrevArrow = ({ className, style, onClick }) => (
     dots: false,
     infinite: true,
     speed: 500,
-    
-        //  centerMode: true,
+
+    //  centerMode: true,
     //  centerPadding: "100px",
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -209,96 +223,82 @@ const PrevArrow = ({ className, style, onClick }) => (
       <Space25px />
       <div>
         <div className="lg:px-10 p-6 bg-cream">
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4 ">
-            Wedding <span className="font-dancing-script">Destinations</span>
+          <p className="md:text-3xl  text-[32px] font-semibold text-pink p-4 font-Merriweather ">
+            Wedding{" "}
+            <span className="customGabriola font-normal">Destinations</span>
           </p>
 
           <div className="p-4">
-          <Slider {...sliderwedding}>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Rishikesh")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frishikesh.png?alt=media&token=f64cf5e5-4b9d-43d3-befa-197992b4c2f6"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Rishikesh</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Dehradun")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fdehradun.png?alt=media&token=ca835133-20d4-49da-8df8-265abe292acb"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Dehradun</p>
-                </div>
-            
-                <div>
-                  <button
-                    onClick={() => handleSearch("Haridwar")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Haridwar</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Mussoorie")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Mussoorie</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Ramnagar")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Ramnagar</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => handleSearch("Nainital")}
-                    className="  "
-                  >
-                    <img
-                      className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
-                      src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545"
-                      alt=""
-                    />
-                  </button>
-                  <p className="px-[70px] text-[#02394A]">Nainital</p>
-                </div>
-                <div>
- 
-                </div>
-  
-              </Slider>
+            <Slider {...sliderwedding}>
+              <div>
+                <button
+                  onClick={() => handleSearch("Rishikesh")}
+                  className="  "
+                >
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frishikesh.png?alt=media&token=f64cf5e5-4b9d-43d3-befa-197992b4c2f6"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Rishikesh</p>
+              </div>
+              <div>
+                <button onClick={() => handleSearch("Dehradun")} className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fdehradun.png?alt=media&token=ca835133-20d4-49da-8df8-265abe292acb"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Dehradun</p>
+              </div>
+
+              <div>
+                <button onClick={() => handleSearch("Haridwar")} className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Haridwar</p>
+              </div>
+              <div>
+                <button
+                  onClick={() => handleSearch("Mussoorie")}
+                  className="  "
+                >
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Mussoorie</p>
+              </div>
+              <div>
+                <button onClick={() => handleSearch("Ramnagar")} className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Ramnagar</p>
+              </div>
+              <div>
+                <button onClick={() => handleSearch("Nainital")} className="  ">
+                  <img
+                    className="rounded-md w-[150px] h-[100px] sm:w-[225px] sm:h-[150px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545"
+                    alt=""
+                  />
+                </button>
+                <p className="px-[70px] text-[#02394A]">Nainital</p>
+              </div>
+              <div></div>
+            </Slider>
           </div>
         </div>
       </div>
@@ -306,18 +306,15 @@ const PrevArrow = ({ className, style, onClick }) => (
       {/* populer  */}
       <div className="  relative  z-20 lg:px-5 px-2 ">
         <div className="">
-          <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4">
-            Popular <span className="font-dancing-script">Destinations</span>
+          <p className="md:text-3xl text-[32px] font-semibold text-pink font-Merriweather p-4">
+            Popular{" "}
+            <span className="customGabriola font-normal">Destinations</span>
           </p>
           <div className=" xl:px-[48px] lg:px-[45px] md:px-[20px] px-[20px]  ">
             {venue.length > 0 ? (
               <Slider {...sliderSettings}>
                 {venue.map((arr, index) => (
-                  <Link
-                    href={`/venues/${arr.uid}`}
-                    key={index}
-                    className="  "
-                  >
+                  <Link href={`/venues/${arr.uid}`} key={index} className="  ">
                     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] w-full ">
                       <img
                         src={arr.bannerImageUrl || "/images/logo1.png"}
@@ -332,15 +329,16 @@ const PrevArrow = ({ className, style, onClick }) => (
                             {arr.businessName}
                           </h3>
                           <div className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {venue.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </div>                        </div>
+                            {" "}
+                            <p className="text-pink mt-1  ">
+                              {" "}
+                              {venue.averageRating?.toFixed(2) || 3}{" "}
+                            </p>{" "}
+                            <p>
+                              <MdOutlineStar className="text-yellow-300 text-xl " />
+                            </p>
+                          </div>{" "}
+                        </div>
                         <div className="flex justify-start gap-2">
                           <img src="/icons/locationred.svg" />
                           <p className="text-[18px] text-[#666666]">
@@ -384,14 +382,14 @@ const PrevArrow = ({ className, style, onClick }) => (
       {/* all  */}
       <div>
         <div>
-          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-fira-sans p-4">
-            All <span className="font-dancing-script">Destinations</span>
+          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-Merriweather p-4">
+            All <span className="customGabriola font-normal">Destinations</span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {venue.map((venue, index) => (
               <Link
-              href={`/venues/${venue.uid}`}
-              key={index}
+                href={`/venues/${venue.uid}`}
+                key={index}
                 className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <img
@@ -405,15 +403,15 @@ const PrevArrow = ({ className, style, onClick }) => (
                       {venue.businessName}
                     </h3>
                     <p className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {venue.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </p>
+                      {" "}
+                      <p className="text-pink mt-1  ">
+                        {" "}
+                        {venue.averageRating?.toFixed(2) || 3}{" "}
+                      </p>{" "}
+                      <p>
+                        <MdOutlineStar className="text-yellow-300 text-xl " />
+                      </p>
+                    </p>
                   </div>
                   <div className="flex justify-start gap-2">
                     <img src="/icons/locationred.svg" alt="location icon" />
