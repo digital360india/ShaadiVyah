@@ -241,15 +241,15 @@ export default function Landing() {
       <div className="">
         <Hero />
       </div>
-      <div className="w-full gap-2 font-Merriweather">
+      <div className="w-full font-Merriweather">
         <div className="sticky top-0">
-          <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20 ">
+          <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20">
             <img
               src={"/vectors/vector3.png"}
               alt="image"
               height={1000}
               width={1000}
-              className="w-[350px] lg:w-[880px] lg:h-[310px]   absolute lg:-top-[0px] lg:right-[250px] top-4 z-10 opacity-10  "
+              className="w-[350px] lg:w-[880px] lg:h-[310px]  absolute lg:-top-[0px] lg:right-[250px] top-4 z-10 opacity-10  "
             />
             <div className="">
               <div className="flex flex-row justify-between items-center">
@@ -262,13 +262,13 @@ export default function Landing() {
                 </p>
                 <Link
                   href={"/venues"}
-                  className="mt-2 text-[#C9184A] underline text-md font-sans"
+                  className="mt-2 text-[#C9184A] underline text-md font-Merriweather"
                 >
                   more.
                 </Link>
               </div>
 
-              <div className="px-[15px] ">
+              <div className=" ">
                 {venue.length > 0 ? (
                   <Slider {...sliderSettings}>
                     {venue.map((arr, index) => (
@@ -301,7 +301,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/mehandivendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-sans z-10         "
+                className="mt-2 text-[#C9184A] underline text-md font-Merriweather z-10"
               >
                 more.
               </Link>
@@ -339,7 +339,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/makeupvendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-sans"
+                className="mt-2 text-[#C9184A] underline text-md font-Merriweather"
               >
                 more.
               </Link>
@@ -375,7 +375,7 @@ export default function Landing() {
               </p>
               <Link
                 href={"/photographersvendors"}
-                className="mt-2 text-[#C9184A] underline text-md font-sans"
+                className="mt-2 text-[#C9184A] underline text-md font-Merriweather"
               >
                 more.
               </Link>

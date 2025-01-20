@@ -14,10 +14,10 @@ const VenueCard = ({ arr, index }) => {
     <Link
       href={`/venues/${arr.uid}`}
       key={arr.uid}
-      className="md:px-1 px-2"
+      className="md:px-1 px-2 "
     >
       <div
-        className="bg-white rounded shadow-md lg:h-[460px] lg:w-[398px] h-[420px]"
+        className="bg-white rounded shadow-md lg:h-[460px] lg:w-[398px] h-[420px] gap-10"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",

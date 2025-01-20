@@ -153,7 +153,7 @@ export default function Testimonials() {
      {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="lg:pt-10  min-h-[400px] pt-4 bg-[#EBECED] md:px-6 text-center border  rounded-xl px-6 "
+            className="lg:pt-10  min-h-[300px] pt-4 bg-[#EBECED] md:px-6 text-center border  rounded-xl px-6 "
             style={{
               borderWidth: "3px",
               borderStyle: "solid",
