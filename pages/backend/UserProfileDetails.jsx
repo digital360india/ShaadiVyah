@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { FaUserEdit } from "react-icons/fa";
+
 
 const UserProfileDetails = ({
   user,
@@ -12,6 +12,7 @@ const UserProfileDetails = ({
 }) => {
   return (
     <>
+      
       <div className="w-full max-w-lg  p-6 rounded-lg  space-y-6 font-Merriweather-Sans ">
         {/* Header with Edit button */}
         <div className="flex space-x-10 items-center">

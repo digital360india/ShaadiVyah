@@ -22,27 +22,33 @@ export const SideNavBar = () => {
     <>
       {/* Desktop Sidebar */}
 
-      <div className="hidden md:block bg-[url('/icons/navbar.svg')] bg-cover bg-center object-cover text-white min-h-screen fixed w-1/5 font-Merriweather">
-        <div className="absolute top-0 left-0 z-50">
+      <div className="hidden md:block bg-[url('/icons/navbar.svg')] bg-cover bg-center object-cover text-white min-h-screen fixed w-1/5 font-Merriweather z-30"
+       style={{
+        boxShadow: "25px 0 30px rgba(185, 0, 89, 0.2)",
+      }}
+      >
+        <div className="absolute top-0 left-0 z-10">
           <Image
             src="/icons/upperframe.svg"
             alt="upper frame"
             width={1000}
             height={1000}
-            className="w-full h-auto"
+            className="w-full h-auto "
           />
         </div>
 
         <div className="flex flex-col">
-          <Link href="/dashboard">
-            <div className="flex items-center justify-center py-3">
-              <img
+          <div className="flex items-center justify-center py-3 z-30">
+            <Link href="/dashboard">
+              <Image
+                width={1000}
+                height={1000}
                 src="/logo.png"
                 alt="Logo"
-                className="h-28 w-28 rounded-full"
+                className="h-[110px] w-[110px] rounded-full cursor-pointer "
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
           <div className="flex flex-col space-y-4 px-4 mt-6">
             {/* <Link href="/dashboard">
               <div

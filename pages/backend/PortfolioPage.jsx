@@ -27,6 +27,8 @@ import SocialLinksCard from "./SocialLinksCard";
 import SocialLinksForm from "./SocialLinksForm";
 import UserProfileDetails from "./UserProfileDetails";
 import VenueDetailsForm from "./VenueDetailsForm";
+import LandingPage from "./LandingPage";
+import Image from "next/image";
 
 const PortfolioPage = () => {
   const [user, setUser] = useState(null);
@@ -203,32 +205,35 @@ const PortfolioPage = () => {
   };
 
   // console.log(formData?.name);
-  
+
   return (
     <>
-      <div className="md:p-10  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover">
+      <div className="md:p-10  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-[#FFF5E8]">
         <ToastContainer />
+        <div className="h-[52vh] object-cover bg-cover bg-center">
+          <LandingPage user={user} />
+        </div>
         <div className="flex flex-col md:flex-row gap-10 items-start justify-start">
           {user && (
             <div className="mt-4 w-full">
               {editing ? (
-           <VenueDetailsForm
-           formData={formData}
-           handleChange={handleChange}
-           handleSave={handleSave}
-           handleAadhaarUpload={handleAadhaarUpload}
-           aadhaarImageUrl={aadhaarImageUrl}
-           handleDeleteAadhaarImage={handleDeleteAadhaarImage}
-         />
+                <VenueDetailsForm
+                  formData={formData}
+                  handleChange={handleChange}
+                  handleSave={handleSave}
+                  handleAadhaarUpload={handleAadhaarUpload}
+                  aadhaarImageUrl={aadhaarImageUrl}
+                  handleDeleteAadhaarImage={handleDeleteAadhaarImage}
+                />
               ) : (
                 <UserProfileDetails
-                user={user}
-                handleEdit={handleEdit}
-                handleSendApproval={handleSendApproval}
-                handleShowRejectionDialog={handleShowRejectionDialog}
-                isButtonActive={isButtonActive}
-                hasSentRequest={hasSentRequest}
-              />
+                  user={user}
+                  handleEdit={handleEdit}
+                  handleSendApproval={handleSendApproval}
+                  handleShowRejectionDialog={handleShowRejectionDialog}
+                  isButtonActive={isButtonActive}
+                  hasSentRequest={hasSentRequest}
+                />
               )}
             </div>
           )}
@@ -249,6 +254,34 @@ const PortfolioPage = () => {
             </div>
           )}
         </div>
+      </div>
+      <div
+        className="w-full h-[6px]"
+        style={{
+          background:
+            "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+        }}
+      ></div>
+      <div className="bg-[#A11C5C] h-[100px] flex justify-center items-center space-x-4">
+        <Image
+          src="/icons/flower.svg"
+          alt="logo"
+          width={1000}
+          height={1000}
+          className="w-[45px] h-[45px]"
+        />
+        <p className=" text-[20px] text-[#FFFFFF] font-Merriweather">
+          Please wait till we verify your Profile. Once{" "}
+          <strong>Verified</strong> your profile will be ready make impact on
+          clients.
+        </p>
+        <Image
+          src="/icons/flower.svg"
+          alt="logo"
+          width={1000}
+          height={1000}
+          className="w-[45px] h-[45px]"
+        />
       </div>
 
       {showRejectionDialog && (
