@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const VenueDetailsForm = ({
   formData,
@@ -6,12 +6,32 @@ const VenueDetailsForm = ({
   handleSave,
   handleAadhaarUpload,
   aadhaarImageUrl,
-  handleDeleteAadhaarImage
+  handleDeleteAadhaarImage,
 }) => {
   return (
-    <form onSubmit={handleSave} className="space-y-8 bg-white shadow rounded-lg p-2">
+    <form
+      onSubmit={handleSave}
+      className="space-y-8  rounded-lg pt-6 font-Merriweather-Sans"
+    >
       {/* Venue Details Section */}
-      <div className="text-xl font-medium text-gray-800">YOUR VENUE DETAILS</div>
+      <div
+        className="text-2xl font-medium "
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+          WebkitBackgroundClip: "text",
+          color: "transparent",
+        }}
+      >
+        YOUR VENUE DETAILS
+        <div
+          className="w-[330px] h-[2px]"
+          style={{
+            background:
+              "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+          }}
+        ></div>
+      </div>
       <div className="grid grid-cols-2 gap-4">
         <input
           type="text"
@@ -32,7 +52,9 @@ const VenueDetailsForm = ({
       </div>
 
       {/* Venue Address Section */}
-      <div className="text-xl font-medium text-gray-800">YOUR VENUE ADDRESS</div>
+      <div className="text-xl font-medium text-gray-800">
+        YOUR VENUE ADDRESS
+      </div>
       <div className="grid grid-cols-2 gap-4">
         <input
           type="text"
@@ -116,7 +138,9 @@ const VenueDetailsForm = ({
       </div>
 
       {/* Verification Details Section */}
-      <div className="text-xl font-medium text-gray-800">VERIFICATION DETAILS</div>
+      <div className="text-xl font-medium text-gray-800">
+        VERIFICATION DETAILS
+      </div>
       <input
         type="text"
         name="adharCardNumber"
@@ -126,7 +150,10 @@ const VenueDetailsForm = ({
         className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
       />
       <div className="col-span-2">
-        <label className="block text-gray-700 text-sm font-bold mb-4" htmlFor="aadhaarPhoto">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-4"
+          htmlFor="aadhaarPhoto"
+        >
           Aadhaar Card Photo
         </label>
         <input
@@ -137,7 +164,13 @@ const VenueDetailsForm = ({
         />
         {aadhaarImageUrl && (
           <div className="mt-2 flex items-center justify-between">
-            <img src={aadhaarImageUrl} alt="Aadhaar Card" width={200} height={200} className="rounded-lg" />
+            <img
+              src={aadhaarImageUrl}
+              alt="Aadhaar Card"
+              width={200}
+              height={200}
+              className="rounded-lg"
+            />
             <button
               type="button"
               className="text-red-600 text-sm"
@@ -168,7 +201,11 @@ const VenueDetailsForm = ({
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full h-12 bg-gradient-to-r from-pink to-pink  text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        className="w-full h-12 rounded-lg text-white"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #DD0D63 0%, #A11C5C 100%)",
+        }}
       >
         Save
       </button>

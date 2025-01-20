@@ -23,7 +23,15 @@ const TopNavBar = () => {
         />
       </div>
 
- 
+      <div
+        className=" h-[2px] absolute bottom-0 right-0 w-[95%]"
+        style={{
+          border: "2px solid",
+          borderImageSource:
+            "linear-gradient(90deg, #B8860B 0%, #EED68A 50%, #B8860B 100%)",
+          borderImageSlice: 1,
+        }}
+      ></div>
     </div>
   );
 };

@@ -1,16 +1,27 @@
-import React from 'react';
+import React from "react";
 
 const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
   return (
-    <form
-      onSubmit={handleSave}
-      className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg space-y-6"
-    >
-      <div className="text-2xl font-medium text-gray-800 mb-4">
+    <form onSubmit={handleSave} className="w-full max-w-lg  p-6  space-y-1">
+      <div
+        className="text-2xl font-medium  "
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+          WebkitBackgroundClip: "text",
+          color: "transparent",
+        }}
+      >
         YOUR SOCIAL LINKS
       </div>
-
-      <div className="space-y-4">
+      <div
+        className="w-[300px] h-[2px]"
+        style={{
+          background:
+            "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+        }}
+      ></div>
+      <div className="space-y-6 py-8">
         {/* Facebook */}
         <div className="relative">
           <input
@@ -50,7 +61,11 @@ const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
 
       <button
         type="submit"
-        className="w-full h-12  border border-pink bg-gradient-to-r from-pink to-white text-white rounded-lg hover:bg-pink-700 transition duration-300 focus:ring-2 focus:ring-pink-400"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #DD0D63 0%, #A11C5C 100%)",
+        }}
+        className="w-full h-12  text-white rounded-lg text-[16px]  "
       >
         Save
       </button>
