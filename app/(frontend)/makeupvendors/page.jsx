@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { MdOutlineStar } from "react-icons/md";
+import MakeupVendorCard from "@/components/MakeupCard";
 
 const Page = () => {
   const [makeupArtist, setMakeupArtist] = useState([]);
@@ -23,48 +24,38 @@ const Page = () => {
   const makeupArtistsFAQs = [
     {
       question: "How do I find a makeup artist for my wedding on Shaadivyah?",
-      answer: "Browse through the makeup artists' profiles on our platform. Shaadivyah will help you select the best artist based on your preferences and needs."
+      answer:
+        "Browse through the makeup artists' profiles on our platform. Shaadivyah will help you select the best artist based on your preferences and needs.",
     },
     {
       question: "What makeup styles can I choose from for my wedding?",
-      answer: "Our makeup artists offer a range of styles, including traditional bridal, contemporary, natural, glamorous, and customized looks. Shaadivyah will help match you with an artist who can create your desired look."
+      answer:
+        "Our makeup artists offer a range of styles, including traditional bridal, contemporary, natural, glamorous, and customized looks. Shaadivyah will help match you with an artist who can create your desired look.",
     },
     {
       question: "Do makeup artists offer trial sessions?",
-      answer: "Yes, many makeup artists offer trial sessions so you can test their services and finalize your look before the wedding day. Shaadivyah will assist in arranging these trials."
+      answer:
+        "Yes, many makeup artists offer trial sessions so you can test their services and finalize your look before the wedding day. Shaadivyah will assist in arranging these trials.",
     },
     {
       question: "How long does bridal makeup usually take?",
-      answer: "Bridal makeup typically takes around 1.5 to 3 hours, depending on the complexity of the look and any additional services such as hair styling."
+      answer:
+        "Bridal makeup typically takes around 1.5 to 3 hours, depending on the complexity of the look and any additional services such as hair styling.",
     },
     {
-      question: "Can makeup artists accommodate group bookings for my bridal party?",
-      answer: "Yes, most makeup artists can accommodate group bookings for your bridal party, including bridesmaids, family members, and guests. Shaadivyah will help coordinate these arrangements."
+      question:
+        "Can makeup artists accommodate group bookings for my bridal party?",
+      answer:
+        "Yes, most makeup artists can accommodate group bookings for your bridal party, including bridesmaids, family members, and guests. Shaadivyah will help coordinate these arrangements.",
     },
     {
-      question: "What is the cost of hiring a makeup artist through Shaadivyah?",
-      answer: "The cost varies based on the artist’s experience and the type of services required. Shaadivyah will provide you with a detailed quote after discussing your specific requirements."
-    }
+      question:
+        "What is the cost of hiring a makeup artist through Shaadivyah?",
+      answer:
+        "The cost varies based on the artist's experience and the type of services required. Shaadivyah will provide you with a detailed quote after discussing your specific requirements.",
+    },
   ];
-  
-  
-  
-  
-  
-  
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   useEffect(() => {
     const fetchMakeupArtist = async () => {
       try {
@@ -88,16 +79,26 @@ const Page = () => {
   const NextArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-next-arrow`}
-      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
+      style={{
+        ...style,
+        backgroundColor: "#A11C5C",
+        color: "#ffffff",
+        borderRadius: "50%",
+      }} // Add background and text color
       onClick={onClick}
     />
   );
-  
+
   // Custom Prev Arrow Component
   const PrevArrow = ({ className, style, onClick }) => (
     <div
       className={`${className} custom-arrow custom-prev-arrow`}
-      style={{ ...style, backgroundColor: '#F8EDEB', color: '#ffffff', borderRadius:'50%' }} // Add background and text color
+      style={{
+        ...style,
+        backgroundColor: "#A11C5C",
+        color: "#ffffff",
+        borderRadius: "50%",
+      }} // Add background and text color
       onClick={onClick}
     />
   );
@@ -213,11 +214,11 @@ const Page = () => {
       />
 
       {/* populer  */}
-      <div className=" py-16  relative  z-20  ">
+      {/* <div className=" py-16  relative  z-20  ">
         <div className="bg-cream pb-10  lg:px-10 px-6">
           {" "}
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink font-fira-sans p-4  ">
-            Makeup <span className="font-dancing-script">Artists</span>
+          <p className="md:text-3xl  text-[32px] font-semibold text-pink  font-Merriweather p-4  ">
+            Makeup <span className="customGabriola font-normal">Artists</span>
           </p>
           <div className=" ">
             {makeupArtist.length > 0 ? (
@@ -311,13 +312,16 @@ const Page = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
       <div>
         <div className=" py-16  relative  z-20  lg:px-10 px-6 ">
           <div className="">
-            <p className="md:text-3xl text-[32px] font-semibold text-pink font-fira-sans p-4 ">
+            <p className="md:text-3xl text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]font-Merriweather p-4 ">
               Popular{" "}
-              <span className="font-dancing-script"> Mehndi Artists</span>
+              <span className="customGabriola font-normal text-pink">
+                {" "}
+                Mehndi Artists
+              </span>
             </p>
             <div className="px-[15px] ">
               {makeupArtist.length > 0 ? (
@@ -328,42 +332,7 @@ const Page = () => {
                       key={arr.uid}
                       className=" py-4  md:px-1 "
                     >
-                      <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
-                        <img
-                          src={arr.bannerImageUrl || "/images/logo1.png"}
-                          alt={arr.businessName}
-                          className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
-                        />
-                        <div className=" px-6 py-4 ">
-                          {" "}
-                          <div className="flex justify-between items-center h-[30px]">
-                            {" "}
-                            <h3 className="lg:text-xl text-blue  font-semibold mb-2">
-                              {arr.businessName}
-                            </h3>
-                            <p className="flex justify-end items-center mb-2  gap-0">
-                              {" "}
-                              <p className="text-pink mt-1  ">
-                                {" "}
-                                {arr.averageRating?.toFixed(2) || 3}{" "}
-                              </p>{" "}
-                              <p>
-                                <MdOutlineStar className="text-yellow-300 text-xl " />
-                              </p>
-                            </p>
-                          </div>
-                          <div className="flex justify-start gap-2 ">
-                            <img src="/icons/locationred.svg" />
-                            <p className="text-[18px] text-[#666666] h-8">
-                              {arr.location}
-                            </p>
-                          </div>
-                          <p className="text-sm py-4 md:h-[120px] h-[150px]">
-                            {truncateText(arr.about, 30)}
-                          </p>
-                       
-                        </div>
-                      </div>
+                      <MakeupVendorCard vendor={arr} />
                     </Link>
                   ))}
                 </Slider>
@@ -378,17 +347,19 @@ const Page = () => {
       {/* all  */}
       <div>
         <div>
-          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-fira-sans p-4">
-            All <span className="font-dancing-script">Mendhi Artists</span>
+          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather p-4">
+            All{" "}
+            <span className="customGabriola font-normal text-pink">Mendhi Artists</span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {makeupArtist.map((data, index) => (
               <Link
                 href={`/makeupvendors/${data.uid}`}
                 key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                className=" rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
-                <img
+                <MakeupVendorCard vendor={data} />
+                {/* <img
                   src={data.bannerImageUrl || "/images/logo1.png"}
                   alt={data.businessName}
                   className="w-full h-60     rounded-t-[4px] object-cover "
@@ -419,7 +390,7 @@ const Page = () => {
                     {truncateText(data.about, 20)}
                   </p>
                 </div>
-                {/* <div className="absolute top-150 left-20">
+                <div className="absolute top-150 left-20">
                   <div className="block">
                     <div className="flex flex-row justify-between">
                       <div className="bg-[#dad9d9] py-2 px-3 rounded-md">
@@ -432,7 +403,7 @@ const Page = () => {
                           {venue.rooms} rooms
                         </p>
                       </div>
-                    </div>
+                    </div> /*
                   </div>
                 </div> */}
               </Link>

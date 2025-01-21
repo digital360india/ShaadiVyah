@@ -19,6 +19,8 @@ import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { useRouter } from "next/navigation";
 import { MdOutlineStar } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
+import VenueCard from "@/components/VenuesCard";
 
 // import ContactUSPhoto from "@/components/ContactUSPhoto";
 
@@ -64,7 +66,7 @@ const Page = () => {
       className={`${className} custom-arrow custom-next-arrow`}
       style={{
         ...style,
-        backgroundColor: "#F8EDEB",
+        backgroundColor: "#A11C5C",
         color: "#ffffff",
         borderRadius: "50%",
       }} // Add background and text color
@@ -78,7 +80,7 @@ const Page = () => {
       className={`${className} custom-arrow custom-prev-arrow`}
       style={{
         ...style,
-        backgroundColor: "#F8EDEB",
+        backgroundColor: "#A11C5C",
         color: "#ffffff",
         borderRadius: "50%",
       }} // Add background and text color
@@ -221,7 +223,7 @@ const Page = () => {
       />
       <Space50px />
       <Space25px />
-      <div>
+      {/* <div>
         <div className="lg:px-10 p-6 bg-cream">
           <p className="md:text-3xl  text-[32px] font-semibold text-pink p-4 font-Merriweather ">
             Wedding{" "}
@@ -301,74 +303,21 @@ const Page = () => {
             </Slider>
           </div>
         </div>
-      </div>
+      </div> */}
       <Space25px />
       {/* populer  */}
       <div className="  relative  z-20 lg:px-5 px-2 ">
         <div className="">
-          <p className="md:text-3xl text-[32px] font-semibold text-pink font-Merriweather p-4">
+          <p className="md:text-3xl text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather p-4">
             Popular{" "}
-            <span className="customGabriola font-normal">Destinations</span>
+            <span className="customGabriola font-normal text-pink">Destinations</span>
           </p>
           <div className=" xl:px-[48px] lg:px-[45px] md:px-[20px] px-[20px]  ">
             {venue.length > 0 ? (
               <Slider {...sliderSettings}>
                 {venue.map((arr, index) => (
                   <Link href={`/venues/${arr.uid}`} key={index} className="  ">
-                    <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] w-full ">
-                      <img
-                        src={arr.bannerImageUrl || "/images/logo1.png"}
-                        alt={arr.businessName}
-                        className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
-                      />
-                      <div className=" px-6 py-4 ">
-                        {" "}
-                        <div className="flex justify-between items-center h-[30px]">
-                          {" "}
-                          <h3 className="lg:text-xl font-semibold mb-2">
-                            {arr.businessName}
-                          </h3>
-                          <div className="flex justify-end items-center mb-2  gap-0">
-                            {" "}
-                            <p className="text-pink mt-1  ">
-                              {" "}
-                              {venue.averageRating?.toFixed(2) || 3}{" "}
-                            </p>{" "}
-                            <p>
-                              <MdOutlineStar className="text-yellow-300 text-xl " />
-                            </p>
-                          </div>{" "}
-                        </div>
-                        <div className="flex justify-start gap-2">
-                          <img src="/icons/locationred.svg" />
-                          <p className="text-[18px] text-[#666666]">
-                            {arr.location}
-                          </p>
-                        </div>
-                        <p className="text-sm py-4 h-[68px]">
-                          {" "}
-                          {truncateText(arr.about, 20)}{" "}
-                          {/* {truncateText(arr.about, 30)} */}
-                        </p>
-                        {/* <div className="flex justify-between">
-                          <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:lg:text-sm text-[10px]">
-                              100-200 pax
-                            </p>
-                          </div>
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">
-                              32 rooms
-                            </p>
-                          </div>{" "}
-                          <div className="bg-[#dad9d9] py-2 px-3 rounded-md  ">
-                            <p className="text-[#333333] lg:text-sm text-[10px]">
-                              32 rooms
-                            </p>
-                          </div>
-                        </div> */}
-                      </div>
-                    </div>
+                    <VenueCard arr={arr} />
                   </Link>
                 ))}
               </Slider>
@@ -382,63 +331,17 @@ const Page = () => {
       {/* all  */}
       <div>
         <div>
-          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-pink font-Merriweather p-4">
-            All <span className="customGabriola font-normal">Destinations</span>
+          <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather p-4">
+            All <span className="customGabriola font-normal text-pink">Destinations</span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {venue.map((venue, index) => (
               <Link
                 href={`/venues/${venue.uid}`}
                 key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                className=" rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
-                <img
-                  src={venue.bannerImageUrl || "/images/logo1.png"}
-                  alt={venue.businessName}
-                  className=" h-60 object-cover w-full rounded-t-[4px] "
-                />
-                <div className="px-6 py-4">
-                  <div className="flex justify-between items-center h-[30px]">
-                    <h3 className="lg:text-xl font-semibold mb-2">
-                      {venue.businessName}
-                    </h3>
-                    <p className="flex justify-end items-center mb-2  gap-0">
-                      {" "}
-                      <p className="text-pink mt-1  ">
-                        {" "}
-                        {venue.averageRating?.toFixed(2) || 3}{" "}
-                      </p>{" "}
-                      <p>
-                        <MdOutlineStar className="text-yellow-300 text-xl " />
-                      </p>
-                    </p>
-                  </div>
-                  <div className="flex justify-start gap-2">
-                    <img src="/icons/locationred.svg" alt="location icon" />
-                    <p className="text-[18px] text-[#666666]">
-                      {venue.location}
-                    </p>
-                  </div>
-                  <p className="text-sm py-4 h-[68px]">
-                    {truncateText(venue.about, 20)}
-                  </p>
-                </div>
-                {/* <div className="absolute top-150 left-20">
-                  <div className="block">
-                    <div className="flex flex-row justify-between">
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">
-                          {venue.capacity} pax
-                        </p>
-                      </div>
-                      <div className="bg-[#dad9d9] py-2 px-3 rounded-md">
-                        <p className="text-[#333333] lg:text-sm text-[10px]">
-                          {venue.rooms} rooms
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                <VenueCard arr={venue} />
               </Link>
             ))}
           </div>

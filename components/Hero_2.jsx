@@ -7,7 +7,7 @@ const Hero_2 = ({ img, text }) => {
           src={img}
           height={1000}
           width={1000}
-          className="w-screen h-[100vh] md:object-cover object-cover mt-16 lg:mt-5 "
+          className="w-screen h-[100vh] md:object-cover object-cover mt-16 lg:mt-0 "
         />
         <p className="z-10 font-Merriweather absolute lg:left-[100px]  lg:top-[405px]  md:left-[60px] md:top-[404px] text-white md:text-[50px] md:font-semibold text-[40px] font-medium top-[260px] w-[300px] left-[24px] md:w-[640px] leading-[70px] backdrop-blur-md backdrop-opacity-20"> 
           {text}
