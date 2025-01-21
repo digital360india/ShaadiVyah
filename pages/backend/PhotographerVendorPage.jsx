@@ -111,8 +111,22 @@ const PhotographerVendorPage = () => {
     }
   };
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg.svg')]">
+      <div
+        className=" w-[955px] mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040]"
+        style={{
+          borderWidth: "3px",
+          borderStyle: "solid",
+          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+        }}
+      >
+        <img
+          src={"/images/topbg.svg"}
+          width={1000}
+          height={1000}
+          className="w[960px] h-[52px]"
+        />
+        <div className="p-6">
         {editMode ? (
           <form onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold mb-4 text-blue-600">
@@ -140,7 +154,8 @@ const PhotographerVendorPage = () => {
                 htmlFor="priceWeddingDayPerDay"
                 className="block text-gray-700 font-medium"
               >
-Price for Wedding (photo + video) per Day                </label>
+                Price for Wedding (photo + video) per Day{" "}
+              </label>
               <input
                 type="number"
                 id="priceWeddingDayPerDay"
@@ -156,7 +171,8 @@ Price for Wedding (photo + video) per Day                </label>
                 htmlFor="priceSpecialEventPerDay"
                 className="block text-gray-700 font-medium"
               >
-Price for Special Events (photo + video) per Day              </label>
+                Price for Special Events (photo + video) per Day{" "}
+              </label>
               <input
                 type="number"
                 id="priceSpecialEventPerDay"
@@ -167,7 +183,7 @@ Price for Special Events (photo + video) per Day              </label>
                 placeholder="Enter amount of photo Video Package"
               />
             </div>
-        
+
             <div className="mb-4 flex gap-3">
               <input
                 type="checkbox"
@@ -252,7 +268,7 @@ Price for Special Events (photo + video) per Day              </label>
           </form>
         ) : (
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-blue-600">
+            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] ">
               Photographer Details
             </h2>
             <div className="mb-4">
@@ -263,9 +279,13 @@ Price for Special Events (photo + video) per Day              </label>
                 Starting price per day
               </label>
               <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.pricePreWeddingPerDay
-                  ? formData.pricePreWeddingPerDay
-                  : <p className="text-gray-400">Enter amount of price of pre-wedding Per Day</p>}
+                {formData.pricePreWeddingPerDay ? (
+                  formData.pricePreWeddingPerDay
+                ) : (
+                  <p className="text-gray-400">
+                    Enter amount of price of pre-wedding Per Day
+                  </p>
+                )}
               </span>
             </div>
             <div className="mb-4">
@@ -276,9 +296,13 @@ Price for Special Events (photo + video) per Day              </label>
                 Photo Package
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.priceWeddingDayPerDay
-                  ? formData.priceWeddingDayPerDay
-                  : <p className="text-gray-400">Enter amount of Wedding Day photo + vid Package</p>}
+                {formData.priceWeddingDayPerDay ? (
+                  formData.priceWeddingDayPerDay
+                ) : (
+                  <p className="text-gray-400">
+                    Enter amount of Wedding Day photo + vid Package
+                  </p>
+                )}
               </span>
             </div>
             <div className="mb-4">
@@ -289,12 +313,16 @@ Price for Special Events (photo + video) per Day              </label>
                 Photo Video Package
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.priceSpecialEventPerDay
-                  ? formData.priceSpecialEventPerDay
-                  : <p className="text-gray-400">Enter amount of photo Video Package</p>}
+                {formData.priceSpecialEventPerDay ? (
+                  formData.priceSpecialEventPerDay
+                ) : (
+                  <p className="text-gray-400">
+                    Enter amount of photo Video Package
+                  </p>
+                )}
               </span>
             </div>
-        
+
             <div className="mb-4">
               <label
                 htmlFor="outstationTravelCovered"
@@ -314,9 +342,11 @@ Price for Special Events (photo + video) per Day              </label>
                 Practicing Since
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.practicingSince
-                  ? formData.practicingSince
-                  :  <p className="text-gray-400">Practicing Since which year ?</p>}
+                {formData.practicingSince ? (
+                  formData.practicingSince
+                ) : (
+                  <p className="text-gray-400">Practicing Since which year ?</p>
+                )}
               </span>
             </div>
             <div className="mb-4">
@@ -338,9 +368,13 @@ Price for Special Events (photo + video) per Day              </label>
                 Advance Payment
               </label>
               <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                {formData.advancePayment
-                  ? formData.advancePayment
-                  :  <p className="text-gray-400">Enter amount of  advance Payment</p>}
+                {formData.advancePayment ? (
+                  formData.advancePayment
+                ) : (
+                  <p className="text-gray-400">
+                    Enter amount of advance Payment
+                  </p>
+                )}
               </span>
             </div>
             <div className="flex justify-end">
@@ -385,7 +419,7 @@ Price for Special Events (photo + video) per Day              </label>
           <div className="bg-white shadow-md rounded-lg p-4">
             <div className="flex flex-row justify-between">
               {" "}
-              <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-gray-800">
+              <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-[#A11C5C]">
                 My Services
               </h2>{" "}
               <div className="mb-4">
@@ -411,8 +445,9 @@ Price for Special Events (photo + video) per Day              </label>
             </ul>
           </div>
         )}
+        </div>
       </div>
-      <Space50px/>
+      <Space50px />
     </div>
   );
 };
