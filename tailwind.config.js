@@ -9,6 +9,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient': "linear-gradient(to right, #C9184A, #FFB5A7)",
+        'gradient2': "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+        'gradient-border': "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+      },
+      textColor: {
+        transparent: 'transparent',
       },
       colors: {
         pink: "#C9184A",

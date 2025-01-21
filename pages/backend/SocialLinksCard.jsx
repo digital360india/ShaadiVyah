@@ -6,13 +6,8 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
     <div className="w-full max-w-lg  pt-6 rounded-lg  text-lg space-y-1 font-Merriweather-Sans overflow-hidden">
       <div className="flex space-x-10 items-center">
         <div
-          className="font-bold text-2xl"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
-          }}
+          className="font-bold text-2xl bg-gradient2 bg-clip-text text-transparent"
+         
         >
           SOCIAL MEDIA LINKS
         </div>
@@ -25,11 +20,8 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
         </button>
       </div>
       <div
-        className="w-[325px] h-[3px]"
-        style={{
-          background:
-            "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-        }}
+        className="w-[325px] h-[3px] bg-gradient-border"
+        
       ></div>
       <div className="space-y-5 pt-14  text-[14px] text-[#4A4A4A]">
         {/* Facebook */}

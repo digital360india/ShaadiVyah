@@ -15,21 +15,13 @@ const UserProfileDetails = ({
         {/* Header with Edit button */}
         <div className="flex space-x-10 items-center">
           <div
-            className="font-bold text-2xl "
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-            }}
+            className="font-bold text-2xl bg-gradient2 bg-clip-text text-transparent"
+            
           >
             ABOUT ME
             <div
-              className="w-[170px] h-[2px]"
-              style={{
-                background:
-                  "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-              }}
+              className="w-[170px] h-[2px] bg-gradient-border"
+             
             ></div>
           </div>
 
@@ -150,21 +142,13 @@ const UserProfileDetails = ({
           <div className="font-Merriweather-Sans text-[14px] ">
             <div className="flex  items-center space-x-8">
               <div
-                className="font-bold text-2xl "
-                style={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                }}
+                className="font-bold text-2xl bg-gradient2 bg-clip-text text-transparent "
+                
               >
                 PERSONAL DOCUMENTS
                 <div
-                  className="w-[380px] h-[2px]"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-                  }}
+                  className="w-[380px] h-[2px] bg-gradient-border"
+                  
                 ></div>
               </div>
               <button

@@ -413,14 +413,14 @@ const DetailPage = () => {
                     <p>Non Veg Plate: </p>
                     <FaRupeeSign className="text-sm" />
                     <p className="text-[#BE7318]">
-                      {data?.price.nonvegPlatePricing}
+                      {data?.price?.nonvegPlatePricing}
                     </p>
                   </li>
                   <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
                     <p>Veg Plate: </p>
                     <FaRupeeSign className="text-sm" />
                     <p className="text-[#BE7318]">
-                      {data?.price.vegPlatePricing}
+                      {data?.price?.vegPlatePricing}
                     </p>
                   </li>
                 </ul>

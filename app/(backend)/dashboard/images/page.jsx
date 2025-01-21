@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div><EditImages /></div>
+    <div className="bg-[#FFF5E8] bg-[url('/images/dashbg.svg')] w-full h-full object-cover bg-cover"><EditImages /></div>
   )
 }
 

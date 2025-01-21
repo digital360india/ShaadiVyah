@@ -15,21 +15,13 @@ const VenueDetailsForm = ({
     >
       {/* Venue Details Section */}
       <div
-        className="text-2xl font-medium "
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-          WebkitBackgroundClip: "text",
-          color: "transparent",
-        }}
+        className="text-2xl font-medium bg-gradient2 bg-clip-text text-transparent"
+        
       >
         YOUR VENUE DETAILS
         <div
-          className="w-[330px] h-[2px]"
-          style={{
-            background:
-              "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-          }}
+          className="w-[330px] h-[2px] bg-gradient-border"
+          
         ></div>
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -201,11 +193,8 @@ const VenueDetailsForm = ({
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full h-12 rounded-lg text-white"
-        style={{
-          background:
-            "radial-gradient(50% 50% at 50% 50%, #DD0D63 0%, #A11C5C 100%)",
-        }}
+        className="w-full h-12 rounded-lg text-white bg-gradient-border" 
+       
       >
         Save
       </button>
