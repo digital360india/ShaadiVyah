@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-
 const UserProfileDetails = ({
   user,
   handleEdit,
@@ -12,7 +11,6 @@ const UserProfileDetails = ({
 }) => {
   return (
     <>
-      
       <div className="w-full max-w-lg  p-6 rounded-lg  space-y-6 font-Merriweather-Sans ">
         {/* Header with Edit button */}
         <div className="flex space-x-10 items-center">
@@ -148,16 +146,49 @@ const UserProfileDetails = ({
           </p> */}
 
           {/* Aadhaar Card Photo */}
-          {user?.adharCardPhoto && (
-            <div className="flex flex-col mt-4">
-              <p className=" text-[#A11C5C]">Aadhaar Card Photo</p>
-              <img
-                src={user?.adharCardPhoto}
-                alt="Aadhaar Card"
-                className="mt-2 max-w-xs rounded-lg shadow-sm"
-              />
+
+          <div className="font-Merriweather-Sans text-[14px] ">
+            <div className="flex  items-center space-x-8">
+              <div
+                className="font-bold text-2xl "
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                PERSONAL DOCUMENTS
+                <div
+                  className="w-[380px] h-[2px]"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
+                  }}
+                ></div>
+              </div>
+              <button
+                onClick={handleEdit}
+                className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] pt-[2px] h-[30px] mt-1 cursor-pointer   "
+              >
+                Edit
+              </button>
             </div>
-          )}
+            {user?.adharCardPhoto ? (
+              <div className="flex flex-col mt-4">
+                <p className="text-[#159500]">Aadhaar Card (Verified)</p>
+                <img
+                  src={user?.adharCardPhoto}
+                  alt="Aadhaar Card"
+                  className="mt-2 max-w-xs rounded-lg shadow-sm"
+                />
+              </div>
+            ) : (
+              <div className="flex flex-col mt-4">
+                <p className="text-[#FF0000]">Aadhaar Card (Pending)</p>
+              </div>
+            )}
+          </div>
 
           {/* <p>
             <span className=" text-[#A11C5C]">Pan Card Number:</span>{" "}

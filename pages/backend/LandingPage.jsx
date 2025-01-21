@@ -1,15 +1,34 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { db } from "@/firebase/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { parseCookies } from "nookies";
 const LandingPage = ({
   handleSendApproval,
   isButtonActive,
   hasSentRequest,
-  user,
+
 }) => {
+const [user, setUser] = useState(null);
+  useEffect(() => {
+    const cookies = parseCookies();
+    const uid = cookies.token;
 
+    const fetchUser = async () => {
+      if (uid) {
+        const q = query(collection(db, "users"), where("uid", "==", uid));
+        const querySnapshot = await getDocs(q);
 
+        if (!querySnapshot.empty) {
+          const userData = querySnapshot.docs[0].data();
+          setUser(userData);
+        }
+      }
+    };
+
+    fetchUser();
+  }, []);
   return (
     <div className="bg-[url('/icons/background.svg')] bg-cover bg-center object-cover w-full h-[100vh] bg-[#FFF5E8]">
       <div className="flex justify-center items-center pt-14">

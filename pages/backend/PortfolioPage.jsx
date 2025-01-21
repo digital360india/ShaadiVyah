@@ -211,7 +211,7 @@ const PortfolioPage = () => {
       <div className="md:p-10  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-[#FFF5E8]">
         <ToastContainer />
         <div className="h-[52vh] object-cover bg-cover bg-center">
-          <LandingPage user={user} />
+          <LandingPage  />
         </div>
         <div className="flex flex-col md:flex-row gap-10 items-start justify-start">
           {user && (

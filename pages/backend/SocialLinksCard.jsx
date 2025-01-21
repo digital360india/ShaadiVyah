@@ -25,7 +25,7 @@ const SocialLinksCard = ({ user, handleEditSocials }) => {
         </button>
       </div>
       <div
-        className="w-[325px] h-[2px]"
+        className="w-[325px] h-[3px]"
         style={{
           background:
             "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
