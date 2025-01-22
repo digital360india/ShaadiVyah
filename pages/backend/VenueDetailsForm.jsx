@@ -11,16 +11,16 @@ const VenueDetailsForm = ({
   return (
     <form
       onSubmit={handleSave}
-      className="space-y-8  rounded-lg pt-6 font-Merriweather-Sans"
+      className="space-y-8 pb-24 md:pb-0   rounded-lg pt-8 md:pt-2  font-Merriweather-Sans px-5 md:px-0 "
     >
       {/* Venue Details Section */}
       <div
-        className="text-2xl font-medium bg-gradient2 bg-clip-text text-transparent"
+        className="text-md md:text-2xl font-medium bg-gradient2 bg-clip-text text-transparent"
         
       >
         YOUR VENUE DETAILS
         <div
-          className="w-[330px] h-[2px] bg-gradient-border"
+          className="w-[167px] md:w-[330px] h-[2px] bg-gradient-border"
           
         ></div>
       </div>
@@ -44,7 +44,7 @@ const VenueDetailsForm = ({
       </div>
 
       {/* Venue Address Section */}
-      <div className="text-xl font-medium text-gray-800">
+      <div className="text-md md:text-xl font-medium text-gray-800">
         YOUR VENUE ADDRESS
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -99,7 +99,7 @@ const VenueDetailsForm = ({
       </div>
 
       {/* About Section */}
-      <div className="text-xl font-medium text-gray-800">ABOUT</div>
+      <div className="text-md md:text-xl font-medium text-gray-800">ABOUT</div>
       <textarea
         name="about"
         value={formData?.about}
@@ -109,7 +109,7 @@ const VenueDetailsForm = ({
       />
 
       {/* Contact Details Section */}
-      <div className="text-xl font-medium text-gray-800">CONTACT DETAILS</div>
+      <div className="text-md md:text-xl font-medium text-gray-800">CONTACT DETAILS</div>
       <div className="grid grid-cols-2 gap-4">
         <input
           type="text"
@@ -130,7 +130,7 @@ const VenueDetailsForm = ({
       </div>
 
       {/* Verification Details Section */}
-      <div className="text-xl font-medium text-gray-800">
+      <div className="text-md md:text-xl font-medium text-gray-800">
         VERIFICATION DETAILS
       </div>
       <input

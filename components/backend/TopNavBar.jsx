@@ -37,7 +37,7 @@ const TopNavBar = () => {
   }, []);
 
   return (
-    <div className="flex  text-white fixed top-0 w-full h-16 lg:h-20  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-[#FFF5E8] z-10">
+    <div className="hidden  lg:flex  text-white fixed top-0 w-full h-16 lg:h-20  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-[#FFF5E8] z-10">
       <div className=" absolute right-96">
         <div className="flex items-center pt-2  space-x-2 ">
           <Image
@@ -62,13 +62,8 @@ const TopNavBar = () => {
       </div>
 
       <div
-        className=" h-[2px] absolute bottom-0 right-0 w-[96%]"
-        style={{
-          border: "2px solid",
-          borderImageSource:
-            "linear-gradient(90deg, #B8860B 0%, #EED68A 50%, #B8860B 100%)",
-          borderImageSlice: 1,
-        }}
+        className=" h-[2px] absolute bottom-0 right-0 w-[96%] bg-gradient-border"
+        
       ></div>
     </div>
   );

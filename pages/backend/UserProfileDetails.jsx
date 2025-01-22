@@ -11,23 +11,17 @@ const UserProfileDetails = ({
 }) => {
   return (
     <>
-      <div className="w-full max-w-lg  p-6 rounded-lg  space-y-6 font-Merriweather-Sans ">
+      <div className="w-full max-w-lg p-5  md:p-6 rounded-lg  space-y-6 font-Merriweather-Sans  ">
         {/* Header with Edit button */}
         <div className="flex space-x-10 items-center">
-          <div
-            className="font-bold text-2xl bg-gradient2 bg-clip-text text-transparent"
-            
-          >
+          <div className="font-bold text-md md:text-2xl bg-gradient2 bg-clip-text text-transparent">
             ABOUT ME
-            <div
-              className="w-[170px] h-[2px] bg-gradient-border"
-             
-            ></div>
+            <div className="md:w-[170px] h-[2px] bg-gradient-border"></div>
           </div>
 
           <button
             onClick={handleEdit}
-            className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] pt-[2px] h-[30px] mt-1 cursor-pointer   "
+            className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] md:pt-[2px] h-[30px] mt-1 cursor-pointer   "
           >
             Edit
           </button>
@@ -35,11 +29,13 @@ const UserProfileDetails = ({
 
         <div className="">
           {/* <span className=" text-[#A11C5C]">About:</span> */}
-          <span className="text-[14px] text-[#4A4A4A]">{user?.about}</span>
+          <span className="text-[12px] md:text-[14px] text-[#4A4A4A]">
+            {user?.about}
+          </span>
         </div>
 
         {/* User Information */}
-        <div className="space-y-5 text-[14px]">
+        <div className="space-y-5 text-[14px] pb-20 md:pb-0">
           {/* <p>
             <span className=" text-[#A11C5C]">Name:</span>{" "}
             <span className="text-[#4A4A4A]">{user?.name}</span>
@@ -139,21 +135,15 @@ const UserProfileDetails = ({
 
           {/* Aadhaar Card Photo */}
 
-          <div className="font-Merriweather-Sans text-[14px] ">
+          <div className="font-Merriweather-Sans text-[14px] hidden md:block">
             <div className="flex  items-center space-x-8">
-              <div
-                className="font-bold text-2xl bg-gradient2 bg-clip-text text-transparent "
-                
-              >
+              <div className="font-bold text-md lg:text-[31.5px] bg-gradient2 bg-clip-text text-transparent ">
                 PERSONAL DOCUMENTS
-                <div
-                  className="w-[380px] h-[2px] bg-gradient-border"
-                  
-                ></div>
+                <div className=" md:w-[375px] h-[2px] bg-gradient-border"></div>
               </div>
               <button
                 onClick={handleEdit}
-                className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] pt-[2px] h-[30px] mt-1 cursor-pointer   "
+                className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] md:pt-[2px] h-[30px] mt-1 cursor-pointer   "
               >
                 Edit
               </button>

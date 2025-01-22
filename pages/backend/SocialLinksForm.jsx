@@ -2,17 +2,14 @@ import React from "react";
 
 const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
   return (
-    <form onSubmit={handleSave} className="w-full max-w-lg  p-6  space-y-1">
-      <div
-        className="text-2xl font-medium bg-gradient2 bg-clip-text text-transparent "
-       
-      >
+    <form
+      onSubmit={handleSave}
+      className="w-full max-w-lg px-5 pt-4 md:pt-0  md:p-6  space-y-1"
+    >
+      <div className="text-md md:text-2xl font-medium bg-gradient2 bg-clip-text text-transparent ">
         YOUR SOCIAL LINKS
       </div>
-      <div
-        className="w-[300px] h-[2px] bg-gradient-border"
-        
-      ></div>
+      <div className="w-[150px] md:w-[300px] h-[2px] bg-gradient-border"></div>
       <div className="space-y-6 py-8">
         {/* Facebook */}
         <div className="relative">
@@ -53,7 +50,6 @@ const SocialLinksForm = ({ formData, handleChange, handleSave }) => {
 
       <button
         type="submit"
-        
         className="w-full h-12  text-white rounded-lg text-[16px] bg-gradient-border "
       >
         Save

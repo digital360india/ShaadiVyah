@@ -20,9 +20,6 @@ import {
   getDownloadURL,
   deleteObject,
 } from "firebase/storage";
-import { FaUserEdit } from "react-icons/fa";
-import Space25px from "@/components/Space25px";
-import Space50px from "@/components/Space50px";
 import SocialLinksCard from "./SocialLinksCard";
 import SocialLinksForm from "./SocialLinksForm";
 import UserProfileDetails from "./UserProfileDetails";
@@ -35,6 +32,7 @@ const PortfolioPage = () => {
   const [editing, setEditing] = useState(false);
   const [aadhaarImageUrl, setAadhaarImageUrl] = useState("");
   const [editing2, setEditing2] = useState(false);
+  const [activeTab, setActiveTab] = useState("about");
   const [formData, setFormData] = useState({
     name: "",
     streetAddress: "",
@@ -210,78 +208,202 @@ const PortfolioPage = () => {
     <>
       <div className="md:p-10  bg-[url('/icons/background.svg')] bg-cover bg-center object-cover bg-[#FFF5E8]">
         <ToastContainer />
-        <div className="h-[52vh] object-cover bg-cover bg-center">
-          <LandingPage  />
+        <div className="md:h-[52vh] object-cover bg-cover bg-center">
+          <LandingPage />
         </div>
-        <div className="flex flex-col md:flex-row gap-10 items-start justify-start">
-          {user && (
-            <div className="mt-4 w-full">
-              {editing ? (
-                <VenueDetailsForm
-                  formData={formData}
-                  handleChange={handleChange}
-                  handleSave={handleSave}
-                  handleAadhaarUpload={handleAadhaarUpload}
-                  aadhaarImageUrl={aadhaarImageUrl}
-                  handleDeleteAadhaarImage={handleDeleteAadhaarImage}
-                />
-              ) : (
-                <UserProfileDetails
-                  user={user}
-                  handleEdit={handleEdit}
-                  handleSendApproval={handleSendApproval}
-                  handleShowRejectionDialog={handleShowRejectionDialog}
-                  isButtonActive={isButtonActive}
-                  hasSentRequest={hasSentRequest}
-                />
-              )}
-            </div>
-          )}
-          {user && (
-            <div className="mt-4 w-full mb-40">
-              {editing2 ? (
-                <SocialLinksForm
-                  formData={formData}
-                  handleChange={handleChange}
-                  handleSave={handleSave}
-                />
-              ) : (
-                <SocialLinksCard
-                  user={user}
-                  handleEditSocials={handleEditSocials}
-                />
-              )}
-            </div>
-          )}
+
+        <div className="md:hidden font-Merriweather-Sans">
+          <div className="flex space-x-5 px-5 pt-10 ">
+            <p
+              onClick={() => setActiveTab("about")}
+              className={`cursor-pointer ${
+                activeTab === "about"
+                  ? "font-bold text-[#A11C5C] bg-gradient-to-b from-transparent to-[rgba(190,115,24,0.4)] px-2"
+                  : "text-[#9C9C9C]"
+              }`}
+            >
+              About Me
+            </p>
+            <p
+              onClick={() => setActiveTab("social")}
+              className={`cursor-pointer ${
+                activeTab === "social"
+                  ? "font-bold text-[#A11C5C] bg-gradient-to-b from-transparent to-[rgba(190,115,24,0.4)] px-2"
+                  : "text-[#9C9C9C]"
+              }`}
+            >
+              My Social Media
+            </p>
+            <p
+              onClick={() => setActiveTab("documents")}
+              className={`cursor-pointer ${
+                activeTab === "documents"
+                  ? "font-bold text-[#A11C5C] bg-gradient-to-b from-transparent to-[rgba(190,115,24,0.4)] px-2"
+                  : "text-[#9C9C9C]"
+              }`}
+            >
+              My Documents
+            </p>
+          </div>
+          <div className="w-[90%] bg-gradient-border h-[2px] mx-5"></div>
+
+          <div className="flex flex-col md:flex-row gap-10 items-start justify-start">
+            {activeTab === "about" && (
+              <div className="md:mt-4 w-full">
+                {editing ? (
+                  <VenueDetailsForm
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSave={handleSave}
+                    handleAadhaarUpload={handleAadhaarUpload}
+                    aadhaarImageUrl={aadhaarImageUrl}
+                    handleDeleteAadhaarImage={handleDeleteAadhaarImage}
+                  />
+                ) : (
+                  <UserProfileDetails
+                    user={user}
+                    handleEdit={handleEdit}
+                    handleSendApproval={handleSendApproval}
+                    handleShowRejectionDialog={handleShowRejectionDialog}
+                    isButtonActive={isButtonActive}
+                    hasSentRequest={hasSentRequest}
+                  />
+                )}
+              </div>
+            )}
+            {activeTab === "social" && (
+              <div className="mt-4 w-full mb-40">
+                {editing2 ? (
+                  <SocialLinksForm
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSave={handleSave}
+                  />
+                ) : (
+                  <SocialLinksCard
+                    user={user}
+                    handleEditSocials={handleEditSocials}
+                  />
+                )}
+              </div>
+            )}
+
+            {activeTab === "documents" && (
+              <div>
+                {editing ? (
+                  <VenueDetailsForm
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSave={handleSave}
+                    handleAadhaarUpload={handleAadhaarUpload}
+                    aadhaarImageUrl={aadhaarImageUrl}
+                    handleDeleteAadhaarImage={handleDeleteAadhaarImage}
+                  />
+                ) : (
+                  <div className="font-Merriweather-Sans text-[14px] md:hidden p-5">
+                    <div className="flex  items-center space-x-8">
+                      <div className="font-bold text-md lg:text-[31.5px] bg-gradient2 bg-clip-text text-transparent ">
+                        PERSONAL DOCUMENTS
+                        <div className=" md:w-[375px] h-[2px] bg-gradient-border"></div>
+                      </div>
+                      <button
+                        onClick={handleEdit}
+                        className="border border-[#A11C5C] text-[#A11C5C] text-[14px] rounded-xl w-[49px] pt-[2px] h-[30px] mt-1 cursor-pointer   "
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    {user?.adharCardPhoto ? (
+                      <div className="flex flex-col mt-4">
+                        <p className="text-[#159500]">
+                          Aadhaar Card (Verified)
+                        </p>
+                        <img
+                          src={user?.adharCardPhoto}
+                          alt="Aadhaar Card"
+                          className="mt-2 max-w-xs rounded-lg shadow-sm"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex flex-col mt-4">
+                        <p className="text-[#FF0000]">Aadhaar Card (Pending)</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="hidden md:block">
+          <div className="flex flex-col md:flex-row gap-10 items-start justify-start ">
+            {user && (
+              <div className="md:mt-4 w-full">
+                {editing ? (
+                  <VenueDetailsForm
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSave={handleSave}
+                    handleAadhaarUpload={handleAadhaarUpload}
+                    aadhaarImageUrl={aadhaarImageUrl}
+                    handleDeleteAadhaarImage={handleDeleteAadhaarImage}
+                  />
+                ) : (
+                  <UserProfileDetails
+                    user={user}
+                    handleEdit={handleEdit}
+                    handleSendApproval={handleSendApproval}
+                    handleShowRejectionDialog={handleShowRejectionDialog}
+                    isButtonActive={isButtonActive}
+                    hasSentRequest={hasSentRequest}
+                  />
+                )}
+              </div>
+            )}
+            {user && (
+              <div className="mt-4 w-full mb-40">
+                {editing2 ? (
+                  <SocialLinksForm
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSave={handleSave}
+                  />
+                ) : (
+                  <SocialLinksCard
+                    user={user}
+                    handleEditSocials={handleEditSocials}
+                  />
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-      <div
-        className="w-full h-[6px]"
-        style={{
-          background:
-            "linear-gradient(90deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
-        }}
-      ></div>
-      <div className="bg-[#A11C5C] h-[100px] flex justify-center items-center space-x-4">
-        <Image
-          src="/icons/flower.svg"
-          alt="logo"
-          width={1000}
-          height={1000}
-          className="w-[45px] h-[45px]"
-        />
-        <p className=" text-[20px] text-[#FFFFFF] font-Merriweather">
-          Please wait till we verify your Profile. Once{" "}
-          <strong>Verified</strong> your profile will be ready make impact on
-          clients.
-        </p>
-        <Image
-          src="/icons/flower.svg"
-          alt="logo"
-          width={1000}
-          height={1000}
-          className="w-[45px] h-[45px]"
-        />
+
+      <div className="hidden lg:block">
+        <div className="w-full h-[6px] bg-gradient-border "></div>
+        <div className="bg-[#A11C5C] h-[100px] flex justify-center items-center space-x-4  ">
+          <Image
+            src="/icons/flower.svg"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[45px] h-[45px]"
+          />
+          <p className=" text-[18px] text-[#FFFFFF] font-normal font-Merriweather">
+            Please wait till we verify your Profile. Once{" "}
+            <strong>Verified</strong> your profile will be ready make impact on
+            clients.
+          </p>
+          <Image
+            src="/icons/flower.svg"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[45px] h-[45px]"
+          />
+        </div>
       </div>
 
       {showRejectionDialog && (
