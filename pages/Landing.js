@@ -241,7 +241,7 @@ export default function Landing() {
       <div className="">
         <Hero />
       </div>
-      <div className="w-full font-Merriweather">
+      <div className="w-full font-Merriweather ">
         <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20">
             <img
@@ -270,9 +270,11 @@ export default function Landing() {
 
               <div className=" ">
                 {venue.length > 0 ? (
-                  <Slider {...sliderSettings}>
+                  <Slider {...sliderSettings} className="gap-6">
                     {venue.map((arr, index) => (
-                      <VenueCard arr={arr} index={index} />
+                      <div key={index} className="px-2">
+                        <VenueCard arr={arr} index={index} />
+                      </div>
                     ))}
                   </Slider>
                 ) : (
@@ -308,9 +310,11 @@ export default function Landing() {
             </div>
             <div className="">
               {mendhiArtists.length > 0 ? (
-                <Slider {...sliderSettings}>
+                <Slider {...sliderSettings} className="gap-6">
                   {mendhiArtists.map((arr, index) => (
-                    <MendhiVendorCard arr={arr} index={index} />
+                    <div key={index} className="px-2">
+                      <MendhiVendorCard arr={arr} index={index} />
+                    </div>
                   ))}
                 </Slider>
               ) : (
@@ -345,9 +349,11 @@ export default function Landing() {
               </Link>
             </div>
             {makeupArtist.length > 0 ? (
-              <Slider {...sliderSettings}>
+              <Slider {...sliderSettings} className="gap-6">
                 {makeupArtist.map((arr, index) => (
-                  <MakeupVendorCard vendor={arr} index={index} />
+                  <div key={index} className="px-2">
+                    <MakeupVendorCard vendor={arr} index={index} />
+                  </div>
                 ))}
               </Slider>
             ) : (
@@ -381,9 +387,11 @@ export default function Landing() {
               </Link>
             </div>
             {photographersArtists.length > 0 ? (
-              <Slider {...sliderSettings}>
+              <Slider {...sliderSettings} className="gap-6">
                 {photographersArtists.map((arr, index) => (
-                  <PhotographerVendorCard vendor={arr} index={index} />
+                  <div key={index} className="px-2">
+                    <PhotographerVendorCard vendor={arr} index={index} />
+                  </div>
                 ))}
               </Slider>
             ) : (

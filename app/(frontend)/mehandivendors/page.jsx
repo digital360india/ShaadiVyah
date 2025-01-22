@@ -50,7 +50,7 @@ const Page = () => {
       question:
         "What is the cost of hiring a Mehndi artist through Shaadivyah?",
       answer:
-        "The cost varies based on the artist’s experience and the complexity of the design. Shaadivyah will provide you with a detailed quote after discussing your specific requirements.",
+        "The cost varies based on the artist's experience and the complexity of the design. Shaadivyah will provide you with a detailed quote after discussing your specific requirements.",
     },
   ];
   const [mendhiArtists, setmendhiArtists] = useState([]);
@@ -335,7 +335,7 @@ const Page = () => {
               <Link
                 href={`/mehandivendors/${mendhiArtists.uid}`}
                 key={index}
-                className=" rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full "
+                className=" rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full "
               >
                 <MendhiVendorCard arr={mendhiArtists} />
               </Link>

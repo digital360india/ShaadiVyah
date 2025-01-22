@@ -44,18 +44,18 @@ const BookingForm = () => {
   }, [formRef]);
 
   return (
-    <div className=" flex md:w-[70vw] md:mx-auto relative items-center justify-center bg-pink-100 mb-10 px-2  mt-20 ">
+    <div className=" flex md:w-[70vw] md:mx-auto relative items-center justify-center bg-pink-100 mb-10 px-2  md:mt-16 mt-20 ">
       <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
         <img
           src="/logo.svg"
           alt="Logo"
-          className="w-[150px] h-[150px] rounded-full"
+          className="md:w-[200px] md:h-[200px] w-[150px] h-[150px] rounded-full"
         />
       </div>
 
       <form
         ref={formRef}
-        className="  md:pb-6 pb-10 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full  border-[#FEC5BB] border-2 flex
+        className="  md:pb-6 pb-10 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full md:mt-4 border-[#FEC5BB] border-2 flex
         bg-[url('/images/formbg.svg')] bg-cover "
       >
 

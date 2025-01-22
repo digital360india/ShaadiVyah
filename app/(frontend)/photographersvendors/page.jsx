@@ -36,9 +36,9 @@ const Page = () => {
     },
     {
       question:
-        "Can I see examples of a photographer’s previous work before booking?",
+        "Can I see examples of a photographer's previous work before booking?",
       answer:
-        "Yes, each photographer’s profile includes a portfolio of their previous work. Shaadivyah will also provide additional samples and references upon request.",
+        "Yes, each photographer's profile includes a portfolio of their previous work. Shaadivyah will also provide additional samples and references upon request.",
     },
     {
       question: "Do photographers offer customizable packages?",
@@ -54,7 +54,7 @@ const Page = () => {
     {
       question: "What is the cost of hiring a photographer through Shaadivyah?",
       answer:
-        "The cost varies based on the photographer’s experience, the type of services required, and the duration of the event. Shaadivyah will provide you with a detailed quote after discussing your specific requirements.",
+        "The cost varies based on the photographer's experience, the type of services required, and the duration of the event. Shaadivyah will provide you with a detailed quote after discussing your specific requirements.",
     },
   ];
 
@@ -103,7 +103,7 @@ const Page = () => {
         color: "#ffffff",
         borderRadius: "50%",
       }} // Add background and text color
-      onClick={onClick}
+      onClick={onClick} 
     />
   );
 
@@ -325,7 +325,7 @@ const Page = () => {
                   <Link
                     href={`/photographersvendor/${arr.uid}`}
                     key={index}
-                    className=" rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                    className=" rounded min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
                   >
                     <PhotographerVendorCard vendor={arr} />
                   </Link>
@@ -342,7 +342,7 @@ const Page = () => {
       <Space50px />
       {/* all  */}
       <div>
-        <div>
+        <div className="">
           <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]  font-Merriweather p-4">
             All{" "}
             <span className="customGabriola font-normal text-pink">Photographers </span>
@@ -352,7 +352,7 @@ const Page = () => {
               <Link
                 href={`/photographersvendor/${data.uid}`}
                 key={index}
-                className="bg-white rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                className="rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 {" "}
                 <PhotographerVendorCard vendor={data} />

@@ -26,7 +26,7 @@ const ContactUsPhoto = () => {
             </p>
             <i class="lg:w-[914px] w-[80%] text-center  text-[12px] text-white mb-4 font-Merriweather-Sans">
               Welcome to Shaadivyah, where we proudly carry forward Prime
-              Minister Narendra Modi's visionary 'Wed in India' movement. As the
+              Minister Narendra Modi&apos;s visionary &apos;Wed in India&apos; movement. As the
               pioneers of India's First Uttarakhand dedicated destination
               wedding portal, We take pride in offering a global platform. Now
               couples from across the world can seamlessly book their dream
@@ -41,7 +41,7 @@ const ContactUsPhoto = () => {
             </p>
             <i class="lg:w-[914px] w-[80%] text-center lg:text-[20px] md:text-[16px]   text-white mb-4 font-Merriweather-Sans">
               Welcome to Shaadivyah, where we proudly carry forward Prime
-              Minister Narendra Modi's visionary 'Wed in India' movement. As the
+              Minister Narendra Modi&apos;s visionary &apos;Wed in India&apos; movement. As the
               pioneers of India's First Uttarakhand dedicated destination
               wedding portal, We take pride in offering a global platform. Now
               couples from across the world can seamlessly book their dream

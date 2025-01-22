@@ -356,7 +356,7 @@ const Page = () => {
               <Link
                 href={`/makeupvendors/${data.uid}`}
                 key={index}
-                className=" rounded shadow-md min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                className=" rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <MakeupVendorCard vendor={data} />
                 {/* <img

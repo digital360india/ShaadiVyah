@@ -15,7 +15,7 @@ const MendhiVendorCard = ({ arr, index }) => {
       className="py-4 md:px-1 px-2"
     >
       <div
-        className="bg-white rounded shadow-md lg:h-[460px] lg:w-[398px] h-[450px]"
+        className="bg-white rounded  lg:h-[460px] lg:w-[398px] h-[450px]"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
