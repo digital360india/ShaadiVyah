@@ -320,7 +320,8 @@ const Page = () => {
           </p>
           <div className="px-[15px] ">
             {data.length > 0 ? (
-              <Slider {...sliderSettings}>
+              <Slider {...sliderSettings}
+              className="gap-6">
                 {data.map((arr, index) => (
                   <Link
                     href={`/photographersvendor/${arr.uid}`}
