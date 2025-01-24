@@ -17,7 +17,7 @@ const VenueCard = ({ arr, index }) => {
       className="md:px-1 px-2 "
     >
       <div
-        className="bg-white rounded  lg:h-[450px] lg:w-[398px] h-[420px] gap-10"
+        className="bg-white rounded  lg:h-[450px] lg:w-[398px] h-[420px] gap-8"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
