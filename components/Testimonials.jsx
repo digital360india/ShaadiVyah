@@ -149,7 +149,9 @@ export default function Testimonials() {
      <div className="md:hidden px-6">
      <Carousel
              arrows={false}
-             responsive={responsive}>
+             responsive={responsive}
+             itemClass="px-4"
+             containerClass="gap-4" >
      {testimonials.map((testimonial, index) => (
           <div
             key={index}
@@ -161,7 +163,7 @@ export default function Testimonials() {
             }}
           >
             <div
-              className="lg:text-[19px] md:text-[14px] text-[18px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10"
+              className="lg:text-[19px] md:text-[14px] text-[18px] xl:h-[200px] lg:h-[240px] md:h-[200px] xl:px-10 "
               style={{
                 overflow: "hidden",
                 textOverflow: "ellipsis",
