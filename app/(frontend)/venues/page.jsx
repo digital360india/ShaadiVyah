@@ -223,14 +223,14 @@ const Page = () => {
       />
       <Space50px />
       <Space25px />
-      {/* <div>
+      <div>
         <div className="lg:px-10 p-6 bg-cream">
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink p-4 font-Merriweather ">
+          <p className="md:text-3xl  text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]  p-4 font-Merriweather ">
             Wedding{" "}
-            <span className="customGabriola font-normal">Destinations</span>
+            <span className="customGabriola font-normal text-pink">Destinations</span>
           </p>
 
-          <div className="p-4">
+          <div className="p-4 customGabriola text-[25px]">
             <Slider {...sliderwedding}>
               <div>
                 <button
@@ -303,7 +303,7 @@ const Page = () => {
             </Slider>
           </div>
         </div>
-      </div> */}
+      </div>
       <Space25px />
       {/* populer  */}
       <div className="  relative  z-20 lg:px-5 px-2 ">

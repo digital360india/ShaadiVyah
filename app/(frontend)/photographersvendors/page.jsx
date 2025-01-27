@@ -215,13 +215,13 @@ const Page = () => {
         text={"Lorem ipsum dolor sit amet consectetur."}
       />
       <Space50px />
-      {/* <div>
+      <div>
         <div className="lg:px-10 px-6 bg-cream">
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink  font-Merriweather p-4 ">
-            Wedding <span className="customGabriola font-normal">Photographers</span>
+          <p className="md:text-3xl  text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather  p-4 ">
+            Wedding <span className="customGabriola font-normal text-pink">Photographers</span>
           </p>
 
-          <div className="p-4 ">
+          <div className="p-4 customGabriola text-[25px] ">
           <Slider {...sliderwedding}>
                 <div>
                   <button
@@ -309,7 +309,7 @@ const Page = () => {
               </Slider>
           </div>
         </div>
-      </div> */}
+      </div>
       <Space25px />
       {/* populer  */}
       <div className=" py-16  relative  z-20 lg:px-10 px-6 ">

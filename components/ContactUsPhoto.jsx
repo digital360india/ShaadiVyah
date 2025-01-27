@@ -59,6 +59,7 @@ const ContactUsPhoto = () => {
       </div>
 
       {open && <Popup2 onClose={handleClose} />}
+      
     </div>
   );
 }

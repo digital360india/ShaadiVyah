@@ -213,12 +213,11 @@ const Page = () => {
         text={"Best Makeup Artists in Uttarakhand."}
       />
 
-      {/* populer  */}
-      {/* <div className=" py-16  relative  z-20  ">
+      <div className=" py-16  relative  z-20 customGabriola text-[25px] ">
         <div className="bg-cream pb-10  lg:px-10 px-6">
           {" "}
-          <p className="md:text-3xl  text-[32px] font-semibold text-pink  font-Merriweather p-4  ">
-            Makeup <span className="customGabriola font-normal">Artists</span>
+          <p className="md:text-3xl  text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]font-Merriweather p-4  ">
+            Makeup <span className="customGabriola font-normal text-pink">Artists</span>
           </p>
           <div className=" ">
             {makeupArtist.length > 0 ? (
@@ -312,7 +311,7 @@ const Page = () => {
             )}
           </div>
         </div>
-      </div> */}
+      </div>
       <div>
         <div className=" py-16  relative  z-20  lg:px-10 px-6 ">
           <div className="">
@@ -320,7 +319,7 @@ const Page = () => {
               Popular{" "}
               <span className="customGabriola font-normal text-pink">
                 {" "}
-                Mehndi Artists
+                Makeup Artists
               </span>
             </p>
             <div className="px-[15px] ">
@@ -349,7 +348,7 @@ const Page = () => {
         <div>
           <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather p-4">
             All{" "}
-            <span className="customGabriola font-normal text-pink">Mendhi Artists</span>
+            <span className="customGabriola font-normal text-pink">Makeup Artists</span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6">
             {makeupArtist.map((data, index) => (
