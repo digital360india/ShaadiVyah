@@ -29,7 +29,7 @@ const LandingPage = ({
     fetchUser();
   }, []);
   return (
-    <div className="bg-[url('/icons/background.svg')] bg-cover bg-center object-cover w-full h-auto md:h-[100vh] bg-[#FFF5E8]">
+    <div className="bg-[url('/icons/background.svg')] bg-cover bg-center object-cover w-full h-auto md:h-[100vh] bg-[#FFF5E8] pt-12  md:pt-0">
       <div className="flex justify-center items-center md:pt-14">
         <div className=" bg-[url('/icons/homebg.svg')] bg-cover bg-center object-cover w-[95%] rounded-xl h-[35vh] md:h-[40vh]">
           <div className="flex flex-col w-full  items-center justify-center mt-7 space-y-2">

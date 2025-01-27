@@ -15,11 +15,11 @@ export default function Layout({ children }) {
           <SideNavBar />
         </div>
         <div className="lg:flex flex-col lg:w-4/5">
-          <div className="h-16 ">
+          <div className="md:h-16 ">
             <TopNavBar />
           </div>
 
-          <main className="min-h-screen ">{children}</main>
+          <main className="md:min-h-screen ">{children}</main>
         </div>
       </div>
     </div>
