@@ -1,4 +1,5 @@
 import React from "react";
+import BookingForm from "./BookingForm";
 
 const Popup2 = ({ onClose }) => {
   const handleClose = () => {
@@ -7,7 +8,9 @@ const Popup2 = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0  flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="lg:w-[1100px] m-12 md:m-0 lg:h-[636px] mx-4 p-5 rounded-xl border border-[#C9184A] flex justify-between bg-white">
+      <div>
+        {/*       
+       <div className="lg:w-[1100px] m-12 md:m-0 lg:h-[636px] mx-4 p-5 rounded-xl border border-[#C9184A] flex justify-between bg-white">
         <div className="hidden lg:block w-[515px] bg-black h-full rounded-l-xl">
           <img src="./images/form.png" alt="" />
         </div>
@@ -66,6 +69,26 @@ const Popup2 = ({ onClose }) => {
             </button>
           </div>
         </div>
+      </div> 
+      */}
+      </div>
+      <div className="relative">
+        <p className="absolute top-12 right-4">
+          <svg
+            onClick={handleClose}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            className="cursor-pointer"
+          >
+            <g fill="white">
+              <path d="M23.686 8.314a1.5 1.5 0 0 0-2.122 0L16 13.88l-5.564-5.565a1.5 1.5 0 0 0-2.122 2.122L13.88 16l-5.565 5.564a1.5 1.5 0 0 0 2.122 2.122L16 18.12l5.564 5.565a1.5 1.5 0 0 0 2.122-2.122L18.12 16l5.565-5.564a1.5 1.5 0 0 0 0-2.122" />
+              <path d="M6 1a5 5 0 0 0-5 5v20a5 5 0 0 0 5 5h20a5 5 0 0 0 5-5V6a5 5 0 0 0-5-5zM3 6a3 3 0 0 1 3-3h20a3 3 0 0 1 3 3v20a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" />
+            </g>
+          </svg>
+        </p>
+        <BookingForm />
       </div>
     </div>
   );
@@ -74,3 +97,4 @@ const Popup2 = ({ onClose }) => {
 Popup2.displayName = "Popup";
 
 export default Popup2;
+
