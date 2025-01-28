@@ -234,7 +234,7 @@ export default function Hero() {
                   </option>
                   <option
                     className="text-pink  bg-white"
-                    value="Mehndi Artists"
+                    value="Mehndi"
                   >
                     Mehndi Artists
                   </option>

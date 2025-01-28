@@ -419,7 +419,7 @@ const Page = () => {
               >
                 <MakeupVendorCard vendor={data} />
                 {/* <img
-                  src={data.bannerImageUrl || "/images/logo1.png"}
+                  src={data.bannerImageUrl || "/logo.png"}
                   alt={data.businessName}
                   className="w-full h-60     rounded-t-[4px] object-cover "
                 />
