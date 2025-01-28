@@ -18,6 +18,23 @@ const BookingForm = () => {
   ];
   const formRef = useRef(null);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { name, number, selectedFields };
+  
+    try {
+      const response = await fetch("http://localhost:8080/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      console.log(result.message);
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
+  };
+  
   const handleFieldChange = (field) => {
     setSelectedFields((prev) => {
       if (prev.includes(field)) {
@@ -54,6 +71,7 @@ const BookingForm = () => {
       </div>
 
       <form
+      onSubmit={handleSubmit}
         ref={formRef}
         className="  md:pb-6 pb-10 itms-center justify-center gap-4 rounded-2xl shadow-lg h-full w-full md:mt-4 border-[#FEC5BB] border-2 flex
         bg-[url('/images/formbg.svg')] bg-cover "

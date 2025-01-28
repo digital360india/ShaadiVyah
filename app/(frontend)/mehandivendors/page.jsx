@@ -16,6 +16,7 @@ import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { MdOutlineStar } from "react-icons/md";
 import MendhiVendorCard from "@/components/MendhiCard";
+import Image from "next/image";
 
 const Page = () => {
   const mendhiArtistsFAQ = [
@@ -216,10 +217,13 @@ const Page = () => {
       <div>
         <div className="lg:px-10 px-6 bg-cream">
           <p className="md:text-3xl  text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather  p-4 ">
-            Mehndi <span className="customGabriola font-normal text-pink">Artists</span>
+            Mehndi{" "}
+            <span className="customGabriola font-normal text-pink">
+              Artists
+            </span>
           </p>
 
-          <div className="p-4 pb-10 customGabriola text-[25px] ">
+          {/* <div className="p-4 pb-10 customGabriola text-[25px] ">
             <Slider {...sliderwedding}>
               <div>
                 <button
@@ -290,6 +294,62 @@ const Page = () => {
               </div>
               <div></div>
             </Slider>
+          </div> */}
+          <div className="p-4 customGabriola text-[25px] w-full h-full gap-20 ">
+            <Slider {...sliderwedding}>
+              {[
+                {
+                  city: "Rishikesh",
+                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frishikesh.png?alt=media&token=f64cf5e5-4b9d-43d3-befa-197992b4c2f6",
+                },
+                {
+                  city: "Dehradun",
+                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fdehradun.png?alt=media&token=ca835133-20d4-49da-8df8-265abe292acb",
+                },
+                {
+                  city: "Haridwar",
+                  src: "https://image.cnbcfm.com/api/v1/image/107108131-1661279269174-gettyimages-831412090-20170731-tana9023.jpeg?v=1661279373&w=929&h=523&vtcrop=y",
+                },
+                {
+                  city: "Mussoorie",
+                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f",
+                },
+                {
+                  city: "Ramnagar",
+                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990",
+                },
+                {
+                  city: "Nainital",
+                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545",
+                },
+              ].map(({ city, src }) => (
+                <div
+                  key={city}
+                  className="relative w-full mx-auto flex flex-col items-center "
+                >
+                  <div className="relative w-[180px] h-[180px] sm:w-[250px] sm:h-[250px]">
+                    <Image
+                      src="/icons/imgframe.svg"
+                      alt="frame"
+                      width={450}
+                      height={450}
+                      className="absolute w-full h-full object-cover rounded-lg"
+                    />
+                    <button
+                      onClick={() => handleSearch(city)}
+                      className="absolute inset-0 flex justify-center items-center"
+                    >
+                      <img
+                        className=" w-[100px] h-[100px] sm:w-[170px] sm:h-[170px] object-cover"
+                        src={src}
+                        alt={city}
+                      />
+                    </button>
+                  </div>
+                  <p className="text-center text-[#02394A] mt-2">{city}</p>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </div>
@@ -299,7 +359,10 @@ const Page = () => {
         <div className="">
           <p className="md:text-3xl text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather p-4">
             Popular{" "}
-            <span className="customGabriola font-normal text-pink"> Mehndi Artists</span>
+            <span className="customGabriola font-normal text-pink">
+              {" "}
+              Mehndi Artists
+            </span>
           </p>
           <div className="px-[15px] ">
             {mendhiArtists.length > 0 ? (
@@ -328,7 +391,9 @@ const Page = () => {
         <div className="">
           <p className="md:text-3xl lg:px-[100px] md:px-[70px] px-6 text-[32px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217]  font-Merriweather p-4">
             All{" "}
-            <span className="customGabriola font-normal text-pink">Mendhi Artists</span>
+            <span className="customGabriola font-normal text-pink">
+              Mendhi Artists
+            </span>
           </p>
           <div className="justify-center flex flex-wrap gap-10 px-6 ">
             {mendhiArtists.map((mendhiArtists, index) => (
