@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Hero_2 from "@/components/Hero_2";
 import Discription from "@/components/Discription";
 import FAQ from "@/components/FAQ";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import { MdOutlineStar } from "react-icons/md";
 export default function Page(params) {
@@ -43,9 +43,9 @@ export default function Page(params) {
       }
       const q = query(
         collection(db, "users"),
-        where("location", "==", location || "city", "==", location  ),
+        where( "city", "==", location || "location", "==", location ),
         where("vendorTypeUID", "==", collectionName),
-        where('approval' , "==", true)
+        where("approval" , "==", true)
 
       );
 console.log(params.params)
@@ -76,6 +76,8 @@ console.log(params.params)
     return text;
   };
 
+  console.log(data, " data");
+  
   return (
     <div>
       <Hero_2 img={"/images/hero_services_page.png"} text={`${params.params.category} vendors in ${params.params.location}`} />
@@ -264,7 +266,7 @@ console.log(params.params)
               >
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
-                    src={arr.bannerImageUrl || '/images/logo1.png'}
+                    src={arr.bannerImageUrl || '/logo.png'}
                     alt={arr.businessName}
                     className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                   />

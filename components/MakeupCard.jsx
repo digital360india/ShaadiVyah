@@ -23,7 +23,7 @@ const MakeupVendorCard = ({ vendor, index }) => {
         }}
       >
         <img
-          src={vendor.bannerImageUrl || "/images/logo1.png"}
+          src={vendor.bannerImageUrl || "/logo.png"}
           alt={vendor.businessName}
           className="w-full h-60 object-cover"
         />
