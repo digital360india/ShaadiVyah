@@ -120,7 +120,7 @@ const AboutUS = () => {
           <div className="flex flex-col justify-start  gap-6">
             <div>
               {" "}
-              <img
+              <Image
                 src={"/images/flowers.png"}
                 alt={"image"}
                 height={1000}
@@ -156,7 +156,7 @@ const AboutUS = () => {
           <div className="flex flex-col justify-start  gap-6">
             <div>
               {" "}
-              <img
+              <Image
                 src={"/images/hand.png"}
                 alt={"image"}
                 height={1000}
