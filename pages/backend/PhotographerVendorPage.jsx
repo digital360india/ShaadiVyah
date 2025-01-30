@@ -28,7 +28,7 @@ const PhotographerVendorPage = () => {
   const [services, setServices] = useState([]);
   const [userServices, setUserServices] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [activeSection, setActiveSection] = useState("services"); // State to manage active section
+  const [activeSection, setActiveSection] = useState("services");
 
   const cookies = parseCookies();
   const photographerId = cookies.token;
@@ -133,15 +133,14 @@ const PhotographerVendorPage = () => {
           className="w[960px] h-[52px]"
         />
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] ">
+          <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
             VENDOR BUSINESS DETAILS
           </h2>
           <div className="relative w-full mt-10 mb-10">
             <div className="h-[2px] bg-gradient-border"></div>
-
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center space-x-32">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center space-x-32 font-Merriweather-Sans">
               <button
-                className="relative w-[170px] h-[60px] flex items-center justify-center cursor-pointer"
+                className="relative w-[170px] h-[75px] flex items-center justify-center cursor-pointer"
                 onClick={() => setActiveSection("services")}
               >
                 <Image
@@ -151,13 +150,19 @@ const PhotographerVendorPage = () => {
                   height={1000}
                   className="w-full h-full"
                 />
-                <span className="absolute  text-[16px] font-semibold text-[#A11C5C] bg-cream">
+                <span
+                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                    activeSection === "services"
+                      ? "bg-[#A11C5C] text-white"
+                      : "bg-cream text-[#A11C5C]"
+                  }`}
+                >
                   Services
                 </span>
               </button>
 
               <button
-                className="relative w-[170px] h-[60px] flex items-center justify-center cursor-pointer"
+                className="relative w-[170px] h-[75px] flex items-center justify-center cursor-pointer"
                 onClick={() => setActiveSection("pricing")}
               >
                 <Image
@@ -167,11 +172,21 @@ const PhotographerVendorPage = () => {
                   height={1000}
                   className="w-full h-full"
                 />
-                <span className="absolute  text-[16px] font-semibold text-[#A11C5C] bg-cream">
+                <span
+                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                    activeSection === "pricing"
+                      ? "bg-[#A11C5C] text-white"
+                      : "bg-cream text-[#A11C5C]"
+                  }`}
+                >
                   Vendor Pricing
                 </span>
               </button>
-              <button className="relative w-[170px] h-[60px] flex items-center justify-center">
+
+              <button
+                className="relative w-[170px] h-[75px] flex items-center justify-center"
+                onClick={() => setActiveSection("lorem")}
+              >
                 <Image
                   src="/icons/servicbg.svg"
                   alt="right icon"
@@ -179,19 +194,26 @@ const PhotographerVendorPage = () => {
                   height={1000}
                   className="w-full h-full"
                 />
-                <span className="absolute text-[16px] font-semibold text-[#A11C5C] bg-cream">
-                  lorem
+                <span
+                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                    activeSection === "lorem"
+                      ? "bg-[#A11C5C] text-white"
+                      : "bg-cream text-[#A11C5C]"
+                  }`}
+                >
+                  Lorem
                 </span>
               </button>
             </div>
           </div>
 
           {activeSection === "services" && (
-            <div className="bg-white shadow-md rounded-lg p-4">
+            <div className=" p-4">
               <div className="flex flex-row justify-between">
-                <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-[#A11C5C]">
-                  My Services
+                <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-[#A11C5C] font-Merriweather">
+                  Services
                 </h2>
+                <hr className="border-t-2 border-[#A11C5C] w-full ml-6 mt-6" />
                 <div className="mb-4">
                   <button
                     className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -230,14 +252,34 @@ const PhotographerVendorPage = () => {
                   </button>
                 </div>
               ) : (
-                <ul className="list-disc list-inside space-y-2">
+                // <ul className="list-disc list-inside space-y-2">
+                //   {userServices.map((serviceID) => {
+                //     const service = services.find(
+                //       (service) => service.id === serviceID
+                //     );
+                //     return service ? (
+                //       <li key={serviceID} className="text-gray-700">
+                //         {service.name}
+                //       </li>
+                //     ) : null;
+                //   })}
+                // </ul>
+
+                <ul className="space-y-6 font-Merriweather ">
                   {userServices.map((serviceID) => {
-                    const service = services.find(
-                      (service) => service.id === serviceID
-                    );
+                    const service = services.find((s) => s.id === serviceID);
                     return service ? (
-                      <li key={serviceID} className="text-gray-700">
-                        {service.name}
+                      <li
+                        key={serviceID}
+                        className="flex items-center gap-3 px-4 py-4 rounded-lg bg-gradient-to-r from-pink-700  text-[#FFC200] shadow-md border border-yellow-500 bg-[#BE005C]"
+                      >
+                        <span className="w-4 h-4 bg-white rounded-full"></span>
+
+                        <span className="font-semibold">
+                          {service?.name || "Unnamed Service"}
+                        </span>
+
+                        <div className="flex-1 h-[1px] bg-gradient-to-r from-[#BE7318] via-[#EED68A] to-[#BE7318]"></div>
                       </li>
                     ) : null;
                   })}
