@@ -210,10 +210,10 @@ const PhotographerVendorPage = () => {
           {activeSection === "services" && (
             <div className=" p-4">
               <div className="flex flex-row justify-between">
-                <h2 className="md:text-2xl text-[28px] font-semibold mb-4 text-[#A11C5C] font-Merriweather">
+                <h2 className="md:text-[20px] text-[20px] font-semibold mb-4 text-[#A11C5C] font-Merriweather">
                   Services
                 </h2>
-                <hr className="border-t-2 border-[#A11C5C] w-full ml-6 mt-6" />
+                <hr className="border-t-2 border-[#A11C5C] w-full ml-6 mt-4" />
                 <div className="mb-4">
                   <button
                     className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -224,14 +224,14 @@ const PhotographerVendorPage = () => {
                 </div>
               </div>
               {isEditing ? (
-                <div>
-                  <p className="text-xl font-semibold mb-4 text-gray-800">
+                <div className="font-Merriweather">
+                  <p className="text-[16px] font-semibold mb-4 text-red-600">
                     Edit Services
                   </p>
                   {services.map((data) => (
                     <div
                       key={data.id}
-                      className="flex  items-center mb-2 text-black"
+                      className="flex items-center bg-pink-700 text-[#FFC200] font-bold p-4 rounded-lg shadow-md mb-2 bg-[#BE005C]"
                     >
                       <input
                         type="checkbox"
@@ -239,14 +239,19 @@ const PhotographerVendorPage = () => {
                         value={data.id}
                         checked={userServices.includes(data.id)}
                         onChange={handleServicesChange}
-                        className="mr-2"
+                        className="mr-3 w-4 h-4 accent-white"
                       />
-                      <label htmlFor={data.id}>{data.name}</label>
+                      <label htmlFor={data.id} className="flex-grow">
+                        {data.name}
+                      </label>
+                      <div className="flex-1 h-[1px] bg-gradient-to-r from-[#BE7318] via-[#EED68A] to-[#BE7318]"></div>
                     </div>
                   ))}
                   <button
                     onClick={handleSaveServices}
-                    className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+                    className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+             bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+             hover:opacity-90 transition"
                   >
                     Save
                   </button>
@@ -289,141 +294,399 @@ const PhotographerVendorPage = () => {
           )}
 
           {activeSection === "pricing" && (
-            <div>
+            // <div>
+            //   {editMode ? (
+            //     <form onSubmit={handleSubmit}>
+            //       <h2 className="text-2xl font-bold mb-4 text-blue-600">
+            //         Edit Photographer Details
+            //       </h2>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="pricePreWeddingPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Starting price Pre-Wedding (photo + video) per day
+            //         </label>
+            //         <input
+            //           type="number"
+            //           id="pricePreWeddingPerDay"
+            //           name="pricePreWeddingPerDay"
+            //           value={formData.pricePreWeddingPerDay}
+            //           onChange={handleChange}
+            //           className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
+            //           placeholder="Enter amount of price Per Day"
+            //         />
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="priceWeddingDayPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Price for Wedding (photo + video) per Day{" "}
+            //         </label>
+            //         <input
+            //           type="number"
+            //           id="priceWeddingDayPerDay"
+            //           name="priceWeddingDayPerDay"
+            //           value={formData.priceWeddingDayPerDay}
+            //           onChange={handleChange}
+            //           className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+            //           placeholder="Enter amount of photo Package"
+            //         />
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="priceSpecialEventPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Price for Special Events (photo + video) per Day{" "}
+            //         </label>
+            //         <input
+            //           type="number"
+            //           id="priceSpecialEventPerDay"
+            //           name="priceSpecialEventPerDay"
+            //           value={formData.priceSpecialEventPerDay}
+            //           onChange={handleChange}
+            //           className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+            //           placeholder="Enter amount of photo Video Package"
+            //         />
+            //       </div>
+
+            //       <div className="mb-4 flex gap-3">
+            //         <input
+            //           type="checkbox"
+            //           id="outstationTravelCovered"
+            //           name="outstationTravelCovered"
+            //           checked={formData.outstationTravelCovered}
+            //           onChange={handleChange}
+            //           className="mt-1"
+            //         />
+            //         <label
+            //           htmlFor="outstationTravelCovered"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Outstation Travel Covered
+            //         </label>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="practicingSince"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Practicing Since
+            //         </label>
+            //         <input
+            //           type="number"
+            //           id="practicingSince"
+            //           name="practicingSince"
+            //           value={formData.practicingSince}
+            //           onChange={handleChange}
+            //           className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+            //           placeholder="practicing Since"
+            //         />
+            //       </div>
+            //       <div className="mb-4 flex gap-3">
+            //         <input
+            //           type="checkbox"
+            //           id="travelsToVenue"
+            //           name="travelsToVenue"
+            //           checked={formData.travelsToVenue}
+            //           onChange={handleChange}
+            //           className="mt-1"
+            //         />
+            //         <label
+            //           htmlFor="travelsToVenue"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Travels to Venue
+            //         </label>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="advancePayment"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Advance Payment
+            //         </label>
+            //         <input
+            //           type="number"
+            //           id="advancePayment"
+            //           name="advancePayment"
+            //           value={formData.advancePayment}
+            //           onChange={handleChange}
+            //           className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
+            //           placeholder="Enter amount of advance Payment"
+            //         />
+            //       </div>
+            //       <div className="flex justify-end">
+            //         <button
+            //           type="button"
+            //           onClick={() => setEditMode(false)}
+            //           className="mr-2 px-4 py-2 bg-gray-500 text-white rounded shadow"
+            //         >
+            //           Cancel
+            //         </button>
+            //         <button
+            //           type="submit"
+            //           className="px-4 py-2 bg-green-500 text-white rounded shadow"
+            //         >
+            //           Save Changes
+            //         </button>
+            //       </div>
+            //     </form>
+            //   ) : (
+            //     <div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="pricePreWeddingPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Starting price per day
+            //         </label>
+            //         <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.pricePreWeddingPerDay ? (
+            //             formData.pricePreWeddingPerDay
+            //           ) : (
+            //             <p className="text-gray-400">
+            //               Enter amount of price of pre-wedding Per Day
+            //             </p>
+            //           )}
+            //         </span>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="priceWeddingDayPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Photo Package
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.priceWeddingDayPerDay ? (
+            //             formData.priceWeddingDayPerDay
+            //           ) : (
+            //             <p className="text-gray-400">
+            //               Enter amount of Wedding Day photo + vid Package
+            //             </p>
+            //           )}
+            //         </span>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="priceSpecialEventPerDay"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Photo Video Package
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.priceSpecialEventPerDay ? (
+            //             formData.priceSpecialEventPerDay
+            //           ) : (
+            //             <p className="text-gray-400">
+            //               Enter amount of photo Video Package
+            //             </p>
+            //           )}
+            //         </span>
+            //       </div>
+
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="outstationTravelCovered"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Outstation Travel Covered
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.outstationTravelCovered ? "Yes" : "No"}
+            //         </span>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="practicingSince"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Practicing Since
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.practicingSince ? (
+            //             formData.practicingSince
+            //           ) : (
+            //             <p className="text-gray-400">
+            //               Practicing Since which year ?
+            //             </p>
+            //           )}
+            //         </span>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="travelsToVenue"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Travels to Venue
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.travelsToVenue ? "Yes" : "No"}
+            //         </span>
+            //       </div>
+            //       <div className="mb-4">
+            //         <label
+            //           htmlFor="advancePayment"
+            //           className="block text-gray-700 font-medium"
+            //         >
+            //           Advance Payment
+            //         </label>
+            //         <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
+            //           {formData.advancePayment ? (
+            //             formData.advancePayment
+            //           ) : (
+            //             <p className="text-gray-400">
+            //               Enter amount of advance Payment
+            //             </p>
+            //           )}
+            //         </span>
+            //       </div>
+            //       <div className="flex justify-end">
+            //         <button
+            //           onClick={() => setEditMode(true)}
+            //           className="px-4 py-2 bg-gradient-to-r  from-[#FF1053] to-[#F7ACCF] text-white rounded shadow"
+            //         >
+            //           Edit Details
+            //         </button>
+            //       </div>
+            //     </div>
+            //   )}
+            // </div>
+
+            
+            <div className="p-6 bg-[#FFF6F2] rounded-lg shadow-md font-Merriweather">
               {editMode ? (
                 <form onSubmit={handleSubmit}>
-                  <h2 className="text-2xl font-bold mb-4 text-blue-600">
+                  <h2 className="text-[24px] font-bold mb-6 text-[#9B1B52]">
                     Edit Photographer Details
                   </h2>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="pricePreWeddingPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Starting price Pre-Wedding (photo + video) per day
-                    </label>
-                    <input
-                      type="number"
-                      id="pricePreWeddingPerDay"
-                      name="pricePreWeddingPerDay"
-                      value={formData.pricePreWeddingPerDay}
-                      onChange={handleChange}
-                      className="mt-1 block w-full px-3  py-3 border border-gray-300 rounded shadow-sm"
-                      placeholder="Enter amount of price Per Day"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="priceWeddingDayPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Price for Wedding (photo + video) per Day{" "}
-                    </label>
-                    <input
-                      type="number"
-                      id="priceWeddingDayPerDay"
-                      name="priceWeddingDayPerDay"
-                      value={formData.priceWeddingDayPerDay}
-                      onChange={handleChange}
-                      className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
-                      placeholder="Enter amount of photo Package"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="priceSpecialEventPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Price for Special Events (photo + video) per Day{" "}
-                    </label>
-                    <input
-                      type="number"
-                      id="priceSpecialEventPerDay"
-                      name="priceSpecialEventPerDay"
-                      value={formData.priceSpecialEventPerDay}
-                      onChange={handleChange}
-                      className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
-                      placeholder="Enter amount of photo Video Package"
-                    />
+
+                  <div className="grid grid-cols-3 gap-6">
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Starting Price per Day
+                      </label>
+                      <input
+                        type="number"
+                        id="starting_price_per_day"
+                        name="starting_price_per_day"
+                        value={formData.starting_price_per_day}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        placeholder="Enter your Price here..."
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Photo Package
+                      </label>
+                      <input
+                        type="number"
+                        id="photo_package"
+                        name="photo_package"
+                        value={formData.photo_package}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        placeholder="Enter your Price here..."
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Photo Video Package
+                      </label>
+                      <input
+                        type="number"
+                        id="photo_video_package"
+                        name="photo_video_package"
+                        value={formData.photo_video_package}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        placeholder="Enter your Price here..."
+                      />
+                    </div>
+
+                    <div className="">
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Outstation Travel Covered
+                      </label>
+                      <select
+                        id="outstation_travel_covered"
+                        name="outstation_travel_covered"
+                        value={formData.outstation_travel_covered}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border rounded "
+                      >
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Practicing Since
+                      </label>
+                      <input
+                        type="number"
+                        id="practicing_since"
+                        name="practicing_since"
+                        value={formData.practicing_since}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        placeholder="Enter the year..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Travels to Venue
+                      </label>
+                      <select
+                        id="travels_to_venue"
+                        name="travels_to_venue"
+                        value={formData.travels_to_venue}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border rounded "
+                      >
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                      
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Advance Payment
+                      </label>
+                      <input
+                        type="number"
+                        id="advance_payment"
+                        name="advance_payment"
+                        value={formData.advance_payment}
+                        onChange={handleChange}
+                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        placeholder="Enter your Price here..."
+                      />
+                    </div>
                   </div>
 
-                  <div className="mb-4 flex gap-3">
-                    <input
-                      type="checkbox"
-                      id="outstationTravelCovered"
-                      name="outstationTravelCovered"
-                      checked={formData.outstationTravelCovered}
-                      onChange={handleChange}
-                      className="mt-1"
-                    />
-                    <label
-                      htmlFor="outstationTravelCovered"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Outstation Travel Covered
-                    </label>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="practicingSince"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Practicing Since
-                    </label>
-                    <input
-                      type="number"
-                      id="practicingSince"
-                      name="practicingSince"
-                      value={formData.practicingSince}
-                      onChange={handleChange}
-                      className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
-                      placeholder="practicing Since"
-                    />
-                  </div>
-                  <div className="mb-4 flex gap-3">
-                    <input
-                      type="checkbox"
-                      id="travelsToVenue"
-                      name="travelsToVenue"
-                      checked={formData.travelsToVenue}
-                      onChange={handleChange}
-                      className="mt-1"
-                    />
-                    <label
-                      htmlFor="travelsToVenue"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Travels to Venue
-                    </label>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="advancePayment"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Advance Payment
-                    </label>
-                    <input
-                      type="number"
-                      id="advancePayment"
-                      name="advancePayment"
-                      value={formData.advancePayment}
-                      onChange={handleChange}
-                      className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded shadow-sm"
-                      placeholder="Enter amount of advance Payment"
-                    />
-                  </div>
-                  <div className="flex justify-end">
+                  <div className="flex justify-end mt-6 gap-4">
                     <button
                       type="button"
                       onClick={() => setEditMode(false)}
-                      className="mr-2 px-4 py-2 bg-gray-500 text-white rounded shadow"
-                    >
+                      className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+                      bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+                      hover:opacity-90 transition"                    >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="px-4 py-2 bg-green-500 text-white rounded shadow"
+                      className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+                      bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+                      hover:opacity-90 transition"
                     >
                       Save Changes
                     </button>
@@ -431,119 +694,99 @@ const PhotographerVendorPage = () => {
                 </form>
               ) : (
                 <div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="pricePreWeddingPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Starting price per day
-                    </label>
-                    <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.pricePreWeddingPerDay ? (
-                        formData.pricePreWeddingPerDay
-                      ) : (
-                        <p className="text-gray-400">
-                          Enter amount of price of pre-wedding Per Day
-                        </p>
-                      )}
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="priceWeddingDayPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Photo Package
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.priceWeddingDayPerDay ? (
-                        formData.priceWeddingDayPerDay
-                      ) : (
-                        <p className="text-gray-400">
-                          Enter amount of Wedding Day photo + vid Package
-                        </p>
-                      )}
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="priceSpecialEventPerDay"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Photo Video Package
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.priceSpecialEventPerDay ? (
-                        formData.priceSpecialEventPerDay
-                      ) : (
-                        <p className="text-gray-400">
-                          Enter amount of photo Video Package
-                        </p>
-                      )}
-                    </span>
+                  <div className="grid grid-cols-3 gap-6">
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Starting Price per Day
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.starting_price_per_day || (
+                          <p className="text-gray-400">
+                            Enter your Price here...
+                          </p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Photo Package
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.photo_package || (
+                          <p className="text-gray-400">
+                            Enter your Price here...
+                          </p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Photo Video Package
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.photo_video_package || (
+                          <p className="text-gray-400">
+                            Enter your Price here...
+                          </p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Outstation Travel Covered
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.outstation_travel_covered || (
+                          <p className="text-gray-400">Select...</p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Practicing Since 
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.practicing_since || (
+                          <p className="text-gray-400">Enter the year...</p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Travels to Venue
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.travels_to_venue || (
+                          <p className="text-gray-400">Select...</p>
+                        )}
+                      </span>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                        Advance Payment
+                      </label>
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                        {formData.advance_payment || (
+                          <p className="text-gray-400">
+                            Enter your Price here...
+                          </p>
+                        )}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="mb-4">
-                    <label
-                      htmlFor="outstationTravelCovered"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Outstation Travel Covered
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.outstationTravelCovered ? "Yes" : "No"}
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="practicingSince"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Practicing Since
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.practicingSince ? (
-                        formData.practicingSince
-                      ) : (
-                        <p className="text-gray-400">
-                          Practicing Since which year ?
-                        </p>
-                      )}
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="travelsToVenue"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Travels to Venue
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.travelsToVenue ? "Yes" : "No"}
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="advancePayment"
-                      className="block text-gray-700 font-medium"
-                    >
-                      Advance Payment
-                    </label>
-                    <span className="block p-3 bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm">
-                      {formData.advancePayment ? (
-                        formData.advancePayment
-                      ) : (
-                        <p className="text-gray-400">
-                          Enter amount of advance Payment
-                        </p>
-                      )}
-                    </span>
-                  </div>
-                  <div className="flex justify-end">
+                  <div className="flex justify-end mt-6">
                     <button
                       onClick={() => setEditMode(true)}
-                      className="px-4 py-2 bg-gradient-to-r  from-[#FF1053] to-[#F7ACCF] text-white rounded shadow"
-                    >
+                      className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+                      bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+                      hover:opacity-90 transition"                    >
                       Edit Details
                     </button>
                   </div>
