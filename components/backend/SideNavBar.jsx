@@ -325,7 +325,7 @@ export const SideNavBar = () => {
               <Image
                 src={
                   isActive("/dashboard/services")
-                    ? "/icons/chat11.svg"
+                    ? "/icons/Chat11.svg"
                     : "/icons/Chat.svg"
                 }
                 alt="Portfolio Icon"
