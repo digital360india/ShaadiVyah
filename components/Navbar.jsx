@@ -22,7 +22,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex lg:pl-48 gap-8 lg:text-[20px] md:text-[14px] font-medium">
-          <Link href={"/services"}>Our Services</Link>
+          {/* <Link href={"/services"}>Our Services</Link> */}
           <Link href={"/about"}>About Us</Link>
           <Link href={"/contact"}>Contact</Link>
         </div>
@@ -83,11 +83,11 @@ export default function Navbar() {
                 <span className=" ">Home</span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href={"/services"} onClick={toggleMenu}>
                 <span className="">Our Services</span>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href={"/about"} onClick={toggleMenu}>
                 <span className="">About Us</span>
