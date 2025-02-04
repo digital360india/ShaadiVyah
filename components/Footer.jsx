@@ -54,6 +54,8 @@ const Footer = () => {
             <Link href={"/privacypolicy"}>Privacy Policy</Link>
             <Link href={"/terms&condition"}>Term and Conditions</Link>
             <Link href={"/support"}>Support</Link>
+          <Link href={"/services"}>Services</Link>
+
           </div>
 
           <div className="flex flex-col gap-4">
@@ -117,6 +119,8 @@ const Footer = () => {
           <Link href={"/privacypolicy"}>Privacy Policy</Link>
           <Link href={"/terms&condition"}>Term and Conditions</Link>
           <Link href={"/support"}>Support</Link>
+          <Link href={"/services"}>Services</Link>
+
         </div>
       </div>
     </>

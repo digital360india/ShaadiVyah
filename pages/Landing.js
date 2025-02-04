@@ -21,6 +21,7 @@ import VenueCard from "@/components/VenuesCard";
 import MendhiVendorCard from "@/components/MendhiCard";
 import MakeupVendorCard from "@/components/MakeupCard";
 import PhotographerVendorCard from "@/components/PhotographerVendorCard";
+import Image from "next/image";
 
 export default function Landing() {
   const HomeFaqData = [
@@ -242,9 +243,9 @@ export default function Landing() {
         <Hero />
       </div>
       <div className="w-full font-Merriweather ">
-        <div className="sticky top-0">
+        {/* <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12  relative  px-6 md:px-20">
-            <img
+            <Image
               src={"/vectors/vector3.png"}
               alt="image"
               height={1000}
@@ -286,13 +287,7 @@ export default function Landing() {
         </div>
         <div className="sticky top-0">
           <div className="bg-white pt-24 pb-12   px-6 md:px-20 ">
-            {/* <img
-              src={"/vectors/vector4.png"}
-              alt="image"
-              height={1000}
-              width={1000}
-              className=" w-[275px] lg:w-[430px] lg:h-[330px]  h-[270px]  absolute lg:-top-[50px] lg:left-[350px] left-[100px] top-4 z-10 opacity-10 "
-            /> */}
+           
 
             <div className="flex flex-row justify-between items-center">
               <p className="md:text-3xl text-[32px] font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather md:p-4 ">
@@ -325,7 +320,7 @@ export default function Landing() {
         </div>
         <div className="sticky top-0">
           <div className="bg-cream pt-24 pb-12   relative  px-6 md:px-20 ">
-            <img
+            <Image
               src={"/vectors/vector2.png"}
               alt="image"
               height={1000}
@@ -363,7 +358,7 @@ export default function Landing() {
         </div>
         <div className="sticky top-0">
           <div className="bg-white pt-24 pb-12   relative  px-6 md:px-20 ">
-            <img
+            <Image
               src={"/vectors/Vector.png"}
               alt="image"
               height={1000}
@@ -398,19 +393,20 @@ export default function Landing() {
               <p>No Photographers available</p>
             )}
           </div>
-        </div>
+        </div> 
         <div className="sticky top-0">
           <Testimonials />
         </div>
         <div className="sticky top-0">
           <AboutShadivyah />
         </div>
+        */}
       </div>
-      {/* <HowToWork /> */}
-      <Space50px />
+     
+      {/* <Space50px />
       <ContactUsPhoto />
       <Space50px />
-      <FAQ faqData={HomeFaqData} />
+      <FAQ faqData={HomeFaqData} /> */}
     </div>
   );
 }

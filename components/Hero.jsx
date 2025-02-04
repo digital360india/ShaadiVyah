@@ -158,7 +158,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <div className=" absolute z-40"></div>
         <div className="flex items-center  justify-center text-white  ">
           <div className="md:w-[800px] w-full">
@@ -249,12 +249,7 @@ export default function Hero() {
                   {" "}
                   <div className="flex items-center text-center md:block ">
                     <button onClick={handleSearch}>
-                      {/* <img
-                      src={"/icons/search.svg"}
-                      width={1000}
-                      height={1000}
-                      className="w-5 h-5"
-                    /> */}
+                      
                     </button>
                   </div>
                 </div>
@@ -272,7 +267,7 @@ export default function Hero() {
           </div>
         </div>
         <BookingForm />
-      </div>
+      </div> */}
     </div>
   );
 }
