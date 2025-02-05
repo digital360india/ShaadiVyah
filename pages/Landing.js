@@ -22,6 +22,7 @@ import MendhiVendorCard from "@/components/MendhiCard";
 import MakeupVendorCard from "@/components/MakeupCard";
 import PhotographerVendorCard from "@/components/PhotographerVendorCard";
 import Image from "next/image";
+import BiddingCards from "@/components/BiddingCards";
 
 export default function Landing() {
   const HomeFaqData = [
@@ -241,6 +242,9 @@ export default function Landing() {
     <div className="">
       <div className="">
         <Hero />
+      </div>
+      <div>
+        <BiddingCards />
       </div>
       <div className="w-full font-Merriweather ">
         {/* <div className="sticky top-0">

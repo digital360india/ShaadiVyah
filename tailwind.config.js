@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'custom-inset': 'inset 0px 0px 15.88px 0px #C90067',
+      },
       backgroundImage: {
         'gradient': "linear-gradient(to right, #C9184A, #FFB5A7)",
         'gradient2': "linear-gradient(180deg, #BE7318 0%, #EED68A 50%, #BE7318 100%)",
