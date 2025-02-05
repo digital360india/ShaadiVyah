@@ -117,9 +117,9 @@ const PhotographerVendorPage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg.svg')]">
+    <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg1.svg')] w-full">
       <div
-        className=" w-[955px] mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040]"
+        className=" md:w-[955px] w-full mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040] pb-10"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
@@ -132,15 +132,16 @@ const PhotographerVendorPage = () => {
           height={1000}
           className="w[960px] h-[52px]"
         />
-        <div className="p-6">
-          <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        <div className="p-6 md:w-full md:h-full">
+          <h2 className="md:text-2xl text-[16px] text-center md:text-left font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
             VENDOR BUSINESS DETAILS
           </h2>
-          <div className="relative w-full mt-10 mb-10">
+          <div className="relative w-full mt-10 mb-10 ">
             <div className="h-[2px] bg-gradient-border"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center space-x-32 font-Merriweather-Sans">
+
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-row md:flex-row items-center justify-center space-x-10 md:space-x-4 lg:space-x-32 font-Merriweather-Sans">
               <button
-                className="relative w-[170px] h-[75px] flex items-center justify-center cursor-pointer"
+                className="relative w-[60px] h-[60px] md:w-[170px] md:h-[75px] flex items-center justify-center cursor-pointer"
                 onClick={() => setActiveSection("services")}
               >
                 <Image
@@ -151,7 +152,7 @@ const PhotographerVendorPage = () => {
                   className="w-full h-full"
                 />
                 <span
-                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                  className={`absolute text-[12px] md:text-[16px] font-semibold px-2 py-1 transition-all duration-300 font-Merriweather rounded ${
                     activeSection === "services"
                       ? "bg-[#A11C5C] text-white"
                       : "bg-cream text-[#A11C5C]"
@@ -162,7 +163,7 @@ const PhotographerVendorPage = () => {
               </button>
 
               <button
-                className="relative w-[170px] h-[75px] flex items-center justify-center cursor-pointer"
+                className="relative w-[120px] h-[50px] md:w-[170px] md:h-[75px] flex items-center justify-center cursor-pointer"
                 onClick={() => setActiveSection("pricing")}
               >
                 <Image
@@ -173,7 +174,7 @@ const PhotographerVendorPage = () => {
                   className="w-full h-full"
                 />
                 <span
-                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                  className={`absolute text-[12px] md:text-[16px] font-semibold px-2 py-1 transition-all duration-300 font-Merriweather rounded ${
                     activeSection === "pricing"
                       ? "bg-[#A11C5C] text-white"
                       : "bg-cream text-[#A11C5C]"
@@ -184,7 +185,7 @@ const PhotographerVendorPage = () => {
               </button>
 
               <button
-                className="relative w-[170px] h-[75px] flex items-center justify-center"
+                className="relative w-[60px] h-[50px] md:w-[170px] md:h-[75px] flex items-center justify-center"
                 onClick={() => setActiveSection("lorem")}
               >
                 <Image
@@ -195,7 +196,7 @@ const PhotographerVendorPage = () => {
                   className="w-full h-full"
                 />
                 <span
-                  className={`absolute text-[16px] font-semibold px-2 py-1 transition-all duration-300 rounded ${
+                  className={`absolute text-[12px] md:text-[16px] font-semibold px-2 py-1 transition-all duration-300 font-Merriweather rounded ${
                     activeSection === "lorem"
                       ? "bg-[#A11C5C] text-white"
                       : "bg-cream text-[#A11C5C]"
@@ -210,13 +211,13 @@ const PhotographerVendorPage = () => {
           {activeSection === "services" && (
             <div className=" p-4">
               <div className="flex flex-row justify-between">
-                <h2 className="md:text-[20px] text-[20px] font-semibold mb-4 text-[#A11C5C] font-Merriweather">
+                <h2 className="md:text-[20px] text-[16px] font-semibold mb-4 text-[#A11C5C] font-Merriweather">
                   Services
                 </h2>
-                <hr className="border-t-2 border-[#A11C5C] w-full ml-6 mt-4" />
+                <hr className="border-t-2 border-[#A11C5C] w-full lg:ml-6 ml-2 lg:mt-4 mt-3" />
                 <div className="mb-4">
                   <button
-                    className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                    className="px-4 md:py-2 rounded bg-blue-500 text-black md:mb-4"
                     onClick={() => setIsEditing(!isEditing)}
                   >
                     {isEditing ? "Cancel" : <MdEdit />}
@@ -225,13 +226,13 @@ const PhotographerVendorPage = () => {
               </div>
               {isEditing ? (
                 <div className="font-Merriweather">
-                  <p className="text-[16px] font-semibold mb-4 text-red-600">
+                  <p className="md:text-[16px] text-[14px] font-semibold mb-4 text-red-600">
                     Edit Services
                   </p>
                   {services.map((data) => (
                     <div
                       key={data.id}
-                      className="flex items-center bg-pink-700 text-[#FFC200] font-bold p-4 rounded-lg shadow-md mb-2 bg-[#BE005C]"
+                      className="flex items-center bg-pink-700 text-[#FFC200] font-bold p-4 rounded-lg shadow-md mb-2 bg-[#BE005C] text-[12px] md:text-[16px]"
                     >
                       <input
                         type="checkbox"
@@ -239,19 +240,19 @@ const PhotographerVendorPage = () => {
                         value={data.id}
                         checked={userServices.includes(data.id)}
                         onChange={handleServicesChange}
-                        className="mr-3 w-4 h-4 accent-white"
+                        className="mr-3 w-4 h-4 accent-"
                       />
                       <label htmlFor={data.id} className="flex-grow">
                         {data.name}
                       </label>
-                      <div className="flex-1 h-[1px] bg-gradient-to-r from-[#BE7318] via-[#EED68A] to-[#BE7318]"></div>
+                      <div className="flex-1 h-[1px]  bg-gradient-to-r from-[#BE7318] via-[#EED68A] to-[#BE7318]"></div>
                     </div>
                   ))}
                   <button
                     onClick={handleSaveServices}
                     className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
-             hover:opacity-90 transition"
+             hover:opacity-90 transition text-[12px] md:text-[16px]"
                   >
                     Save
                   </button>
@@ -276,7 +277,7 @@ const PhotographerVendorPage = () => {
                     return service ? (
                       <li
                         key={serviceID}
-                        className="flex items-center gap-3 px-4 py-4 rounded-lg bg-gradient-to-r from-pink-700  text-[#FFC200] shadow-md border border-yellow-500 bg-[#BE005C]"
+                        className="flex items-center gap-3 px-4 py-4 rounded-lg bg-gradient-to-r from-pink-700  text-[#FFC200] shadow-md border border-yellow-500 bg-[#BE005C]  text-[12px] md:text-[16px]"
                       >
                         <span className="w-4 h-4 bg-white rounded-full"></span>
 
@@ -556,17 +557,16 @@ const PhotographerVendorPage = () => {
             //   )}
             // </div>
 
-            
-            <div className="p-6 bg-[#FFF6F2] rounded-lg shadow-md font-Merriweather">
+            <div className="p-6 rounded-lg  font-Merriweather">
               {editMode ? (
                 <form onSubmit={handleSubmit}>
-                  <h2 className="text-[24px] font-bold mb-6 text-[#9B1B52]">
+                  <h2 className="md:text-[24px] text-[16px] font-bold mb-6 text-[#9B1B52]">
                     Edit Photographer Details
                   </h2>
 
-                  <div className="grid grid-cols-3 gap-6">
+                  <div className="md:grid md:grid-cols-3 gap-6 space-y-4 md:space-y-0">
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold md:text-[16px] text-[14px] mb-1">
                         Starting Price per Day
                       </label>
                       <input
@@ -575,13 +575,13 @@ const PhotographerVendorPage = () => {
                         name="starting_price_per_day"
                         value={formData.starting_price_per_day}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        className="w-full px-3 py-3 border border-gray-300   rounded text-[12px] md:text-[16px]"
                         placeholder="Enter your Price here..."
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Photo Package
                       </label>
                       <input
@@ -590,13 +590,13 @@ const PhotographerVendorPage = () => {
                         name="photo_package"
                         value={formData.photo_package}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        className="w-full px-3 py-3 border border-gray-300 rounded text-[12px] md:text-[16px]"
                         placeholder="Enter your Price here..."
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Photo Video Package
                       </label>
                       <input
@@ -605,13 +605,13 @@ const PhotographerVendorPage = () => {
                         name="photo_video_package"
                         value={formData.photo_video_package}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        className="w-full px-3 py-3 border border-gray-300 rounded text-[12px] md:text-[16px]"
                         placeholder="Enter your Price here..."
                       />
                     </div>
 
                     <div className="">
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Outstation Travel Covered
                       </label>
                       <select
@@ -619,7 +619,7 @@ const PhotographerVendorPage = () => {
                         name="outstation_travel_covered"
                         value={formData.outstation_travel_covered}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border rounded "
+                        className="w-full px-3 py-3 border rounded text-[12px] md:text-[16px] "
                       >
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -627,7 +627,7 @@ const PhotographerVendorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Practicing Since
                       </label>
                       <input
@@ -636,12 +636,12 @@ const PhotographerVendorPage = () => {
                         name="practicing_since"
                         value={formData.practicing_since}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        className="w-full px-3 py-3 border border-gray-300 rounded text-[12px] md:text-[16px]"
                         placeholder="Enter the year..."
                       />
                     </div>
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Travels to Venue
                       </label>
                       <select
@@ -649,16 +649,15 @@ const PhotographerVendorPage = () => {
                         name="travels_to_venue"
                         value={formData.travels_to_venue}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border rounded "
+                        className="w-full px-3 py-3 border rounded text-[12px] md:text-[16px] "
                       >
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
-                      
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Advance Payment
                       </label>
                       <input
@@ -667,19 +666,18 @@ const PhotographerVendorPage = () => {
                         name="advance_payment"
                         value={formData.advance_payment}
                         onChange={handleChange}
-                        className="w-full px-3 py-3 border border-gray-300 rounded shadow-md"
+                        className="w-full px-3 py-3 border border-gray-300 rounded text-[12px] md:text-[16px]"
                         placeholder="Enter your Price here..."
                       />
                     </div>
                   </div>
 
-                  <div className="flex justify-end mt-6 gap-4">
+                  <div className="flex justify-end mt-6 gap-4 text-[12px] md:text-[16px] ">
                     <button
                       type="button"
                       onClick={() => setEditMode(false)}
-                      className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
-                      bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
-                      hover:opacity-90 transition"                    >
+                      className="px-6 py-3 rounded-lg text-[#A11C5C] font-semibold mt-4 border border-[#A11C5C] "
+                    >
                       Cancel
                     </button>
                     <button
@@ -694,27 +692,27 @@ const PhotographerVendorPage = () => {
                 </form>
               ) : (
                 <div>
-                  <div className="grid grid-cols-3 gap-6">
-                    <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                  <div className="md:grid md:grid-cols-3 gap-6 space-y-2">
+                    <div className="md:mt-2">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Starting Price per Day
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.starting_price_per_day || (
-                          <p className="text-gray-400">
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
                             Enter your Price here...
                           </p>
-                        )}
+                        )}``
                       </span>
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Photo Package
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.photo_package || (
-                          <p className="text-gray-400">
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
                             Enter your Price here...
                           </p>
                         )}
@@ -722,12 +720,12 @@ const PhotographerVendorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Photo Video Package
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.photo_video_package || (
-                          <p className="text-gray-400">
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
                             Enter your Price here...
                           </p>
                         )}
@@ -735,45 +733,45 @@ const PhotographerVendorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Outstation Travel Covered
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.outstation_travel_covered || (
-                          <p className="text-gray-400">Select...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">Select...</p>
                         )}
                       </span>
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
-                        Practicing Since 
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px]] text-[14px] mb-1">
+                        Practicing Since
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.practicing_since || (
-                          <p className="text-gray-400">Enter the year...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">Enter the year...</p>
                         )}
                       </span>
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Travels to Venue
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.travels_to_venue || (
-                          <p className="text-gray-400">Select...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">Select...</p>
                         )}
                       </span>
                     </div>
 
                     <div>
-                      <label className="block text-[#9B1B52] font-semibold text-sm mb-1">
+                      <label className="block text-[#9B1B52] font-semibold  md:text-[16px]  text-[14px] mb-1">
                         Advance Payment
                       </label>
-                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded shadow-md">
+                      <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.advance_payment || (
-                          <p className="text-gray-400">
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
                             Enter your Price here...
                           </p>
                         )}
@@ -784,9 +782,8 @@ const PhotographerVendorPage = () => {
                   <div className="flex justify-end mt-6">
                     <button
                       onClick={() => setEditMode(true)}
-                      className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
-                      bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
-                      hover:opacity-90 transition"                    >
+                      className="px-6 py-3 rounded-lg text-[#A11C5C] font-semibold mt-4 border border-[#A11C5C] text-[12px] md:text-[16px] "
+                    >
                       Edit Details
                     </button>
                   </div>
