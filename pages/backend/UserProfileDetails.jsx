@@ -35,7 +35,7 @@ const UserProfileDetails = ({
         </div>
 
         {/* User Information */}
-        <div className="space-y-5 text-[14px]">
+        <div className="space-y-5 text-[14px] pb-20">
           {/* <p>
             <span className=" text-[#A11C5C]">Name:</span>{" "}
             <span className="text-[#4A4A4A]">{user?.name}</span>

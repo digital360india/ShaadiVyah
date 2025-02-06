@@ -119,7 +119,7 @@ const PhotographerVendorPage = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg1.svg')] w-full">
       <div
-        className=" md:w-[955px] w-full mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040] pb-10"
+        className=" md:w-[955px] w-full mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040] mb-8 pb-8"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
@@ -130,7 +130,7 @@ const PhotographerVendorPage = () => {
           src={"/images/topbg.svg"}
           width={1000}
           height={1000}
-          className="w[960px] h-[52px]"
+          className="md:w[960px] md:h-[52px] w-full "
         />
         <div className="p-6 md:w-full md:h-full">
           <h2 className="md:text-2xl text-[16px] text-center md:text-left font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
@@ -184,6 +184,7 @@ const PhotographerVendorPage = () => {
                 </span>
               </button>
 
+              {/* 
               <button
                 className="relative w-[60px] h-[50px] md:w-[170px] md:h-[75px] flex items-center justify-center"
                 onClick={() => setActiveSection("lorem")}
@@ -204,7 +205,7 @@ const PhotographerVendorPage = () => {
                 >
                   Lorem
                 </span>
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -251,8 +252,8 @@ const PhotographerVendorPage = () => {
                   <button
                     onClick={handleSaveServices}
                     className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
-             bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
-             hover:opacity-90 transition text-[12px] md:text-[16px]"
+                                 bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+                                 hover:opacity-90 transition text-[12px] md:text-[16px]"
                   >
                     Save
                   </button>
@@ -594,7 +595,6 @@ const PhotographerVendorPage = () => {
                         placeholder="Enter your Price here..."
                       />
                     </div>
-
                     <div>
                       <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Photo Video Package
@@ -702,7 +702,7 @@ const PhotographerVendorPage = () => {
                           <p className="text-gray-400 text-[12px] md:text-[16px]">
                             Enter your Price here...
                           </p>
-                        )}``
+                        )}
                       </span>
                     </div>
 
@@ -738,7 +738,9 @@ const PhotographerVendorPage = () => {
                       </label>
                       <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.outstation_travel_covered || (
-                          <p className="text-gray-400 text-[12px] md:text-[16px]">Select...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
+                            Select...
+                          </p>
                         )}
                       </span>
                     </div>
@@ -749,18 +751,21 @@ const PhotographerVendorPage = () => {
                       </label>
                       <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.practicing_since || (
-                          <p className="text-gray-400 text-[12px] md:text-[16px]">Enter the year...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
+                            Enter the year...
+                          </p>
                         )}
                       </span>
                     </div>
-
                     <div>
                       <label className="block text-[#9B1B52] font-semibold  md:text-[16px] text-[14px] mb-1">
                         Travels to Venue
                       </label>
                       <span className="block p-3 bg-gray-100 border border-gray-300 rounded ">
                         {formData.travels_to_venue || (
-                          <p className="text-gray-400 text-[12px] md:text-[16px]">Select...</p>
+                          <p className="text-gray-400 text-[12px] md:text-[16px]">
+                            Select...
+                          </p>
                         )}
                       </span>
                     </div>

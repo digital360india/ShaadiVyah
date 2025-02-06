@@ -91,7 +91,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="mb-10">
+    <div className="">
       <div className="relative overflow-hidden">
         <div className="hidden md:block relative overflow-hidden">
           <img
@@ -100,17 +100,33 @@ export default function Hero() {
             alt="Hero Image"
           />
 
-          <div className="absolute inset-x-0 bottom-20 text-center">
-            <div className="border-t border-white w-3/4 mx-auto "></div>
+          <div className="absolute inset-x-0 bottom-6 text-center flex flex-col items-center">
+            <div className="border-t border-white w-3/4 mx-auto"></div>
 
-            <div className="h-[150px]">
+            <div className="h-[150px] relative flex flex-col items-center justify-center">
               <GradualSpacing
                 text="Shaadi ka haar pal khaas..."
                 onComplete={() => setShowSecond(true)}
               />
               {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
             </div>
-            <div className="border-b border-white w-3/4 mx-auto mt-4"></div>
+
+            <img
+              className="w-[800px] h-[100px] absolute bottom-16"
+              src="/images/herofram1.svg"
+              alt="Hero Image"
+            />
+
+            <button
+              onClick={() => window.scrollBy({ top: 500, behavior: "smooth" })}
+              className="mt-14 "
+            >
+              <img
+                className="w-[400px] h-[60px]"
+                src="/images/herofram2.svg"
+                alt="Scroll Down"
+              />
+            </button>
           </div>
 
           <img
@@ -132,7 +148,7 @@ export default function Hero() {
             alt="Hero Image"
           />
 
-          <div className="absolute inset-x-0 bottom-40 text-center">
+          <div className="absolute inset-x-0 bottom-28 text-center flex flex-col items-center">
             <div className="border-t border-white w-3/4 mx-auto "></div>
 
             <div className="h-[100px]">
@@ -142,7 +158,23 @@ export default function Hero() {
               />
               {showSecond && <GradualSpacingTwo text="ShaadiVyah ke Saath.." />}
             </div>
-            <div className="border-b border-white w-3/4 mx-auto mt-4"></div>
+
+            <img
+              className="w-[340px] h-[80px] absolute bottom-16 "
+              src="/images/herofram1.svg"
+              alt="Hero Image"
+            />
+
+            <button
+              onClick={() => window.scrollBy({ top: 500, behavior: "smooth" })}
+              className="mt-14 "
+            >
+              <img
+                className="w-[300px] h-[60px]"
+                src="/images/herofram2.svg"
+                alt="Scroll Down"
+              />
+            </button>
           </div>
 
           <img
