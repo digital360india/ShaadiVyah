@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
 const BiddingCards = () => {
@@ -93,10 +94,9 @@ const BiddingCards = () => {
           <div className="py-12 flex justify-center items-center relative">
             {cards.map((card, index) => {
               const position = index - currentIndex;
-              let classes =
-               "absolute transition-all duration-500 ease-in-out"; // Increased duration for smooth transition
+              let classes = "absolute transition-all duration-500 ease-in-out"; // Increased duration for smooth transition
 
-               if (position === 0) {
+              if (position === 0) {
                 classes += " scale-100 opacity-100 z-20";
               } else if (position === -1 || position === 1) {
                 classes += " scale-90 opacity-50 z-10 mt-20"; // Reduced opacity for faded effect
@@ -229,22 +229,30 @@ const BiddingCards = () => {
                 </div>
               );
             })}
-          <div className="flex justify-between mt-6 z-50  bottom-0  w-full px-10 absolute">
-            <button
-              onClick={handlePrevious}
-              className="bg-[#A11C5C] text-white px-6 py-2 rounded-lg shadow-lg hover:bg-[#800F45] transition-colors"
-            >
-              Previous
-            </button>
-            <button
-              onClick={handleNext}
-              className="bg-[#A11C5C] text-white px-6 py-2 rounded-lg shadow-lg hover:bg-[#800F45] transition-colors"
-            >
-              Next
-            </button>
-          </div>
-          </div>
+            <div className="flex justify-center items-center  z-10  -bottom-[350px]  w-full px-10 absolute gap-10 text-[#CA8B00]">
+              <button onClick={handlePrevious} className=" flex gap-2 items-center">
+                <p>Previous</p>
+                <Image
+                  src="/icons/lefticon.svg"
+                  width={1000}
+                  height={1000}
+                  alt="arrow-left"
+                  className="w-[30px] h-[40px]"
+                />
+              </button>
+              <button onClick={handleNext} className="  flex gap-2 items-center">
+                <Image
+                  src="/icons/righticon.svg"
+                  width={1000}
+                  height={1000}
+                  alt="arrow-right"
+                  className="w-[30px] h-[40px]"
 
+                />
+                <p>Next</p>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
