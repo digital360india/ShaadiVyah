@@ -119,7 +119,7 @@ const PhotographerVendorPage = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg1.svg')] w-full">
       <div
-        className=" md:w-[955px] w-full mx-auto bg-cream rounded-lg shadow-lg shadow-[#D2730040] mb-8 pb-8"
+        className=" md:w-[955px] w-full mx-auto bg-[#FFF4E8] rounded-lg shadow-lg shadow-[#D2730040] mb-8 pb-8"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
@@ -132,7 +132,7 @@ const PhotographerVendorPage = () => {
           height={1000}
           className="md:w[960px] md:h-[52px] w-full "
         />
-        <div className="p-6 md:w-full md:h-full">
+        <div className="p-6 md:w-full md:h-full ">
           <h2 className="md:text-2xl text-[16px] text-center md:text-left font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
             VENDOR BUSINESS DETAILS
           </h2>

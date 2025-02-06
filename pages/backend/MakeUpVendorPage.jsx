@@ -100,8 +100,8 @@ const MakeUpVendorPage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div className="p-8 bg-gray-100 min-h-screen bg-[url('/images/dashbg1.svg')] w-full">
+      <div className="max-w-2xl mx-auto bg-[#FFF4E8] p-6 rounded-lg shadow-lg">
         {editMode ? (
           <form onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold mb-4 text-blue-600">
