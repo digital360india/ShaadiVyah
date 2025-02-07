@@ -250,7 +250,7 @@ const Registration = () => {
               <option value="Mussoorie">Mussoorie</option>
               <option value="Haridwar">Haridwar</option>
               <option value="Rishikesh">Rishikesh</option>
-              <option value="Ramnagar">Ramnagar</option>
+              {/* <option value="Ramnagar">Ramnagar</option> */}
               <option value="Nainital">Nainital</option>
             </select>
             <div className="absolute inset-y-0 right-2 flex items-center text-gray-500">
