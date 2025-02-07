@@ -621,8 +621,8 @@ const PhotographerVendorPage = () => {
                         onChange={handleChange}
                         className="w-full px-3 py-3 border rounded text-[12px] md:text-[16px] "
                       >
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="Yes" className="bg-white">Yes</option>
+                        <option value="No" className="bg-white">No</option>
                       </select>
                     </div>
 
@@ -651,8 +651,8 @@ const PhotographerVendorPage = () => {
                         onChange={handleChange}
                         className="w-full px-3 py-3 border rounded text-[12px] md:text-[16px] "
                       >
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="Yes" className="bg-white">Yes</option>
+                        <option value="No" className="bg-white">No</option>
                       </select>
                     </div>
 
