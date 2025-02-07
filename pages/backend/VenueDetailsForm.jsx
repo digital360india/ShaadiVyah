@@ -56,22 +56,22 @@ const VenueDetailsForm = ({
           placeholder="Street Address*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
         />
-        <input
+        {/* <input
           type="text"
           name="landmark"
           value={formData?.landmark}
           onChange={handleChange}
           placeholder="Landmark (Optional)"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
-        />
-        <input
+        /> */}
+        {/* <input
           type="text"
           name="postCode"
           value={formData?.postCode}
           onChange={handleChange}
           placeholder="Post Code*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
-        />
+        /> */}
         <input
           type="text"
           name="city"
@@ -80,22 +80,22 @@ const VenueDetailsForm = ({
           placeholder="City*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
         />
-        <input
+        {/* <input
           type="text"
           name="country"
           value={formData?.country}
           onChange={handleChange}
           placeholder="Country*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
-        />
-        <input
+        /> */}
+        {/* <input
           type="text"
           name="googleLocation"
           value={formData?.googleLocation}
           onChange={handleChange}
           placeholder="Google Location*"
           className="w-full h-12 p-4 rounded-md placeholder:text-gray-600 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
-        />
+        /> */}
       </div>
 
       {/* About Section */}

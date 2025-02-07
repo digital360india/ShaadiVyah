@@ -213,7 +213,7 @@ const PortfolioPage = () => {
         </div>
 
         <div className="md:hidden font-Merriweather-Sans">
-          <div className="flex space-x-5 px-5 pt-10 ">
+          <div className="flex px-[22px] pt-10 justify-between">
             <p
               onClick={() => setActiveTab("about")}
               className={`cursor-pointer ${
@@ -224,7 +224,7 @@ const PortfolioPage = () => {
             >
               About Me
             </p>
-            <p
+            {/* <p
               onClick={() => setActiveTab("social")}
               className={`cursor-pointer ${
                 activeTab === "social"
@@ -233,7 +233,7 @@ const PortfolioPage = () => {
               }`}
             >
               My Social Media
-            </p>
+            </p> */}
             <p
               onClick={() => setActiveTab("documents")}
               className={`cursor-pointer ${
@@ -271,7 +271,7 @@ const PortfolioPage = () => {
                 )}
               </div>
             )}
-            {activeTab === "social" && (
+            {/* {activeTab === "social" && (
               <div className="mt-4 w-full mb-40">
                 {editing2 ? (
                   <SocialLinksForm
@@ -286,7 +286,7 @@ const PortfolioPage = () => {
                   />
                 )}
               </div>
-            )}
+            )} */}
 
             {activeTab === "documents" && (
               <div>
@@ -361,7 +361,7 @@ const PortfolioPage = () => {
                 )}
               </div>
             )}
-            {user && (
+            {/* {user && (
               <div className="mt-4 w-full mb-40">
                 {editing2 ? (
                   <SocialLinksForm
@@ -374,9 +374,9 @@ const PortfolioPage = () => {
                     user={user}
                     handleEditSocials={handleEditSocials}
                   />
-                )}
+                )} 
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

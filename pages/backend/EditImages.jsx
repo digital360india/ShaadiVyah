@@ -65,9 +65,9 @@ const EditImages = () => {
     img.src = URL.createObjectURL(file);
     img.onload = async () => {
       if (
-        img.height < 500 || 
-        img.height > 550 || 
-        img.width < 1300 || 
+        img.height < 400 || 
+        img.height > 600 || 
+        img.width < 1200 || 
         img.width > 1440
       ) {
         toast.error(
