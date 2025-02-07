@@ -288,7 +288,7 @@ const MakeUpVendorPage = () => {
                   />
                 </div>
               </div>
-              <div>
+              <div className="mb-10">
                 <div className="flex justify-end mt-4 gap-8">
                   <button
                     type="button"
