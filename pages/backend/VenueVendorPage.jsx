@@ -11,7 +11,7 @@ import {
   where,
   arrayUnion,
 } from "firebase/firestore";
-import { toast, ToastContainer } from "react-toastify";
+// import { toast, ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import { parseCookies } from "nookies";
@@ -146,11 +146,11 @@ const VenueVendorPage = () => {
         safetyAndSecurityOptionsUID: userSafetyAndSecurityOptions,
       });
       setIsEditingSafetyAndSecurity(false);
-      toast.success("Safety and security options updated successfully!");
+      alert("Safety and security options updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error updating safety and security options: ", error);
-      toast.error("Error updating safety and security options.");
+      alert("Error updating safety and security options.");
     }
   };
   const handleSaveAdditionalServices = async () => {
@@ -160,11 +160,11 @@ const VenueVendorPage = () => {
         additionalServicesUID: userAdditionalServices,
       });
       setIsEditingAdditionalServices(false);
-      toast.success("Additional services updated successfully!");
+      alert("Additional services updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error updating additional services: ", error);
-      toast.error("Error updating additional services.");
+      alert("Error updating additional services.");
     }
   };
   const handleDeleteSpace = async (index) => {
@@ -174,11 +174,11 @@ const VenueVendorPage = () => {
       await updateDoc(userRef, {
         spaces: userSpaces.filter((_, i) => i !== index),
       });
-      toast.success("Space deleted successfully!");
+      alert("Space deleted successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error deleting space:", error);
-      toast.error("Error deleting space.");
+      alert("Error deleting space.");
     }
   };
   const handleDeleteNearByPlaces = async (index) => {
@@ -188,11 +188,11 @@ const VenueVendorPage = () => {
       await updateDoc(userRef, {
         attractions: userNearByPlaces.filter((_, i) => i !== index),
       });
-      toast.success("Near by Places deleted successfully!");
+      alert("Near by Places deleted successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error deleting Near by Places:", error);
-      toast.error("Error deleting Near by Places.");
+      alert("Error deleting Near by Places.");
     }
   };
   const fetchAmenities = async () => {
@@ -300,11 +300,11 @@ const VenueVendorPage = () => {
         accessibilityOptionsUID: userAccessibilityOptions,
       });
       setIsEditingAccessibility(false);
-      toast.success("Accessibility options updated successfully!");
+      alert("Accessibility options updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error updating accessibility options: ", error);
-      toast.error("Error updating accessibility options.");
+      alert("Error updating accessibility options.");
     }
   };
 
@@ -313,11 +313,11 @@ const VenueVendorPage = () => {
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, { amenitiesUID: userAmenities });
       setIsEditing(false);
-      toast.success("Amenities updated successfully!");
+      alert("Amenities updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error updating amenities: ", error);
-      toast.error("Error updating amenities.");
+      alert("Error updating amenities.");
     }
   };
   const handleFacilityChange = (e) => {
@@ -332,11 +332,11 @@ const VenueVendorPage = () => {
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, { facilitiesUID: userFacilities });
       setIsEditingFacilities(false);
-      toast.success("Facilities updated successfully!");
+      alert("Facilities updated successfully!");
       fetchUser(user.uid); // Fetch updated user data
     } catch (error) {
       console.error("Error updating facilities: ", error);
-      toast.error("Error updating facilities.");
+      alert("Error updating facilities.");
     }
   };
 
@@ -356,7 +356,7 @@ const VenueVendorPage = () => {
       !nearByPlacesForm.time && !nearByPlacesForm.name
 
     ) {
-      toast.error("Please fill all fields before saving.");
+      alert("Please fill all fields before saving.");
       return;
     }
     try {
@@ -371,21 +371,21 @@ const VenueVendorPage = () => {
         time: "",
         name:""
       })
-      toast.success("Near by places updated successfully!");
+      alert("Near by places updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
       console.error("Error updating Near by places: ", error);
-      toast.error("Error updating Near by places.");
+      alert("Error updating Near by places.");
     }
   };
   const handleSaveSpaces = async () => {
     if (
-      !spaceForm.spaceName &&
-      !spaceForm.spaceType &&
-      !spaceForm.floating &&
+      !spaceForm.spaceName ||
+      !spaceForm.spaceType ||
+      !spaceForm.floating ||
       !spaceForm.sitting
     ) {
-      toast.error("Please fill all fields before saving.");
+      alert("Please fill all fields before saving.");
       return;
     }
     try {
@@ -393,18 +393,20 @@ const VenueVendorPage = () => {
       await updateDoc(userRef, {
         spaces: arrayUnion(spaceForm),
       });
-      setIsEditingSpaces(false);
+      // setIsEditingSpaces(false);
       setSpaceForm({
         spaceName: "",
         spaceType: "",
         floating: "",
         sitting: "",
       })
-      toast.success("Spaces updated successfully!");
       fetchUser(user.uid);
+
     } catch (error) {
       console.error("Error updating spaces: ", error);
-      toast.error("Error updating spaces.");
+    }
+    finally{
+      setIsEditingSpaces(false);
     }
   };
 
@@ -420,7 +422,7 @@ const VenueVendorPage = () => {
   return (
     <div>
       <div className="max-w-xl  md:px-10 p-4  mt-6">
-        <ToastContainer />
+        {/* <ToastContainer /> */}
 
 
 
@@ -613,7 +615,7 @@ const VenueVendorPage = () => {
             Save Spaces
           </button>
           <button
-            onClick={() => setIsEditingSpaces(false)}
+            onClick={() => setIsEditingSpaces(!isEditingSpaces)}
             className="px-4 py-2 rounded bg-red-500 text-white mt-4"
           >
             Cancel
@@ -656,6 +658,8 @@ const VenueVendorPage = () => {
           </ul>
         </div>
       )}
+
+
 
 <div className="mb-4 mt-4">
       {isEditinguserNearByPlaces ? (
@@ -781,6 +785,14 @@ const VenueVendorPage = () => {
       )}
     </div>
 
+
+
+
+
+
+
+
+
       </div>
       <div className=" md:px-10 p-4 max-w-xl">
         {isEditingFacilities ? (
@@ -847,7 +859,7 @@ const VenueVendorPage = () => {
 
 
       <div className=" md:px-10 p-4 max-w-xl">
-        <ToastContainer />
+        {/* <ToastContainer /> */}
 
         {isEditingAdditionalServices ? (
           <div className="px-10">
