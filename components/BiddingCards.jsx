@@ -74,13 +74,13 @@ const BiddingCards = () => {
         setIsDropdownOpen(false);
       }
     };
-
+  
     document.addEventListener("mousedown", handleClickOutside);
-
+  
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [formRef]);
+  }, [formRef]); // Ensure formRef is in the dependency array
 
   return (
     <div className="overflow-hidden">
@@ -146,7 +146,7 @@ const BiddingCards = () => {
                             />
                           </div>
 
-                          <div className="mt-4 relative w-[292px] h-[35px]">
+                          <div ref={formRef} className=" mt-4 relative w-[292px] h-[35px]">
                             <label className="block mb-2 font-semibold text-[#FFE3BE]">
                               Services
                             </label>
@@ -219,7 +219,7 @@ const BiddingCards = () => {
                           <input
                             type={card.inputType}
                             placeholder={card.placeholder}
-                            className="w-full h-full bg-transparent text-center outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 no-spinner custom-date-input"
+                            className="w-full h-full bg-transparent text-center px-4 outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 rounded-lg no-spinner custom-date-input"
                           />
                         </div>
                       </div>
