@@ -30,9 +30,9 @@ const VenueVendorPage = () => {
   const [isEditingSpaces, setIsEditingSpaces] = useState(false);
   const [isEditingPricing, setIsEditingPricing] = useState(false);
   const [pricing, setPricing] = useState({
-    vegPlatePricing:"",
-    nonvegPlatePricing:""
-})
+    vegPlatePricing: "",
+    nonvegPlatePricing: "",
+  });
   const [spaceForm, setSpaceForm] = useState({
     spaceName: "",
     spaceType: "",
@@ -40,17 +40,16 @@ const VenueVendorPage = () => {
     sitting: "",
   });
 
-
   const [userNearByPlaces, setUserNearByPlaces] = useState([]);
-  const [isEditinguserNearByPlaces, setIsEditinguserNearByPlaces] = useState(false);
+  const [isEditinguserNearByPlaces, setIsEditinguserNearByPlaces] =
+    useState(false);
   const [nearByPlaces, setNearByPlaces] = useState([]);
   const [nearByPlacesForm, setNearByPlacesForm] = useState({
-    name:"",
+    name: "",
     distance: "",
     locationType: "",
     time: "",
   });
-
 
   const [additionalServices, setAdditionalServices] = useState([]);
   const [userAdditionalServices, setUserAdditionalServices] = useState([]);
@@ -73,8 +72,8 @@ const VenueVendorPage = () => {
         const userData = querySnapshot.docs[0].data();
         setUser(userData);
         setUserAmenities(userData.amenitiesUID || []);
-        setPricing(userData.pricing || [])
-        console.log(userData)
+        setPricing(userData.pricing || []);
+        console.log(userData);
         setUserSpaces(userData.spaces || []);
         setUserFacilities(userData.facilitiesUID || []);
         setUserAccessibilityOptions(userData.accessibilityOptionsUID || []);
@@ -263,8 +262,8 @@ const VenueVendorPage = () => {
   };
   const handlePricingSave = async () => {
     try {
-      const pricingDocRef = doc(db,"users", user.uid ); 
-      await updateDoc(pricingDocRef, {pricing:pricing}); 
+      const pricingDocRef = doc(db, "users", user.uid);
+      await updateDoc(pricingDocRef, { pricing: pricing });
       alert("Pricing updated successfully!");
       setIsEditingPricing(false);
     } catch (error) {
@@ -350,11 +349,10 @@ const VenueVendorPage = () => {
   };
   const handleSaveNearByPlaces = async () => {
     if (
-
       !nearByPlacesForm.distance &&
       !nearByPlacesForm.locationType &&
-      !nearByPlacesForm.time && !nearByPlacesForm.name
-
+      !nearByPlacesForm.time &&
+      !nearByPlacesForm.name
     ) {
       alert("Please fill all fields before saving.");
       return;
@@ -369,8 +367,8 @@ const VenueVendorPage = () => {
         distance: "",
         locationType: "",
         time: "",
-        name:""
-      })
+        name: "",
+      });
       alert("Near by places updated successfully!");
       fetchUser(user.uid);
     } catch (error) {
@@ -399,13 +397,11 @@ const VenueVendorPage = () => {
         spaceType: "",
         floating: "",
         sitting: "",
-      })
+      });
       fetchUser(user.uid);
-
     } catch (error) {
       console.error("Error updating spaces: ", error);
-    }
-    finally{
+    } finally {
       setIsEditingSpaces(false);
     }
   };
@@ -417,26 +413,22 @@ const VenueVendorPage = () => {
 
   const handleAddNearByPlaces = () => {
     setUserNearByPlaces((prev) => [...prev, nearByPlacesForm]);
-    setNearByPlacesForm({name:"", time: "", distance: "", locationType: ""});
+    setNearByPlacesForm({ name: "", time: "", distance: "", locationType: "" });
   };
   return (
     <div>
-      <div className="max-w-xl  md:px-10 p-4  mt-6">
+      <div className="  md:px-10 p-4   bg-[url('/images/dashbg1.svg')] w-full">
         {/* <ToastContainer /> */}
 
-
-
-
-
         {isEditing ? (
-          <div>
-            <p className="text-xl font-semibold mb-4 text-gray-800">
+          <div className="bg-[#FFF4E8]">
+            <p className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
               Edit New Amenities
             </p>
             {amenities.map((amenity) => (
               <div
                 key={amenity.id}
-                className="flex items-center mb-2 text-black"
+                className="flex items-center mb-2 text-[#9B1B52] font-Merriweather"
               >
                 <input
                   type="checkbox"
@@ -457,12 +449,13 @@ const VenueVendorPage = () => {
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 text-[#9B1B52] font-Merriweather">
             <div className="flex flex-row justify-between">
               {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
                 Current Amenities
-              </h2>{" "}
+              </h2>
+              <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
               <div className="mb-4">
                 <button
                   className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -472,11 +465,11 @@ const VenueVendorPage = () => {
                 </button>
               </div>
             </div>
-            <ul className="list-disc list-inside space-y-2">
+            <ul className="list-disc list-inside space-y-2 ">
               {userAmenities.map((amenityId) => {
                 const amenity = amenities.find((a) => a.id === amenityId);
                 return amenity ? (
-                  <li key={amenityId} className="text-gray-700">
+                  <li key={amenityId} className="text-[#9B1B52]">
                     {amenity.amenityName}
                   </li>
                 ) : null;
@@ -484,315 +477,359 @@ const VenueVendorPage = () => {
             </ul>
           </div>
         )}
-{isEditingPricing ? (
-  <>
- <div className="bg-white shadow-md rounded-lg p-4">
-          <div className="flex flex-row justify-between">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Edit Pricings</h2>
-            <div className="mb-4">
+        {isEditingPricing ? (
+          <>
+            <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4">
+              <div className="flex flex-row justify-between">
+                <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+                  Edit Pricings
+                </h2>
+                <div className="mb-4">
+                  <button
+                    className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                    onClick={() => setIsEditing(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-[#9B1B52] font-Merriweather">
+                    Veg Plate Pricing
+                  </label>
+                  <input
+                    type="text"
+                    name="vegPlatePricing"
+                    value={pricing.vegPlatePricing}
+                    onChange={handlePricingChange}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[#9B1B52] font-Merriweather">
+                    Non-Veg Plate Pricing
+                  </label>
+                  <input
+                    type="text"
+                    name="nonvegPlatePricing"
+                    value={pricing.nonvegPlatePricing}
+                    onChange={handlePricingChange}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+                <button
+                  onClick={handlePricingSave}
+                  className="px-4 py-2 bg-green-500 text-white rounded-md"
+                >
+                  Save
+                </button>
+              </div>
+            </div>{" "}
+          </>
+        ) : (
+          <>
+            <div className="bg-[#FFF4E8]  shadow-md rounded-lg p-4 mt-6 text-[#9B1B52] font-Merriweather">
+              <div className="flex flex-row justify-between">
+                <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+                  Current Pricings
+                </h2>
+
+                <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
+
+                <div className="mb-4">
+                  <button
+                    className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                    onClick={() => setIsEditingPricing(!isEditingPricing)}
+                  >
+                    {isEditingPricing ? "Cancel" : <MdEdit />}
+                  </button>
+                </div>
+              </div>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>Veg Plate Pricing:</strong>{" "}
+                  {pricing.vegPlatePricing || "Not Set"}
+                </li>
+                <li>
+                  <strong>Non-Veg Plate Pricing:</strong>{" "}
+                  {pricing.nonvegPlatePricing || "Not Set"}
+                </li>
+              </ul>
+            </div>
+          </>
+        )}
+
+        {isEditingSpaces ? (
+          <div className=" mt-10">
+            <h2 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+              Edit New Space
+            </h2>
+            <div className="mb-2">
+              <input
+                type="text"
+                name="spaceName"
+                value={spaceForm.spaceName}
+                onChange={handleSpaceFormChange}
+                placeholder="Space Name"
+                className="border p-2 rounded w-full mb-2"
+                required
+              />
+              <select
+                name="spaceType"
+                value={spaceForm.spaceType}
+                onChange={handleSpaceFormChange}
+                className="border p-2 rounded w-full mb-2"
+              >
+                <option value="">Select Space Type</option>
+                {spaces.map((space) => (
+                  <option key={space.id} value={space.id}>
+                    {space.name}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="number"
+                name="floating"
+                value={spaceForm.floating}
+                onChange={handleSpaceFormChange}
+                placeholder="Floating Capacity"
+                className="border p-2 rounded w-full mb-2"
+                required
+              />
+              <input
+                type="number"
+                name="sitting"
+                value={spaceForm.sitting}
+                onChange={handleSpaceFormChange}
+                placeholder="Sitting Capacity"
+                className="border p-2 rounded w-full mb-2"
+                required
+              />
               <button
-                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                onClick={() => setIsEditing(false)}
+                onClick={handleAddSpace}
+                className="px-4 py-2 rounded bg-blue-500 text-black"
+              >
+                Edit Space
+              </button>
+            </div>
+            <div className="space-x-7">
+              <button
+                onClick={handleSaveSpaces}
+                className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
+              >
+                Save Spaces
+              </button>
+              <button
+                onClick={() => setIsEditingSpaces(!isEditingSpaces)}
+                className="px-6 py-3 rounded-lg text-[#A11C5C] font-semibold mt-4 border border-[#A11C5C] "
               >
                 Cancel
               </button>
             </div>
           </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-gray-700">Veg Plate Pricing</label>
-              <input
-                type="text"
-                name="vegPlatePricing"
-                value={pricing.vegPlatePricing}
-                onChange={handlePricingChange}
-                className="w-full p-2 border border-gray-300 rounded-md"
-              />
+        ) : (
+          <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 mt-8 text-[#9B1B52] font-Merriweather">
+            <div className="flex flex-row justify-between font-Merriweather">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+                Current Spaces
+              </h2>
+              <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
+
+              <button
+                className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                onClick={() => setIsEditingSpaces(!isEditingSpaces)}
+              >
+                {isEditingSpaces ? "Cancel" : <MdEdit />}
+              </button>
             </div>
+            <ul className="list-disc list-inside space-y-2 ">
+              {userSpaces.length > 0 ? (
+                userSpaces.map((space, index) => {
+                  const spaceData = spaces.find(
+                    (s) => s.id === space.spaceType
+                  );
+                  return spaceData ? (
+                    <li key={index} className="text-[#9B1B52] space-x-4">
+                      <span className="font-medium text-lg">
+                        {space.spaceName}
+                      </span>
+                      <span className="text-sm text-gray-600">
+                        {" "}
+                        ({spaceData.name})
+                      </span>
+                      <button
+                        onClick={() => handleDeleteSpace(index)}
+                        className="text-red-500 mt-2 focus:outline-none"
+                      >
+                        Delete
+                      </button>
+                      <div className="text-sm text-gray-500 mt-1">
+                        Floating:{" "}
+                        <span className="font-medium">{space.floating}</span>,
+                        Sitting:{" "}
+                        <span className="font-medium">{space.sitting}</span>
+                      </div>
+                    </li>
+                  ) : null;
+                })
+              ) : (
+                <li className="text-gray-700">No spaces available</li>
+              )}
+            </ul>
+          </div>
+        )}
+
+        <div className="mb-4 mt-4">
+          {isEditinguserNearByPlaces ? (
             <div>
-              <label className="block text-gray-700">Non-Veg Plate Pricing</label>
-              <input
-                type="text"
-                name="nonvegPlatePricing"
-                value={pricing.nonvegPlatePricing}
-                onChange={handlePricingChange}
-                className="w-full p-2 border border-gray-300 rounded-md"
-              />
+              <h2 className="text-xl font-semibold mb-2">
+                Edit New Nearby Attractions
+              </h2>
+              <div className="mb-2">
+                <select
+                  name="locationType"
+                  value={nearByPlacesForm.locationType}
+                  onChange={handleNearByPlacesFormChange}
+                  className="border p-2 rounded w-full mb-2"
+                >
+                  <option value="">Select Space Type</option>
+                  {nearByPlaces.map((space, index) => (
+                    <option key={index} value={space.id}>
+                      {space.name}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  type="number"
+                  name="distance"
+                  value={nearByPlacesForm.distance}
+                  onChange={handleNearByPlacesFormChange}
+                  placeholder="Distance to the place of attraction"
+                  className="border p-2 rounded w-full mb-2"
+                  required
+                />
+                <input
+                  type="string"
+                  name="name"
+                  value={nearByPlacesForm.name}
+                  onChange={handleNearByPlacesFormChange}
+                  placeholder="Name of the place"
+                  className="border p-2 rounded w-full mb-2"
+                  required
+                />
+                <input
+                  type="number"
+                  name="time"
+                  value={nearByPlacesForm.time}
+                  onChange={handleNearByPlacesFormChange}
+                  placeholder="Time (min) to the place of attraction"
+                  className="border p-2 rounded w-full mb-2"
+                  required
+                />
+                <button
+                  onClick={handleSaveNearByPlaces}
+                  className="px-4 py-2 rounded bg-blue-500 text-white bg-green-400"
+                >
+                  Add Near By Places
+                </button>
+              </div>
+              <button
+                onClick={() => setIsEditinguserNearByPlaces(false)}
+                className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+              >
+                Cancel
+              </button>
             </div>
-            <button
-              onClick={handlePricingSave}
-              className="px-4 py-2 bg-green-500 text-white rounded-md"
-            >
-              Save
-            </button>
-          </div>
-        </div>  </>
-) : (
-  <>
-    <div className="bg-white shadow-md rounded-lg p-4">
-      <div className="flex flex-row justify-between">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Pricings</h2>
-        <div className="mb-4">
-          <button
-            className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-            onClick={() => setIsEditingPricing(!isEditingPricing)}
-          >
-            {isEditingPricing ? "Cancel" : <MdEdit />}
-          </button>
+          ) : (
+            <div className="bg-white shadow-md rounded-lg p-4 mt-8">
+              <div className="flex flex-row justify-between">
+                <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                  Current Nearby Places
+                </h2>
+                <button
+                  className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                  onClick={() => setIsEditinguserNearByPlaces(true)}
+                >
+                  <MdEdit />
+                </button>
+              </div>
+              <ul className="list-disc list-inside space-y-2">
+                {userNearByPlaces.length > 1 ? (
+                  userNearByPlaces.map((place, index) => {
+                    const placeData = nearByPlaces.find(
+                      (s) => s.id === place.locationType
+                    );
+                    return placeData ? (
+                      <li key={index} className="text-gray-700">
+                        <span className="font-medium text-lg">
+                          {place.name}{" "}
+                        </span>
+                        <span className="text-sm text-black ">
+                          {" "}
+                          {placeData.name}
+                        </span>
+                        <span className="text-sm text-gray-600">
+                          {" "}
+                          ({place.distance} km)
+                        </span>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Distance:{" "}
+                          <span className="font-medium">
+                            {place.distance} km
+                          </span>
+                          , Time:{" "}
+                          <span className="font-medium">{place.time} mins</span>
+                        </div>
+                        <button
+                          onClick={() => handleDeleteNearByPlaces(index)}
+                          className="text-red-500 mt-2 focus:outline-none"
+                        >
+                          Delete
+                        </button>
+                      </li>
+                    ) : null;
+                  })
+                ) : userNearByPlaces.length === 1 ? (
+                  userNearByPlaces.map((place, index) => {
+                    const placeData = nearByPlaces.find(
+                      (s) => s.id === place.locationType
+                    );
+                    return placeData ? (
+                      <li key={index} className="text-gray-700">
+                        <span className="font-medium text-lg">
+                          {placeData.name}
+                        </span>
+                        <span className="text-sm text-gray-600">
+                          {" "}
+                          ({place.distance} km)
+                        </span>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Distance:{" "}
+                          <span className="font-medium">
+                            {place.distance} km
+                          </span>
+                          , Time:{" "}
+                          <span className="font-medium">{place.time} mins</span>
+                        </div>
+                        <button
+                          onClick={() => handleDeleteNearByPlaces(index)}
+                          className="text-red-500 mt-2 focus:outline-none"
+                        >
+                          Delete
+                        </button>
+                      </li>
+                    ) : null;
+                  })
+                ) : (
+                  <li className="text-gray-700">No nearby places added.</li>
+                )}
+              </ul>
+            </div>
+          )}
         </div>
-      </div>
-      <ul className="list-disc list-inside space-y-2">
-        <li>
-          <strong>Veg Plate Pricing:</strong> {pricing.vegPlatePricing || "Not Set"}
-        </li>
-        <li>
-          <strong>Non-Veg Plate Pricing:</strong> {pricing.nonvegPlatePricing || "Not Set"}
-        </li>
-      </ul>
-    </div>
-  </>
-)}
-
-
-
-
-
-{isEditingSpaces ? (
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Edit New Space</h2>
-          <div className="mb-2">
-            <input
-              type="text"
-              name="spaceName"
-              value={spaceForm.spaceName}
-              onChange={handleSpaceFormChange}
-              placeholder="Space Name"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <select
-              name="spaceType"
-              value={spaceForm.spaceType}
-              onChange={handleSpaceFormChange}
-              className="border p-2 rounded w-full mb-2"
-            >
-              <option value="">Select Space Type</option>
-              {spaces.map((space) => (
-                <option key={space.id} value={space.id}>
-                  {space.name}
-                </option>
-              ))}
-            </select>
-            <input
-              type="number"
-              name="floating"
-              value={spaceForm.floating}
-              onChange={handleSpaceFormChange}
-              placeholder="Floating Capacity"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <input
-              type="number"
-              name="sitting"
-              value={spaceForm.sitting}
-              onChange={handleSpaceFormChange}
-              placeholder="Sitting Capacity"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <button
-              onClick={handleAddSpace}
-              className="px-4 py-2 rounded bg-blue-500 text-black"
-            >
-              Edit Space
-            </button>
-          </div>
-          <button
-            onClick={handleSaveSpaces}
-            className="px-4 py-2 rounded bg-green-500 text-white mt-4"
-          >
-            Save Spaces
-          </button>
-          <button
-            onClick={() => setIsEditingSpaces(!isEditingSpaces)}
-            className="px-4 py-2 rounded bg-red-500 text-white mt-4"
-          >
-            Cancel
-          </button>
-        </div>
-      ) : (
-        <div className="bg-white shadow-md rounded-lg p-4 mt-8">
-          <div className="flex flex-row justify-between">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Spaces</h2>
-            <button
-              className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-              onClick={() => setIsEditingSpaces(!isEditingSpaces)}
-            >
-              {isEditingSpaces ? "Cancel" : <MdEdit />}
-            </button>
-          </div>
-          <ul className="list-disc list-inside space-y-2">
-            {userSpaces.length > 0 ? (
-              userSpaces.map((space, index) => {
-                const spaceData = spaces.find((s) => s.id === space.spaceType);
-                return spaceData ? (
-                  <li key={index} className="text-gray-700">
-                    <span className="font-medium text-lg">{space.spaceName}</span>
-                    <span className="text-sm text-gray-600"> ({spaceData.name})</span>
-                    <div className="text-sm text-gray-500 mt-1">
-                      Floating: <span className="font-medium">{space.floating}</span>, Sitting: <span className="font-medium">{space.sitting}</span>
-                    </div>
-                    <button
-                      onClick={() => handleDeleteSpace(index)}
-                      className="text-red-500 mt-2 focus:outline-none"
-                    >
-                      Delete
-                    </button>
-                  </li>
-                ) : null;
-              })
-            ) : (
-              <li className="text-gray-700">No spaces available</li>
-            )}
-          </ul>
-        </div>
-      )}
-
-
-
-<div className="mb-4 mt-4">
-      {isEditinguserNearByPlaces ? (
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Edit New Nearby Attractions</h2>
-          <div className="mb-2">
-            <select
-              name="locationType"
-              value={nearByPlacesForm.locationType}
-              onChange={handleNearByPlacesFormChange}
-              className="border p-2 rounded w-full mb-2"
-            >
-              <option value="">Select Space Type</option>
-              {nearByPlaces.map((space, index) => (
-                <option key={index} value={space.id}>
-                  {space.name}
-                </option>
-              ))}
-            </select>
-            <input
-              type="number"
-              name="distance"
-              value={nearByPlacesForm.distance}
-              onChange={handleNearByPlacesFormChange}
-              placeholder="Distance to the place of attraction"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <input
-              type="string"
-              name="name"
-              value={nearByPlacesForm.name}
-              onChange={handleNearByPlacesFormChange}
-              placeholder="Name of the place"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <input
-              type="number"
-              name="time"
-              value={nearByPlacesForm.time}
-              onChange={handleNearByPlacesFormChange}
-              placeholder="Time (min) to the place of attraction"
-              className="border p-2 rounded w-full mb-2"
-              required
-            />
-            <button
-              onClick={handleSaveNearByPlaces}
-              className="px-4 py-2 rounded bg-blue-500 text-white bg-green-400"
-            >
-              Add Near By Places
-            </button>
-          </div>
-          <button
-            onClick={() => setIsEditinguserNearByPlaces(false)}
-            className="px-4 py-2 rounded bg-red-500 text-white mt-4"
-          >
-            Cancel
-          </button>
-        </div>
-      ) : (
-        <div className="bg-white shadow-md rounded-lg p-4 mt-8">
-          <div className="flex flex-row justify-between">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Nearby Places</h2>
-            <button
-              className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-              onClick={() => setIsEditinguserNearByPlaces(true)}
-            >
-              <MdEdit />
-            </button>
-          </div>
-          <ul className="list-disc list-inside space-y-2">
-            {userNearByPlaces.length > 1 ? (
-              userNearByPlaces.map((place, index) => {
-                const placeData = nearByPlaces.find(
-                  (s) => s.id === place.locationType
-                );
-                return placeData ? (
-                  <li key={index} className="text-gray-700">
-                    <span className="font-medium text-lg">{place.name} </span>
-                    <span className="text-sm text-black "> {placeData.name}</span>
-                    <span className="text-sm text-gray-600"> ({place.distance} km)</span>
-                    <div className="text-sm text-gray-500 mt-1">
-                      Distance: <span className="font-medium">{place.distance} km</span>, Time:{" "}
-                      <span className="font-medium">{place.time} mins</span>
-                    </div>
-                    <button
-                      onClick={() => handleDeleteNearByPlaces(index)}
-                      className="text-red-500 mt-2 focus:outline-none"
-                    >
-                      Delete
-                    </button>
-                  </li>
-                ) : null;
-              })
-            ) : userNearByPlaces.length === 1 ? (
-              userNearByPlaces.map((place, index) => {
-                const placeData = nearByPlaces.find(
-                  (s) => s.id === place.locationType
-                );
-                return placeData ? (
-                  <li key={index} className="text-gray-700">
-                    <span className="font-medium text-lg">{placeData.name}</span>
-                    <span className="text-sm text-gray-600"> ({place.distance} km)</span>
-                    <div className="text-sm text-gray-500 mt-1">
-                      Distance: <span className="font-medium">{place.distance} km</span>, Time:{" "}
-                      <span className="font-medium">{place.time} mins</span>
-                    </div>
-                    <button
-                      onClick={() => handleDeleteNearByPlaces(index)}
-                      className="text-red-500 mt-2 focus:outline-none"
-                    >
-                      Delete
-                    </button>
-                  </li>
-                ) : null;
-              })
-            ) : (
-              <li className="text-gray-700">No nearby places added.</li>
-            )}
-          </ul>
-        </div>
-      )}
-    </div>
-
-
-
-
-
-
-
-
-
       </div>
       <div className=" md:px-10 p-4 max-w-xl">
         {isEditingFacilities ? (
@@ -825,7 +862,7 @@ const VenueVendorPage = () => {
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4  ">
+          <div className="bg-white shadow-md rounded-lg p-4">
             <div className="flex flex-row justify-between   ">
               {" "}
               <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
@@ -853,10 +890,6 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
-
-
-
-
 
       <div className=" md:px-10 p-4 max-w-xl">
         {/* <ToastContainer /> */}
@@ -922,8 +955,6 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
-
-
 
       <div className=" md:px-10 p-4 max-w-xl">
         {isEditingSafetyAndSecurity ? (
@@ -1050,8 +1081,6 @@ const VenueVendorPage = () => {
           </div>
         )}
       </div>
-
-
 
       <Space50px />
     </div>

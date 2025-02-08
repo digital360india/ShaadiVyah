@@ -19,6 +19,7 @@ import ContactUsPhoto from "@/components/ContactUsPhoto";
 import { MdOutlineStar } from "react-icons/md";
 import PhotographerVendorCard from "@/components/PhotographerVendorCard";
 import Image from "next/image";
+import { Router } from "next/navigation";
 
 const Page = () => {
   const [data, setData] = useState([]);
@@ -120,7 +121,7 @@ const Page = () => {
     return text;
   };
   const handleSearch = (selectedLocation) => {
-    router.push(`/search/${selectedLocation}/Photographers`);
+    Router.push(`/search/${selectedLocation}/Photographers`);
   };
   const sliderwedding = {
     dots: false,
@@ -178,6 +179,13 @@ const Page = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
+      {
+        breakpoint: 2000, // xl
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 1450, // xl
         settings: {
@@ -388,7 +396,7 @@ const Page = () => {
                   <Link
                     href={`/photographersvendor/${arr.uid}`}
                     key={index}
-                    className=" rounded min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
+                    className=" rounded min-h-[550px] w-full px-2 "
                   >
                     <PhotographerVendorCard vendor={arr} />
                   </Link>
@@ -426,6 +434,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <Space25px />
       <Space50px />
 
       <ContactUsPhoto />

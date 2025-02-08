@@ -16,7 +16,7 @@ const PhotographerVendorCard = ({ vendor, index }) => {
       className="py-4 md:px-1 px-2 "
     >
       <div
-        className="bg-white rounded  lg:h-[460px] lg:w-[398px] h-[450px]"
+        className="bg-white roundedlg:h-[500px] lg:w-[398px] h-[480px] "
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
@@ -28,9 +28,9 @@ const PhotographerVendorCard = ({ vendor, index }) => {
           alt={vendor.businessName}
           className="w-full h-60 object-cover "
         />
-        <div className="px-6 py-4">
+        <div className="px-6 py-10">
           <div className="flex justify-between items-center h-[30px]">
-            <h3 className="lg:text-xl text-blue font-semibold mb-2">
+            <h3 className="lg:text-[20px] text-blue font-semibold mb-2">
               {vendor.businessName}
             </h3>
             <div className="flex justify-end items-center mb-2 gap-0">
@@ -42,7 +42,7 @@ const PhotographerVendorCard = ({ vendor, index }) => {
               </p>
             </div>
           </div>
-          <div className="flex justify-start gap-2">
+          <div className="flex justify-start gap-2 py-3">
             <img src="/icons/locationred.svg" alt="Location Icon" />
             <p className="text-[14px] text-[#666666]">
               {vendor.city ? vendor.city : "Not Specified"}

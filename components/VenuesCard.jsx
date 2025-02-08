@@ -17,7 +17,7 @@ const VenueCard = ({ arr, index }) => {
       className="md:px-1 px-2 "
     >
       <div
-        className="bg-white rounded  lg:h-[450px] lg:w-[398px] h-[420px] gap-8"
+        className="bg-white rounded  lg:h-[460px] lg:w-[398px] h-[460px] gap-8"
         style={{
           borderWidth: "3px",
           borderStyle: "solid",
@@ -29,9 +29,9 @@ const VenueCard = ({ arr, index }) => {
           alt={arr.businessName}
           className="w-full h-60 object-cover"
         />
-        <div className="px-6 py-4">
+        <div className="px-6 py-10">
           <div className="flex justify-between items-center h-[30px]">
-            <h3 className="lg:text-xl text-blue font-semibold mb-2">
+            <h3 className="lg:text-[24px] text-blue font-semibold mb-2">
               {arr.businessName}
             </h3>
             <div className="flex justify-end items-center mb-2 gap-0">
@@ -43,7 +43,7 @@ const VenueCard = ({ arr, index }) => {
               </p>
             </div>
           </div>
-          <div className="flex justify-start gap-2">
+          <div className="flex justify-start gap-2 py-3">
             <img src="/icons/locationred.svg" alt="Location Icon" />
             <p className="text-[14px] text-[#666666]">
               {arr.city ? arr.city : "Not Specified"}
