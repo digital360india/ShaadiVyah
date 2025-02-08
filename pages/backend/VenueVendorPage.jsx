@@ -662,7 +662,7 @@ const VenueVendorPage = () => {
                       </span>
                       <button
                         onClick={() => handleDeleteSpace(index)}
-                        className="text-red-500 mt-2 focus:outline-none"
+                        className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px]"
                       >
                         Delete
                       </button>
