@@ -436,7 +436,7 @@ const VenueVendorPage = () => {
                   value={amenity.id}
                   checked={userAmenities.includes(amenity.id)}
                   onChange={handleAmenityChange}
-                  className="mr-2"
+                  className="mr-2 "
                 />
                 <label htmlFor={amenity.id}>{amenity.amenityName}</label>
               </div>
@@ -465,12 +465,20 @@ const VenueVendorPage = () => {
                 </button>
               </div>
             </div>
-            <ul className="list-disc list-inside space-y-2 ">
+            <ul className="space-y-2">
               {userAmenities.map((amenityId) => {
                 const amenity = amenities.find((a) => a.id === amenityId);
                 return amenity ? (
-                  <li key={amenityId} className="text-[#9B1B52]">
-                    {amenity.amenityName}
+                  <li
+                    key={amenityId}
+                    className="flex items-center space-x-4 text-[#9B1B52]"
+                  >
+                    <img
+                      src="/images/mandlart.svg"
+                      alt="icon"
+                      className="w-6 h-6"
+                    />
+                    <span>{amenity.amenityName}</span>
                   </li>
                 ) : null;
               })}
@@ -547,11 +555,21 @@ const VenueVendorPage = () => {
                 </div>
               </div>
               <ul className="list-disc list-inside space-y-2">
-                <li>
+                <li className="list-none flex space-x-4">
+                  <img
+                    src="/images/mandlart.svg"
+                    alt="icon"
+                    className="w-6 h-6"
+                  />
                   <strong>Veg Plate Pricing:</strong>{" "}
                   {pricing.vegPlatePricing || "Not Set"}
                 </li>
-                <li>
+                <li className="list-none flex space-x-4">
+                  <img
+                    src="/images/mandlart.svg"
+                    alt="icon"
+                    className="w-6 h-6"
+                  />
                   <strong>Non-Veg Plate Pricing:</strong>{" "}
                   {pricing.nonvegPlatePricing || "Not Set"}
                 </li>
@@ -652,25 +670,38 @@ const VenueVendorPage = () => {
                     (s) => s.id === space.spaceType
                   );
                   return spaceData ? (
-                    <li key={index} className="text-[#9B1B52] space-x-4">
-                      <span className="font-medium text-lg">
-                        {space.spaceName}
-                      </span>
-                      <span className="text-sm text-gray-600">
-                        {" "}
-                        ({spaceData.name})
-                      </span>
-                      <button
-                        onClick={() => handleDeleteSpace(index)}
-                        className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px]"
-                      >
-                        Delete
-                      </button>
-                      <div className="text-sm text-gray-500 mt-1">
-                        Floating:{" "}
-                        <span className="font-medium">{space.floating}</span>,
-                        Sitting:{" "}
-                        <span className="font-medium">{space.sitting}</span>
+                    <li
+                      key={index}
+                      className="text-[#9B1B52] space-x-8 list-none flex "
+                    >
+                      <div className="space-x-4">
+                        <img
+                          src="/images/mandlart.svg"
+                          alt="icon"
+                          className="w-6 h- pt-4"
+                        />
+                      </div>
+
+                      <div>
+                        <span className="font-medium text-lg">
+                          {space.spaceName}
+                        </span>
+                        <span className="text-sm text-gray-600">
+                          {" "}
+                          ({spaceData.name})
+                        </span>
+                        <button
+                          onClick={() => handleDeleteSpace(index)}
+                          className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px]"
+                        >
+                          Delete
+                        </button>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Floating:{" "}
+                          <span className="font-medium">{space.floating}</span>,
+                          Sitting:{" "}
+                          <span className="font-medium">{space.sitting}</span>
+                        </div>
                       </div>
                     </li>
                   ) : null;
