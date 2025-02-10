@@ -29,6 +29,7 @@ const VenueVendorPage = () => {
   const [userSpaces, setUserSpaces] = useState([]);
   const [isEditingSpaces, setIsEditingSpaces] = useState(false);
   const [isEditingPricing, setIsEditingPricing] = useState(false);
+  
   const [pricing, setPricing] = useState({
     vegPlatePricing: "",
     nonvegPlatePricing: "",
@@ -416,8 +417,8 @@ const VenueVendorPage = () => {
     setNearByPlacesForm({ name: "", time: "", distance: "", locationType: "" });
   };
   return (
-    <div>
-      <div className="  md:px-10 p-4   bg-[url('/images/dashbg1.svg')] w-full">
+    <div className="bg-[url('/images/dashbg1.svg')] w-full">
+      <div className="  md:px-10 p-4   ">
         {/* <ToastContainer /> */}
 
         {isEditing ? (
@@ -443,7 +444,9 @@ const VenueVendorPage = () => {
             ))}
             <button
               onClick={handleSaveAmenities}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+              className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
             >
               Save
             </button>
@@ -465,13 +468,13 @@ const VenueVendorPage = () => {
                 </button>
               </div>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {userAmenities.map((amenityId) => {
                 const amenity = amenities.find((a) => a.id === amenityId);
                 return amenity ? (
                   <li
                     key={amenityId}
-                    className="flex items-center space-x-4 text-[#9B1B52]"
+                    className="flex items-center space-x-5 text-[#9B1B52]"
                   >
                     <img
                       src="/images/mandlart.svg"
@@ -487,19 +490,11 @@ const VenueVendorPage = () => {
         )}
         {isEditingPricing ? (
           <>
-            <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4">
+            <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 mt-10">
               <div className="flex flex-row justify-between">
                 <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
                   Edit Pricings
                 </h2>
-                <div className="mb-4">
-                  <button
-                    className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
-                    onClick={() => setIsEditing(false)}
-                  >
-                    Cancel
-                  </button>
-                </div>
               </div>
               <div className="space-y-4">
                 <div>
@@ -526,12 +521,23 @@ const VenueVendorPage = () => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   />
                 </div>
-                <button
-                  onClick={handlePricingSave}
-                  className="px-4 py-2 bg-green-500 text-white rounded-md"
-                >
-                  Save
-                </button>
+                <div className="mb-4 space-x-5">
+                  <button
+                    onClick={handlePricingSave}
+                    className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+                  bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+                  hover:opacity-90 transition"
+                  >
+                    Save
+                  </button>
+
+                  {/* <button
+                    className="px-4 py-2 rounded bg-blue-500 text-[#9B1B52] mb-4 border border-[#A11C5C]"
+                    onClick={() => setIsEditing(false)}
+                  >
+                    Cancel
+                  </button> */}
+                </div>
               </div>
             </div>{" "}
           </>
@@ -554,8 +560,8 @@ const VenueVendorPage = () => {
                   </button>
                 </div>
               </div>
-              <ul className="list-disc list-inside space-y-2">
-                <li className="list-none flex space-x-4">
+              <ul className="list-disc list-inside space-y-6">
+                <li className="list-none flex space-x-4 ">
                   <img
                     src="/images/mandlart.svg"
                     alt="icon"
@@ -663,7 +669,7 @@ const VenueVendorPage = () => {
                 {isEditingSpaces ? "Cancel" : <MdEdit />}
               </button>
             </div>
-            <ul className="list-disc list-inside space-y-2 ">
+            <ul className="list-disc list-inside space-y-4  ">
               {userSpaces.length > 0 ? (
                 userSpaces.map((space, index) => {
                   const spaceData = spaces.find(
@@ -672,7 +678,7 @@ const VenueVendorPage = () => {
                   return spaceData ? (
                     <li
                       key={index}
-                      className="text-[#9B1B52] space-x-8 list-none flex "
+                      className="text-[#9B1B52] space-x-6 list-none flex"
                     >
                       <div className="space-x-4">
                         <img
@@ -682,7 +688,7 @@ const VenueVendorPage = () => {
                         />
                       </div>
 
-                      <div>
+                      <div className="space-x-4 mt-3">
                         <span className="font-medium text-lg">
                           {space.spaceName}
                         </span>
@@ -691,11 +697,20 @@ const VenueVendorPage = () => {
                           ({spaceData.name})
                         </span>
                         <button
-                          onClick={() => handleDeleteSpace(index)}
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                "Are you sure you want to delete this?"
+                              )
+                            ) {
+                              handleDeleteSpace(index);
+                            }
+                          }}
                           className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px]"
                         >
                           Delete
                         </button>
+
                         <div className="text-sm text-gray-500 mt-1">
                           Floating:{" "}
                           <span className="font-medium">{space.floating}</span>,
@@ -716,7 +731,7 @@ const VenueVendorPage = () => {
         <div className="mb-4 mt-4">
           {isEditinguserNearByPlaces ? (
             <div>
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="text-[24px] font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
                 Edit New Nearby Attractions
               </h2>
               <div className="mb-2">
@@ -762,24 +777,27 @@ const VenueVendorPage = () => {
                 />
                 <button
                   onClick={handleSaveNearByPlaces}
-                  className="px-4 py-2 rounded bg-blue-500 text-white bg-green-400"
+                  className="px-4 py-2 rounded bg-blue-500  bg-white text-[#9B1B52] border border-[#A11C5C]"
                 >
                   Add Near By Places
                 </button>
               </div>
               <button
                 onClick={() => setIsEditinguserNearByPlaces(false)}
-                className="px-4 py-2 rounded bg-red-500 text-white mt-4"
+                className="px-4 py-2 rounded bg-white text-[#9B1B52] mt-4 border border-[#A11C5C]"
               >
                 Cancel
               </button>
             </div>
           ) : (
-            <div className="bg-white shadow-md rounded-lg p-4 mt-8">
+            <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 mt-8">
               <div className="flex flex-row justify-between">
-                <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
                   Current Nearby Places
                 </h2>
+
+                <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
+
                 <button
                   className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
                   onClick={() => setIsEditinguserNearByPlaces(true)}
@@ -787,39 +805,64 @@ const VenueVendorPage = () => {
                   <MdEdit />
                 </button>
               </div>
-              <ul className="list-disc list-inside space-y-2">
+              <ul className="list-disc list-inside space-y-2 font-Merriweather ">
                 {userNearByPlaces.length > 1 ? (
                   userNearByPlaces.map((place, index) => {
                     const placeData = nearByPlaces.find(
                       (s) => s.id === place.locationType
                     );
                     return placeData ? (
-                      <li key={index} className="text-gray-700">
-                        <span className="font-medium text-lg">
-                          {place.name}{" "}
-                        </span>
-                        <span className="text-sm text-black ">
-                          {" "}
-                          {placeData.name}
-                        </span>
-                        <span className="text-sm text-gray-600">
-                          {" "}
-                          ({place.distance} km)
-                        </span>
-                        <div className="text-sm text-gray-500 mt-1">
-                          Distance:{" "}
-                          <span className="font-medium">
-                            {place.distance} km
-                          </span>
-                          , Time:{" "}
-                          <span className="font-medium">{place.time} mins</span>
+                      <li
+                        key={index}
+                        className="text-[#9B1B52] list-none flex space-x-5"
+                      >
+                        <div className="space-x-4">
+                          <img
+                            src="/images/mandlart.svg"
+                            alt="icon"
+                            className="w-6 h- pt-4"
+                          />
                         </div>
-                        <button
-                          onClick={() => handleDeleteNearByPlaces(index)}
-                          className="text-red-500 mt-2 focus:outline-none"
-                        >
-                          Delete
-                        </button>
+
+                        <div className="mt-3 space-x-4">
+                          <span className="font-medium text-lg">
+                            {place.name}{" "}
+                          </span>
+                          <span className="text-sm text-gray-600 ">
+                            {" "}
+                            {placeData.name}
+                          </span>
+                          <span className="text-sm text-gray-600">
+                            {" "}
+                            ({place.distance} km)
+                          </span>
+                          <div className="text-sm text-gray-500 mt-1">
+                            Distance:{" "}
+                            <span className="font-medium">
+                              {place.distance} km
+                            </span>
+                            , Time:{" "}
+                            <span className="font-medium">
+                              {place.time} mins
+                            </span>
+                          </div>
+                        </div>
+                        <div className="p-1">
+                          <button
+                            onClick={() => {
+                              if (
+                                window.confirm(
+                                  "Are you sure you want to delete this?"
+                                )
+                              ) {
+                                handleDeleteNearByPlaces(index);
+                              }
+                            }}
+                            className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px] mt-2"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </li>
                     ) : null;
                   })
@@ -846,11 +889,19 @@ const VenueVendorPage = () => {
                           <span className="font-medium">{place.time} mins</span>
                         </div>
                         <button
-                          onClick={() => handleDeleteNearByPlaces(index)}
-                          className="text-red-500 mt-2 focus:outline-none"
-                        >
-                          Delete
-                        </button>
+                            onClick={() => {
+                              if (
+                                window.confirm(
+                                  "Are you sure you want to delete this?"
+                                )
+                              ) {
+                                handleDeleteNearByPlaces(index);
+                              }
+                            }}
+                            className="p-1 px-2 rounded-lg text-[#A11C5C] border border-[#A11C5C] text-[12px] mt-2"
+                          >
+                            Delete
+                          </button>
                       </li>
                     ) : null;
                   })
@@ -862,17 +913,17 @@ const VenueVendorPage = () => {
           )}
         </div>
       </div>
-      <div className=" md:px-10 p-4 max-w-xl">
+      <div className=" md:px-10 p-4 ">
         {isEditingFacilities ? (
           <div className="px-10">
-            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+            <p className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
               Edit New Facilities
             </p>
 
             {facilities.map((facility) => (
               <div
                 key={facility.id}
-                className="flex items-center mb-4 text-black  "
+                className="flex items-center mb-4 text-[#9B1B52] font-Merriweather"
               >
                 <input
                   type="checkbox"
@@ -887,18 +938,21 @@ const VenueVendorPage = () => {
             ))}
             <button
               onClick={handleSaveFacilities}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
+              className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
             >
               Save
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4">
-            <div className="flex flex-row justify-between   ">
+          <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 w-full font-Merriweather">
+            <div className="flex flex-row justify-between w-full   ">
               {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather pt-1 px-1">
                 Current Facilities
               </h2>{" "}
+              <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
               <div className="mb-4 pt-4">
                 <button
                   className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -908,12 +962,22 @@ const VenueVendorPage = () => {
                 </button>
               </div>
             </div>
-            <ul className="list-disc list-inside space-y-2">
+            <ul className="list-disc list-inside space-y-2  ">
               {userFacilities.map((facilityId) => {
                 const facility = facilities.find((f) => f.id === facilityId);
                 return facility ? (
-                  <li key={facilityId} className="text-gray-700">
-                    {facility.name}
+                  <li
+                    key={facilityId}
+                    className=" list-none text-[#9B1B52] flex space-x-6"
+                  >
+                    <div className="space-x-4">
+                      <img
+                        src="/images/mandlart.svg"
+                        alt="icon"
+                        className="w-6 h- pt-4"
+                      />
+                    </div>
+                    <div className="mt-4">{facility.name}</div>
                   </li>
                 ) : null;
               })}
@@ -922,18 +986,18 @@ const VenueVendorPage = () => {
         )}
       </div>
 
-      <div className=" md:px-10 p-4 max-w-xl">
+      <div className=" md:px-10 p-4 bg-[#FFF4E8]  ">
         {/* <ToastContainer /> */}
 
         {isEditingAdditionalServices ? (
-          <div className="px-10">
-            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+          <div className="px-10 font-Merriweather">
+            <p className="text-xl font-semibold mb-4  text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
               Edit New Services
             </p>
             {additionalServices.map((service) => (
               <div
                 key={service.id}
-                className="flex items-center mb-4 text-black "
+                className="flex items-center mb-4 text-[#9B1B52]"
               >
                 <input
                   type="checkbox"
@@ -948,18 +1012,21 @@ const VenueVendorPage = () => {
             ))}
             <button
               onClick={handleSaveAdditionalServices}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
+              className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
             >
               Save
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4 ">
+          <div className="bg-[#FFF4E8]  shadow-md rounded-lg p-4 w-full font-Merriweather">
             <div className="flex flex-row justify-between">
               {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather pt-1 px-1">
                 Additional Services
               </h2>{" "}
+              <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
               <div className="mb-4 pt-4">
                 <button
                   className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -971,14 +1038,24 @@ const VenueVendorPage = () => {
                 </button>
               </div>
             </div>
-            <ul className="list-disc list-inside space-y-2">
+            <ul className="list-disc list-inside space-y-2 ">
               {userAdditionalServices.map((serviceId) => {
                 const service = additionalServices.find(
                   (s) => s.id === serviceId
                 );
                 return service ? (
-                  <li key={serviceId} className="text-gray-700">
-                    {service.name}
+                  <li
+                    key={serviceId}
+                    className="text-[#9B1B52] list-none flex space-x-5"
+                  >
+                    <div className="space-x-4">
+                      <img
+                        src="/images/mandlart.svg"
+                        alt="icon"
+                        className="w-6 h- pt-4"
+                      />
+                    </div>
+                    <div className="mt-4">{service.name}</div>
                   </li>
                 ) : null;
               })}
@@ -987,16 +1064,16 @@ const VenueVendorPage = () => {
         )}
       </div>
 
-      <div className=" md:px-10 p-4 max-w-xl">
+      <div className=" md:px-10 p-4 bg-[#FFF4E8] font-Merriweather">
         {isEditingSafetyAndSecurity ? (
           <div className="px-10">
-            <p className="text-xl font-semibold mb-4 text-gray-800 ">
+            <p className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
               Edit New Options
             </p>
             {safetyAndSecurityOptions.map((option) => (
               <div
                 key={option.id}
-                className="flex items-center mb-4 text-black"
+                className="flex items-center mb-4 text-[#9B1B52]"
               >
                 <input
                   type="checkbox"
@@ -1011,21 +1088,24 @@ const VenueVendorPage = () => {
             ))}
             <button
               onClick={handleSaveSafetyAndSecurityOptions}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-2 mb-10"
+              className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
             >
               Save
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4 ">
+          <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4 font-Merriweather">
             <div className="flex flex-row justify-between">
               {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800 pt-1 px-1">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather pt-1 px-1">
                 Safety and Security Options
               </h2>{" "}
+              <hr className="w-[60%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
               <div className="mb-4 pt-4">
                 <button
-                  className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
+                  className="px-4 py-2 rounded bg-blue-500 text-[#9B1B52] mb-4"
                   onClick={() =>
                     setIsEditingSafetyAndSecurity(!isEditingSafetyAndSecurity)
                   }
@@ -1040,8 +1120,18 @@ const VenueVendorPage = () => {
                   (o) => o.id === optionId
                 );
                 return option ? (
-                  <li key={optionId} className="text-gray-700">
-                    {option.name}
+                  <li
+                    key={optionId}
+                    className="text-[#9B1B52] list-none flex space-x-5"
+                  >
+                    <div className="space-x-4">
+                      <img
+                        src="/images/mandlart.svg"
+                        alt="icon"
+                        className="w-6 h- pt-4"
+                      />
+                    </div>
+                    <div className="mt-4">{option.name}</div>
                   </li>
                 ) : null;
               })}
@@ -1053,13 +1143,13 @@ const VenueVendorPage = () => {
 
         {isEditingAccessibility ? (
           <div>
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+            <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
               Edit Accessibility Options
             </h2>{" "}
             {accessibilityOptions.map((option) => (
               <div
                 key={option.id}
-                className="flex items-center mb-10 text-black"
+                className="flex items-center mb-10 text-[#9B1B52]"
               >
                 <input
                   type="checkbox"
@@ -1074,18 +1164,21 @@ const VenueVendorPage = () => {
             ))}
             <button
               onClick={handleSaveAccessibilityOptions}
-              className="px-4 py-2 rounded bg-green-500 text-white mt-4"
+              className="px-6 py-3 rounded-lg text-white font-semibold mt-4 shadow-md 
+              bg-[radial-gradient(50%_50%_at_50%_50%,_#DD0D63_0%,_#A11C5C_100%)] 
+              hover:opacity-90 transition"
             >
               Save
             </button>
           </div>
         ) : (
-          <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="bg-[#FFF4E8] shadow-md rounded-lg p-4">
             <div className="flex flex-row justify-between">
               {" "}
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              <h2 className="text-[24px] font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
                 Accessibility Options
               </h2>{" "}
+              <hr className="w-[70%] border-0 h-[1px] bg-gradient-to-r from-[#BE7318] to-[#EED68A] mt-4" />
               <div className="mb-4">
                 <button
                   className="px-4 py-2 rounded bg-blue-500 text-black mb-4"
@@ -1103,8 +1196,15 @@ const VenueVendorPage = () => {
                   (o) => o.id === optionId
                 );
                 return option ? (
-                  <li key={optionId} className="text-gray-700">
-                    {option.name}
+                  <li key={optionId} className="text-[#9B1B52] flex space-x-5">
+                    <div className="space-x-4">
+                      <img
+                        src="/images/mandlart.svg"
+                        alt="icon"
+                        className="w-6 h- pt-4"
+                      />
+                    </div>
+                    <div className="mt-4">{option.name}</div>
                   </li>
                 ) : null;
               })}
