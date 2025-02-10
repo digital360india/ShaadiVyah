@@ -8,6 +8,20 @@ const BiddingCards = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [date, setDate] = useState("");
+  const [destination, setDestination] = useState("");
+  const [budget, setBudget] = useState("");
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+
+  const allFieldsFilled =
+    date !== "" &&
+    destination.trim() !== "" &&
+    budget.trim() !== "" &&
+    name.trim() !== "" &&
+    number.trim() !== "" &&
+    selectedFields.length > 0;
+
   const fieldsOptions = [
     "Venue",
     "Photographers",
@@ -74,25 +88,24 @@ const BiddingCards = () => {
         setIsDropdownOpen(false);
       }
     };
-  
+
     document.addEventListener("mousedown", handleClickOutside);
-  
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [formRef]); // Ensure formRef is in the dependency array
+  }, [formRef]);
 
   return (
     <div className="overflow-hidden">
       <div className=" flex justify-between p-10 ">
         <div className="px-10">
-
-        <p className="text-[#A11C5C] text-2xl font-bold">
-          Let us know your Plan.....
-        </p>
-        <p className="text-[#A11C5C] text-md mb-20">
-          (Fill up the cards below and let us know your query)
-        </p>
+          <p className="text-[#A11C5C] text-2xl font-bold">
+            Let us know your Plan.....
+          </p>
+          <p className="text-[#A11C5C] text-md mb-20">
+            (Fill up the cards below and let us know your query)
+          </p>
         </div>
         <div>
           <Blink />
@@ -132,6 +145,8 @@ const BiddingCards = () => {
                           <div className="w-[292px] h-[41px] border rounded-lg mt-3 shadow-custom-inset">
                             <input
                               type="text"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
                               placeholder="Your Name"
                               className="w-full h-full bg-transparent px-4 outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 rounded-lg"
                             />
@@ -141,12 +156,17 @@ const BiddingCards = () => {
                           <div className="w-[292px] h-[41px] border rounded-lg mt-3 shadow-custom-inset">
                             <input
                               type="number"
+                              value={number}
+                              onChange={(e) => setNumber(e.target.value)}
                               placeholder="Your Number"
                               className="w-full h-full bg-transparent px-4 outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 rounded-lg no-spinner"
                             />
                           </div>
 
-                          <div ref={formRef} className=" mt-4 relative w-[292px] h-[35px]">
+                          <div
+                            ref={formRef}
+                            className=" mt-4 relative w-[292px] h-[35px]"
+                          >
                             <label className="block mb-2 font-semibold text-[#FFE3BE]">
                               Services
                             </label>
@@ -218,6 +238,19 @@ const BiddingCards = () => {
                         <div className="w-[200px] h-[40px] border rounded-lg mt-3 shadow-custom-inset">
                           <input
                             type={card.inputType}
+                            value={
+                              index === 0
+                                ? date
+                                : index === 1
+                                ? destination
+                                : budget
+                            }
+                            onChange={(e) => {
+                              if (index === 0) setDate(e.target.value);
+                              else if (index === 1)
+                                setDestination(e.target.value);
+                              else if (index === 2) setBudget(e.target.value);
+                            }}
                             placeholder={card.placeholder}
                             className="w-full h-full bg-transparent text-center px-4 outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 rounded-lg no-spinner custom-date-input"
                           />
@@ -228,7 +261,7 @@ const BiddingCards = () => {
                 </div>
               );
             })}
-            <div className="flex justify-center items-center z-10 -bottom-[350px]   absolute gap-10 text-[#CA8B00]">
+            <div className="flex justify-center items-center z-10 -bottom-[350px]   absolute space-x-7 text-[#CA8B00]">
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
@@ -260,6 +293,24 @@ const BiddingCards = () => {
                   </button>
                 </>
               )}
+              <div className="relative group">
+                <button
+                  type="submit"
+                  className="px-5 py-2 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    background:
+                      "radial-gradient(50.16% 263.7% at 49.84% 51.98%, #DD0D63 0%, #800F45 100%)",
+                  }}
+                  disabled={!allFieldsFilled}
+                >
+                  Submit
+                </button>
+                {!allFieldsFilled && (
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-white bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                    Kindly fill all the details of bidding card
+                  </div>
+                )}
+              </div>
 
               {currentIndex < cards.length - 1 ? (
                 <button
