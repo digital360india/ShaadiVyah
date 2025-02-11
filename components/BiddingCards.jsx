@@ -2,6 +2,9 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Blink from "./Blink";
+import { db } from "@/firebase/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import axios from "axios";
 
 const BiddingCards = () => {
   const [selectedFields, setSelectedFields] = useState([]);
@@ -96,6 +99,35 @@ const BiddingCards = () => {
     };
   }, [formRef]);
 
+  const handleBiddingCard = async () => {
+   
+    const formData = {
+      date,
+      destination,
+      budget,
+      name,
+      number,
+      selectedFields,
+    };
+    try {
+      const response = await axios.post("/api/add-lead", formData);
+
+      if (response.status === 200) {
+        alert("Form Submitted Successfully!");
+        setDate("");
+        setDestination("");
+        setBudget("");
+        setName("");
+        setNumber("");
+        setSelectedFields([]);
+      } else {
+        alert("Something went wrong! Please try again!");
+      }
+    } catch (error) {
+      console.error("Error in API Call:", error);
+      alert("Error: " + error.message);
+    }
+  };
   return (
     <div className="overflow-hidden">
       <div className=" flex justify-between p-10 ">
@@ -295,7 +327,7 @@ const BiddingCards = () => {
               )}
               <div className="relative group">
                 <button
-                  type="submit"
+                  onClick={handleBiddingCard}
                   className="px-5 py-2 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
                     background:
