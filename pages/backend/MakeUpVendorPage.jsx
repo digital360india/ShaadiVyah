@@ -60,10 +60,10 @@ const MakeUpVendorPage = () => {
   }, [uid]);
 
   const handleChange = (event) => {
-    const { name, value, type } = event.target;
+    const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? event.target.checked : value,
+      [name]: value === "true", 
     }));
   };
   const handleServicesChange = (e) => {
@@ -187,10 +187,10 @@ const MakeUpVendorPage = () => {
                     onChange={handleChange}
                     className="block w-full p-3 border border-gray-300 bg-white "
                   >
-                    <option value="yes" className="bg-white">
+                    <option value="true" className="bg-white">
                       Yes
                     </option>
-                    <option value="no" className="bg-white">
+                    <option value="false" className="bg-white">
                       No
                     </option>
                   </select>
@@ -201,7 +201,7 @@ const MakeUpVendorPage = () => {
                     className="block text-[#9B1B52] font-medium"
                     htmlFor="advancePayment"
                   >
-                    Advance payment (%)
+                    Advance payment(%){" "}
                   </label>
                   <input
                     type="number"
@@ -227,10 +227,10 @@ const MakeUpVendorPage = () => {
                     onChange={handleChange}
                     className="block w-full p-3 border border-gray-300 bg-white"
                   >
-                    <option value="yes" className="bg-white">
+                    <option value="true" className="bg-white">
                       Yes
                     </option>
-                    <option value="no" className="bg-white">
+                    <option value="false" className="bg-white">
                       No
                     </option>
                   </select>
@@ -388,7 +388,7 @@ const MakeUpVendorPage = () => {
                     className="block text-[#9B1B52] font-medium"
                     htmlFor="advancePayment"
                   >
-                    Advance Payment
+                    Advance Payment(%){" "}
                   </label>
                   <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm text-gray-700">
                     {formData.pricePerFunction ? (
@@ -407,7 +407,7 @@ const MakeUpVendorPage = () => {
                   </label>
                   <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm text-gray-700">
                     {formData.outstationTravelCovered !== undefined ? (
-                      formData.outstationTravelCovered ? (
+                      formData.outstationTravelCovered  ? (
                         <span className="text-green-500">Yes</span>
                       ) : (
                         <span className="text-red-500">No</span>
@@ -420,6 +420,26 @@ const MakeUpVendorPage = () => {
                     )}
                   </span>
                 </div>
+               
+                <div className="mb-4">
+                  <label
+                    className="block text-[#9B1B52] font-medium"
+                    htmlFor="engagementMakeupCharge"
+                  >
+                    Engagement makeup charge
+                    
+                  </label>
+                  <span className="block p-3  bg-gray-100 border border-gray-300 mt-1  rounded shadow-sm text-gray-700">
+                    {formData.engagementMakeupCharge ? (
+                      formData.engagementMakeupCharge
+                    ) : (
+                      <span className="text-gray-300">
+                        Makeup Per Family Member
+                      </span>
+                    )}
+                  </span>
+                </div>
+
 
                 <div className="mb-4">
                   <label
@@ -455,7 +475,7 @@ const MakeUpVendorPage = () => {
                     )}
                   </span>
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                   <label
                     className="block text-[#9B1B52] font-medium"
                     htmlFor="makeupPerFamilyMember"
@@ -471,7 +491,7 @@ const MakeUpVendorPage = () => {
                       </span>
                     )}
                   </span>
-                </div>
+                </div> */}
               </div>
               <div className="flex justify-end">
                 <button

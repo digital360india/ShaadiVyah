@@ -35,10 +35,11 @@ const MehndiVendorPage = () => {
   }, [uid]);
 
   const handleChange = (event) => {
-    const { name, value, type } = event.target;
+    const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? event.target.checked : value,
+      [name]: value === "true", 
+
     }));
   };
 
@@ -129,10 +130,10 @@ const MehndiVendorPage = () => {
                     onChange={handleChange}
                     className=" w-full p-3 border border-gray-300 rounded-md bg-white "
                   >
-                    <option value="yes" className="bg-white">
+                    <option value="true" className="bg-white">
                       Yes
                     </option>
-                    <option value="no" className="bg-white">
+                    <option value="false" className="bg-white">
                       No
                     </option>
                   </select>
@@ -170,10 +171,10 @@ const MehndiVendorPage = () => {
                     onChange={handleChange}
                     className="block w-full p-3 border border-gray-300 rounded-md bg-white "
                   >
-                    <option value="yes" className="bg-white">
+                    <option value="true" className="bg-white">
                       Yes
                     </option>
-                    <option value="no" className="bg-white">
+                    <option value="false" className="bg-white">
                       No
                     </option>
                   </select>
