@@ -63,9 +63,10 @@ const MakeUpVendorPage = () => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value === "true", 
+      [name]: value === "true" || value === "false" ? value === "true" : value,
     }));
   };
+ 
   const handleServicesChange = (e) => {
     const { value, checked } = e.target;
     setUserServices((prev) =>

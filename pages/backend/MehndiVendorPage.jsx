@@ -38,7 +38,7 @@ const MehndiVendorPage = () => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value === "true", 
+      [name]: value === "true" || value === "false" ? value === "true" : value,
 
     }));
   };
