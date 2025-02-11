@@ -78,7 +78,7 @@ const PhotographerVendorPage = () => {
     const { name, value, type } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? event.target.checked : value,
+      [name]: value === "true" || value === "false" ? value === "true" : value,
     }));
   };
 
@@ -371,8 +371,8 @@ const PhotographerVendorPage = () => {
                         className="block w-full p-3 border border-gray-300 bg-white"
                       >
                         <option value="" className="bg-white">Select an option</option>
-                        <option value="yes" className="bg-white">Yes</option>
-                        <option value="no" className="bg-white">No</option>
+                        <option value="true" className="bg-white">Yes</option>
+                        <option value="false" className="bg-white">No</option>
                       </select>
                     </div>
 
@@ -408,8 +408,8 @@ const PhotographerVendorPage = () => {
                         className="block w-full p-3 border border-gray-300 bg-white"
                       >
                         <option value="" className="bg-white">Select an option</option>
-                        <option value="yes" className="bg-white">Yes</option>
-                        <option value="no" className="bg-white">No</option>
+                        <option value="true" className="bg-white">Yes</option>
+                        <option value="false" className="bg-white">No</option>
                       </select>
                     </div>
 
