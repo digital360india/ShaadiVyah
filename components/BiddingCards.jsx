@@ -2,8 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Blink from "./Blink";
-import { db } from "@/firebase/firebase";
-import { addDoc, collection } from "firebase/firestore";
+
 import axios from "axios";
 
 const BiddingCards = () => {
@@ -15,14 +14,14 @@ const BiddingCards = () => {
   const [destination, setDestination] = useState("");
   const [budget, setBudget] = useState("");
   const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [phone, setPhone] = useState("");
 
   const allFieldsFilled =
     date !== "" &&
     destination.trim() !== "" &&
     budget.trim() !== "" &&
     name.trim() !== "" &&
-    number.trim() !== "" &&
+    phone.trim() !== "" &&
     selectedFields.length > 0;
 
   const fieldsOptions = [
@@ -55,7 +54,7 @@ const BiddingCards = () => {
       title: "Your Special Day",
       subtitle: "Budget",
       description: "Let us know your budget for your special day.",
-      inputType: "number",
+      inputType: "phone",
       placeholder: "₹ Amount",
     },
     {
@@ -106,7 +105,7 @@ const BiddingCards = () => {
       destination,
       budget,
       name,
-      number,
+      phone,
       selectedFields,
     };
     try {
@@ -118,7 +117,7 @@ const BiddingCards = () => {
         setDestination("");
         setBudget("");
         setName("");
-        setNumber("");
+        setPhone("");
         setSelectedFields([]);
       } else {
         alert("Something went wrong! Please try again!");
@@ -184,13 +183,13 @@ const BiddingCards = () => {
                             />
                           </div>
 
-                          <label className="mt-4 block">Number</label>
+                          <label className="mt-4 block">phone</label>
                           <div className="w-[292px] h-[41px] border rounded-lg mt-3 shadow-custom-inset">
                             <input
                               type="number"
-                              value={number}
-                              onChange={(e) => setNumber(e.target.value)}
-                              placeholder="Your Number"
+                              value={phone}
+                              onChange={(e) => setPhone(e.target.value)}
+                              placeholder="Your phone"
                               className="w-full h-full bg-transparent px-4 outline-none text-[#FFE3BE] placeholder:text-[#FFE3BE] placeholder:font-light placeholder:opacity-50 rounded-lg no-spinner"
                             />
                           </div>

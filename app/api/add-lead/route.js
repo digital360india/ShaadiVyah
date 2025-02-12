@@ -6,9 +6,9 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    const { date, destination, budget, name, number, selectedFields } = body;
+    const { date, destination, budget, name, phone, selectedFields } = body;
 
-    if (!date || !destination || !budget || !name || !number) {
+    if (!date || !destination || !budget || !name || !phone) {
       return NextResponse.json(
         { error: "All fields are required!" },
         { status: 400 }
@@ -20,7 +20,7 @@ export async function POST(req) {
       destination,
       budget,
       name,
-      number,
+      phone,
       selectedFields,
       timestamp: new Date(),
     });
