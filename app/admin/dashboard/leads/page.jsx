@@ -1,7 +1,6 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { db } from '@/firebase/firebase';
-import { collection, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+"use client";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const LeadsPage = () => {
   const [leads, setLeads] = useState([]);
@@ -9,11 +8,9 @@ const LeadsPage = () => {
   useEffect(() => {
     const fetchLeads = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "leads"));
-        if (!querySnapshot.empty) {
-          const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setLeads(data);
-        }
+        const response = await axios.get("/api/show-lead");
+
+        setLeads(response.data.data);
       } catch (error) {
         console.error("Error fetching leads:", error);
       }
@@ -24,7 +21,10 @@ const LeadsPage = () => {
 
   const deleteLead = async (leadId) => {
     try {
-      await deleteDoc(doc(db, "leads", leadId));
+      await axios.delete("/api/show-lead", {
+        data: { leadId },
+      });
+
       setLeads((prevLeads) => prevLeads.filter((lead) => lead.id !== leadId));
     } catch (error) {
       console.error("Error deleting lead:", error);
@@ -33,7 +33,7 @@ const LeadsPage = () => {
 
   const updateLeadStatus = async (leadId, status) => {
     try {
-      await updateDoc(doc(db, "leads", leadId), { status });
+      await axios.put("/api/show-lead", { leadId, status });
       setLeads((prevLeads) =>
         prevLeads.map((lead) =>
           lead.id === leadId ? { ...lead, status } : lead
@@ -46,8 +46,10 @@ const LeadsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold mb-4 fixed backdrop-blur-sm">Leads</h1>
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-20" >
+      <h1 className="text-3xl font-semibold mb-4 fixed backdrop-blur-sm">
+        Leads
+      </h1>
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-20">
         {leads.map((lead) => (
           <div key={lead.id} className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold mb-2">{lead.name}</h2>
