@@ -568,12 +568,12 @@ const AmenitiesPage = () => {
     setattractionsFormData({ name });
   };
   return (
-    <div className="p-4">
+    <div className="p-4 bg-[url('/images/dashbg1.svg')] w-full h-full">
       <ToastContainer />
-      <h1 className="text-2xl font-bold  ">Amenities</h1>
+      <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather   ">Amenities</h1>
       <form
         onSubmit={handleSubmit}
-        className="mb-4 mt-5 backdrop-blur-sm z-10 "
+        className="mb-4 mt-5 backdrop-blur-sm z-10 bg-[#FFF4E8]"
       >
         <input
           type="text"
@@ -592,7 +592,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {amenities.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {amenities.map((amenity, index) => (
             <div
               key={index}
@@ -626,8 +626,8 @@ const AmenitiesPage = () => {
         <p>No amenities available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 mt-8">Space Types</h1>
-      <form onSubmit={handleSubmitSpaces} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 mt-8 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Space Types</h1>
+      <form onSubmit={handleSubmitSpaces} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -645,7 +645,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {spacesTypes.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {spacesTypes.map((space, index) => (
             <div
               key={index}
@@ -677,8 +677,8 @@ const AmenitiesPage = () => {
         <p>No space types available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Facilities</h1>
-      <form onSubmit={handleSubmitfacilities} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Facilities</h1>
+      <form onSubmit={handleSubmitfacilities} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -696,7 +696,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {facilities.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {facilities.map((data, index) => (
             <div
               key={index}
@@ -728,8 +728,8 @@ const AmenitiesPage = () => {
         <p>No Facility available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Additional Services</h1>
-      <form onSubmit={handleSubmitAdditionalServices} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Additional Services</h1>
+      <form onSubmit={handleSubmitAdditionalServices} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -747,7 +747,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {additionalServices.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {additionalServices.map((data, index) => (
             <div
               key={index}
@@ -781,8 +781,8 @@ const AmenitiesPage = () => {
         <p>No AdditionalServices available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Saftey and Security Services</h1>
-      <form onSubmit={handleSubmitSaftey} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Saftey and Security Services</h1>
+      <form onSubmit={handleSubmitSaftey} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -800,7 +800,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {saftey.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {saftey.map((data, index) => (
             <div
               key={index}
@@ -832,8 +832,8 @@ const AmenitiesPage = () => {
         <p>No Safety and Security keywords available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Accessibility</h1>
-      <form onSubmit={handleSubmitAccessibility} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Accessibility</h1>
+      <form onSubmit={handleSubmitAccessibility} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -851,7 +851,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {accessibility.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {accessibility.map((data, index) => (
             <div
               key={index}
@@ -883,8 +883,8 @@ const AmenitiesPage = () => {
         <p>No Accessibility available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Near by Attractions</h1>
-      <form onSubmit={handleSubmitAttractions} className="mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Near by Attractions</h1>
+      <form onSubmit={handleSubmitAttractions} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
           name="name"
@@ -902,7 +902,7 @@ const AmenitiesPage = () => {
         </button>
       </form>
       {attractions.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
+        <div className="h-56 overflow-y-scroll bg-[#FFF4E8]">
           {attractions.map((data, index) => (
             <div
               key={index}

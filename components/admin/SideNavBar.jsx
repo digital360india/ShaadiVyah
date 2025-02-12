@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { FiHome, FiTag, FiUser, FiGift } from "react-icons/fi";
 import { FaImages } from "react-icons/fa";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { destroyCookie } from "nookies";
 import React from "react";
 import { MdOutlinePeopleAlt } from "react-icons/md";
@@ -12,11 +12,13 @@ import Image from "next/image";
 
 export const SideNavBar = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = () => {
     destroyCookie(null, "admintoken");
     router.push("/admin/login");
   };
+  const isActive = (path) => pathname === path;
 
   return (
     <>
@@ -42,44 +44,86 @@ export const SideNavBar = () => {
         </Link>
         <div className="flex flex-col space-y-6 ml-5 ">
           <Link href="/admin/dashboard">
-            <div className="flex items-center px-4 py-2 hover:text-lightpink hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <FiHome className="mr-2" />
               <span>Home</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/approvalrequests">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/approvalrequests")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <TiTickOutline className="mr-2" />
               <span>Approvals</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/editdata">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/editdata")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <FaEdit className="mr-2" />
               <span>Edit Venue Data</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/editmakeupdata">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/editmakeupdata")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <FaEdit className="mr-2" />
               <span>Edit Makeup Data</span>
             </div>
           </Link>
 
           <Link href="/admin/dashboard/editphotographerdata">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/editphotographerdata")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <FaEdit className="mr-2" />
               <span>Edit Photographer Data</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/vendors">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/vendors")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <MdOutlinePeopleAlt className="mr-2" />
               <span>Vendors</span>
             </div>
           </Link>
           <Link href="/admin/dashboard/leads">
-            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/leads")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
               <MdOutlinePeopleAlt className="mr-2" />
               <span>Leads</span>
             </div>
