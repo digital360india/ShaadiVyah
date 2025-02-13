@@ -399,7 +399,7 @@ const Page = () => {
                     key={index}
                     className=" rounded min-h-[550px] w-full px-2 "
                   >
-                    <PhotographerVendorCard vendor={arr} />
+                    <PhotographerVendorCard arr={arr} />
                   </Link>
                 ))}
               </Slider>
@@ -429,7 +429,7 @@ const Page = () => {
                 className="rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 {" "}
-                <PhotographerVendorCard vendor={data} />
+                <PhotographerVendorCard arr={data} />
               </Link>
             ))}
           </div>

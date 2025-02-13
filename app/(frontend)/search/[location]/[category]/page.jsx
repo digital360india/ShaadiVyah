@@ -10,9 +10,21 @@ import ContactUsPhoto from "@/components/ContactUsPhoto";
 // import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
+// import { MdOutlineStar } from "react-icons/md";
 import Link from "next/link";
-import { MdOutlineStar } from "react-icons/md";
 import MendhiVendorCard from "@/components/MendhiCard";
+import MakeupVendorCard from "@/components/MakeupCard";
+import PhotographerVendorCard from "@/components/PhotographerVendorCard";
+import VenueCard from "@/components/VenuesCard";
+
+
+const componentMap = {
+  makeupvendor: MakeupVendorCard,
+  mehandivendors: MendhiVendorCard,
+  photographersvendor: PhotographerVendorCard,
+  venues: VenueCard,
+};
+
 export default function Page(params) {
   const [data, setData] = useState([]);
   const [route, setRoute] = useState("");
@@ -77,6 +89,8 @@ export default function Page(params) {
   };
 
   console.log(data, " data");
+
+  const VendorComponent = componentMap[route] || MendhiVendorCard;
 
   return (
     <div>
@@ -267,9 +281,9 @@ export default function Page(params) {
                 key={index}
                 className=" py-4 px-4 "
               >
-                  <MendhiVendorCard arr={arr} />
-                {/* 
-                <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
+                <VendorComponent arr={arr} />
+
+           {/*     <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
                     src={arr.bannerImageUrl || "/logo.png"}
                     alt={arr.businessName}
@@ -284,7 +298,7 @@ export default function Page(params) {
                       </h3>
                     </div>
                     <div className="flex justify-between gap-2 pt-4">
-                    <img src="/icons/locationred.svg" />
+                      <img src="/icons/locationred.svg" />
                       <p className="text-[18px] text-[#666666]">
                         {arr.location}
                       </p>
@@ -298,13 +312,12 @@ export default function Page(params) {
                           <MdOutlineStar className="text-yellow-300 text-xl " />
                         </p>
                       </p>{" "}
-                     
                     </div>
-                    <p className="text-sm py-4 h-[68px">
+                     <p className="text-sm py-4 h-[68px">
                       {" "}
                       {truncateText(arr.about, 20)}
-                    </p> 
-                     <div className="flex justify-between">
+                    </p>  */}
+                    {/* <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                           100-200 pax
@@ -320,7 +333,7 @@ export default function Page(params) {
                           32 rooms
                         </p>
                       </div>
-                    </div> 
+                    </div>  
                   </div>
                 </div>*/}
               </Link>

@@ -324,10 +324,10 @@ const Page = () => {
                   city: "Mussoorie",
                   src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Fchamoli.png?alt=media&token=acb7527b-2c93-456c-a354-a49ae114556f",
                 },
-                {
-                  city: "Ramnagar",
-                  src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990",
-                },
+                // {
+                //   city: "Ramnagar",
+                //   src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Frudraprayag.png?alt=media&token=7a3a75a3-4751-498e-8410-6ab0d37a1990",
+                // },
                 {
                   city: "Nainital",
                   src: "https://firebasestorage.googleapis.com/v0/b/shaadivyah-a1043.appspot.com/o/imagesStatic%2Ftehrigarhwal.png?alt=media&token=69a8a14f-4eb2-4c2f-9562-9b7fd9f78545",
@@ -406,6 +406,8 @@ const Page = () => {
                 className=" rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
                 <VenueCard arr={venue} />
+
+               
               </Link>
             ))}
           </div>

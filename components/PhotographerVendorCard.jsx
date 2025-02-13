@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaRupeeSign } from "react-icons/fa";
 import { MdOutlineStar } from "react-icons/md";
 
-const PhotographerVendorCard = ({ vendor, index }) => {
+const PhotographerVendorCard = ({ arr, index }) => {
   const truncateText = (text, length) => {
     if (!text) return "";
     return text.length > length ? `${text.substring(0, length)}...` : text;
@@ -11,8 +11,8 @@ const PhotographerVendorCard = ({ vendor, index }) => {
   return (
    
     <Link
-      href={`/photographersvendors/${vendor.uid}`}
-      key={vendor.uid}
+      href={`/photographersvendors/${arr.uid}`}
+      key={arr.uid}
       className="py-4 md:px-1 px-2 "
     >
       <div
@@ -24,18 +24,18 @@ const PhotographerVendorCard = ({ vendor, index }) => {
         }}
       >
         <img
-          src={vendor.bannerImageUrl || "/logo.png"}
-          alt={vendor.businessName}
+          src={arr.bannerImageUrl || "/logo.png"}
+          alt={arr.businessName}
           className="w-full h-60 object-cover "
         />
         <div className="px-6 py-10">
           <div className="flex justify-between items-center h-[30px]">
             <h3 className="lg:text-[20px] text-blue font-semibold mb-2">
-              {vendor.businessName}
+              {arr.businessName}
             </h3>
             <div className="flex justify-end items-center mb-2 gap-0">
               <p className="text-pink mt-1">
-                {vendor.averageRating?.toFixed(2) || 3}
+                {arr.averageRating?.toFixed(2) || 3}
               </p>
               <p>
                 <MdOutlineStar className="text-pink text-xl" />
@@ -45,11 +45,11 @@ const PhotographerVendorCard = ({ vendor, index }) => {
           <div className="flex justify-start gap-2 py-3">
             <img src="/icons/locationred.svg" alt="Location Icon" />
             <p className="text-[14px] text-[#666666]">
-              {vendor.city ? vendor.city : "Not Specified"}
+              {arr.city ? arr.city : "Not Specified"}
             </p>
           </div>
           {/* <p className="text-sm py-4 h-[120px]">
-            {truncateText(vendor.about, 30)}
+            {truncateText(arr.about, 30)}
           </p> */}
 
           <div className="text-[16px]  mt-3 font-semibold ">
@@ -57,17 +57,17 @@ const PhotographerVendorCard = ({ vendor, index }) => {
               <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
                 <p>Price Per Day: </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{vendor?.pricePerDay}</p>
+                <p>{arr?.pricePerDay}</p>
               </li>
               <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
                 <p>Photo Package: </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{vendor?.photoPackage}</p>
+                <p>{arr?.photoPackage}</p>
               </li>
               <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
                 <p>Photo Video Package : </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{vendor?.photoVideoPackage}</p>
+                <p>{arr?.photoVideoPackage}</p>
               </li>
             </ul>
           </div>
