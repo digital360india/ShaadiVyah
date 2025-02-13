@@ -22,6 +22,7 @@ import Image from "next/image";
 import { Router } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter(); 
   const [data, setData] = useState([]);
   const photographerFAQs = [
     {
@@ -121,7 +122,7 @@ const Page = () => {
     return text;
   };
   const handleSearch = (selectedLocation) => {
-    Router.push(`/search/${selectedLocation}/Photographers`);
+    router.push(`/search/${selectedLocation}/Photographers`);
   };
   const sliderwedding = {
     dots: false,
