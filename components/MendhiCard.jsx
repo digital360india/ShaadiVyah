@@ -27,7 +27,7 @@ const MendhiVendorCard = ({ arr, index }) => {
           alt={arr.businessName}
           className="w-full h-60 object-cover"
         />
-        <div className="px-6 py-4">
+        <div className="px-6 py-6">
           <div className="flex justify-between items-center h-[30px]">
             <h3 className="lg:text-xl text-blue font-semibold mb-2">
               {arr.businessName}
@@ -41,7 +41,7 @@ const MendhiVendorCard = ({ arr, index }) => {
               </p>
             </div>
           </div>
-          <div className="flex justify-start gap-2">
+          <div className="flex justify-start gap-2 pt-5">
             <img src="/icons/locationred.svg" alt="Location Icon" />
             <p className="text-[14px] text-[#666666]">
               {arr.city ? arr.city : "Not Specified"}

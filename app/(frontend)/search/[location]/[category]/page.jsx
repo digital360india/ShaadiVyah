@@ -12,6 +12,7 @@ import ContactUsPhoto from "@/components/ContactUsPhoto";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import { MdOutlineStar } from "react-icons/md";
+import MendhiVendorCard from "@/components/MendhiCard";
 export default function Page(params) {
   const [data, setData] = useState([]);
   const [route, setRoute] = useState("");
@@ -25,10 +26,10 @@ export default function Page(params) {
           collectionName = "makeupvendor";
           setRoute("makeupvendor");
           break;
-          case "mehndi":
-            collectionName = "mehndivendor";
-            setRoute("mehndivendor");
-            break;
+        case "mehndi":
+          collectionName = "mehndivendor";
+          setRoute("mehandivendors");
+          break;
         case "photographers":
           collectionName = "photographersvendor";
           setRoute("photographersvendor");
@@ -43,12 +44,11 @@ export default function Page(params) {
       }
       const q = query(
         collection(db, "users"),
-        where( "city", "==", location || "location", "==", location ),
+        where("city", "==", location || "location", "==", location),
         where("vendorTypeUID", "==", collectionName),
-        where("approval" , "==", true)
-
+        where("approval", "==", true)
       );
-console.log(params.params)
+      console.log(params.params);
       const querySnapshot = await getDocs(q);
       const fetchedData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -77,10 +77,13 @@ console.log(params.params)
   };
 
   console.log(data, " data");
-  
+
   return (
     <div>
-      <Hero_2 img={"/images/hero_services_page.png"} text={`${params.params.category} vendors in ${params.params.location}`} />
+      <Hero_2
+        img={"/images/hero_services_page.png"}
+        text={`${params.params.category} vendors in ${params.params.location}`}
+      />
       {/* dropdown */}
       <div className=" xl:gap-10 lg:gap-4 xl:pl-[100px] lg:pl-[20px] bg-[#F7FEFD]  h-[80px] mt-6 hidden lg:flex  ">
         {/* <div>
@@ -194,7 +197,7 @@ console.log(params.params)
           <h1 className="text-[#C9184A] md:text-[48px] text-[34px] font-semibold">
             {params.params.category} vendors in {params.params.location}
           </h1>
-{/* 
+          {/* 
           <div className="hidden lg:block">
             <select
               className="text-[18px] font-semibold text-[#C9184A] border border-[#C9184A] w-[256px] rounded-md py-[12px]"
@@ -264,9 +267,11 @@ console.log(params.params)
                 key={index}
                 className=" py-4 px-4 "
               >
+                  <MendhiVendorCard arr={arr} />
+                {/* 
                 <div className="bg-white rounded  shadow-md lg:h-[488px] lg:w-[398px] ">
                   <img
-                    src={arr.bannerImageUrl || '/logo.png'}
+                    src={arr.bannerImageUrl || "/logo.png"}
                     alt={arr.businessName}
                     className="w-full h-60 object-cover mt-2 rounded-t-[4px]"
                   />
@@ -274,30 +279,32 @@ console.log(params.params)
                     {" "}
                     <div className="flex justify-between items-center h-[30px]">
                       {" "}
-                      <h3 className="lg:text-xl font-semibold mb-2">
+                      <h3 className="lg:text-xl font-semibold my-6 pt-4">
                         {arr.businessName}
                       </h3>
-                      <p className="flex justify-end items-center mb-2  gap-0">
-                                {" "}
-                                <p className="text-pink mt-1  ">
-                                  {" "}
-                                  {arr.averageRating?.toFixed(2) || 3}{" "}
-                                </p>{" "}
-                                <p>
-                                  <MdOutlineStar className="text-yellow-300 text-xl " />
-                                </p>
-                              </p>                    </div>
-                    <div className="flex justify-start gap-2">
-                      <img src="/icons/locationred.svg" />
+                    </div>
+                    <div className="flex justify-between gap-2 pt-4">
+                    <img src="/icons/locationred.svg" />
                       <p className="text-[18px] text-[#666666]">
                         {arr.location}
                       </p>
+                      <p className="flex justify-end items-center mb-2  gap-0">
+                        {" "}
+                        <p className="text-pink mt-1  ">
+                          {" "}
+                          {arr.averageRating?.toFixed(2) || 3}{" "}
+                        </p>{" "}
+                        <p>
+                          <MdOutlineStar className="text-yellow-300 text-xl " />
+                        </p>
+                      </p>{" "}
+                     
                     </div>
                     <p className="text-sm py-4 h-[68px">
                       {" "}
                       {truncateText(arr.about, 20)}
-                    </p>
-                    {/* <div className="flex justify-between">
+                    </p> 
+                     <div className="flex justify-between">
                       <div className="bg-[#dad9d9]  py-2 px-3 rounded-md  ">
                         <p className="text-[#333333] lg:lg:text-sm text-[10px]">
                           100-200 pax
@@ -313,13 +320,12 @@ console.log(params.params)
                           32 rooms
                         </p>
                       </div>
-                    </div> */}
+                    </div> 
                   </div>
-                </div>
+                </div>*/}
               </Link>
             ))}
           </div>
-       
         </div>
       </div>
 

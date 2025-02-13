@@ -8,8 +8,8 @@ import { TbSquareRounded } from "react-icons/tb";
 const TopNavBar = () => {
   return (
     <div
-      className="flex   bg-[url('/images/dashbg1.svg')] text-white fixed lg:w-4/5 w-full  text-2xl text-slate
-    bg-primary h-20"
+      className="flex   bg-[url('/images/dashbg1.svg')]  bg-cover object-cover text-white fixed lg:w-4/5 w-full  text-2xl text-slate
+    bg-primary h-20 z-10"
       style={{
         boxShadow: "25px 0 30px rgba(185, 0, 89, 0.2)",
       }}

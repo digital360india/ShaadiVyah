@@ -99,8 +99,8 @@ function ApprovalRequestsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-[url('/images/dashbg1.svg')] w-full h-full">
-      <h1 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Approval Requests</h1>
+    <div className="container mx-auto px-4 py-8 bg-[url('/images/dashbg1.svg')] w-full h-full ">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Approval Requests</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {users.map((user) => (
           <div key={user.id} className="border border-gray-200 bg-[#FFF4E8]  rounded-md p-4">

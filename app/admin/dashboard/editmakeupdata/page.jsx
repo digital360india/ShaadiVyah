@@ -95,61 +95,71 @@ const AmenitiesPage = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4  bg-[url('/images/dashbg1.svg')] w-full h-full">
       <ToastContainer />
 
-      <h1 className="text-2xl font-bold mb-4 backdrop-blur-sm fixed">
+      <h1 className="text-2xl font-bold mb-4 mt-6 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
         Makeup Services
       </h1>
-      <form onSubmit={handleSubmitMakeup} className="mb-4 mt-20">
-        <input
-          type="text"
-          name="name"
-          value={makeupFormData.name}
-          onChange={handleChangeMakeup}
-          className="p-2 border border-gray-300 rounded mr-2"
-          placeholder="Additional Service Name"
-          required
-        />
-        <button
-          type="submit"
-          className="px-4 py-2 bg-blue-500 text-white bg-pink rounded"
-        >
-          {isEditingmakeup ? "Update" : "Add"}
-        </button>
-      </form>
-      {makeup.length > 0 ? (
-        <div className="h-56 overflow-y-scroll">
-          {makeup.map((data, index) => (
-            <div
-              key={index}
-              className="mb-2 p-2 border border-gray-300 rounded flex justify-between items-center"
-            >
-              <div>
-                <p className="text-lg">
-                  <strong>Name:</strong> {data.name}
-                </p>
+      <div
+        className="bg-[#FFF4E8] p-4 rounded"
+        style={{
+          borderWidth: "2px",
+          borderStyle: "solid",
+          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
+        }}
+      >
+        <form onSubmit={handleSubmitMakeup} className="mb-4 mt-10 ">
+          <input
+            type="text"
+            name="name"
+            value={makeupFormData.name}
+            onChange={handleChangeMakeup}
+            className="p-2 border border-gray-300 rounded mr-2"
+            placeholder="Additional Service Name"
+            required
+          />
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-500 text-white bg-pink rounded"
+          >
+            {isEditingmakeup ? "Update" : "Add"}
+          </button>
+        </form>
+        {makeup.length > 0 ? (
+          <div className="h-56 overflow-y-scroll font-Merriweather">
+            {makeup.map((data, index) => (
+              <div
+                key={index}
+                className="mb-2 p-2 border border-gray-300 rounded flex justify-between items-center"
+              >
+                <div>
+                  <p className="text-lg">
+                    <strong className="text-[#9B1B52]">Name:</strong>{" "}
+                    <span className="font-thin">{data.name}</span>
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => startEditingMakeup(data.id, data.name)}
+                    className="text-green-500 text-xl"
+                  >
+                    <MdEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteMakeup(data.id)}
+                    className=" text-red-500 text-xl "
+                  >
+                    <MdDelete />
+                  </button>
+                </div>
               </div>
-              <div>
-                <button
-                  onClick={() => startEditingMakeup(data.id, data.name)}
-                  className="text-green-500 text-xl"
-                >
-                  <MdEdit />
-                </button>
-                <button
-                  onClick={() => handleDeleteMakeup(data.id)}
-                  className=" text-red-500 text-xl "
-                >
-                  <MdDelete />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>No Makeup keywords available</p>
-      )}
+            ))}
+          </div>
+        ) : (
+          <p>No Makeup keywords available</p>
+        )}
+      </div>
     </div>
   );
 };
