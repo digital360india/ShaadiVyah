@@ -23,17 +23,20 @@ function ApprovalRequestsPage() {
         const uids = approvalRequests.map((request) => request.uid);
         console.log(uids);
         if (uids.length > 0) {
-          const usersQuery = query(
-            collection(db, "users"),
-            where("uid", "in", uids)
-          );
-          const usersSnapshot = await getDocs(usersQuery);
-          const usersList = usersSnapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          });
-
-          setUsers(usersList);
+          const userPromises = uids.map(async (uid) => {
+            const usersQuery = query(collection(db, "users"), where("uid", "==", uid));
+            const usersSnapshot = await getDocs(usersQuery);
+        
+            return usersSnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+          });        
+          const usersLists = await Promise.all(userPromises);        
+          const mergedUsers = usersLists.flat();        
+          setUsers(mergedUsers);
         }
+        
       } catch (error) {
         console.error("Error fetching approval requests or users: ", error);
       } finally {
@@ -53,6 +56,7 @@ function ApprovalRequestsPage() {
           rejectionReason: null,
           rejectionTimestamp: null
         });
+        alert("User approved successfully!");
       } else {
         setShowReasonDialog(true);
         setSelectedUser(userId);
@@ -98,6 +102,7 @@ function ApprovalRequestsPage() {
     return <p>Loading...</p>;
   }
 
+  // console.log(users);
   return (
     <div className="container mx-auto px-4 py-8 bg-[url('/images/dashbg1.svg')] w-full h-full ">
       <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Approval Requests</h1>
@@ -106,6 +111,7 @@ function ApprovalRequestsPage() {
           <div key={user.id} className="border border-gray-200 bg-[#FFF4E8]  rounded-md p-4">
             <p className="font-semibold">Name: {user.name}</p>
             <p className="text-gray-600">Email: {user.email}</p>
+
             <p className="mt-2">Approval Status: {user.approval ? 'Approved' : 'Pending'}</p>
             <div className="flex justify-end mt-4">
               <button onClick={() => handleApprovalChange(user.id, true)} className="bg-green-500 text-white px-3 py-1 rounded-md mr-2">Approve</button>

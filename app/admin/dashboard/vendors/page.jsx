@@ -92,21 +92,41 @@ const UserInfoPage = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Users</h1>
+    <div className="p-4  bg-[url('/images/dashbg1.svg')] w-full h-full">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+        Users
+        <hr className="w-20 h-[1px] bg-gradient-border border-0 font-thin space-x-6" />
+      </h1>
+
       {users.map((user) => (
+        // <div
+        //   key={user.uid}
+        //   className={`mb-2 p-2   bg-gradient-border border  ${
+        //     user.suspended == true ? "bg-red-200" : ""
+        //   } rounded flex justify-between items-center`}
+        // >
+        //   <p className="text-lg">{user.name}</p>
+        //   <button
+        //     onClick={() => openModal(user)}
+        //     className="px-4 py-2 bg-blue-500 text-[#A11C5C] rounded"
+        //   >
+        //     View Details
+        //     <hr className="w-24 h-[1px] bg-[#A11C5C] border-0 " />
+        //   </button>
+        // </div>
+
         <div
           key={user.uid}
-          className={`mb-2 p-2 border border-gray-300  ${
-            user.suspended == true ? "bg-red-200" : ""
-          } rounded flex justify-between items-center`}
+          className={`p-4  border-b border-[#BE7318] ${
+            user.suspended ? "bg-red-200" : "bg-[#FDF3E6]"
+          } flex justify-between items-center`}
         >
-          <p className="text-lg">{user.name}</p>
+          <p className="text-lg  text-[#333] font-Merriweather-Sans font-thin">{user.name}</p>
           <button
             onClick={() => openModal(user)}
-            className="px-4 py-2 bg-blue-500 text-black rounded"
+            className="text-[#A11C5C] font-semibold"
           >
-            View Details
+            <span className="border-b border-[#A11C5C]">View Details</span>
           </button>
         </div>
       ))}
@@ -130,12 +150,13 @@ const UserInfoPage = () => {
                 onClick={closeModal}
                 className="text-xl text-red-500  rounded"
               >
-    <IoMdCloseCircle />
-
+                <IoMdCloseCircle />
               </button>
             </div>
             <div
-              className={` ${selectedUser.suspended ? "visible" : "hidden"} flex justify-center items-center text-xl text-red-600 `}
+              className={` ${
+                selectedUser.suspended ? "visible" : "hidden"
+              } flex justify-center items-center text-xl text-red-600 `}
             >
               {" "}
               User Suspended

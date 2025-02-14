@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
           <SideNavBar />
         </div>
         <div className="lg:flex flex-col lg:w-4/5">
-          <div className="h-16 ">
+          {/* <div className="h-16 ">
             <TopNavBar />
-          </div>
+          </div> */}
 
           <main className="min-h-screen ">
             {children}

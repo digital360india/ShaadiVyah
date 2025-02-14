@@ -129,7 +129,7 @@ const LeadsPage = () => {
             <TableBody>
               {leads.map((lead) => (
                 <TableRow key={lead.id}>
-                  <TableCell>{lead.name}</TableCell>
+                  <TableCell className="font-semibold">{lead.name}</TableCell>
                   <TableCell>{lead.destination}</TableCell>
                   <TableCell>{lead.budget}</TableCell>
                   <TableCell>{lead.date}</TableCell>
