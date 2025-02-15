@@ -364,13 +364,12 @@ const AmenitiesPage = () => {
   };
 
   const handleAddAttractions = async (name) => {
-    console.log(name)
+    console.log(name);
     try {
       const docRef = await addDoc(collection(db, "attractions"), {
         name,
-      
       });
-      console.log(name)
+      console.log(name);
       await updateDoc(docRef, { id: docRef.id });
 
       setAdditionalServices([...additionalServices, { name, id: docRef.id }]);
@@ -570,7 +569,10 @@ const AmenitiesPage = () => {
   return (
     <div className="p-4 bg-[url('/images/dashbg1.svg')] w-full h-full">
       <ToastContainer />
-      <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather   ">Amenities</h1>
+      <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather   ">
+        Amenities
+        <hr className="w-[170px] h-[2px] bg-gradient-border border-0 font-thin space-x-6 mt-2" />
+      </h1>
       <form
         onSubmit={handleSubmit}
         className="mb-4 mt-5 backdrop-blur-sm z-10 bg-[#FFF4E8]"
@@ -626,7 +628,9 @@ const AmenitiesPage = () => {
         <p>No amenities available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 mt-8 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Space Types</h1>
+      <h1 className="text-2xl font-bold mb-4 mt-8 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Space Types
+      </h1>
       <form onSubmit={handleSubmitSpaces} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
@@ -677,7 +681,9 @@ const AmenitiesPage = () => {
         <p>No space types available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Facilities</h1>
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Facilities
+      </h1>
       <form onSubmit={handleSubmitfacilities} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
@@ -728,8 +734,13 @@ const AmenitiesPage = () => {
         <p>No Facility available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Additional Services</h1>
-      <form onSubmit={handleSubmitAdditionalServices} className="mb-4 bg-[#FFF4E8]">
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Additional Services
+      </h1>
+      <form
+        onSubmit={handleSubmitAdditionalServices}
+        className="mb-4 bg-[#FFF4E8]"
+      >
         <input
           type="text"
           name="name"
@@ -781,7 +792,9 @@ const AmenitiesPage = () => {
         <p>No AdditionalServices available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Saftey and Security Services</h1>
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Saftey and Security Services
+      </h1>
       <form onSubmit={handleSubmitSaftey} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
@@ -832,7 +845,9 @@ const AmenitiesPage = () => {
         <p>No Safety and Security keywords available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Accessibility</h1>
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Accessibility
+      </h1>
       <form onSubmit={handleSubmitAccessibility} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
@@ -883,7 +898,9 @@ const AmenitiesPage = () => {
         <p>No Accessibility available</p>
       )}
 
-      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">Near by Attractions</h1>
+      <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather ">
+        Near by Attractions
+      </h1>
       <form onSubmit={handleSubmitAttractions} className="mb-4 bg-[#FFF4E8]">
         <input
           type="text"
