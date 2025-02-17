@@ -2,10 +2,11 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Blink from "./Blink";
-
-import axios from "axios";
+import { useLead } from "@/Providers/LeadProviders";
 
 const BiddingCards = () => {
+  const { addLead } = useLead();
+
   const [selectedFields, setSelectedFields] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,8 +99,38 @@ const BiddingCards = () => {
     };
   }, [formRef]);
 
-  const handleBiddingCard = async () => {
-   
+  // const handleBiddingCard = async () => {
+
+  // const formData = {
+  // date,
+  // destination,
+  // budget,
+  // name,
+  // phone,
+  // selectedFields,
+  // };
+  //   try {
+  //     const response = await axios.post("/api/add-lead", formData);
+
+  //     if (response.status === 200) {
+  //       alert("Form Submitted Successfully!");
+  // setDate("");
+  // setDestination("");
+  // setBudget("");
+  // setName("");
+  // setPhone("");
+  // setSelectedFields([]);
+  //     } else {
+  //       alert("Something went wrong! Please try again!");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error in API Call:", error);
+  //     alert("Error: " + error.message);
+  //   }
+  // };
+
+  const handleBiddingCard = async (e) => {
+    e.preventDefault();
     const formData = {
       date,
       destination,
@@ -108,23 +139,17 @@ const BiddingCards = () => {
       phone,
       selectedFields,
     };
-    try {
-      const response = await axios.post("/api/add-lead", formData);
-
-      if (response.status === 200) {
-        alert("Form Submitted Successfully!");
-        setDate("");
-        setDestination("");
-        setBudget("");
-        setName("");
-        setPhone("");
-        setSelectedFields([]);
-      } else {
-        alert("Something went wrong! Please try again!");
-      }
-    } catch (error) {
-      console.error("Error in API Call:", error);
-      alert("Error: " + error.message);
+    const response = await addLead(formData);
+    if (response.success) {
+      alert("Form Submitted successfully!");
+      setDate("");
+      setDestination("");
+      setBudget("");
+      setName("");
+      setPhone("");
+      setSelectedFields([]);
+    } else {
+      alert(response.message);
     }
   };
   return (

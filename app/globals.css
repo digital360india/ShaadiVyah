@@ -77,5 +77,11 @@ html {
     animation: ripple 2s infinite ease-out;
   }
   
+
+  .border-gradient {
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1;
+  }
   
   

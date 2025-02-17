@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
 import {
   Table,
   TableBody,
@@ -13,47 +13,24 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
+import { useLead } from "@/Providers/LeadProviders";
 
 const LeadsPage = () => {
-  const [leads, setLeads] = useState([]);
+  const { leads, deleteLead, updateLeadStatus } = useLead();
 
-  useEffect(() => {
-    const fetchLeads = async () => {
-      try {
-        const response = await axios.get("/api/show-lead");
 
-        setLeads(response.data.data);
-      } catch (error) {
-        console.error("Error fetching leads:", error);
-      }
-    };
 
-    fetchLeads();
-  }, []);
-
-  const deleteLead = async (leadId) => {
-    try {
-      await axios.delete("/api/show-lead", {
-        data: { leadId },
-      });
-
-      setLeads((prevLeads) => prevLeads.filter((lead) => lead.id !== leadId));
-    } catch (error) {
-      console.error("Error deleting lead:", error);
+  const handleDelete = async (leadId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this lead?"
+    );
+    if (confirmDelete) {
+      await deleteLead(leadId);
     }
   };
 
-  const updateLeadStatus = async (leadId, status) => {
-    try {
-      await axios.put("/api/show-lead", { leadId, status });
-      setLeads((prevLeads) =>
-        prevLeads.map((lead) =>
-          lead.id === leadId ? { ...lead, status } : lead
-        )
-      );
-    } catch (error) {
-      console.error("Error updating lead status:", error);
-    }
+  const handleUpdateLeadStatus = async (leadId, status) => {
+    await updateLeadStatus(leadId, status);
   };
 
   return (
@@ -61,41 +38,8 @@ const LeadsPage = () => {
       <h1 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
         Leads
       </h1>
-      {/* <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-20">
-        {leads.map((lead) => (
-          <div key={lead.id} className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-semibold mb-2">{lead.name}</h2>
-            <p className="text-gray-600 mb-2">Email: {lead.email}</p>
-            <p className="text-gray-600 mb-2">Phone: {lead.phone}</p>
-            <div className="flex space-x-4">
-              <select
-                value={lead.status}
-                onChange={(e) => updateLeadStatus(lead.id, e.target.value)}
-                className="bg-gray-100 px-4 py-2 rounded-md"
-              >
-                <option value="hot">Hot</option>
-                <option value="warm">Warm</option>
-                <option value="cold">Cold</option>
-              </select>
-              <button
-                onClick={() => deleteLead(lead.id)}
-                className="bg-red-500 text-white px-4 py-2 rounded-md"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div> */}
 
-      <TableContainer
-        component={Paper}
-        style={{
-          borderWidth: "2px",
-          borderStyle: "solid",
-          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-        }}
-      >
+      <TableContainer component={Paper} className="border-gradient">
         <div className="h-[80vh] overflow-y-auto">
           <Table className="bg-[#FFF4E8]">
             <TableHead className="sticky top-0 bg-[#FFF4E8] z-10 shadow-md">
@@ -143,7 +87,7 @@ const LeadsPage = () => {
                     <Select
                       value={lead.status || "hot"}
                       onChange={(e) =>
-                        updateLeadStatus(lead.id, e.target.value)
+                        handleUpdateLeadStatus(lead.id, e.target.value)
                       }
                       size="big"
                       className="w-full h-[40px]"
@@ -157,7 +101,7 @@ const LeadsPage = () => {
                     <Button
                       variant="contained"
                       color="error"
-                      onClick={() => deleteLead(lead.id)}
+                      onClick={() => handleDelete(lead.id)}
                     >
                       Delete
                     </Button>
