@@ -231,7 +231,7 @@ const MehndiVendorPage = () => {
                   >
                     Bridal Mehendi
                   </label>
-                  <span className="block p-3 bg-gray-100 border border-gray-300 mt-1 rounded shadow-sm">
+                  <span className="block p-3 bg-gray-100 border border-gray-300 mt-1 rounded shadow-sm"> 
                     {formData.bridalMehendi || "Bridal Mehendi price"}
                   </span>
                 </div>
