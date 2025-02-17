@@ -1,5 +1,5 @@
 "use client";
-
+import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
@@ -22,7 +22,10 @@ import MendhiVendorCard from "@/components/MendhiCard";
 import MakeupVendorCard from "@/components/MakeupCard";
 import PhotographerVendorCard from "@/components/PhotographerVendorCard";
 import Image from "next/image";
-import BiddingCards from "@/components/BiddingCards";
+// import BiddingCards from "@/components/BiddingCards";
+const BiddingCards = dynamic(() => import('@/components/BiddingCards'), {
+  ssr: false, // Disable SSR for this component
+});
 
 export default function Landing() {
   const HomeFaqData = [
