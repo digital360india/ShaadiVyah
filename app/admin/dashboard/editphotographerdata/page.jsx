@@ -111,9 +111,11 @@ const AmenitiesPage = () => {
 
       <h1 className="text-2xl font-bold mb-4 mt-6  text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
         Photographers Services
+        <hr className="w-[380px] h-[2px] bg-gradient-border border-0 font-thin space-x-6 mt-2" />
+
       </h1>
       <div
-        className="bg-[#FFF4E8] p-4 rounded"
+        className="bg-[#FFF4E8] p-4 rounded mt-10"
         style={{
           borderWidth: "2px",
           borderStyle: "solid",

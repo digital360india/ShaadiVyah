@@ -95,7 +95,7 @@ const UserInfoPage = () => {
     <div className="p-4  bg-[url('/images/dashbg1.svg')] w-full h-full">
       <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
         Users
-        <hr className="w-[90px] h-[3px] bg-gradient-border border-0 font-thin space-x-6" />
+        <hr className="w-[90px] h-[2px] bg-gradient-border border-0 font-thin space-x-6" />
       </h1>
 
       {users.map((user) => (
@@ -121,7 +121,7 @@ const UserInfoPage = () => {
             user.suspended ? "bg-red-200 " : "bg-[#FDF3E6] mb-3"
           } flex justify-between items-center`}
         >
-          <p className="text-lg  text-[#333] font-Merriweather-Sans font-thin">{user.name}</p>
+          <p className="text-lg  text-[#333] font-Merriweather font-thin">{user.name}</p>
           <button
             onClick={() => openModal(user)}
             className="text-[#A11C5C] font-semibold"
@@ -143,7 +143,7 @@ const UserInfoPage = () => {
           <div className="p-4">
             <div className="flex justify-between items-center">
               {" "}
-              <h2 className="text-xl text-black font-bold ">
+              <h2 className="text-xl text-black font-bold font-Merriweather ">
                 User Information
               </h2>
               <button

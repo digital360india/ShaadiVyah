@@ -37,6 +37,8 @@ const LeadsPage = () => {
     <div className="container mx-auto px-4 py-8  bg-[url('/images/dashbg1.svg')] w-full h-full">
       <h1 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
         Leads
+        <hr className="w-[90px] h-[2px] bg-gradient-border border-0 font-thin space-x-6 mt-2" />
+
       </h1>
 
       <TableContainer component={Paper} className="border-gradient">
