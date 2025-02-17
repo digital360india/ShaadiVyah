@@ -2,27 +2,21 @@ import Link from "next/link";
 import { FaRupeeSign } from "react-icons/fa";
 import { MdOutlineStar } from "react-icons/md";
 
-const PhotographerVendorCard = ({ arr, index }) => {
+const PhotographerVendorCard = ({ data,arr, index }) => {
   const truncateText = (text, length) => {
     if (!text) return "";
     return text.length > length ? `${text.substring(0, length)}...` : text;
   };
+  console.log(data,"data")
+  console.log(arr,"arr")
 
   return (
-   
     <Link
       href={`/photographersvendors/${arr.uid}`}
       key={arr.uid}
       className="py-4 md:px-1 px-2 "
     >
-      <div
-        className="bg-white roundedlg:h-[500px] lg:w-[398px] h-[480px] "
-        style={{
-          borderWidth: "3px",
-          borderStyle: "solid",
-          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-        }}
-      >
+      <div className="bg-white roundedlg:h-[500px] lg:w-[398px] h-[480px]  border-gradient">
         <img
           src={arr.bannerImageUrl || "/logo.png"}
           alt={arr.businessName}
@@ -52,30 +46,28 @@ const PhotographerVendorCard = ({ arr, index }) => {
             {truncateText(arr.about, 30)}
           </p> */}
 
-          <div className="text-[16px]  mt-3 font-semibold ">
+          <div className="text-[14px] font-semibold ">
             <ul className="list-disc list-inside items-start flex flex-col  space-y-3">
-              <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+              <li className="text-gray-700 flex gap-1 justify-center items-center">
                 <p>Price Per Day: </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{arr?.pricePerDay}</p>
+                <p>{arr?.pricePreWeddingPerDay}</p>
               </li>
-              <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+              <li className="text-gray-700 flex gap-1 justify-center items-center">
                 <p>Photo Package: </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{arr?.photoPackage}</p>
+                <p>{arr?.priceWeddingDayPerDay}</p>
               </li>
-              <li className="text-[#A11C5C] flex gap-1 justify-center items-center">
+              <li className="text-gray-700 flex gap-1 justify-center items-center">
                 <p>Photo Video Package : </p>
                 <FaRupeeSign className="text-sm" />
-                <p>{arr?.photoVideoPackage}</p>
+                <p>{arr?.priceSpecialEventPerDay}</p>
               </li>
             </ul>
           </div>
-        </div> 
+        </div>
       </div>
     </Link>
-   
   );
 };
 export default PhotographerVendorCard;
- 
