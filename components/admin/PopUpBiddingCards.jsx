@@ -3,17 +3,16 @@ import React, { useState, useRef } from "react";
 import { useLead } from "@/Providers/LeadProviders";
 
 const BiddingCards = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Prevent rendering when modal is closed
-
   const { addLead } = useLead();
-  const [selectedFields, setSelectedFields] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     date: "",
     destination: "",
     budget: "",
     name: "",
     phone: "",
+    selectedFields: [],
   });
 
   const formRef = useRef(null);
@@ -23,24 +22,27 @@ const BiddingCards = ({ isOpen, onClose }) => {
     formData.budget &&
     formData.name &&
     formData.phone &&
-    selectedFields.length > 0;
+    formData.selectedFields.length > 0;
 
-  const handleFieldChange = (field) => {
-    setSelectedFields((prev) =>
-      prev.includes(field)
-        ? prev.filter((item) => item !== field)
-        : [...prev, field]
-    );
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const handleInputChange = (e, field = null) => {
+      if (field) {
+        setFormData((prev) => ({
+          ...prev,
+          selectedFields: prev.selectedFields.includes(field)
+            ? prev.selectedFields.filter((item) => item !== field)
+            : [...prev.selectedFields, field],
+        }));
+      } else {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      }
+    };
+    
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await addLead({ ...formData, selectedFields });
+    setIsSubmitting(true);
+    const response = await addLead({ ...formData });
     if (response.success) {
       alert("Form Submitted successfully!");
       setFormData({
@@ -50,13 +52,13 @@ const BiddingCards = ({ isOpen, onClose }) => {
         name: "",
         phone: "",
       });
-      setSelectedFields([]);
-      onClose(); // Close modal after successful submission
+      onClose(); 
     } else {
       alert(response.message);
     }
+    setIsSubmitting(false);
   };
-
+  if (!isOpen) return null; 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-[#FFF4E8] shadow-lg  p-10 w-full max-w-4xl relative font-Merriweather font-thin border-gradient">
@@ -75,7 +77,7 @@ const BiddingCards = ({ isOpen, onClose }) => {
           onSubmit={handleSubmit}
           className="space-y-2 grid grid-cols-2 gap-14"
         >
-          <div className="mt-4">
+          <div className="mt-2">
             <label className="block text-[#A11C5C] ">Date of Occasion</label>
             <input
               type="date"
@@ -141,8 +143,8 @@ const BiddingCards = ({ isOpen, onClose }) => {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <span>
-                {selectedFields.length > 0
-                  ? selectedFields.join(", ")
+                {formData.selectedFields.length > 0
+                  ? formData.selectedFields.join(", ")
                   : "Select Services..."}
               </span>
               <svg
@@ -179,8 +181,8 @@ const BiddingCards = ({ isOpen, onClose }) => {
                   >
                     <input
                       type="checkbox"
-                      checked={selectedFields.includes(option)}
-                      onChange={() => handleFieldChange(option)}
+                      checked={formData.selectedFields.includes(option)}
+                      onChange={() => handleInputChange(null, option)}
                       className="mr-2"
                     />
                     <span>{option}</span>
@@ -193,13 +195,11 @@ const BiddingCards = ({ isOpen, onClose }) => {
           <div className="col-span-2 flex justify-center">
             <button
               type="submit"
-              className="py-2 px-6 text-white rounded-md"
-              style={{
-                background: "linear-gradient(90deg, #DD0D63 0%, #800F45 100%)",
-              }}
-              disabled={!allFieldsFilled}
+              className={`py-2 px-6 text-white rounded-md ${allFieldsFilled ? "bg-gradient-to-r from-[#DD0D63] to-[#800F45]" : "bg-gradient-to-r from-[#DD0D63] to-[#800F45] cursor-not-allowed opacity-50"}`}
+              
+              disabled={!allFieldsFilled || isSubmitting}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
