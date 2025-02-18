@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Table,
@@ -14,11 +14,11 @@ import {
   Button,
 } from "@mui/material";
 import { useLead } from "@/Providers/LeadProviders";
+import BiddingCards from "@/components/admin/PopUpBiddingCards";
 
 const LeadsPage = () => {
   const { leads, deleteLead, updateLeadStatus } = useLead();
-
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = async (leadId) => {
     const confirmDelete = window.confirm(
@@ -35,11 +35,26 @@ const LeadsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8  bg-[url('/images/dashbg1.svg')] w-full h-full">
-      <h1 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
-        Leads
-        <hr className="w-[90px] h-[2px] bg-gradient-border border-0 font-thin space-x-6 mt-2" />
+      <div className="flex justify-between">
+        {" "}
+        <h1 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
+          Leads
+          <hr className="w-[90px] h-[2px] bg-gradient-border border-0 font-thin space-x-6 mt-2" />
+        </h1>
+        <div className="mt-2">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-[#A11C5C] text-white py-2 px-6 rounded font-Merriweather"
+          >
+            Add Leads
+          </button>
 
-      </h1>
+          <BiddingCards
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </div>
+      </div>
 
       <TableContainer component={Paper} className="border-gradient">
         <div className="h-[80vh] overflow-y-auto">
