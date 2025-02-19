@@ -44,7 +44,6 @@ export const LeadProvider = ({ children }) => {
     }
   };
 
-
   const deleteLead = async (leadId) => {
     try {
       await axios.delete("/api/delete-lead", {
@@ -57,24 +56,32 @@ export const LeadProvider = ({ children }) => {
     }
   };
 
-  const updateLeadStatus = async (leadId, status) => {
+  const updateLead = async (leadId, updateData) => {
     try {
-      await axios.put("/api/update-lead", { leadId, status });
-      setLeads((prevLeads) =>
-        prevLeads.map((lead) =>
-          lead.id === leadId ? { ...lead, status } : lead
+      await axios.put("/api/update-lead", { leadId, ...updateData });
+      setLeads(prevLeads =>
+        prevLeads.map(lead =>
+          lead.id === leadId ? { ...lead, ...updateData } : lead
         )
       );
     } catch (error) {
-      console.error("Error updating lead status:", error);
+      console.error("Error updating lead:", error);
     }
   };
-  
+
   useEffect(() => {
     fetchAllLeads();
   }, []);
   return (
-    <LeadContext.Provider value={{ leads, addLead, fetchAllLeads, deleteLead, updateLeadStatus }}>
+    <LeadContext.Provider
+      value={{
+        leads,
+        addLead,
+        fetchAllLeads,
+        deleteLead,
+        updateLead,
+      }}
+    >
       {children}
     </LeadContext.Provider>
   );
