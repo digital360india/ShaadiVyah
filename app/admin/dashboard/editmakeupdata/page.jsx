@@ -123,7 +123,7 @@ const AmenitiesPage = () => {
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-blue-500 text-white bg-pink rounded"
+            className="px-4 py-2 bg-blue-500 text-white bg-pink rounded font-Merriweather"
           >
             {isEditingmakeup ? "Update" : "Add"}
           </button>
