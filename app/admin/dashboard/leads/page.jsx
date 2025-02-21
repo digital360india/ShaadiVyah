@@ -11,7 +11,6 @@ import {
   Paper,
   Select,
   MenuItem,
-  
 } from "@mui/material";
 import { useLead } from "@/Providers/LeadProviders";
 import BiddingCards from "@/components/admin/PopUpBiddingCards";
@@ -19,8 +18,10 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CommentIcon from "@mui/icons-material/Comment";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import EditLeadPopup from "@/components/admin/EditLeadPopup";
 import RemarkPopup from "@/components/admin/RemarkPopup";
+import ReminderPop from "@/components/admin/ReminderPop";
 
 const LeadsPage = () => {
   const { leads, deleteLead, updateLead } = useLead();
@@ -29,6 +30,7 @@ const LeadsPage = () => {
   const [openMoreMenu, setOpenMoreMenu] = useState(null);
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [isRemarkPopupOpen, setIsRemarkPopupOpen] = useState(false);
+  const [isReminderPopupOpen, setIsReminderPopupOpen] = useState(false);
   const menuRef = useRef(null);
 
   const handleDelete = async (leadId) => {
@@ -60,6 +62,12 @@ const LeadsPage = () => {
   const handleRemark = (lead) => {
     setSelectedLead(lead);
     setIsRemarkPopupOpen(true);
+    setOpenMoreMenu(null);
+  };
+
+  const handleReminder = (lead) => {
+    setSelectedLead(lead);
+    setIsReminderPopupOpen(true);
     setOpenMoreMenu(null);
   };
 
@@ -196,6 +204,13 @@ const LeadsPage = () => {
                         <CommentIcon className="text-green-500" />
                         <span>Remark</span>
                       </button>
+                      <button
+                        onClick={() => handleReminder(lead)}
+                        className="flex items-center space-x-2 p-3 hover:bg-gray-200 w-full text-left"
+                      >
+                        <NotificationsActiveIcon className="text-yellow-500" />
+                        <span>Reminder</span>
+                      </button>
                     </div>
                   )}
                 </TableCell>
@@ -208,14 +223,22 @@ const LeadsPage = () => {
       <EditLeadPopup
         isOpen={isEditPopupOpen}
         onClose={() => setIsEditPopupOpen(false)}
-        leadData={selectedLead} 
-        onUpdate={handleUpdateLead} 
+        leadData={selectedLead}
+        onUpdate={handleUpdateLead}
       />
 
       {isRemarkPopupOpen && (
         <RemarkPopup
           isOpen={isRemarkPopupOpen}
           onClose={() => setIsRemarkPopupOpen(false)}
+          leadData={selectedLead}
+        />
+      )}
+
+      {isReminderPopupOpen && (
+        <ReminderPop
+          isOpen={isReminderPopupOpen}
+          onClose={() => setIsReminderPopupOpen(false)}
           leadData={selectedLead}
         />
       )}
