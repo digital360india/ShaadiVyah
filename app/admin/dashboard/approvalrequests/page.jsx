@@ -173,11 +173,7 @@ function ApprovalRequestsPage() {
       </h1>
       <TableContainer
         component={Paper}
-        style={{
-          borderWidth: "2px",
-          borderStyle: "solid",
-          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-        }}
+        className="border-gradient"
       >
         <div className="h-[80vh] overflow-y-auto">
           <Table>

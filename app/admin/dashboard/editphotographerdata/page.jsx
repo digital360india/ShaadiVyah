@@ -115,12 +115,8 @@ const AmenitiesPage = () => {
 
       </h1>
       <div
-        className="bg-[#FFF4E8] p-4 rounded mt-10"
-        style={{
-          borderWidth: "2px",
-          borderStyle: "solid",
-          borderImage: "linear-gradient(180deg, #BE7318, #EED68A, #BE7217) 1",
-        }}
+        className="bg-[#FFF4E8] p-4 rounded mt-10 border-gradient"
+      
       >
         <form onSubmit={handleSubmitPhotographers} className="mb-4 mt-10">
           <input
