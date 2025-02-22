@@ -130,8 +130,8 @@ export const SideNavBar = () => {
           </Link>
           <div
             onClick={handleLogout}
-            className="flex items-center px-4 py-2 cursor-pointer hover:text-white hover:bg-slate"
-          >
+            className="flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent transition-all rounded-lg cursor-pointer"
+            >
             <FiUser className="mr-2" />
             <span>Logout</span>
           </div>
