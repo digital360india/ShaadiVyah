@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import { useLead } from "@/Providers/LeadProviders";
 
-const BiddingCards = ({ isOpen, onClose }) => {
+const AddLeadPopUp = ({ isOpen, onClose }) => {
   const { addLead } = useLead();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,7 +70,7 @@ const BiddingCards = ({ isOpen, onClose }) => {
         </button>
         <div className="text-center pb-10">
           <p className="text-[#A11C5C] text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">
-            Let us know your Plan
+            Add New Lead
           </p>
         </div>
         <form
@@ -208,4 +208,4 @@ const BiddingCards = ({ isOpen, onClose }) => {
   );
 };
 
-export default BiddingCards;
+export default AddLeadPopUp;

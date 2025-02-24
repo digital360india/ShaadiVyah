@@ -42,7 +42,7 @@ export const SideNavBar = () => {
             <img src="/logo.png" alt="" className="h-20 w-20 rounded-full" />
           </div>
         </Link>
-        <div className="flex flex-col space-y-6 ml-5 ">
+        <div className="flex flex-col space-y-4 ml-5 ">
           <Link href="/admin/dashboard">
             <div
               className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
@@ -128,15 +128,27 @@ export const SideNavBar = () => {
               <span>Leads</span>
             </div>
           </Link>
+          <Link href="/admin/dashboard/team-member">
+            <div
+              className={`flex items-center px-4 py-2 rounded-lg cursor-pointer transition-all ${
+                isActive("/admin/dashboard/team-member")
+                  ? "bg-gradient-to-r from-[#B8860B] to-transparent"
+                  : "hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent "
+              }`}
+            >
+              <MdOutlinePeopleAlt className="mr-2" />
+              <span>Team Menber</span>
+            </div>
+          </Link>
           <div
             onClick={handleLogout}
-            className="flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent transition-all rounded-lg cursor-pointer"
+            className="z-20 flex items-center px-4 py-3 hover:bg-gradient-to-r hover:from-[#B8860B] hover:to-transparent transition-all rounded-lg cursor-pointer"
             >
             <FiUser className="mr-2" />
             <span>Logout</span>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 z-50">
+        <div className="absolute bottom-0 left-0 z-10">
           <Image
             src="/icons/bottomframe.svg"
             alt="bottom frame"

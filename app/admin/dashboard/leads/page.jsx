@@ -13,7 +13,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useLead } from "@/Providers/LeadProviders";
-import BiddingCards from "@/components/admin/PopUpBiddingCards";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -22,6 +21,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import EditLeadPopup from "@/components/admin/EditLeadPopup";
 import RemarkPopup from "@/components/admin/RemarkPopup";
 import ReminderPop from "@/components/admin/ReminderPop";
+import AddLeadPopUp from "@/components/admin/AddLeadPopUp";
 
 const LeadsPage = () => {
   const { leads, deleteLead, updateLead } = useLead();
@@ -100,7 +100,7 @@ const LeadsPage = () => {
             Add Leads
           </button>
 
-          <BiddingCards
+          <AddLeadPopUp
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
           />
