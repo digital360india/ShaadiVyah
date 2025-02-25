@@ -70,12 +70,11 @@ export const LeadProvider = ({ children }) => {
     }
   };
 
-
   // email otp verification
   const emailOTPVerification = async (email) => {
     try {
       const response = await axios.post("/api/send-email", { email });
-  
+
       if (response.status === 200) {
         return {
           success: true,
@@ -91,7 +90,6 @@ export const LeadProvider = ({ children }) => {
     }
   };
 
-  
   // Team Members
 
   const addTeamMember = async (formData) => {
@@ -119,22 +117,35 @@ export const LeadProvider = ({ children }) => {
   const fetchAllTeamMembers = async () => {
     try {
       const response = await axios.get("/api/show-team-member");
-
       setTeamMembers((prevMembers) => {
         return JSON.stringify(prevMembers) ===
           JSON.stringify(response.data.data)
           ? prevMembers
           : response.data.data;
       });
+      // return response.data.data;
     } catch (error) {
       console.error("Error fetching team members:", error);
       return [];
     }
   };
 
+  // const updateTeamMember = async (leadId, updateData) => {
+  //   try {
+  //     await axios.put("/api/update-team-member", { leadId, ...updateData });
+  //     setTeamMembers((prevLeads) =>
+  //       prevLeads.map((lead) =>
+  //         lead.id === leadId ? { ...lead, ...updateData } : lead
+  //       )
+  //     );
+  //   } catch (error) {
+  //     console.error("Error updating lead:", error);
+  //   }
+  // };
+
   useEffect(() => {
     fetchAllTeamMembers();
-    // fetchAllLeads();
+    fetchAllLeads();
   }, []);
 
   return (
@@ -148,6 +159,7 @@ export const LeadProvider = ({ children }) => {
         deleteLead,
         updateLead,
         addTeamMember,
+        fetchAllTeamMembers,
       }}
     >
       {children}

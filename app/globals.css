@@ -22,7 +22,11 @@ html {
   font-style: normal;  /* Adjust as needed */
 }
 
-
+@layer utilities {
+  .custom-radial-bg {
+    background: radial-gradient(50% 50% at 50% 50%, #DD0D63 0%, #800F45 100%);
+}
+}
 .customGabriola {
   font-family: 'Gabriola';
 }

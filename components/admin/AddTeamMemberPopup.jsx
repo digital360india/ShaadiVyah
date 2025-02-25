@@ -289,20 +289,22 @@ const AddTeamMemberPopUp = ({ isOpen, onClose }) => {
                 required
               />
             </div>
-            <button
-              type="submit"
-              className="py-2 px-6 text-white rounded-md mt-4 bg-gradient-to-r from-[#DD0D63] to-[#800F45]"
-            >
-              Verify OTP
-            </button>
-            <button
-              type="button"
-              onClick={handleResendOtp}
-              className="py-2 px-6 text-white rounded-md mt-4 bg-gradient-to-r from-[#DD0D63] to-[#800F45]"
-              disabled={isResendDisabled}
-            >
-              Resend OTP {isResendDisabled && `(${timer}s)`}
-            </button>
+            <div className="flex justify-center items-center gap-8">
+              <button
+                type="submit"
+                className="py-2 px-6 text-white rounded-md mt-4 bg-gradient-to-r from-[#DD0D63] to-[#800F45]"
+              >
+                Verify OTP
+              </button>
+              <button
+                type="button"
+                onClick={handleResendOtp}
+                className="py-2 px-6 text-white rounded-md mt-4 bg-gradient-to-r from-[#DD0D63] to-[#800F45]"
+                disabled={isResendDisabled}
+              >
+                Resend OTP {isResendDisabled && `(${timer}s)`}
+              </button>
+            </div>
           </form>
         )}
       </div>

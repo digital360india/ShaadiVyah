@@ -19,7 +19,7 @@ const LeadsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="px-4 py-8  bg-[url('/images/dashbg1.svg')] w-full h-auto">
+    <div className="px-4 py-8  bg-[url('/images/dashbg1.svg')] w-full h-[100vh] bg-cover bg-center">
       <div className="flex justify-between">
         {" "}
         <h1 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-[#BE7318] via-[#EED68A] to-[#BE7217] font-Merriweather">

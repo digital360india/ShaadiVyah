@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Blink from "./Blink";
 import { useLead } from "@/Providers/LeadProviders";
+import Timeline from "./TimeLine";
+import Cookies from "js-cookie";
 
 const BiddingCards = () => {
   const { addLead } = useLead();
@@ -16,6 +18,9 @@ const BiddingCards = () => {
   const [budget, setBudget] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+
+  const [showTimeline, setShowTimeline] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60);
 
   const allFieldsFilled =
     date !== "" &&
@@ -99,35 +104,32 @@ const BiddingCards = () => {
     };
   }, [formRef]);
 
-  // const handleBiddingCard = async () => {
-
-  // const formData = {
-  // date,
-  // destination,
-  // budget,
-  // name,
-  // phone,
-  // selectedFields,
-  // };
-  //   try {
-  //     const response = await axios.post("/api/add-lead", formData);
-
-  //     if (response.status === 200) {
-  //       alert("Form Submitted Successfully!");
-  // setDate("");
-  // setDestination("");
-  // setBudget("");
-  // setName("");
-  // setPhone("");
-  // setSelectedFields([]);
-  //     } else {
-  //       alert("Something went wrong! Please try again!");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error in API Call:", error);
-  //     alert("Error: " + error.message);
-  //   }
-  // };
+  useEffect(() => {
+    const savedTime = Cookies.get("timer");
+    if (savedTime) {
+      setShowTimeline(true);
+      const remainingTime =
+        parseInt(savedTime, 10) - Math.floor(Date.now() / 1000);
+      if (remainingTime > 0) {
+        setTimeLeft(remainingTime);
+        const interval = setInterval(() => {
+          setTimeLeft((prev) => {
+            if (prev <= 1) {
+              Cookies.remove("timer");
+              clearInterval(interval);
+              setShowTimeline(false);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+        return () => clearInterval(interval);
+      } else {
+        Cookies.remove("timer");
+        setShowTimeline(false);
+      }
+    }
+  }, []);
 
   const handleBiddingCard = async (e) => {
     e.preventDefault();
@@ -141,6 +143,11 @@ const BiddingCards = () => {
     };
     const response = await addLead(formData);
     if (response.success) {
+      Cookies.set("timer", Math.floor(Date.now() / 1000) + 24 * 60 * 60, {
+        expires: 1,
+      });
+      setShowTimeline(true);
+      setTimeLeft(24 * 60 * 60);
       alert("Form Submitted successfully!");
       setDate("");
       setDestination("");
@@ -154,7 +161,7 @@ const BiddingCards = () => {
   };
   return (
     <div className="overflow-hidden">
-      <div className=" flex justify-between p-10 ">
+      <div className=" flex justify-between pt-10 px-10 ">
         <div className="px-10">
           <p className="text-[#A11C5C] text-2xl font-bold">
             Let us know your Plan.....
@@ -167,6 +174,12 @@ const BiddingCards = () => {
           <Blink />
         </div>
       </div>
+      {showTimeline && (
+        <div className="flex justify-center items-center mb-32 w-full ">
+          <Timeline />
+        </div>
+      )}
+
       <div className="font-Merriweather  h-[100vh] pt-40 ">
         <div className="px-10">
           <div className="py-12 flex justify-center items-center relative">

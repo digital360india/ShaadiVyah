@@ -17,11 +17,13 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CommentIcon from "@mui/icons-material/Comment";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import EditLeadPopup from "@/components/admin/EditLeadPopup";
 import RemarkPopup from "@/components/admin/RemarkPopup";
 import ReminderPop from "@/components/admin/ReminderPop";
 import AddLeadPopUp from "@/components/admin/AddLeadPopUp";
+import AssignLeadMemberPopup from "@/components/admin/AssignLeadMemberPopup";
 
 const LeadsPage = () => {
   const { leads, deleteLead, updateLead } = useLead();
@@ -31,6 +33,8 @@ const LeadsPage = () => {
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [isRemarkPopupOpen, setIsRemarkPopupOpen] = useState(false);
   const [isReminderPopupOpen, setIsReminderPopupOpen] = useState(false);
+  const [isAssignLeadMemberPopupOpen, setIsAssignLeadMemberPopupOpen] =
+    useState(false);
   const menuRef = useRef(null);
 
   const handleDelete = async (leadId) => {
@@ -68,6 +72,12 @@ const LeadsPage = () => {
   const handleReminder = (lead) => {
     setSelectedLead(lead);
     setIsReminderPopupOpen(true);
+    setOpenMoreMenu(null);
+  };
+
+  const handleAssignLeadMember = async (lead) => {
+    setSelectedLead(lead);
+    setIsAssignLeadMemberPopupOpen(true);
     setOpenMoreMenu(null);
   };
 
@@ -133,6 +143,9 @@ const LeadsPage = () => {
                 <strong>Status</strong>
               </TableCell>
               <TableCell className="font-Merriweather text-[#9B1B52]">
+                <strong>Lead Assign Member</strong>
+              </TableCell>
+              <TableCell className="font-Merriweather text-[#9B1B52]">
                 <strong>Actions</strong>
               </TableCell>
             </TableRow>
@@ -164,7 +177,18 @@ const LeadsPage = () => {
                     <MenuItem value="cold">Cold</MenuItem>
                   </Select>
                 </TableCell>
+                <TableCell>
+                  {lead.assignedmember?.length > 0 ? (
+                    <span>
+                      {lead.assignedmember
+                        .map((member) => member.name)
+                        .join(", ") || "Loading..."}
+                    </span>
+                  ) : (
+                    "Not Assigned"
+                  )}
 
+                </TableCell>
                 <TableCell className="relative">
                   <MoreVertIcon
                     className="cursor-pointer"
@@ -211,9 +235,20 @@ const LeadsPage = () => {
                         <NotificationsActiveIcon className="text-yellow-500" />
                         <span>Reminder</span>
                       </button>
+                      <button
+                        onClick={() =>
+                          handleAssignLeadMember(lead)
+                        }
+                        className="flex items-center space-x-2 p-3 hover:bg-gray-200 w-full text-left"
+                      >
+                        <AssignmentIcon className="text-blue" />
+                        <span>Assign Lead Member</span>
+                      </button>
                     </div>
                   )}
                 </TableCell>
+
+                
               </TableRow>
             ))}
           </TableBody>
@@ -239,6 +274,14 @@ const LeadsPage = () => {
         <ReminderPop
           isOpen={isReminderPopupOpen}
           onClose={() => setIsReminderPopupOpen(false)}
+          leadData={selectedLead}
+        />
+      )}
+
+      {isAssignLeadMemberPopupOpen && (
+        <AssignLeadMemberPopup
+          isOpen={isAssignLeadMemberPopupOpen}
+          onClose={() => setIsAssignLeadMemberPopupOpen(false)}
           leadData={selectedLead}
         />
       )}
