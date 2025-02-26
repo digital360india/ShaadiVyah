@@ -118,28 +118,6 @@ const EditLeadPopup = ({ isOpen, onClose, leadData, onUpdate }) => {
               required
             />
           </div>
-          {/* <div>
-            <label className="block text-[#A11C5C]">Services</label>
-            <select
-              multiple
-              value={formData.selectedFields}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  selectedFields: Array.from(e.target.selectedOptions, (opt) => opt.value),
-                }))
-              }
-              className="w-full p-2 border rounded"
-            >
-              {["Venue", "Photographers", "Makeup Artists", "Decorators", "Caterers", "Choreographers", "DJ"].map(
-                (option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                )
-              )}
-            </select>
-          </div> */}
 
           <div className="relative">
             <label className="block text-[#A11C5C]">Services</label>
