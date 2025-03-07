@@ -137,7 +137,7 @@ export const SideNavBar = () => {
               }`}
             >
               <MdOutlinePeopleAlt className="mr-2" />
-              <span>Team Menber</span>
+              <span>Team Member</span>
             </div>
           </Link>
           <div
