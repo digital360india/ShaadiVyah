@@ -28,7 +28,7 @@ const InstagramFollow = () => {
           `https://graph.instagram.com/me/media?fields=id,media_url,permalink,media_type,caption&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`
         );
         const data = await response.json();
-        setPhotos(data.data?.slice(0, 5) || []); 
+        setPhotos(data.data?.slice(0, 5) || []);
       } catch (error) {
         console.error("Error fetching Instagram photos:", error);
       }
@@ -38,16 +38,9 @@ const InstagramFollow = () => {
   }, []);
   return (
     <div className="px-6 xl:px-20 lg:px-10 lg:py-12 py-4">
-      <div className="hidden md:flex items-center justify-center w-full mb-6 px-4">
-        <div className="h-1 w-full bg-[#654590]"></div>
-        <h2 className="px-4 md:px-6 text-xl md:text-3xl font-semibold tracking-wider text-center whitespace-nowrap">
-          Follow us on Instagram
-        </h2>
-        <div className="h-1 w-full bg-[#654590]"></div>
-      </div>
-      <div className="md:hidden text-2xl mb-10 tracking-wider block text-center">
-        Follow us on Instagram
-      </div>
+      <p className="text-[#A11C5C] lg:text-2xl text-xl mb-8 text-center font-bold font-Merriweather">
+        Your dream Wedding,Our Passion
+      </p>
 
       {isSmallScreen ? (
         <Swiper
@@ -69,7 +62,12 @@ const InstagramFollow = () => {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <video autoPlay muted loop className="w-full h-full object-cover">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover"
+                  >
                     <source src={media_url} type="video/mp4" />
                   </video>
                 )}
@@ -98,7 +96,12 @@ const InstagramFollow = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               ) : (
-                <video autoPlay muted loop className="w-full h-full object-cover">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-cover"
+                >
                   <source src={media_url} type="video/mp4" />
                 </video>
               )}

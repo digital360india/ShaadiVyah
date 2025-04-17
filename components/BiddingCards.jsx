@@ -163,7 +163,7 @@ const BiddingCards = () => {
     <div className="overflow-hidden">
       <div className=" flex justify-between pt-10 px-10 ">
         <div className="px-10">
-          <p className="text-[#A11C5C] text-2xl font-bold">
+          <p className="text-[#A11C5C] text-2xl font-bold font-Merriweather">
             Let us know your Plan.....
           </p>
           <p className="text-[#A11C5C] text-md mb-20">
