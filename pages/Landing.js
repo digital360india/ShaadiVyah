@@ -23,6 +23,7 @@ import MakeupVendorCard from "@/components/MakeupCard";
 import PhotographerVendorCard from "@/components/PhotographerVendorCard";
 import Image from "next/image";
 import VideoTestimonial from '@/components/VideoTestimonial';
+import InstagramFollow from '@/components/InstagramFollow';
 // import BiddingCards from "@/components/BiddingCards";
 const BiddingCards = dynamic(() => import('@/components/BiddingCards'), {
   ssr: false, // Disable SSR for this component
@@ -252,6 +253,9 @@ export default function Landing() {
       </div>
       <div>
         <VideoTestimonial />
+      </div>
+      <div>
+        <InstagramFollow />
       </div>
       <div className="w-full font-Merriweather ">
         {/* <div className="sticky top-0">
