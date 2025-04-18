@@ -15,7 +15,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import ContactUsPhoto from "@/components/ContactUsPhoto";
-import { MdOutlineStar } from "react-icons/md";
 import MakeupVendorCard from "@/components/MakeupCard";
 import Image from "next/image";
 
@@ -67,6 +66,7 @@ const Page = () => {
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const data = querySnapshot.docs.map((doc) => doc.data());
+          console.log("Fetched Makeup Artists:", data);
           setMakeupArtist(data);
         }
       } catch (error) {
@@ -123,6 +123,8 @@ const Page = () => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1440, // xl
@@ -389,7 +391,7 @@ const Page = () => {
                       key={arr.uid}
                       className=" py-4  md:px-1 "
                     >
-                      <MakeupVendorCard vendor={arr} />
+                      <MakeupVendorCard arr={arr}  />
                     </Link>
                   ))}
                 </Slider>
@@ -417,7 +419,7 @@ const Page = () => {
                 key={index}
                 className=" rounded  min-h-[450px] lg:h-[488px] lg:w-[398px] md:w-[320px] w-full"
               >
-                <MakeupVendorCard vendor={data} />
+                <MakeupVendorCard arr={data} key={index} />
                 {/* <img
                   src={data.bannerImageUrl || "/logo.png"}
                   alt={data.businessName}
